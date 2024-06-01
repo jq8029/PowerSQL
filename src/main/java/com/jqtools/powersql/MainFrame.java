@@ -16,38 +16,40 @@ import com.jqtools.powersql.constants.Constants;;
 public class MainFrame extends JFrame {
 	private static final long serialVersionUID = 1L;
 
-	private JSplitPane mainSplitPane = new JSplitPane();;
-	private JScrollPane leftScrollPane = new JScrollPane();
-	private JPanel sqlPanel = null;
-	private JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-
 	public static void main(String args[]) {
 		new MainFrame();
 	}
 
 	public MainFrame() {
 		this.setTitle(Constants.TITLE);
+		JSplitPane mainSplitPane = new JSplitPane();
 		this.add(Constants.PANEL_CENTER, mainSplitPane);
 		this.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
+		// Left panel
 		JPanel leftPanel = new JPanel(new BorderLayout());
+		JScrollPane leftScrollPane = new JScrollPane();
 		leftPanel.add(Constants.PANEL_CENTER, leftScrollPane);
-
-		JTabbedPane mainPanel = new JTabbedPane();
-		JPanel dataPanel = new JPanel(new BorderLayout());
-		mainPanel.add(Constants.TAB_DATA, dataPanel);
-		mainPanel.add(Constants.TAB_SQL, sqlSplitPane);
-
-		mainSplitPane.setLeftComponent(leftPanel);
-		mainSplitPane.setRightComponent(mainPanel);
-		mainSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
-		mainSplitPane.setDividerLocation(Constants.LEFT_WIDE);
-
+		// add root node (Databases) to left panel
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(Constants.ROOT);
 		JTree tree = new JTree(root);
 		leftScrollPane.setViewportView(tree);
 		leftScrollPane.updateUI();
 
+		// Right Panel : data/sql
+		JTabbedPane rightPanel = new JTabbedPane();
+		JPanel dataPanel = new JPanel(new BorderLayout());
+		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
+		rightPanel.add(Constants.TAB_DATA, dataPanel);
+		rightPanel.add(Constants.TAB_SQL, sqlSplitPane);
+
+		// add left and right panel
+		mainSplitPane.setLeftComponent(leftPanel);
+		mainSplitPane.setRightComponent(rightPanel);
+		mainSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
+		mainSplitPane.setDividerLocation(Constants.LEFT_WIDE);
+
+		// show main frame
 		this.pack();
 		this.setVisible(true);
 	}
