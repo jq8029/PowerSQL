@@ -31,9 +31,12 @@ public class MainFrame extends JFrame {
 		this.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
 
 		JPanel leftPanel = new JPanel(new BorderLayout());
-		leftPanel.add("Center", leftScrollPane);
+		leftPanel.add(Constants.PANEL_CENTER, leftScrollPane);
 
 		JTabbedPane mainPanel = new JTabbedPane();
+		JPanel dataPanel = new JPanel(new BorderLayout());
+		mainPanel.add(Constants.TAB_DATA, dataPanel);
+		mainPanel.add(Constants.TAB_SQL, sqlSplitPane);
 
 		mainSplitPane.setLeftComponent(leftPanel);
 		mainSplitPane.setRightComponent(mainPanel);
