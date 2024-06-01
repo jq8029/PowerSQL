@@ -1,0 +1,22 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+mainClassName = 'com.jqtools.powersql.MainFrame'
+
+repositories { 
+    mavenCentral() 
+}
+
+jar {
+    archiveBaseName = 'PowerSQL'
+    archiveVersion =  '1.0.0'
+}
+
+sourceCompatibility = 11
+targetCompatibility = 11
+
+dependencies {
+    implementation 'com.fifesoft:rsyntaxtextarea:3.4.0'
+    testImplementation "junit:junit:4.12"
+}
