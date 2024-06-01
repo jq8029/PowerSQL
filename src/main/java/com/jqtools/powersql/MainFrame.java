@@ -14,6 +14,8 @@ import javax.swing.tree.DefaultMutableTreeNode;
 import com.jqtools.powersql.constants.Constants;;
 
 public class MainFrame extends JFrame {
+	private static final long serialVersionUID = 1L;
+
 	private JSplitPane mainSplitPane = new JSplitPane();;
 	private JScrollPane leftScrollPane = new JScrollPane();
 	private JPanel sqlPanel = null;
@@ -32,6 +34,7 @@ public class MainFrame extends JFrame {
 		leftPanel.add("Center", leftScrollPane);
 
 		JTabbedPane mainPanel = new JTabbedPane();
+
 		mainSplitPane.setLeftComponent(leftPanel);
 		mainSplitPane.setRightComponent(mainPanel);
 		mainSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
