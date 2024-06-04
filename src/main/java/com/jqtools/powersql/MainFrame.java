@@ -9,12 +9,14 @@ import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTree;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 
-public class MainFrame extends JFrame {
+public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
 	private JTree tree = null;
 
@@ -54,6 +56,17 @@ public class MainFrame extends JFrame {
 		// show main frame
 		this.pack();
 		this.setVisible(true);
+	}
+
+	@Override
+	public void valueChanged(TreeSelectionEvent e) {
+		try {
+			DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+
+			displayNode(node);
+		} catch (Exception ex) {
+			MessageLogger.error(ex);
+		}
 	}
 
 	public void displayNode(DefaultMutableTreeNode node) {
