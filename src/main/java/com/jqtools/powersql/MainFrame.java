@@ -13,12 +13,15 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
+import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 
 public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
 	private JTree tree = null;
+	private RSyntaxTextArea textArea = null;
 
 	public static void main(String args[]) {
 		new MainFrame();
@@ -46,6 +49,17 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		rightPanel.add(Constants.TAB_DATA, dataPanel);
 		rightPanel.add(Constants.TAB_SQL, sqlSplitPane);
+
+		// sql panel : text area/table data
+		JPanel textAreaPanel = new JPanel();
+		textAreaPanel.setLayout(new BorderLayout());
+		textArea = new RSyntaxTextArea();
+		textAreaPanel.add("Center", textArea);
+		JPanel resultPanel = new JPanel(new BorderLayout());
+		sqlSplitPane.setTopComponent(textAreaPanel);
+		sqlSplitPane.setBottomComponent(resultPanel);
+		sqlSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
+		sqlSplitPane.setDividerLocation(Constants.TOP_WIDE);
 
 		// add left and right panel
 		mainSplitPane.setLeftComponent(leftPanel);
