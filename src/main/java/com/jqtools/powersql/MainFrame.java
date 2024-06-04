@@ -11,10 +11,12 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import com.jqtools.powersql.constants.Constants;;
+import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.MessageLogger;
 
 public class MainFrame extends JFrame {
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 7976543774029147512L;
+	private JTree tree = null;
 
 	public static void main(String args[]) {
 		new MainFrame();
@@ -32,7 +34,7 @@ public class MainFrame extends JFrame {
 		leftPanel.add(Constants.PANEL_CENTER, leftScrollPane);
 		// add root node (Databases) to left panel
 		DefaultMutableTreeNode root = new DefaultMutableTreeNode(Constants.ROOT);
-		JTree tree = new JTree(root);
+		tree = new JTree(root);
 		leftScrollPane.setViewportView(tree);
 		leftScrollPane.updateUI();
 
@@ -52,5 +54,13 @@ public class MainFrame extends JFrame {
 		// show main frame
 		this.pack();
 		this.setVisible(true);
+	}
+
+	public void displayNode(DefaultMutableTreeNode node) {
+		try {
+			// display node
+		} catch (Exception ex) {
+			MessageLogger.error(ex);
+		}
 	}
 }
