@@ -50,6 +50,10 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		// Right Panel : data/sql
 		JTabbedPane rightPanel = new JTabbedPane();
 		JPanel dataPanel = new JPanel(new BorderLayout());
+		JTable table = new JTable(resultTableModel);
+		JScrollPane scroll = new JScrollPane();
+		scroll.setViewportView(table);
+		dataPanel.add(Constants.PANEL_CENTER, scroll);
 		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		rightPanel.add(Constants.TAB_DATA, dataPanel);
 		rightPanel.add(Constants.TAB_SQL, sqlSplitPane);
@@ -60,8 +64,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		textArea = new RSyntaxTextArea();
 		textAreaPanel.add("Center", textArea);
 		JPanel resultPanel = new JPanel(new BorderLayout());
-		JTable table = new JTable(resultTableModel);
-		JScrollPane scroll = new JScrollPane();
+		table = new JTable(resultTableModel);
+		scroll = new JScrollPane();
 		scroll.setViewportView(table);
 		resultPanel.add(Constants.PANEL_CENTER, scroll);
 		sqlSplitPane.setTopComponent(textAreaPanel);
