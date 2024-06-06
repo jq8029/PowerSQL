@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -23,7 +24,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
 	private JTree tree = null;
 	private RSyntaxTextArea textArea = null;
-	private ResultTableModel tableModel = new ResultTableModel();
+	private ResultTableModel resultTableModel = new ResultTableModel();
 
 	public static void main(String args[]) {
 		new MainFrame();
@@ -58,6 +59,10 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		textArea = new RSyntaxTextArea();
 		textAreaPanel.add("Center", textArea);
 		JPanel resultPanel = new JPanel(new BorderLayout());
+		JTable table = new JTable(resultTableModel);
+		JScrollPane scroll = new JScrollPane();
+		scroll.setViewportView(table);
+		resultPanel.add(Constants.PANEL_CENTER, scroll);
 		sqlSplitPane.setTopComponent(textAreaPanel);
 		sqlSplitPane.setBottomComponent(resultPanel);
 		sqlSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
