@@ -25,6 +25,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	private JTree tree = null;
 	private RSyntaxTextArea textArea = null;
 	private ResultTableModel resultTableModel = new ResultTableModel();
+	private ResultTableModel dataTableModel = new ResultTableModel();
 
 	public static void main(String args[]) {
 		new MainFrame();
