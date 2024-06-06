@@ -1,7 +1,7 @@
 package com.jqtools.powersql.obj;
 
 import java.sql.Types;
-import java.util.Vector;
+import java.util.ArrayList;
 
 import javax.swing.table.AbstractTableModel;
 
@@ -9,9 +9,17 @@ public class ResultTableModel extends AbstractTableModel {
 
 	private static final long serialVersionUID = -8670835121747587879L;
 
-	private Vector<Object[]> data = null;
+	private ArrayList<Object[]> data = null;
 	private String[] colNames = null;
 	private int[] colTypes = null;
+
+	public ResultTableModel(ArrayList<Object[]> data, String[] colNames, int[] colTypes) {
+		super();
+
+		this.data = data;
+		this.colNames = colNames;
+		this.colTypes = colTypes;
+	}
 
 	@Override
 	public int getRowCount() {
@@ -28,7 +36,7 @@ public class ResultTableModel extends AbstractTableModel {
 		if (data == null || rowIndex < 0 || rowIndex >= data.size()) {
 			return "";
 		} else {
-			Object values[] = data.elementAt(rowIndex);
+			Object values[] = data.get(rowIndex);
 			if (values == null || columnIndex < 0 || columnIndex >= values.length) {
 				return "";
 			} else {
