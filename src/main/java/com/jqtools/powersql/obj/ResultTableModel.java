@@ -21,6 +21,9 @@ public class ResultTableModel extends AbstractTableModel {
 		this.colTypes = colTypes;
 	}
 
+	public ResultTableModel() {
+	}
+
 	@Override
 	public int getRowCount() {
 		return data == null ? 0 : data.size();
