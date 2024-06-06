@@ -1,5 +1,6 @@
 package com.jqtools.powersql.obj;
 
+import java.sql.Types;
 import java.util.Vector;
 
 import javax.swing.table.AbstractTableModel;
@@ -38,5 +39,20 @@ public class ResultTableModel extends AbstractTableModel {
 				}
 			}
 		}
+	}
+
+	public String getColumnName(int columnIndex) {
+		if (colNames == null || columnIndex >= colNames.length || columnIndex < 0) {
+			return "";
+		} else {
+			return colNames[columnIndex];
+		}
+	}
+
+	public int getColumnType(int column) {
+		if (colTypes == null || colTypes.length <= column || column < 0)
+			return Types.CHAR;
+
+		return colTypes[column];
 	}
 }
