@@ -22,6 +22,13 @@ public class ResultTableModel extends AbstractTableModel {
 	}
 
 	public ResultTableModel() {
+		this.data = new ArrayList<Object[]>();
+		Object[] obj = { "" };
+		this.data.add(obj);
+		this.colNames = new String[1];
+		this.colNames[0] = "Column";
+		this.colTypes = new int[1];
+		this.colTypes[0] = Types.CHAR;
 	}
 
 	@Override
