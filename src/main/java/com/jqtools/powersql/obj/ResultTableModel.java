@@ -3,7 +3,10 @@ package com.jqtools.powersql.obj;
 import java.sql.Types;
 import java.util.ArrayList;
 
+import javax.swing.JTable;
 import javax.swing.table.AbstractTableModel;
+import javax.swing.table.TableColumn;
+import javax.swing.table.TableColumnModel;
 
 public class ResultTableModel extends AbstractTableModel {
 
@@ -73,4 +76,47 @@ public class ResultTableModel extends AbstractTableModel {
 
 		return colTypes[column];
 	}
+
+	public void resizeColumnWidth(final JTable table) {
+		if (table == null || colNames == null)
+			return;
+
+		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+
+		TableColumnModel columnModel = table.getColumnModel();
+
+		TableColumn tbColumn = null;
+
+		int charNum = 0;
+		int width = 0;
+		for (int i = 0; i < colNames.length; i++) {
+			tbColumn = columnModel.getColumn(i);
+
+			width = tbColumn.getWidth();
+			charNum = 0;
+			if (i < colNames.length) {
+				if (colNames[i] != null) {
+					charNum = colNames[i].length();
+					if (data != null && data.size() > 0) {
+						for (int k = 0; k < data.size(); k++) {
+							if (getValueAt(k, i) != null && getValueAt(k, i).toString().length() > charNum) {
+								charNum = getValueAt(k, i).toString().length();
+							}
+						}
+					}
+
+					if (charNum * 10 > width) {
+						width = charNum * 10;
+					}
+				}
+
+			}
+
+			tbColumn.setPreferredWidth(width);
+
+		}
+
+		table.repaint();
+	}
+
 }
