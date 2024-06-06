@@ -14,20 +14,29 @@ public class ResultTableModel extends AbstractTableModel {
 
 	@Override
 	public int getRowCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return data == null ? 0 : data.size();
 	}
 
 	@Override
 	public int getColumnCount() {
-		// TODO Auto-generated method stub
-		return 0;
+		return colNames == null ? 0 : colNames.length;
 	}
 
 	@Override
 	public Object getValueAt(int rowIndex, int columnIndex) {
-		// TODO Auto-generated method stub
-		return null;
+		if (data == null || rowIndex < 0 || rowIndex >= data.size()) {
+			return "";
+		} else {
+			Object values[] = data.elementAt(rowIndex);
+			if (values == null || columnIndex < 0 || columnIndex >= values.length) {
+				return "";
+			} else {
+				if (values[columnIndex] == null) {
+					return "";
+				} else {
+					return values[columnIndex].toString();
+				}
+			}
+		}
 	}
-
 }
