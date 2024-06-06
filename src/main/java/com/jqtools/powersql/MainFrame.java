@@ -17,11 +17,13 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.ResultTableModel;
 
 public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
 	private JTree tree = null;
 	private RSyntaxTextArea textArea = null;
+	private ResultTableModel tableModel = new ResultTableModel();
 
 	public static void main(String args[]) {
 		new MainFrame();
