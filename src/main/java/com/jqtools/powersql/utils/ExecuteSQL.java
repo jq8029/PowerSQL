@@ -8,7 +8,7 @@ import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
-	public static boolean executeSQL(Session session, String sql) {
+	public static boolean execute(Session session, String sql) {
 		PreparedStatement stat = null;
 		ResultSet result = null;
 
