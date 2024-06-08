@@ -13,9 +13,12 @@ public class ExecuteSQL {
 		ResultSet result = null;
 
 		try {
+			// execute sql
 			stat = session.getConnection().prepareStatement(sql);
 			if (stat.execute()) {
 				result = stat.getResultSet();
+
+				// retrieve result
 				int colNum = -1;
 				ArrayList<Object[]> data = new ArrayList<Object[]>();
 				Object objs[] = null;
