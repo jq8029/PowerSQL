@@ -24,10 +24,12 @@ public class ExecuteSQL {
 				Object objs[] = null;
 				if (result != null) {
 					while (result.next()) {
+						// load the result column number
 						if (colNum < 0) {
 							colNum = result.getMetaData().getColumnCount();
 						}
 
+						// retrieve each column value
 						objs = new Object[colNum];
 						for (int i = 0; i < colNum; i++) {
 							objs[i] = result.getObject(i);
