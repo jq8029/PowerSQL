@@ -119,4 +119,8 @@ public class ResultTableModel extends AbstractTableModel {
 		table.repaint();
 	}
 
+	public ArrayList<Object[]> getData() {
+		return data;
+	}
+
 }
