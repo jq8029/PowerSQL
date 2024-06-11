@@ -16,14 +16,6 @@ public class ResultTableModel extends AbstractTableModel {
 	private String[] colNames = null;
 	private int[] colTypes = null;
 
-	public ResultTableModel(ArrayList<Object[]> data, String[] colNames, int[] colTypes) {
-		super();
-
-		this.data = data;
-		this.colNames = colNames;
-		this.colTypes = colTypes;
-	}
-
 	public ResultTableModel() {
 		this.data = new ArrayList<Object[]>();
 		Object[] obj = { "" };
