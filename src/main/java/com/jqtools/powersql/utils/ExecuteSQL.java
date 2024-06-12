@@ -40,7 +40,6 @@ public class ExecuteSQL {
 			}
 		} catch (Exception e) {
 			MessageLogger.error(e);
-			;
 		}
 
 		return true;
