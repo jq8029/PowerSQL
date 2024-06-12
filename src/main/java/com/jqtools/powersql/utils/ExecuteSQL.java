@@ -38,7 +38,7 @@ public class ExecuteSQL {
 					}
 				}
 			}
-		} catch (Exception e) {
+		} catch (Throwable e) {
 			MessageLogger.error(e);
 		}
 
