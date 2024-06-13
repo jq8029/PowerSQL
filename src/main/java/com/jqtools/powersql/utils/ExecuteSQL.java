@@ -45,6 +45,7 @@ public class ExecuteSQL {
 			MessageLogger.error(e);
 		} finally {
 			session.getTableModel().resizeColumnWidth();
+			System.gc();
 		}
 
 		return true;
