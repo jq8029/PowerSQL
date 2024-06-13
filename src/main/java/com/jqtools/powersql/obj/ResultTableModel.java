@@ -26,7 +26,7 @@ public class ResultTableModel extends AbstractTableModel {
 		this.colTypes = new int[1];
 		this.colTypes[0] = Types.CHAR;
 		this.table = new JTable(this);
-		this.resizeColumnWidth(this.colTypes, this.colNames, this.data);
+		this.resizeColumnWidth();
 	}
 
 	@Override
@@ -72,13 +72,10 @@ public class ResultTableModel extends AbstractTableModel {
 		return colTypes[column];
 	}
 
-	public void resizeColumnWidth(int[] colTypes, String colNames[], ArrayList<Object[]> data) {
+	public void resizeColumnWidth() {
 		if (this.table == null || colNames == null)
 			return;
 
-		this.colTypes = colTypes;
-		this.colNames = colNames;
-		this.data = data;
 		table.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
 
 		TableColumnModel columnModel = table.getColumnModel();
@@ -119,6 +116,18 @@ public class ResultTableModel extends AbstractTableModel {
 
 	public ArrayList<Object[]> getData() {
 		return data;
+	}
+
+	public void setData(ArrayList<Object[]> data) {
+		this.data = data;
+	}
+
+	public void setColNames(String[] colNames) {
+		this.colNames = colNames;
+	}
+
+	public void setColTypes(int[] colTypes) {
+		this.colTypes = colTypes;
 	}
 
 	public JTable getTable() {
