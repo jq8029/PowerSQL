@@ -63,6 +63,8 @@ public class DBTools {
 		if (!conNames.contains(conName)) {
 			conNames.add(conName);
 		}
+
+		save();
 	}
 
 	private static void buildDbMap() throws Exception {
