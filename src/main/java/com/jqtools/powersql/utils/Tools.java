@@ -67,4 +67,14 @@ public class Tools {
 		}
 
 	}
+
+	public static String replaceBackward(String value) {
+		if (value == null)
+			return "";
+		if (value.indexOf("\\") > 0) {
+			value = value.replaceAll("\\\\", "\\\\\\\\");
+		}
+
+		return value;
+	}
 }
