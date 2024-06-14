@@ -50,6 +50,10 @@ public class DBTools {
 		return conMap.get(conName);
 	}
 
+	public static void addDBConnection(String conName, DatabaseInfo dbCon) {
+		updateDBConnection(conName, dbCon);
+	}
+
 	public static void updateDBConnection(String conName, DatabaseInfo dbCon) {
 		if (conMap == null) {
 			try {
