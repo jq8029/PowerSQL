@@ -107,10 +107,6 @@ public class DBTools {
 		return Tools.getString(prop.getProperty(key), "");
 	}
 
-	private static String getDBInfo() {
-		return "";
-	}
-
 	private static void save() {
 		byte valueB[] = getDBInfo().getBytes();
 
@@ -141,6 +137,40 @@ public class DBTools {
 				}
 			}
 		}
+	}
+
+	private static String getDBInfo() {
+		StringBuilder data = new StringBuilder();
+		data.append("#").append(Constants.LINE_SEPERATOR).append("# Connections").append(Constants.LINE_SEPERATOR)
+				.append("#").append(Constants.LINE_SEPERATOR).append(Tools.getFixString(CON_COUNT, 20)).append(" = ")
+				.append(conMap.size()).append(Constants.LINE_SEPERATOR).append(Constants.LINE_SEPERATOR);
+
+		if (conNames != null && conNames.size() > 0) {
+			for (int i = 0; i < conNames.size(); i++) {
+				String prefix = i >= 9 ? String.valueOf(i) : "0" + (i + 1);
+				DatabaseInfo con = conMap.get(conNames.get(i));
+
+				if (con != null) {
+					data.append("#").append(Constants.LINE_SEPERATOR).append("# Connection ").append(prefix)
+							.append(Constants.LINE_SEPERATOR).append("#").append(Constants.LINE_SEPERATOR)
+							.append(Tools.getFixString(prefix + CON_STRINGS[NAME], 20)).append(" = ")
+							.append(con.getName()).append(Constants.LINE_SEPERATOR)
+							.append(Tools.getFixString(prefix + CON_STRINGS[USER], 20)).append(" = ")
+							.append(con.getUser()).append(Constants.LINE_SEPERATOR)
+							.append(Tools.getFixString(prefix + CON_STRINGS[PWD], 20)).append(" = ")
+							.append(con.getPassword()).append(Constants.LINE_SEPERATOR)
+							.append(Tools.getFixString(prefix + CON_STRINGS[DRIVER], 20)).append(" = ")
+							.append(con.getDriverName()).append(Constants.LINE_SEPERATOR)
+							.append(Tools.getFixString(prefix + CON_STRINGS[JAR], 20)).append(" = ")
+							.append(Tools.replaceBackward(con.getJarFiles())).append(Constants.LINE_SEPERATOR)
+							.append(Tools.getFixString(prefix + CON_STRINGS[URL], 20)).append(" = ")
+							.append(Tools.replaceBackward(con.getUrl())).append(Constants.LINE_SEPERATOR)
+							.append(Constants.LINE_SEPERATOR);
+				}
+			}
+		}
+
+		return data.toString();
 	}
 
 	public static Connection getConnection(DatabaseInfo dbInfo) throws Exception {
