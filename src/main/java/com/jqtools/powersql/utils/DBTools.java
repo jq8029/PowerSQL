@@ -14,10 +14,6 @@ import java.util.TreeMap;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.DatabaseInfo;
-import com.jsoft.dtsql.config.ColorOptions;
-import com.jsoft.dtsql.control.Manager;
-import com.jsoft.dtsql.db.DBConnection;
-import com.jsoft.dtsql.util.CommonTools;
 
 public class DBTools {
 	private static final Class<?>[] parameters = new Class[] { URL.class };
@@ -40,49 +36,50 @@ public class DBTools {
 			return null;
 
 		if (conMap == null) {
-			buildDbMap();
+			try {
+				buildDbMap();
+			} catch (Exception e) {
+				MessageLogger.error(e);
+			}
 		}
 
 		return conMap.get(conName);
 	}
 
-	private static void buildDbMap() {
+	private static void buildDbMap() throws Exception {
 		conMap = new TreeMap<String, DatabaseInfo>();
 		conNames = new ArrayList<String>();
 
 		FileInputStream fis = new FileInputStream(Constants.DB_FILE);
-		Properties properties = new Properties();
+		Properties prop = new Properties();
 		try {
-			properties.load(fis);
+			prop.load(fis);
 		} catch (Exception e) {
 			MessageLogger.error(e);
 		}
 
-		int totalCons = properties.getInt(CON_COUNT, 0);
-
+		int totalCons = Tools.getInt(prop.getProperty(CON_COUNT), 0);
+		String prefix = null;
 		for (int i = 0; i < totalCons; i++) {
-			String prefix = i >= 9 ? String.valueOf(i) : "0" + (i + 1);
-			DBConnection con = new DBConnection();
+			prefix = Tools.getFixString(i + 1, 2);
+			DatabaseInfo con = new DatabaseInfo();
 
-			con.setName(properties.getString(prefix + CON_STRINGS[NAME], ""));
-			con.setUser(properties.getString(prefix + CON_STRINGS[USER], ""));
-			con.setPassword(CommonTools.getS(properties.getString(prefix + CON_STRINGS[PWD], ""), false));
-			con.setDriverName(properties.getString(prefix + CON_STRINGS[DRIVER], ""));
-			con.setJarFiles(properties.getString(prefix + CON_STRINGS[JAR], ""));
-			con.setUrl(properties.getString(prefix + CON_STRINGS[URL], ""));
-//			con.setTransIsolation(properties.getInt(prefix + CON_STRINGS[ISO], 0));
-//			con.setSqlRestrict(properties.getInt(prefix + CON_STRINGS[SQL], 0));
-//			con.setAutoCommit(properties.getInt(prefix + CON_STRINGS[COMMIT], 0));
-			con.setDbName(properties.getString(prefix + CON_STRINGS[DB_NAME], ""));
-			con.setColor(ColorOptions.getColor(
-					properties.getString(prefix + CON_STRINGS[COLOR],
-							ColorOptions.getColorString(Manager.getRecycleBarPanel().getDefaultBGC())),
-					Manager.getRecycleBarPanel().getDefaultBGC()));
+			con.setName(getProp(prop, prefix + CON_STRINGS[NAME]));
+			con.setUser(getProp(prop, prefix + CON_STRINGS[USER]));
+			con.setPassword(getProp(prop, prefix + CON_STRINGS[PWD]));
+			con.setDriverName(getProp(prop, prefix + CON_STRINGS[DRIVER]));
+			con.setJarFiles(getProp(prop, prefix + CON_STRINGS[JAR]));
+			con.setUrl(getProp(prop, prefix + CON_STRINGS[URL]));
 
 			conMap.put(con.getName(), con);
 			conNames.add(con.getName());
-
 		}
+
+		fis.close();
+	}
+
+	private static String getProp(Properties prop, String key) {
+		return Tools.getString(prop.getProperty(key), "");
 	}
 
 	public static Connection getConnection(DatabaseInfo dbInfo) throws Exception {
