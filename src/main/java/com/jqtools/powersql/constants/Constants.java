@@ -4,6 +4,7 @@ public class Constants {
 	public static final String USER_NAME = System.getProperty("user.name");
 	public static final String USER_PATH = System.getProperty("user.home");
 	public static final String FILE_SEPERATOR = System.getProperty("file.separator");
+	public static final String LINE_SEPERATOR = System.getProperty("line.separator");
 	public static final String DB_FILE = USER_PATH + FILE_SEPERATOR + ".psql" + FILE_SEPERATOR + "dbinfo.txt";
 
 	public static final String TITLE = "Power SQL";
