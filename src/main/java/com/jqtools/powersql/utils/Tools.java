@@ -1,7 +1,7 @@
 package com.jqtools.powersql.utils;
 
 public class Tools {
-	public boolean getBoolean(String key, boolean defaultValue) {
+	public static boolean getBoolean(String key, boolean defaultValue) {
 		try {
 			return Boolean.parseBoolean(key);
 		} catch (Exception ex) {
@@ -10,7 +10,7 @@ public class Tools {
 		return defaultValue;
 	}
 
-	public int getInt(String key, int defaultValue) {
+	public static int getInt(String key, int defaultValue) {
 		try {
 			return Integer.parseInt(key);
 		} catch (Exception ex) {
@@ -19,7 +19,7 @@ public class Tools {
 		return defaultValue;
 	}
 
-	public long getLong(String key, long defaultValue) {
+	public static long getLong(String key, long defaultValue) {
 		try {
 			return Long.parseLong(key);
 		} catch (Exception ex) {
@@ -28,7 +28,7 @@ public class Tools {
 		return defaultValue;
 	}
 
-	public String getString(String key, String defaultValue) {
+	public static String getString(String key, String defaultValue) {
 		try {
 			if (key == null) {
 				return defaultValue;
@@ -41,4 +41,30 @@ public class Tools {
 		return defaultValue;
 	}
 
+	public static String getFixString(long value, int len) {
+		return getFixString(String.valueOf(value), len, '0', false);
+	}
+
+	public static String getFixString(String value, int len) {
+		return getFixString(value, len, ' ', true);
+	}
+
+	public static String getFixString(String str, int len, char pad, boolean padRight) {
+		StringBuffer fixStr = new StringBuffer();
+
+		if (padRight) {
+			fixStr.append(str);
+			while (fixStr.length() < len)
+				fixStr.append(pad);
+
+			return fixStr.substring(0, len);
+		} else {
+			while (fixStr.length() < len - str.length())
+				fixStr.append(pad);
+			fixStr.append(str);
+
+			return fixStr.substring(fixStr.length() - len, fixStr.length());
+		}
+
+	}
 }
