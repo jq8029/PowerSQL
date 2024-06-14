@@ -1,7 +1,11 @@
 package com.jqtools.powersql.utils;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
@@ -80,6 +84,42 @@ public class DBTools {
 
 	private static String getProp(Properties prop, String key) {
 		return Tools.getString(prop.getProperty(key), "");
+	}
+
+	private static String getDBInfo() {
+		return "";
+	}
+
+	private static void save() {
+		byte valueB[] = getDBInfo().getBytes();
+
+		InputStream enInput = new ByteArrayInputStream(valueB);
+
+		int readB = 0;
+		FileOutputStream out = null;
+		try {
+			out = new FileOutputStream(Constants.DB_FILE);
+			while ((readB = enInput.read()) != -1) {
+				out.write(readB);
+			}
+		} catch (Exception e) {
+			MessageLogger.error(e);
+		} finally {
+			try {
+				enInput.close();
+			} catch (Exception e) {
+			}
+			if (out != null) {
+				try {
+					out.flush();
+				} catch (Exception e) {
+				}
+				try {
+					out.close();
+				} catch (IOException e) {
+				}
+			}
+		}
 	}
 
 	public static Connection getConnection(DatabaseInfo dbInfo) throws Exception {
