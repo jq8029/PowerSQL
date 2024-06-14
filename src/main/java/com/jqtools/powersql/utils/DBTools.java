@@ -50,6 +50,21 @@ public class DBTools {
 		return conMap.get(conName);
 	}
 
+	public static void updateDBConnection(String conName, DatabaseInfo dbCon) {
+		if (conMap == null) {
+			try {
+				buildDbMap();
+			} catch (Exception e) {
+				MessageLogger.error(e);
+			}
+		}
+
+		conMap.put(conName, dbCon);
+		if (!conNames.contains(conName)) {
+			conNames.add(conName);
+		}
+	}
+
 	private static void buildDbMap() throws Exception {
 		conMap = new TreeMap<String, DatabaseInfo>();
 		conNames = new ArrayList<String>();
