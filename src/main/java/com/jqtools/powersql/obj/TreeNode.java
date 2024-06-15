@@ -4,11 +4,15 @@ import javax.swing.JTree;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
 
+import com.jqtools.powersql.constants.Constants;
+
 public class TreeNode extends DefaultMutableTreeNode {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -5351735513734659428L;
+
+	private int nodeType = Constants.NODE_TEXT;
 
 	public void removeFromParent(JTree tree) {
 		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
@@ -27,6 +31,14 @@ public class TreeNode extends DefaultMutableTreeNode {
 		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
 		model.insertNodeInto((DefaultMutableTreeNode) this, (DefaultMutableTreeNode) parent, index);
 		model.nodeChanged(this);
+	}
+
+	public int getNodeType() {
+		return nodeType;
+	}
+
+	public void setNodeType(int nodeType) {
+		this.nodeType = nodeType;
 	}
 
 	// return the display tree node name
