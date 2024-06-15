@@ -28,4 +28,9 @@ public class TreeNode extends DefaultMutableTreeNode {
 		model.insertNodeInto((DefaultMutableTreeNode) this, (DefaultMutableTreeNode) parent, index);
 		model.nodeChanged(this);
 	}
+
+	// return the display tree node name
+	public String toString() {
+		return "";
+	}
 }
