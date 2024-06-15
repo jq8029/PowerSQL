@@ -17,4 +17,14 @@ public class Constants {
 
 	public static final String TAB_DATA = "Data";
 	public static final String TAB_SQL = "SQL";
+
+	public static final int NODE_TEXT = 0;
+	public static final int NODE_CONNECTIONS = 1;
+	public static final int NODE_CONNECTION = 2;
+	public static final int NODE_CATALOG = 3;
+	public static final int NODE_SCHEMA = 4;
+	public static final int NODE_TABLES = 5;
+	public static final int NODE_VIEWS = 6;
+	public static final int NODE_TABLE = 501;
+	public static final int NODE_VIEW = 601;
 }
