@@ -18,6 +18,7 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.ResultTableModel;
+import com.jqtools.powersql.obj.TreeNode;
 
 public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
@@ -84,7 +85,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	@Override
 	public void valueChanged(TreeSelectionEvent e) {
 		try {
-			DefaultMutableTreeNode node = (DefaultMutableTreeNode) tree.getLastSelectedPathComponent();
+			TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
 
 			displayNode(node);
 		} catch (Exception ex) {
@@ -92,7 +93,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		}
 	}
 
-	public void displayNode(DefaultMutableTreeNode node) {
+	public void displayNode(TreeNode node) {
 		try {
 			// display node
 		} catch (Exception ex) {
