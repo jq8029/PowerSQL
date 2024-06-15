@@ -15,6 +15,14 @@ public class TreeNode extends DefaultMutableTreeNode {
 		model.removeNodeFromParent(this);
 	}
 
+	public void add(JTree tree, TreeNode child) {
+		child.addToParent(tree, this);
+	}
+
+	public void addToParent(JTree tree, TreeNode parent) {
+		addToParent(tree, parent, parent.getChildCount());
+	}
+
 	public void addToParent(JTree tree, TreeNode parent, int index) {
 		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
 		model.insertNodeInto((DefaultMutableTreeNode) this, (DefaultMutableTreeNode) parent, index);
