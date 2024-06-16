@@ -1,40 +1,17 @@
 package com.jqtools.powersql.db;
 
-public class MySQLData {
-	private String catalogAllSQL = null;
-	private String schemaAllSQL = null;
-	private String tableSchemaSQL = null;
-	private String viewSchemaSQL = null;
+public class MySQLData extends DatabaseData {
 
-	public String getCatalogAllSQL() {
-		return catalogAllSQL;
-	}
-
-	public void setCatalogAllSQL(String catalogAllSQL) {
-		this.catalogAllSQL = catalogAllSQL;
-	}
-
+	@Override
 	public String getSchemaAllSQL() {
-		return schemaAllSQL;
-	}
-
-	public void setSchemaAllSQL(String schemaAllSQL) {
-		this.schemaAllSQL = schemaAllSQL;
+		return "SELECT CATALOG_NAME as MY_CATALOG, SCHEMA_NAME as MY_SCHEMA FROM information_schema.SCHEMATA order by SCHEMA_NAME";
 	}
 
 	public String getTableSchemaSQL() {
-		return tableSchemaSQL;
-	}
-
-	public void setTableSchemaSQL(String tableSchemaSQL) {
-		this.tableSchemaSQL = tableSchemaSQL;
+		return "SELECT * FROM information_schema.TABLES where TABLE_SCHEMA = ? and TABLE_TYPE <> 'VIEW' and TABLE_TYPE <> 'SYSTEM VIEW'";
 	}
 
 	public String getViewSchemaSQL() {
-		return viewSchemaSQL;
-	}
-
-	public void setViewSchemaSQL(String viewSchemaSQL) {
-		this.viewSchemaSQL = viewSchemaSQL;
+		return "SELECT * FROM information_schema.TABLES where TABLE_SCHEMA = ? and (TABLE_TYPE = 'VIEW' or TABLE_TYPE = 'SYSTEM VIEW')";
 	}
 }
