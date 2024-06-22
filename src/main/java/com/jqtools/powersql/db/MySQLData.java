@@ -9,7 +9,7 @@ public class MySQLData extends DatabaseData {
 
 	@Override
 	public String getTableSchemaSQL() {
-		return "SELECT * FROM information_schema.TABLES where TABLE_SCHEMA = ? and TABLE_TYPE <> 'VIEW' and TABLE_TYPE <> 'SYSTEM VIEW'";
+		return "SELECT TABLE_NAME as MY_TABLE FROM information_schema.TABLES where TABLE_SCHEMA = ? and TABLE_TYPE <> 'VIEW' and TABLE_TYPE <> 'SYSTEM VIEW'";
 	}
 
 	@Override
