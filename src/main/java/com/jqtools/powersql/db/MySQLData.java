@@ -14,6 +14,6 @@ public class MySQLData extends DatabaseData {
 
 	@Override
 	public String getViewSchemaSQL() {
-		return "SELECT * FROM information_schema.TABLES where TABLE_SCHEMA = ? and (TABLE_TYPE = 'VIEW' or TABLE_TYPE = 'SYSTEM VIEW')";
+		return "SELECT TABLE_NAME as MY_VIEW FROM information_schema.TABLES where TABLE_SCHEMA = ? and (TABLE_TYPE = 'VIEW' or TABLE_TYPE = 'SYSTEM VIEW')";
 	}
 }
