@@ -13,7 +13,7 @@ public class H2Data extends DatabaseData {
 
 	@Override
 	public String getTableSchemaSQL() {
-		return null;
+		return "SELECT * FROM information_schema.TABLES where TABLE_SCHEMA = ? and TABLE_TYPE = 'TABLE' order by TABLE_NAME";
 	}
 
 	@Override
