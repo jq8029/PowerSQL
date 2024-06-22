@@ -18,6 +18,6 @@ public class H2Data extends DatabaseData {
 
 	@Override
 	public String getViewSchemaSQL() {
-		return "SELECT * FROM information_schema.VIEWS where TABLE_SCHEMA = ? order by TABLE_NAME";
+		return "SELECT TABLE_NAME as MY_VIEW FROM information_schema.VIEWS where TABLE_SCHEMA = ? order by TABLE_NAME";
 	}
 }
