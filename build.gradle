@@ -22,5 +22,7 @@ dependencies {
     // database jar files
     implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'com.h2database:h2:2.2.224'
+    
+    // Junit test jar files
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.2'
 }
