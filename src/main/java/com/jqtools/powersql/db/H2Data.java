@@ -8,7 +8,7 @@ public class H2Data extends DatabaseData {
 
 	@Override
 	public String getSchemaAllSQL() {
-		return null;
+		return "SELECT CATALOG_NAME as MY_CATALOG, SCHEMA_NAME as MY_SCHEMA FROM information_schema.SCHEMATA order by MY_SCHEMA";
 	}
 
 	@Override
