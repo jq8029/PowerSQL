@@ -17,6 +17,7 @@ sourceCompatibility = 11
 targetCompatibility = 11
 
 dependencies {
+    // text editor jar file
     implementation 'com.fifesoft:rsyntaxtextarea:3.4.0'
     
     // database jar files
