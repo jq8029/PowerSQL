@@ -40,4 +40,7 @@ public class Info {
 		this.nodeType = nodeType;
 	}
 
+	public String toString() {
+		return this.name;
+	}
 }
