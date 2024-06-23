@@ -3,6 +3,7 @@ package com.jqtools.powersql.obj;
 import java.sql.Connection;
 
 public class Session {
+	private TreeNode DbNode = null;
 	private Connection connection = null;
 	private DatabaseInfo dbInfo = null;
 	private ResultTableModel tableModel = null;
@@ -47,6 +48,14 @@ public class Session {
 	 */
 	public void setTableModel(ResultTableModel tableModel) {
 		this.tableModel = tableModel;
+	}
+
+	public TreeNode getDbNode() {
+		return DbNode;
+	}
+
+	public void setDbNode(TreeNode dbNode) {
+		DbNode = dbNode;
 	}
 
 }
