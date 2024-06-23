@@ -1,9 +1,9 @@
 package com.jqtools.powersql.utils;
 
-import javax.swing.tree.DefaultMutableTreeNode;
+import com.jqtools.powersql.obj.TreeNode;
 
 public class DBLoader {
-	public static void loadDBNode(DefaultMutableTreeNode root) {
+	public static void loadDBNode(TreeNode root) {
 
 	}
 
