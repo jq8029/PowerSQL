@@ -12,11 +12,14 @@ public class TreeNode extends DefaultMutableTreeNode {
 	 */
 	private static final long serialVersionUID = -5351735513734659428L;
 
+	private String name = "";
+
 	private int nodeType = Constants.NODE_TEXT;
 
-	public void removeFromParent(JTree tree) {
+	public void removeFromParent(JTree tree, String name) {
 		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
 		model.removeNodeFromParent(this);
+		this.name = name;
 	}
 
 	public void add(JTree tree, TreeNode child) {
