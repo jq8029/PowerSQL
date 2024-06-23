@@ -3,7 +3,6 @@ package com.jqtools.powersql.utils;
 import java.sql.Connection;
 
 import com.jqtools.powersql.log.MessageLogger;
-import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
 
@@ -19,8 +18,8 @@ public class DBLoader {
 		try {
 
 			conn = DBTools.getConnection(session.getDbInfo());
-			Info info = session.getDbNode().getInfo();
 
+			loadCatalogNode(session, conn, session.getDbNode());
 		} catch (Throwable e) {
 			MessageLogger.error(e);
 
@@ -37,7 +36,7 @@ public class DBLoader {
 		return true;
 	}
 
-	private static boolean loadCatalogNode(Session session, Connection conn, TreeNode root) {
+	private static boolean loadCatalogNode(Session session, Connection conn, TreeNode node) {
 		if (session.getDbData().getCatalogAllSQL() == null) {
 
 		}
