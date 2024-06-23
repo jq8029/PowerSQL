@@ -16,10 +16,13 @@ public class TreeNode extends DefaultMutableTreeNode {
 
 	private int nodeType = Constants.NODE_TEXT;
 
-	public void removeFromParent(JTree tree, String name) {
+	public TreeNode(String name) {
+		this.name = name;
+	}
+
+	public void removeFromParent(JTree tree) {
 		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
 		model.removeNodeFromParent(this);
-		this.name = name;
 	}
 
 	public void add(JTree tree, TreeNode child) {
@@ -46,6 +49,6 @@ public class TreeNode extends DefaultMutableTreeNode {
 
 	// return the display tree node name
 	public String toString() {
-		return "";
+		return this.name;
 	}
 }
