@@ -38,7 +38,7 @@ public class DBLoader {
 
 	private static boolean loadCatalogNode(Session session, Connection conn, TreeNode node) {
 		if (session.getDbData().getCatalogAllSQL() == null) {
-
+			return loadSchemaNode(session, conn, node);
 		}
 
 		return true;
