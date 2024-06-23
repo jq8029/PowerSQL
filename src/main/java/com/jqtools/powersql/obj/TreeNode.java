@@ -46,6 +46,10 @@ public class TreeNode extends DefaultMutableTreeNode {
 		model.nodeChanged(this);
 	}
 
+	public Info getInfo() {
+		return info;
+	}
+
 	// return the display tree node name
 	public String toString() {
 		return this.info == null ? "" : this.toString();
