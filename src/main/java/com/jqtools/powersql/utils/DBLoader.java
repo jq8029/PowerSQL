@@ -44,4 +44,11 @@ public class DBLoader {
 		return true;
 	}
 
+	private static boolean loadSchemaNode(Session session, Connection conn, TreeNode node) {
+		if (session.getDbData().getSchemaAllSQL() == null) {
+
+		}
+
+		return true;
+	}
 }
