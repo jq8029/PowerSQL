@@ -21,6 +21,12 @@ public class TreeNode extends DefaultMutableTreeNode {
 		this.info.setName(name);
 	}
 
+	public TreeNode(String name, int nodeType) {
+		this.info = new Info();
+		this.info.setName(name);
+		this.info.setNodeType(nodeType);
+	}
+
 	public void removeFromParent(JTree tree) {
 		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
 		model.removeNodeFromParent(this);
