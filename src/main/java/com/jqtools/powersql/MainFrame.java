@@ -11,7 +11,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
-import javax.swing.tree.DefaultMutableTreeNode;
 
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
@@ -42,7 +41,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		JScrollPane leftScrollPane = new JScrollPane();
 		leftPanel.add(Constants.PANEL_CENTER, leftScrollPane);
 		// add root node (Databases) to left panel
-		DefaultMutableTreeNode root = new DefaultMutableTreeNode(Constants.ROOT);
+		TreeNode root = new TreeNode(Constants.ROOT);
 		tree = new JTree(root);
 		leftScrollPane.setViewportView(tree);
 		leftScrollPane.updateUI();
