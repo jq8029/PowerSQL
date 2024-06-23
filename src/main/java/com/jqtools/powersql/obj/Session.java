@@ -2,11 +2,14 @@ package com.jqtools.powersql.obj;
 
 import java.sql.Connection;
 
+import com.jqtools.powersql.db.DatabaseData;
+
 public class Session {
 	private TreeNode DbNode = null;
 	private Connection connection = null;
 	private DatabaseInfo dbInfo = null;
 	private ResultTableModel tableModel = null;
+	private DatabaseData dbData = null;
 
 	/**
 	 * @return the connection
@@ -56,6 +59,14 @@ public class Session {
 
 	public void setDbNode(TreeNode dbNode) {
 		DbNode = dbNode;
+	}
+
+	public DatabaseData getDbData() {
+		return dbData;
+	}
+
+	public void setDbData(DatabaseData dbData) {
+		this.dbData = dbData;
 	}
 
 }
