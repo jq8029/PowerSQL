@@ -43,6 +43,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		// add root node (Databases) to left panel
 		TreeNode root = new TreeNode(Constants.ROOT);
 		tree = new JTree(root);
+		root.setTree(tree);
 		leftScrollPane.setViewportView(tree);
 		leftScrollPane.updateUI();
 
