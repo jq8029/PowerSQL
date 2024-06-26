@@ -204,6 +204,20 @@ public class DBTools {
 		}
 	}
 
+	public static String getValue(ResultSet rs, String name) {
+		String value = null;
+
+		if (name == null)
+			return null;
+
+		try {
+			value = rs.getString(name);
+		} catch (Exception e) {
+		}
+
+		return value;
+	}
+
 	public static void close(Statement stmt, ResultSet rs) {
 		if (rs != null) {
 			try {
