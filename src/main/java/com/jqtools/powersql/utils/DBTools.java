@@ -12,6 +12,8 @@ import java.net.URLClassLoader;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.TreeMap;
@@ -199,6 +201,21 @@ public class DBTools {
 			return null;
 		} else {
 			return conn.prepareStatement(sql);
+		}
+	}
+
+	public static void close(Statement stmt, ResultSet rs) {
+		if (rs != null) {
+			try {
+				rs.close();
+			} catch (Exception e) {
+			}
+		}
+		if (stmt != null) {
+			try {
+				stmt.close();
+			} catch (Exception e) {
+			}
 		}
 	}
 
