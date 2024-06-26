@@ -1,8 +1,10 @@
 package com.jqtools.powersql.utils;
 
 import java.sql.Connection;
+import java.util.ArrayList;
 
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
 
@@ -48,6 +50,8 @@ public class DBLoader {
 		if (session.getDbData().getSchemaAllSQL() == null) {
 			return false;
 		}
+
+		ArrayList<Info> schemas = new ArrayList<Info>();
 
 		return true;
 	}
