@@ -13,15 +13,13 @@ public class TreeNode extends DefaultMutableTreeNode {
 	private Info info = null;
 	private JTree tree = null;
 
-	public TreeNode(JTree tree, Info info) {
+	public TreeNode(Info info) {
 		this.info = info;
-		this.tree = tree;
 	}
 
-	public TreeNode(JTree tree, String name) {
+	public TreeNode(String name) {
 		this.info = new Info();
 		this.info.setName(name);
-		this.tree = tree;
 	}
 
 	public TreeNode(String name, int nodeType) {
