@@ -11,6 +11,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.TreeMap;
@@ -191,6 +192,14 @@ public class DBTools {
 		}
 
 		return con;
+	}
+
+	public static PreparedStatement getStatement(Connection conn, String sql) throws Exception {
+		if (sql == null || sql.trim().length() == 0) {
+			return null;
+		} else {
+			return conn.prepareStatement(sql);
+		}
 	}
 
 	public static boolean addFile(String fileName) throws Exception {
