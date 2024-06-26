@@ -11,14 +11,17 @@ public class TreeNode extends DefaultMutableTreeNode {
 	private static final long serialVersionUID = -5351735513734659428L;
 
 	private Info info = null;
+	private JTree tree = null;
 
-	public TreeNode(Info info) {
+	public TreeNode(JTree tree, Info info) {
 		this.info = info;
+		this.tree = tree;
 	}
 
-	public TreeNode(String name) {
+	public TreeNode(JTree tree, String name) {
 		this.info = new Info();
 		this.info.setName(name);
+		this.tree = tree;
 	}
 
 	public TreeNode(String name, int nodeType) {
@@ -27,27 +30,36 @@ public class TreeNode extends DefaultMutableTreeNode {
 		this.info.setNodeType(nodeType);
 	}
 
-	public void removeFromParent(JTree tree) {
-		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+	public void removeFromParent() {
+		DefaultTreeModel model = (DefaultTreeModel) this.tree.getModel();
 		model.removeNodeFromParent(this);
 	}
 
-	public void add(JTree tree, TreeNode child) {
-		child.addToParent(tree, this);
+	public void add(TreeNode child) {
+		child.addToParent(this);
 	}
 
-	public void addToParent(JTree tree, TreeNode parent) {
-		addToParent(tree, parent, parent.getChildCount());
+	public void addToParent(TreeNode parent) {
+		addToParent(parent, parent.getChildCount());
 	}
 
-	public void addToParent(JTree tree, TreeNode parent, int index) {
-		DefaultTreeModel model = (DefaultTreeModel) tree.getModel();
+	public void addToParent(TreeNode parent, int index) {
+		this.tree = parent.getTree();
+		DefaultTreeModel model = (DefaultTreeModel) this.tree.getModel();
 		model.insertNodeInto((DefaultMutableTreeNode) this, (DefaultMutableTreeNode) parent, index);
 		model.nodeChanged(this);
 	}
 
 	public Info getInfo() {
 		return info;
+	}
+
+	public JTree getTree() {
+		return tree;
+	}
+
+	public void setTree(JTree tree) {
+		this.tree = tree;
 	}
 
 	// return the display tree node name
