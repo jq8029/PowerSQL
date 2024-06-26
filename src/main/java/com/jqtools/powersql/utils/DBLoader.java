@@ -1,8 +1,12 @@
 package com.jqtools.powersql.utils;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
+import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
 
@@ -49,6 +53,24 @@ public class DBLoader {
 
 		if (sql == null) {
 			return false;
+		}
+
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		Info info = null;
+		TreeNode newNode = null;
+
+		try {
+			rs = (stmt = DBTools.getStatement(con, sql)).executeQuery();
+			while (rs.next()) {
+				info = new Info();
+				info.setSchema(DBTools.getValue(rs, Constants.MY_SCHEMA));
+				info.setName(info.getSchema());
+				newNode = new TreeNode(info);
+				node.addToParent(newNode);
+			}
+		} finally {
+			DBTools.close(stmt, rs);
 		}
 
 		return true;
