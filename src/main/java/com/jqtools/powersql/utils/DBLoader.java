@@ -76,11 +76,13 @@ public class DBLoader {
 		return true;
 	}
 
-	private static boolean loadSchemaNode(Session session, Connection con, TreeNode node) throws Exception {
+	private static boolean loadTableNode(Session session, Connection con, TreeNode node) throws Exception {
 		String sql = session.getDbData().getSchemaAllSQL();
 
 		if (sql == null) {
 			return false;
 		}
+
+		return true;
 	}
 }
