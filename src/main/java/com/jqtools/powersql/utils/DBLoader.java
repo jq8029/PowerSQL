@@ -82,18 +82,7 @@ public class DBLoader {
 	}
 
 	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
-		String sql = session.getDbData().getSchemaAllSQL();
-
-		if (sql == null) {
-			return false;
-		}
-
-		ResultSet rs = null;
-		PreparedStatement stmt = null;
-		Info info = null;
-		TreeNode newNode = null;
-
-		return true;
+		return loadNode(con, node, session.getDbData().getViewSchemaSQL(), Constants.NODE_VIEW, Constants.MY_VIEW);
 	}
 
 	private static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType, String colName)
