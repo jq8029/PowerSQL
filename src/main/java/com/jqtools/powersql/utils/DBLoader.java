@@ -89,12 +89,39 @@ public class DBLoader {
 		Info info = null;
 		TreeNode newNode = null;
 
+		try {
+			rs = (stmt = DBTools.getStatement(con, sql)).executeQuery();
+			while (rs.next()) {
+				info = new Info();
+				info.setSchema(DBTools.getValue(rs, Constants.MY_TABLE));
+				info.setName(info.getSchema());
+				info.setNodeType(Constants.NODE_SCHEMA);
+				newNode = new TreeNode(info);
+				node.addToParent(newNode);
+			}
+		} finally {
+			DBTools.close(stmt, rs);
+		}
+
 		return true;
 	}
 
 	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
 		String sql = session.getDbData().getSchemaAllSQL();
 
+		if (sql == null) {
+			return false;
+		}
+
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		Info info = null;
+		TreeNode newNode = null;
+
+		return true;
+	}
+
+	private static boolean loadNode(Connection con, TreeNode node, String sql) throws Exception {
 		if (sql == null) {
 			return false;
 		}
