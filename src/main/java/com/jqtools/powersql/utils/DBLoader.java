@@ -85,4 +85,14 @@ public class DBLoader {
 
 		return true;
 	}
+
+	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
+		String sql = session.getDbData().getSchemaAllSQL();
+
+		if (sql == null) {
+			return false;
+		}
+
+		return true;
+	}
 }
