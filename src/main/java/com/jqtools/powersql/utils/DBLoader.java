@@ -66,6 +66,7 @@ public class DBLoader {
 				info = new Info();
 				info.setSchema(DBTools.getValue(rs, Constants.MY_SCHEMA));
 				info.setName(info.getSchema());
+				info.setNodeType(Constants.NODE_SCHEMA);
 				newNode = new TreeNode(info);
 				node.addToParent(newNode);
 			}
