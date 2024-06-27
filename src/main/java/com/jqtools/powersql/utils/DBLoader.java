@@ -98,6 +98,11 @@ public class DBLoader {
 			return false;
 		}
 
+		ResultSet rs = null;
+		PreparedStatement stmt = null;
+		Info info = null;
+		TreeNode newNode = null;
+
 		return true;
 	}
 }
