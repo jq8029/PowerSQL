@@ -121,7 +121,8 @@ public class DBLoader {
 		return true;
 	}
 
-	private static boolean loadNode(Connection con, TreeNode node, String sql) throws Exception {
+	private static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType, String colName)
+			throws Exception {
 		if (sql == null) {
 			return false;
 		}
@@ -130,6 +131,21 @@ public class DBLoader {
 		PreparedStatement stmt = null;
 		Info info = null;
 		TreeNode newNode = null;
+
+		try {
+			rs = (stmt = DBTools.getStatement(con, sql)).executeQuery();
+			while (rs.next()) {
+				info = new Info();
+				info.setCatalog(node.getInfo().getCatalog());
+				info.setSchema(node.getInfo().getSchema());
+				info.setName(DBTools.getValue(rs, colName));
+				info.setNodeType(nodeType);
+				newNode = new TreeNode(info);
+				node.addToParent(newNode);
+			}
+		} finally {
+			DBTools.close(stmt, rs);
+		}
 
 		return true;
 	}
