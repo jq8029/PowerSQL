@@ -78,32 +78,7 @@ public class DBLoader {
 	}
 
 	private static boolean loadTableNode(Session session, Connection con, TreeNode node) throws Exception {
-		String sql = session.getDbData().getSchemaAllSQL();
-
-		if (sql == null) {
-			return false;
-		}
-
-		ResultSet rs = null;
-		PreparedStatement stmt = null;
-		Info info = null;
-		TreeNode newNode = null;
-
-		try {
-			rs = (stmt = DBTools.getStatement(con, sql)).executeQuery();
-			while (rs.next()) {
-				info = new Info();
-				info.setSchema(DBTools.getValue(rs, Constants.MY_TABLE));
-				info.setName(info.getSchema());
-				info.setNodeType(Constants.NODE_SCHEMA);
-				newNode = new TreeNode(info);
-				node.addToParent(newNode);
-			}
-		} finally {
-			DBTools.close(stmt, rs);
-		}
-
-		return true;
+		return loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_TABLE, Constants.MY_TABLE);
 	}
 
 	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
