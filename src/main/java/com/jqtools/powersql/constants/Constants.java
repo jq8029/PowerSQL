@@ -28,6 +28,9 @@ public class Constants {
 	public static final int NODE_TABLE = 501;
 	public static final int NODE_VIEW = 601;
 
+	public static final String NAME_TABLES = "Tables";
+	public static final String NAME_VIEWS = "Views";
+
 	public static final String MY_CATALOG = "MY_CATALOG";
 	public static final String MY_SCHEMA = "MY_SCHEMA";
 	public static final String MY_TABLE = "MY_TABLE";
