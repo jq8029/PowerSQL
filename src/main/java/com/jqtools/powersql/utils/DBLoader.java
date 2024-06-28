@@ -45,7 +45,8 @@ public class DBLoader {
 			return loadSchemaNode(session, con, node);
 		}
 
-		return true;
+		return loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
+				Constants.MY_CATALOG);
 	}
 
 	private static boolean loadSchemaNode(Session session, Connection con, TreeNode node) throws Exception {
