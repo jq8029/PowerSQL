@@ -118,6 +118,7 @@ public class DBTools {
 		int readB = 0;
 		FileOutputStream out = null;
 		try {
+			// write database to prop file
 			out = new FileOutputStream(Constants.DB_FILE);
 			while ((readB = enInput.read()) != -1) {
 				out.write(readB);
@@ -143,6 +144,7 @@ public class DBTools {
 	}
 
 	private static String getDBInfo() {
+		// create the prop string
 		StringBuilder data = new StringBuilder();
 		data.append("#").append(Constants.LINE_SEPERATOR).append("# Connections").append(Constants.LINE_SEPERATOR)
 				.append("#").append(Constants.LINE_SEPERATOR).append(Tools.getFixString(CON_COUNT, 20)).append(" = ")
