@@ -45,6 +45,7 @@ public class DBLoader {
 			return loadSchemaNode(session, con, node);
 		}
 
+		// load all catalogs
 		return loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
 				Constants.MY_CATALOG);
 	}
@@ -56,15 +57,21 @@ public class DBLoader {
 			return false;
 		}
 
+		// load all schemas
 		loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_SCHEMA, Constants.MY_SCHEMA);
+
+		// load tables and views for each schema
 		for (int i = 0; i < node.getChildCount(); i++) {
 			TreeNode child = (TreeNode) node.getChildAt(i);
+
+			// load tables
 			TreeNode tables = new TreeNode(Constants.NAME_TABLES, Constants.NODE_TABLES);
 			tables.addToParent(child);
 			tables.getInfo().setCatalog(node.getInfo().getCatalog());
 			tables.getInfo().setSchema(node.getInfo().getSchema());
 			loadTableNode(session, con, tables);
 
+			// load views
 			TreeNode views = new TreeNode(Constants.NAME_VIEWS, Constants.NODE_VIEWS);
 			views.addToParent(child);
 			views.getInfo().setCatalog(node.getInfo().getCatalog());
