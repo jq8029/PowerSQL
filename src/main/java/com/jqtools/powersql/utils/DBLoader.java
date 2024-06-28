@@ -21,7 +21,7 @@ public class DBLoader {
 
 		try {
 			// create connection first
-			con = DBTools.getConnection(session.getDbInfo());
+			con = DBTools.createConnection(session.getDbInfo());
 
 			// load all database nodes
 			loadCatalogNode(session, con, session.getDbNode());
