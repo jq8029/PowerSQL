@@ -76,7 +76,7 @@ public class DBLoader {
 			views.addToParent(child);
 			views.getInfo().setCatalog(node.getInfo().getCatalog());
 			views.getInfo().setSchema(node.getInfo().getSchema());
-			loadTableNode(session, con, views);
+			loadViewNode(session, con, views);
 		}
 
 		return true;
