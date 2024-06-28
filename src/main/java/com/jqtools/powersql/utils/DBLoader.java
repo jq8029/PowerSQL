@@ -55,23 +55,20 @@ public class DBLoader {
 			return false;
 		}
 
-		ResultSet rs = null;
-		PreparedStatement stmt = null;
-		Info info = null;
-		TreeNode newNode = null;
+		loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_SCHEMA, Constants.MY_SCHEMA);
+		for (int i = 0; i < node.getChildCount(); i++) {
+			TreeNode child = (TreeNode) node.getChildAt(i);
+			TreeNode tables = new TreeNode(Constants.NAME_TABLES, Constants.NODE_TABLES);
+			tables.addToParent(child);
+			tables.getInfo().setCatalog(node.getInfo().getCatalog());
+			tables.getInfo().setSchema(node.getInfo().getSchema());
+			loadTableNode(session, con, tables);
 
-		try {
-			rs = (stmt = DBTools.getStatement(con, sql)).executeQuery();
-			while (rs.next()) {
-				info = new Info();
-				info.setSchema(DBTools.getValue(rs, Constants.MY_SCHEMA));
-				info.setName(info.getSchema());
-				info.setNodeType(Constants.NODE_SCHEMA);
-				newNode = new TreeNode(info);
-				node.addToParent(newNode);
-			}
-		} finally {
-			DBTools.close(stmt, rs);
+			TreeNode views = new TreeNode(Constants.NAME_VIEWS, Constants.NODE_VIEWS);
+			views.addToParent(child);
+			views.getInfo().setCatalog(node.getInfo().getCatalog());
+			views.getInfo().setSchema(node.getInfo().getSchema());
+			loadTableNode(session, con, views);
 		}
 
 		return true;
