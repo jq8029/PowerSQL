@@ -43,6 +43,7 @@ public class DBLoader {
 
 	private static boolean loadCatalogNode(Session session, Connection con, TreeNode node) throws Exception {
 		if (session.getDbData().getCatalogAllSQL() == null) {
+			// load schemas if there is no catalog
 			return loadSchemaNode(session, con, node);
 		}
 
