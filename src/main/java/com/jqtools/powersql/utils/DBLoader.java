@@ -20,9 +20,10 @@ public class DBLoader {
 		Connection con = null;
 
 		try {
-
+			// create connection first
 			con = DBTools.getConnection(session.getDbInfo());
 
+			// load all database nodes
 			loadCatalogNode(session, con, session.getDbNode());
 		} catch (Throwable e) {
 			MessageLogger.error(e);
