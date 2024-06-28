@@ -178,11 +178,12 @@ public class DBTools {
 		return data.toString();
 	}
 
-	public static Connection getConnection(DatabaseInfo dbInfo) throws Exception {
+	public static Connection createConnection(DatabaseInfo dbInfo) throws Exception {
 		if (dbInfo == null) {
 			return null;
 		}
 
+		// create connection based on database info.
 		Connection con = null;
 
 		addFile(dbInfo.getJarFiles());
