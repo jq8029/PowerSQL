@@ -61,8 +61,8 @@ public class DBTools {
 
 		save();
 	}
-	
-	public static TreeMap<String, DatabaseInfo> getConMap() {
+
+	private static TreeMap<String, DatabaseInfo> getConMap() {
 		if (conMap == null) {
 			try {
 				buildDbMap();
@@ -70,7 +70,7 @@ public class DBTools {
 				MessageLogger.error(e);
 			}
 		}
-		
+
 		return conMap;
 	}
 
@@ -176,6 +176,18 @@ public class DBTools {
 		}
 
 		return data.toString();
+	}
+
+	public static ArrayList<String> getConNames() {
+		if (conNames == null) {
+			try {
+				buildDbMap();
+			} catch (Exception e) {
+				MessageLogger.error(e);
+			}
+		}
+
+		return conNames;
 	}
 
 	public static Connection createConnection(DatabaseInfo dbInfo) throws Exception {
