@@ -111,6 +111,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			node.getInfo().setNodeType(Constants.NODE_CONNECTION);
 			session.setDbNode(node);
 			session.setDbInfo(DBTools.getDBConnection(name));
+			session.setDbData(DBTools.getDatabaseData(session.getDbInfo().getDbName()));
 			DBLoader.loadDBNode(session);
 		}
 	}
