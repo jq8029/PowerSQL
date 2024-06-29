@@ -37,5 +37,5 @@ public class Constants {
 	public static final String MY_VIEW = "MY_VIEW";
 
 	public static final String DB_H2 = "H2";
-	public static final String DB_MySQL = "MySQL";
+	public static final String DB_MYSQL = "MySQL";
 }
