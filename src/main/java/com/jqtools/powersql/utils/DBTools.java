@@ -19,6 +19,9 @@ import java.util.Properties;
 import java.util.TreeMap;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.db.DatabaseData;
+import com.jqtools.powersql.db.H2Data;
+import com.jqtools.powersql.db.MySQLData;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.DatabaseInfo;
 
@@ -209,6 +212,16 @@ public class DBTools {
 		}
 
 		return con;
+	}
+
+	public static DatabaseData getDatabaseData(String dbName) {
+		if (Constants.DB_H2.equals(dbName)) {
+			return new H2Data();
+		} else if (Constants.DB_MYSQL.equals(dbName)) {
+			return new MySQLData();
+		}
+
+		return null;
 	}
 
 	public static PreparedStatement getStatement(Connection conn, String sql) throws Exception {
