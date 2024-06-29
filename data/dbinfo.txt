@@ -12,7 +12,7 @@ connections     = 2
 01_driver            = org.h2.Driver
 01_jar               = data/h2-1.2.147.jar
 01_url               = data\\test.txt.h2.db
-02_db_name           = H2
+01_db_name           = H2
 
 #
 # Connection 02
