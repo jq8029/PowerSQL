@@ -42,13 +42,7 @@ public class DBTools {
 		if (conName == null)
 			return null;
 
-		if (conMap == null) {
-			try {
-				buildDbMap();
-			} catch (Exception e) {
-				MessageLogger.error(e);
-			}
-		}
+		TreeMap<String, DatabaseInfo> conMap = getConMap();
 
 		return conMap.get(conName);
 	}
@@ -58,6 +52,15 @@ public class DBTools {
 	}
 
 	public static void updateDBConnection(String conName, DatabaseInfo dbCon) {
+		conMap.put(conName, dbCon);
+		if (!conNames.contains(conName)) {
+			conNames.add(conName);
+		}
+
+		save();
+	}
+
+	public static TreeMap<String, DatabaseInfo> getConMap() {
 		if (conMap == null) {
 			try {
 				buildDbMap();
@@ -66,12 +69,7 @@ public class DBTools {
 			}
 		}
 
-		conMap.put(conName, dbCon);
-		if (!conNames.contains(conName)) {
-			conNames.add(conName);
-		}
-
-		save();
+		return conMap;
 	}
 
 	private static void buildDbMap() throws Exception {
