@@ -7,6 +7,7 @@ public class DatabaseInfo {
 	private String driverName = null;
 	private String jarFiles = null;
 	private String url = null;
+	private String dbName = null;
 
 	/**
 	 * @return the name
@@ -92,11 +93,19 @@ public class DatabaseInfo {
 		this.url = url;
 	}
 
+	public String getDbName() {
+		return dbName;
+	}
+
+	public void setDbName(String dbName) {
+		this.dbName = dbName;
+	}
+
 	public String toString() {
 		StringBuffer buffer = new StringBuffer().append("DatabaseInfo : ").append("name = ").append(name).append(", ")
 				.append("user = ").append(user).append(", ").append("password = ").append(password).append(", ")
 				.append("driverName = ").append(driverName).append(", ").append("jarFiles = ").append(jarFiles)
-				.append(", ").append("url = ").append(url).append(")");
+				.append(", ").append("url = ").append(url).append(", ").append("dbName = ").append(dbName).append(")");
 
 		return buffer.toString();
 	}
