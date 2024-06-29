@@ -107,6 +107,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		for (String name : conNames) {
 			node = new TreeNode(name);
 			session = new Session();
+			node.addToParent(root);
 			node.getInfo().setNodeType(Constants.NODE_CONNECTION);
 			session.setDbNode(node);
 			session.setDbInfo(DBTools.getDBConnection(name));
