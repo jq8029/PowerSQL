@@ -2,6 +2,7 @@ package com.jqtools.powersql;
 
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -17,7 +18,10 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.ResultTableModel;
+import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
+import com.jqtools.powersql.utils.DBLoader;
+import com.jqtools.powersql.utils.DBTools;
 
 public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
@@ -97,7 +101,17 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	}
 
 	public void loadTreeNodes(TreeNode root) {
-
+		ArrayList<String> conNames = DBTools.getConNames();
+		TreeNode node = null;
+		Session session = null;
+		for (String name : conNames) {
+			node = new TreeNode(name);
+			session = new Session();
+			node.getInfo().setNodeType(Constants.NODE_CONNECTION);
+			session.setDbNode(node);
+			session.setDbInfo(DBTools.getDBConnection(name));
+			DBLoader.loadDBNode(session);
+		}
 	}
 
 	public void displayNode(TreeNode node) {
