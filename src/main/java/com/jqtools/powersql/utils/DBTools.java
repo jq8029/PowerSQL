@@ -52,6 +52,8 @@ public class DBTools {
 	}
 
 	public static void updateDBConnection(String conName, DatabaseInfo dbCon) {
+		TreeMap<String, DatabaseInfo> conMap = getConMap();
+
 		conMap.put(conName, dbCon);
 		if (!conNames.contains(conName)) {
 			conNames.add(conName);
@@ -59,7 +61,7 @@ public class DBTools {
 
 		save();
 	}
-
+	
 	public static TreeMap<String, DatabaseInfo> getConMap() {
 		if (conMap == null) {
 			try {
@@ -68,7 +70,7 @@ public class DBTools {
 				MessageLogger.error(e);
 			}
 		}
-
+		
 		return conMap;
 	}
 
