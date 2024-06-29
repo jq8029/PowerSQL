@@ -77,6 +77,9 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		mainSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
 		mainSplitPane.setDividerLocation(Constants.LEFT_WIDE);
 
+		// load all table nodes
+		loadTreeNodes(root);
+
 		// show main frame
 		this.pack();
 		this.setVisible(true);
@@ -91,6 +94,10 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
 		}
+	}
+
+	public void loadTreeNodes(TreeNode root) {
+
 	}
 
 	public void displayNode(TreeNode node) {
