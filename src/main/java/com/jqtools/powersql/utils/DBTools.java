@@ -34,6 +34,7 @@ public class DBTools {
 	private static final int DRIVER = 3;
 	private static final int JAR = 4;
 	private static final int URL = 5;
+	private static final int DBNAME = 6;
 
 	private static final String CON_COUNT = "connections";
 	private static final String CON_STRINGS[] = { "_name", "_user", "_pwd", "_driver", "_jar", "_url", "_db_name" };
@@ -101,6 +102,7 @@ public class DBTools {
 			con.setDriverName(getProp(prop, prefix + CON_STRINGS[DRIVER]));
 			con.setJarFiles(getProp(prop, prefix + CON_STRINGS[JAR]));
 			con.setUrl(getProp(prop, prefix + CON_STRINGS[URL]));
+			con.setDbName(getProp(prop, prefix + CON_STRINGS[DBNAME]));
 
 			conMap.put(con.getName(), con);
 			conNames.add(con.getName());
@@ -173,6 +175,8 @@ public class DBTools {
 							.append(Tools.replaceBackward(con.getJarFiles())).append(Constants.LINE_SEPERATOR)
 							.append(Tools.getFixString(prefix + CON_STRINGS[URL], 20)).append(" = ")
 							.append(Tools.replaceBackward(con.getUrl())).append(Constants.LINE_SEPERATOR)
+							.append(Tools.getFixString(prefix + CON_STRINGS[DBNAME], 20)).append(" = ")
+							.append(Tools.replaceBackward(con.getDbName())).append(Constants.LINE_SEPERATOR)
 							.append(Constants.LINE_SEPERATOR);
 				}
 			}
