@@ -62,6 +62,6 @@ public class TreeNode extends DefaultMutableTreeNode {
 
 	// return the display tree node name
 	public String toString() {
-		return this.info == null ? "" : this.toString();
+		return this.info == null ? "" : this.info.toString();
 	}
 }
