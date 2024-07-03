@@ -205,7 +205,8 @@ public class DBTools {
 		// create connection based on database info.
 		Connection con = null;
 
-		addFile(dbInfo.getJarFiles());
+		loadLibrary(dbInfo.getJarFiles());
+//		addFile(dbInfo.getJarFiles());
 
 		Class.forName(dbInfo.getDriverName());
 
@@ -263,6 +264,21 @@ public class DBTools {
 			} catch (Exception e) {
 			}
 		}
+	}
+
+	public static synchronized boolean loadLibrary(String fileName) throws Exception {
+		if (fileName == null)
+			return false;
+
+		File jar = new File(fileName);
+
+		URL url = jar.toURI().toURL();
+		java.lang.reflect.Method method = java.net.URLClassLoader.class.getDeclaredMethod("addURL",
+				new Class[] { java.net.URL.class });
+		method.setAccessible(true); /* promote the method to public access */
+		method.invoke(Thread.currentThread().getContextClassLoader(), new Object[] { url });
+
+		return true;
 	}
 
 	public static boolean addFile(String fileName) throws Exception {
