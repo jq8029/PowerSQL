@@ -11,7 +11,7 @@ connections     = 2
 01_pwd               = 
 01_driver            = org.h2.Driver
 01_jar               = files/h2-2.2.224.jar
-01_url               = jdbc:h2:~/data/test.h2.db
+01_url               = jdbc:h2:file:C:\\Temp\\H2\\test.h2.db
 01_db_name           = H2
 
 #
