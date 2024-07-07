@@ -49,7 +49,7 @@ public class DBLoader {
 
 		// load all catalogs
 		return loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
-				Constants.MY_CATALOG);
+				session.getDbData().getCatalogName());
 	}
 
 	private static boolean loadSchemaNode(Session session, Connection con, TreeNode node) throws Exception {
@@ -60,7 +60,8 @@ public class DBLoader {
 		}
 
 		// load all schemas
-		loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_SCHEMA, Constants.MY_SCHEMA);
+		loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_SCHEMA,
+				session.getDbData().getSchemaName());
 
 		// load tables and views for each schema
 		for (int i = 0; i < node.getChildCount(); i++) {
@@ -85,17 +86,22 @@ public class DBLoader {
 	}
 
 	private static boolean loadTableNode(Session session, Connection con, TreeNode node) throws Exception {
-		return loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_TABLE, Constants.MY_TABLE);
+		return loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_TABLE,
+				session.getDbData().getTableName());
 	}
 
 	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
-		return loadNode(con, node, session.getDbData().getViewSchemaSQL(), Constants.NODE_VIEW, Constants.MY_VIEW);
+		return loadNode(con, node, session.getDbData().getViewSchemaSQL(), Constants.NODE_VIEW,
+				session.getDbData().getViewName());
 	}
 
 	private static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType, String colName)
 			throws Exception {
 		if (sql == null) {
 			return false;
+		}
+		if (node.getInfo().getCatalog() != null) {
+			sql.replaceFirst("?", node.getInfo().getCatalog());
 		}
 
 		ResultSet rs = null;
