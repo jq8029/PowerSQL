@@ -31,11 +31,6 @@ public class Constants {
 	public static final String NAME_TABLES = "Tables";
 	public static final String NAME_VIEWS = "Views";
 
-	public static final String MY_CATALOG = "MY_CATALOG";
-	public static final String MY_SCHEMA = "MY_SCHEMA";
-	public static final String MY_TABLE = "MY_TABLE";
-	public static final String MY_VIEW = "MY_VIEW";
-
 	public static final String DB_H2 = "H2";
 	public static final String DB_MYSQL = "MySQL";
 }
