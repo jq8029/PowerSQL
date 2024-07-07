@@ -48,8 +48,13 @@ public class DBLoader {
 		}
 
 		// load all catalogs
-		return loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
+		loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
 				session.getDbData().getCatalogName());
+		// load tables and views for each schema
+		for (int i = 0; i < node.getChildCount(); i++) {
+			loadSchemaNode(session, con, (TreeNode) node.getChildAt(i));
+		}
+		return true;
 	}
 
 	private static boolean loadSchemaNode(Session session, Connection con, TreeNode node) throws Exception {
@@ -57,11 +62,14 @@ public class DBLoader {
 
 		if (sql == null) {
 			return false;
+		} else {
+			if (node.getInfo().getCatalog() != null) {
+				sql = updateSQL(sql, node.getInfo().getCatalog());
+			}
 		}
 
 		// load all schemas
-		loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_SCHEMA,
-				session.getDbData().getSchemaName());
+		loadNode(con, node, sql, Constants.NODE_SCHEMA, session.getDbData().getSchemaName());
 
 		// load tables and views for each schema
 		for (int i = 0; i < node.getChildCount(); i++) {
@@ -86,13 +94,21 @@ public class DBLoader {
 	}
 
 	private static boolean loadTableNode(Session session, Connection con, TreeNode node) throws Exception {
-		return loadNode(con, node, session.getDbData().getTableSchemaSQL(), Constants.NODE_TABLE,
-				session.getDbData().getTableName());
+		String sql = session.getDbData().getTableSchemaSQL();
+		if (node.getInfo().getSchema() != null) {
+			sql = updateSQL(sql, node.getInfo().getSchema());
+		}
+
+		return loadNode(con, node, sql, Constants.NODE_TABLE, session.getDbData().getTableName());
 	}
 
 	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
-		return loadNode(con, node, session.getDbData().getViewSchemaSQL(), Constants.NODE_VIEW,
-				session.getDbData().getViewName());
+		String sql = session.getDbData().getViewSchemaSQL();
+		if (node.getInfo().getSchema() != null) {
+			sql = updateSQL(sql, node.getInfo().getSchema());
+		}
+
+		return loadNode(con, node, sql, Constants.NODE_VIEW, session.getDbData().getViewName());
 	}
 
 	private static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType, String colName)
@@ -125,5 +141,13 @@ public class DBLoader {
 		}
 
 		return true;
+	}
+
+	private static String updateSQL(String sql, String name) {
+		if (name == null) {
+			return sql;
+		} else {
+			return sql.replaceFirst("?", name);
+		}
 	}
 }
