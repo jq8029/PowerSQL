@@ -240,11 +240,12 @@ public class DBTools {
 	public static String getValue(ResultSet rs, String name) {
 		String value = null;
 
-		if (name == null)
-			return null;
-
 		try {
-			value = rs.getString(name);
+			if (name == null) {
+				value = rs.getString(1);
+			} else {
+				value = rs.getString(name);
+			}
 		} catch (Exception e) {
 		}
 
