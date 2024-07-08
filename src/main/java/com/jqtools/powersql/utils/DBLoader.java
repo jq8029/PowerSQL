@@ -86,14 +86,14 @@ public class DBLoader {
 			// load tables
 			TreeNode tables = new TreeNode(Constants.NAME_TABLES, Constants.NODE_TABLES);
 			tables.addToParent(child);
-			tables.getInfo().setCatalog(node.getInfo().getCatalog());
+			tables.getInfo().setCatalog(child.getInfo().getCatalog());
 			tables.getInfo().setSchema(child.getInfo().getSchema());
 			loadTableNode(session, con, tables);
 
 			// load views
 			TreeNode views = new TreeNode(Constants.NAME_VIEWS, Constants.NODE_VIEWS);
 			views.addToParent(child);
-			views.getInfo().setCatalog(node.getInfo().getCatalog());
+			views.getInfo().setCatalog(child.getInfo().getCatalog());
 			views.getInfo().setSchema(child.getInfo().getSchema());
 			loadViewNode(session, con, views);
 		}
@@ -138,6 +138,14 @@ public class DBLoader {
 				info.setSchema(node.getInfo().getSchema());
 				info.setName(DBTools.getValue(rs, colName));
 				info.setNodeType(nodeType);
+
+				// update the node catalog or schema
+				if (nodeType == Constants.NODE_CATALOG) {
+					info.setCatalog(info.getName());
+				} else if (nodeType == Constants.NODE_SCHEMA) {
+					info.setSchema(info.getName());
+				}
+
 				newNode = new TreeNode(info);
 				newNode.addToParent(node);
 			}
