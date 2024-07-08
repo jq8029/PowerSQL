@@ -50,9 +50,13 @@ public class DBLoader {
 		// load all catalogs
 		loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
 				session.getDbData().getCatalogName());
+
+		TreeNode child = null;
 		// load tables and views for each schema
 		for (int i = 0; i < node.getChildCount(); i++) {
-			loadSchemaNode(session, con, (TreeNode) node.getChildAt(i));
+			child = (TreeNode) node.getChildAt(i);
+			child.getInfo().setCatalog(child.getInfo().getName());
+			loadSchemaNode(session, con, child);
 		}
 		return true;
 	}
@@ -79,14 +83,14 @@ public class DBLoader {
 			TreeNode tables = new TreeNode(Constants.NAME_TABLES, Constants.NODE_TABLES);
 			tables.addToParent(child);
 			tables.getInfo().setCatalog(node.getInfo().getCatalog());
-			tables.getInfo().setSchema(node.getInfo().getSchema());
+			tables.getInfo().setSchema(child.getInfo().getSchema());
 			loadTableNode(session, con, tables);
 
 			// load views
 			TreeNode views = new TreeNode(Constants.NAME_VIEWS, Constants.NODE_VIEWS);
 			views.addToParent(child);
 			views.getInfo().setCatalog(node.getInfo().getCatalog());
-			views.getInfo().setSchema(node.getInfo().getSchema());
+			views.getInfo().setSchema(child.getInfo().getSchema());
 			loadViewNode(session, con, views);
 		}
 
@@ -116,9 +120,6 @@ public class DBLoader {
 		if (sql == null) {
 			return false;
 		}
-		if (node.getInfo().getCatalog() != null) {
-			sql.replaceFirst("?", node.getInfo().getCatalog());
-		}
 
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
@@ -134,7 +135,7 @@ public class DBLoader {
 				info.setName(DBTools.getValue(rs, colName));
 				info.setNodeType(nodeType);
 				newNode = new TreeNode(info);
-				node.addToParent(newNode);
+				newNode.addToParent(node);
 			}
 		} finally {
 			DBTools.close(stmt, rs);
@@ -147,7 +148,7 @@ public class DBLoader {
 		if (name == null) {
 			return sql;
 		} else {
-			return sql.replaceFirst("?", name);
+			return sql.replaceFirst("\\?", name);
 		}
 	}
 }
