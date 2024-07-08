@@ -51,14 +51,9 @@ public class DBLoader {
 		loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
 				session.getDbData().getCatalogName());
 
-		TreeNode child = null;
 		// load tables and views for each schema
 		for (int i = 0; i < node.getChildCount(); i++) {
-			child = (TreeNode) node.getChildAt(i);
-			// update the catalog
-			child.getInfo().setCatalog(child.getInfo().getName());
-
-			loadSchemaNode(session, con, child);
+			loadSchemaNode(session, con, (TreeNode) node.getChildAt(i));
 		}
 		return true;
 	}
