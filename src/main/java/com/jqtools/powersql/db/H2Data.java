@@ -3,26 +3,26 @@ package com.jqtools.powersql.db;
 public class H2Data extends DatabaseData {
 	@Override
 	public String getCatalogAllSQL() {
-		return "SELECT distinct CATALOG_NAME as MY_CATALOG FROM information_schema.CATALOGS order by CATALOG_NAME";
+		return "SELECT distinct TABLE_CATALOG FROM information_schema.TABLES order by TABLE_CATALOG";
 	}
 
 	@Override
 	public String getSchemaAllSQL() {
-		return "SELECT SCHEMA_NAME FROM information_schema.SCHEMATA where CATALOG_NAME = ? order by SCHEMA_NAME";
+		return "SELECT SCHEMA_NAME FROM information_schema.SCHEMATA where CATALOG_NAME = '?' order by SCHEMA_NAME";
 	}
 
 	@Override
 	public String getTableSchemaSQL() {
-		return "SELECT TABLE_NAME FROM information_schema.TABLES where TABLE_SCHEMA = ? and TABLE_TYPE = 'TABLE' order by TABLE_NAME";
+		return "SELECT TABLE_NAME FROM information_schema.TABLES where TABLE_SCHEMA = '?' and TABLE_TYPE = 'TABLE' order by TABLE_NAME";
 	}
 
 	@Override
 	public String getViewSchemaSQL() {
-		return "SELECT TABLE_NAME FROM information_schema.VIEWS where TABLE_SCHEMA = ? order by TABLE_NAME";
+		return "SELECT TABLE_NAME FROM information_schema.VIEWS where TABLE_SCHEMA = '?' order by TABLE_NAME";
 	}
 
 	public String getCatalogName() {
-		return "CATALOG_NAME";
+		return "TABLE_CATALOG";
 	}
 
 	public String getSchemaName() {
