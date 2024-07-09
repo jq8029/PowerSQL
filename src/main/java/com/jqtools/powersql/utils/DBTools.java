@@ -233,6 +233,8 @@ public class DBTools {
 		if (sql == null || sql.trim().length() == 0) {
 			return null;
 		} else {
+			MessageLogger.info("sql = " + sql);
+
 			return conn.prepareStatement(sql);
 		}
 	}
