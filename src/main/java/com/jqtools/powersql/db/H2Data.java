@@ -13,12 +13,12 @@ public class H2Data extends DatabaseData {
 
 	@Override
 	public String getTableSchemaSQL() {
-		return "SELECT TABLE_NAME FROM information_schema.TABLES where TABLE_SCHEMA = '?' and TABLE_TYPE = 'TABLE' order by TABLE_NAME";
+		return "SELECT TABLE_NAME FROM information_schema.TABLES where TABLE_SCHEMA = '?' and TABLE_TYPE <> 'VIEW' order by TABLE_NAME";
 	}
 
 	@Override
 	public String getViewSchemaSQL() {
-		return "SELECT TABLE_NAME FROM information_schema.VIEWS where TABLE_SCHEMA = '?' order by TABLE_NAME";
+		return "SELECT TABLE_NAME FROM information_schema.VIEWS where TABLE_SCHEMA = '?' and TABLE_TYPE = 'TABLE' order by TABLE_NAME";
 	}
 
 	public String getCatalogName() {
