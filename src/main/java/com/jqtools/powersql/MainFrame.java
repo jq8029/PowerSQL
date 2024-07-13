@@ -123,7 +123,9 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 
 	public void displayNode(TreeNode node) {
 		try {
-			// display node
+			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
+					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
+			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
 		}
