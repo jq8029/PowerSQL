@@ -13,6 +13,7 @@ public class ExecuteSQL {
 	public static boolean execute(Session session, String sql) {
 		PreparedStatement stat = null;
 		ResultSet result = null;
+		ArrayList<Object[]> data = new ArrayList<Object[]>();
 
 		try {
 			// execute sql
@@ -22,7 +23,6 @@ public class ExecuteSQL {
 
 				// retrieve result
 				int colNum = -1;
-				ArrayList<Object[]> data = new ArrayList<Object[]>();
 				Object objs[] = null;
 				if (result != null) {
 					while (result.next()) {
@@ -44,6 +44,7 @@ public class ExecuteSQL {
 		} catch (Throwable e) {
 			MessageLogger.error(e);
 		} finally {
+			session.getTableModel().setData(data);
 			session.getTableModel().resizeColumnWidth();
 			System.gc();
 		}
