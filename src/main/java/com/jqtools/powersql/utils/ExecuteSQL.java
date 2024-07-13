@@ -7,12 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
 	public static boolean loadTableData(Session session, Info info) {
 		StringBuilder sql = new StringBuilder().append("select * from ");
-		if (session.get)
+		if (info.getSchema() != null) {
+			sql.append(info.getSchema()).append(".");
+		}
+		sql.append(info.getName());
+
+		return execute(session, sql.toString());
 	}
 
 	public static boolean execute(Session session, String sql) {
