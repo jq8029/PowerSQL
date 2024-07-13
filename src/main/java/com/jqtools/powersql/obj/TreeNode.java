@@ -12,6 +12,7 @@ public class TreeNode extends DefaultMutableTreeNode {
 
 	private Info info = null;
 	private JTree tree = null;
+	private Session session = null;
 
 	public TreeNode(Info info) {
 		this.info = info;
@@ -46,6 +47,7 @@ public class TreeNode extends DefaultMutableTreeNode {
 		DefaultTreeModel model = (DefaultTreeModel) this.tree.getModel();
 		model.insertNodeInto((DefaultMutableTreeNode) this, (DefaultMutableTreeNode) parent, index);
 		model.nodeChanged(this);
+		this.session = parent.session;
 	}
 
 	public Info getInfo() {
@@ -58,6 +60,14 @@ public class TreeNode extends DefaultMutableTreeNode {
 
 	public void setTree(JTree tree) {
 		this.tree = tree;
+	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
 	}
 
 	// return the display tree node name
