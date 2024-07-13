@@ -50,6 +50,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		TreeNode root = new TreeNode(Constants.ROOT);
 		tree = new JTree(root);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
+		tree.addTreeSelectionListener(this);
 		root.setTree(tree);
 		leftScrollPane.setViewportView(tree);
 		leftScrollPane.updateUI();
