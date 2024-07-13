@@ -30,13 +30,6 @@ public class DBLoader {
 			MessageLogger.error(e);
 
 			return false;
-		} finally {
-			if (con != null) {
-				try {
-					con.close();
-				} catch (Exception e) {
-				}
-			}
 		}
 
 		return true;
