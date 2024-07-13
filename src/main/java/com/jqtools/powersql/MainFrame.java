@@ -22,6 +22,7 @@ import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
 import com.jqtools.powersql.utils.DBLoader;
 import com.jqtools.powersql.utils.DBTools;
+import com.jqtools.powersql.utils.ExecuteSQL;
 
 public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
@@ -110,6 +111,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			// add database node to root node
 			node.addToParent(root);
 			node.getInfo().setNodeType(Constants.NODE_CONNECTION);
+			node.setSession(session);
 
 			// add dbnode, dbinfo and dbdata to session
 			session.setDbNode(node);
@@ -125,6 +127,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		try {
 			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
 					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
+				ExecuteSQL.loadTableData(node.getSession(), node.getInfo());
 			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
