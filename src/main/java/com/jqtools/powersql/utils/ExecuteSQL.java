@@ -10,6 +10,11 @@ import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
+	public static boolean loadTableData(Session session, Info info) {
+		StringBuilder sql = new StringBuilder().append("select * from ");
+		if (session.get)
+	}
+
 	public static boolean execute(Session session, String sql) {
 		PreparedStatement stat = null;
 		ResultSet result = null;
