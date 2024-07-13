@@ -130,7 +130,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		try {
 			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
 					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
-				ExecuteSQL.loadTableData(node.getSession(), node.getInfo());
+				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()));
 			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
