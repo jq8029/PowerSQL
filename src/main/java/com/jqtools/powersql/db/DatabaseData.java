@@ -1,5 +1,7 @@
 package com.jqtools.powersql.db;
 
+import com.jqtools.powersql.obj.Info;
+
 public class DatabaseData {
 	public static final String MY_CATALOG = "MY_CATALOG";
 	public static final String MY_SCHEMA = "MY_SCHEMA";
@@ -36,5 +38,15 @@ public class DatabaseData {
 
 	public String getViewName() {
 		return MY_VIEW;
+	}
+
+	public String getTableSQL(Info info) {
+		StringBuilder sql = new StringBuilder().append("select * from ");
+		if (info.getSchema() != null) {
+			sql.append(info.getSchema()).append(".");
+		}
+		sql.append(info.getName());
+
+		return sql.toString();
 	}
 }
