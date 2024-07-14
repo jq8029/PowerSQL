@@ -7,15 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
 	public static boolean execute(Session session, String sql, JScrollPane scroll) {
 		PreparedStatement stat = null;
 		ResultSet result = null;
-		ArrayList<Object[]> data = new ArrayList<Object[]>();
+		ResultTableModel tableModel = new ResultTableModel();
+		tableModel.setData(new ArrayList<Object[]>());
 
 		try {
 			// execute sql
@@ -30,7 +33,7 @@ public class ExecuteSQL {
 					// load the result column number
 					if (colNum < 0) {
 						colNum = result.getMetaData().getColumnCount();
-						updateSession(session, result.getMetaData(), data);
+						updateSession(session, result.getMetaData(), tableModel);
 					}
 
 					while (result.next()) {
@@ -39,22 +42,22 @@ public class ExecuteSQL {
 						for (int i = 0; i < colNum; i++) {
 							objs[i] = result.getObject(i);
 						}
-						data.add(objs);
+						tableModel.getData().add(objs);
 					}
 				}
 			}
 		} catch (Throwable e) {
 			MessageLogger.error(e);
 		} finally {
-			session.getTableModel().setData(data);
-			session.getTableModel().resizeColumnWidth();
+			tableModel.setTable(new JTable(tableModel));
+			tableModel.resizeColumnWidth();
 			System.gc();
 		}
 
 		return true;
 	}
 
-	public static void updateSession(Session session, ResultSetMetaData metaData, ArrayList<Object[]> data)
+	public static void updateSession(Session session, ResultSetMetaData metaData, ResultTableModel tableModel)
 			throws SQLException {
 		int colNum = metaData.getColumnCount();
 		int colType[] = new int[colNum];
@@ -64,8 +67,7 @@ public class ExecuteSQL {
 			colNames[i] = metaData.getColumnName(i + 1);
 		}
 
-		session.getTableModel().setColNames(colNames);
-		session.getTableModel().setColTypes(colType);
-		session.getTableModel().setData(data);
+		tableModel.setColNames(colNames);
+		tableModel.setColTypes(colType);
 	}
 }
