@@ -58,8 +58,8 @@ public class ExecuteSQL {
 		int colType[] = new int[colNum];
 		String colNames[] = new String[colNum];
 		for (int i = 0; i < colNum; i++) {
-			colType[i] = metaData.getColumnType(i);
-			colNames[i] = metaData.getColumnName(i);
+			colType[i] = metaData.getColumnType(i + 1);
+			colNames[i] = metaData.getColumnName(i + 1);
 		}
 
 		session.getTableModel().setColNames(colNames);
