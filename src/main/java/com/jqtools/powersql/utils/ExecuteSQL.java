@@ -25,13 +25,13 @@ public class ExecuteSQL {
 				int colNum = -1;
 				Object objs[] = null;
 				if (result != null) {
-					while (result.next()) {
-						// load the result column number
-						if (colNum < 0) {
-							colNum = result.getMetaData().getColumnCount();
-							updateSession(session, result.getMetaData(), data);
-						}
+					// load the result column number
+					if (colNum < 0) {
+						colNum = result.getMetaData().getColumnCount();
+						updateSession(session, result.getMetaData(), data);
+					}
 
+					while (result.next()) {
 						// retrieve each column value
 						objs = new Object[colNum];
 						for (int i = 0; i < colNum; i++) {
