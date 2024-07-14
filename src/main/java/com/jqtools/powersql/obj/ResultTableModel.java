@@ -25,7 +25,6 @@ public class ResultTableModel extends AbstractTableModel {
 		this.colNames[0] = "Column";
 		this.colTypes = new int[1];
 		this.colTypes[0] = Types.CHAR;
-		this.table = new JTable(this);
 		this.resizeColumnWidth();
 	}
 
@@ -132,6 +131,10 @@ public class ResultTableModel extends AbstractTableModel {
 
 	public JTable getTable() {
 		return table;
+	}
+
+	public void setTable(JTable table) {
+		this.table = table;
 	}
 
 }
