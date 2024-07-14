@@ -6,11 +6,13 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JScrollPane;
+
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
-	public static boolean execute(Session session, String sql) {
+	public static boolean execute(Session session, String sql, JScrollPane scroll) {
 		PreparedStatement stat = null;
 		ResultSet result = null;
 		ArrayList<Object[]> data = new ArrayList<Object[]>();
