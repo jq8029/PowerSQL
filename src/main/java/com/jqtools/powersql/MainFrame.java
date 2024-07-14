@@ -29,8 +29,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
 	private JTree tree = null;
 	private RSyntaxTextArea textArea = null;
-	private ResultTableModel resultTableModel = new ResultTableModel();
-	private ResultTableModel dataTableModel = new ResultTableModel();
+	private JScrollPane resultScroll = new JScrollPane();
+	private JScrollPane dataScroll = new JScrollPane();
 
 	public static void main(String args[]) {
 		new MainFrame();
@@ -58,9 +58,9 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		// Right Panel : data/sql
 		JTabbedPane rightPanel = new JTabbedPane();
 		JPanel dataPanel = new JPanel(new BorderLayout());
-		JScrollPane scroll = new JScrollPane();
-		scroll.setViewportView(dataTableModel.getTable());
-		dataPanel.add(Constants.PANEL_CENTER, scroll);
+		ResultTableModel dataTableModel = new ResultTableModel();
+		dataScroll.setViewportView(dataTableModel.getTable());
+		dataPanel.add(Constants.PANEL_CENTER, dataScroll);
 		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		rightPanel.add(Constants.TAB_DATA, dataPanel);
 		rightPanel.add(Constants.TAB_SQL, sqlSplitPane);
@@ -71,9 +71,9 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		textArea = new RSyntaxTextArea();
 		textAreaPanel.add("Center", textArea);
 		JPanel resultPanel = new JPanel(new BorderLayout());
-		scroll = new JScrollPane();
-		scroll.setViewportView(resultTableModel.getTable());
-		resultPanel.add(Constants.PANEL_CENTER, scroll);
+		ResultTableModel resultTableModel = new ResultTableModel();
+		resultScroll.setViewportView(resultTableModel.getTable());
+		resultPanel.add(Constants.PANEL_CENTER, resultScroll);
 		sqlSplitPane.setTopComponent(textAreaPanel);
 		sqlSplitPane.setBottomComponent(resultPanel);
 		sqlSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
@@ -133,6 +133,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()));
 			}
 		} catch (Exception ex) {
+			ex.printStackTrace();
 			MessageLogger.error(ex);
 		}
 	}
