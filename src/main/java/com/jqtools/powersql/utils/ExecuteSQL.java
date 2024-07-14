@@ -51,6 +51,7 @@ public class ExecuteSQL {
 		} finally {
 			tableModel.setTable(new JTable(tableModel));
 			tableModel.resizeColumnWidth();
+			scroll.setViewportView(tableModel.getTable());
 			System.gc();
 		}
 
