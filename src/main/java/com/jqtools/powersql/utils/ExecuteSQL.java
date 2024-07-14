@@ -40,7 +40,7 @@ public class ExecuteSQL {
 						// retrieve each column value
 						objs = new Object[colNum];
 						for (int i = 0; i < colNum; i++) {
-							objs[i] = result.getObject(i);
+							objs[i] = result.getObject(i + 1);
 						}
 						tableModel.getData().add(objs);
 					}
