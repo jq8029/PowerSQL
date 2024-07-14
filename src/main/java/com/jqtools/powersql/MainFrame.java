@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
+import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -59,6 +60,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		JTabbedPane rightPanel = new JTabbedPane();
 		JPanel dataPanel = new JPanel(new BorderLayout());
 		ResultTableModel dataTableModel = new ResultTableModel();
+		dataTableModel.setTable(new JTable(dataTableModel));
 		dataScroll.setViewportView(dataTableModel.getTable());
 		dataPanel.add(Constants.PANEL_CENTER, dataScroll);
 		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
@@ -72,6 +74,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		textAreaPanel.add("Center", textArea);
 		JPanel resultPanel = new JPanel(new BorderLayout());
 		ResultTableModel resultTableModel = new ResultTableModel();
+		resultTableModel.setTable(new JTable(resultTableModel));
 		resultScroll.setViewportView(resultTableModel.getTable());
 		resultPanel.add(Constants.PANEL_CENTER, resultScroll);
 		sqlSplitPane.setTopComponent(textAreaPanel);
@@ -130,7 +133,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		try {
 			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
 					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
-				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()));
+				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()),
+						dataScroll);
 			}
 		} catch (Exception ex) {
 			ex.printStackTrace();
