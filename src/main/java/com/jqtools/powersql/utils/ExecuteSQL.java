@@ -47,6 +47,7 @@ public class ExecuteSQL {
 				}
 			}
 		} catch (Throwable e) {
+			e.printStackTrace();
 			MessageLogger.error(e);
 		} finally {
 			tableModel.setTable(new JTable(tableModel));
