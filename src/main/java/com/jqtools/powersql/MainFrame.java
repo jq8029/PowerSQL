@@ -2,6 +2,8 @@ package com.jqtools.powersql;
 
 import java.awt.BorderLayout;
 import java.awt.Toolkit;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 
 import javax.swing.JFrame;
@@ -90,6 +92,13 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 
 		// load all table nodes
 		loadTreeNodes(root);
+
+		// exit the tool after close the window
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				System.exit(0);
+			}
+		});
 
 		// show main frame
 		this.pack();
