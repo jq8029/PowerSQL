@@ -33,4 +33,7 @@ public class Constants {
 
 	public static final String DB_H2 = "H2";
 	public static final String DB_MYSQL = "MySQL";
+
+	public static final String KEY_EXEC_CURRENT_SQL = "Execute Current SQL";
+
 }
