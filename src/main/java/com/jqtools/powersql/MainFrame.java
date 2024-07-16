@@ -32,6 +32,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	private RSyntaxTextArea textArea = null;
 	private JScrollPane resultScroll = new JScrollPane();
 	private JScrollPane dataScroll = new JScrollPane();
+	private JTabbedPane rightPanel = new JTabbedPane();
 
 	public static void main(String args[]) {
 		new MainFrame();
@@ -57,7 +58,6 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		leftScrollPane.updateUI();
 
 		// Right Panel : data/sql
-		JTabbedPane rightPanel = new JTabbedPane();
 		JPanel dataPanel = new JPanel(new BorderLayout());
 		ResultTableModel dataTableModel = new ResultTableModel();
 		dataTableModel.setTable(new JTable(dataTableModel));
