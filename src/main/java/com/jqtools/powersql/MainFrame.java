@@ -63,7 +63,6 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		JPanel dataPanel = new JPanel(new BorderLayout());
 		ResultTableModel dataTableModel = new ResultTableModel();
 		dataTableModel.setTable(new JTable(dataTableModel));
-		dataScroll.setViewportView(dataTableModel.getTable());
 		dataPanel.add(Constants.PANEL_CENTER, dataScroll);
 		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		rightPanel.add(Constants.TAB_DATA, dataPanel);
@@ -77,7 +76,6 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		JPanel resultPanel = new JPanel(new BorderLayout());
 		ResultTableModel resultTableModel = new ResultTableModel();
 		resultTableModel.setTable(new JTable(resultTableModel));
-		resultScroll.setViewportView(resultTableModel.getTable());
 		resultPanel.add(Constants.PANEL_CENTER, resultScroll);
 		sqlSplitPane.setTopComponent(textAreaPanel);
 		sqlSplitPane.setBottomComponent(resultPanel);
