@@ -17,10 +17,9 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.TreeSelectionModel;
 
-import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
-
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.MainTextArea;
 import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
@@ -31,7 +30,7 @@ import com.jqtools.powersql.utils.ExecuteSQL;
 public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
 	private JTree tree = null;
-	private RSyntaxTextArea textArea = null;
+	private MainTextArea textArea = null;
 	private JScrollPane resultScroll = new JScrollPane();
 	private JScrollPane dataScroll = new JScrollPane();
 	private JTabbedPane rightPanel = new JTabbedPane();
@@ -71,7 +70,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		// sql panel : text area/table data
 		JPanel textAreaPanel = new JPanel();
 		textAreaPanel.setLayout(new BorderLayout());
-		textArea = new RSyntaxTextArea();
+		textArea = new MainTextArea();
+		textArea.setResultScroll(resultScroll);
 		textAreaPanel.add("Center", textArea);
 		JPanel resultPanel = new JPanel(new BorderLayout());
 		ResultTableModel resultTableModel = new ResultTableModel();
