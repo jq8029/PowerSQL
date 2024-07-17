@@ -14,6 +14,8 @@ public class MainTextArea extends RSyntaxTextArea {
 	private MainTextArea textArea = null;
 
 	public MainTextArea() {
+		textArea = this;
+
 		// register key to execute current sql
 		getActionMap().put(Constants.KEY_EXEC_CURRENT_SQL, new AbstractAction(Constants.KEY_EXEC_CURRENT_SQL) {
 			private static final long serialVersionUID = 4711206524548141227L;
