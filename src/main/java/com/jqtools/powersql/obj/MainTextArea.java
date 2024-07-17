@@ -5,6 +5,7 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
+import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
@@ -16,6 +17,7 @@ public class MainTextArea extends RSyntaxTextArea {
 	private static final long serialVersionUID = 1064609692697845846L;
 	private MainTextArea textArea = null;
 	private Session session = null;
+	private JScrollPane resultScroll = null;
 
 	public MainTextArea() {
 		textArea = this;
@@ -52,7 +54,6 @@ public class MainTextArea extends RSyntaxTextArea {
 								sql = textArea.getText().substring(start, end);
 							}
 						}
-
 					}
 				} catch (Exception e) {
 				}
@@ -66,4 +67,9 @@ public class MainTextArea extends RSyntaxTextArea {
 	public void setSession(Session session) {
 		this.session = session;
 	}
+
+	public void setResultScroll(JScrollPane resultScroll) {
+		this.resultScroll = resultScroll;
+	}
+
 }
