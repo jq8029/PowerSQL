@@ -15,6 +15,7 @@ public class MainTextArea extends RSyntaxTextArea {
 
 	private static final long serialVersionUID = 1064609692697845846L;
 	private MainTextArea textArea = null;
+	private Session session = null;
 
 	public MainTextArea() {
 		textArea = this;
@@ -25,6 +26,9 @@ public class MainTextArea extends RSyntaxTextArea {
 
 			public void actionPerformed(ActionEvent evt) {
 				try {
+					if (session == null)
+						return;
+
 					if (textArea != null && textArea.getText() != null && textArea.getText().trim().length() > 0) {
 						String sql = textArea.getSelectedText();
 
@@ -57,4 +61,7 @@ public class MainTextArea extends RSyntaxTextArea {
 
 	}
 
+	public void setSession(Session session) {
+		this.session = session;
+	}
 }
