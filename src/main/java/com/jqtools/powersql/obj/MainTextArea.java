@@ -26,9 +26,11 @@ public class MainTextArea extends RSyntaxTextArea {
 
 			public void actionPerformed(ActionEvent evt) {
 				try {
+					// skip it if there is no session
 					if (session == null)
 						return;
 
+					// skip it if no text in the textArea
 					if (textArea != null && textArea.getText() != null && textArea.getText().trim().length() > 0) {
 						String sql = textArea.getSelectedText();
 
