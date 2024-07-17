@@ -11,6 +11,7 @@ import javax.swing.KeyStroke;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.utils.ExecuteSQL;
 
 public class MainTextArea extends RSyntaxTextArea {
 
