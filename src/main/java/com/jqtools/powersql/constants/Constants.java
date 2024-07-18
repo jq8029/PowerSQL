@@ -36,4 +36,9 @@ public class Constants {
 
 	public static final String KEY_EXEC_CURRENT_SQL = "Execute Current SQL";
 
+	// message
+	public static String MESSAGE_INFO = "Info";
+	public static String MESSAGE_WARN = "Warning";
+	public static String MESSAGE_ERROR = "Error";
+	public static String MESSAGE_CONFIRM = "Confirm";
 }
