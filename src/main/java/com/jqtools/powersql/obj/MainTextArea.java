@@ -55,6 +55,8 @@ public class MainTextArea extends RSyntaxTextArea {
 								sql = textArea.getText().substring(start, end);
 							}
 						}
+
+						ExecuteSQL.execute(session, sql, resultScroll);
 					}
 				} catch (Exception e) {
 				}
