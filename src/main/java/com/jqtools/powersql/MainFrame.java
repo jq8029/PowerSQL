@@ -1,7 +1,6 @@
 package com.jqtools.powersql;
 
 import java.awt.BorderLayout;
-import java.awt.Toolkit;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -43,7 +42,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		this.setTitle(Constants.TITLE);
 		JSplitPane mainSplitPane = new JSplitPane();
 		this.add(Constants.PANEL_CENTER, mainSplitPane);
-		this.setPreferredSize(Toolkit.getDefaultToolkit().getScreenSize());
+		this.setPreferredSize(this.getMaximumSize());
 
 		// Left panel
 		JPanel leftPanel = new JPanel(new BorderLayout());
