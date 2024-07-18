@@ -41,4 +41,5 @@ public class Constants {
 	public static String MESSAGE_WARN = "Warning";
 	public static String MESSAGE_ERROR = "Error";
 	public static String MESSAGE_CONFIRM = "Confirm";
+	public static String MESSAGE_CLOSE = "Close";
 }
