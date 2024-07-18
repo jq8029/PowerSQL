@@ -143,6 +143,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 						dataScroll);
 				rightPanel.setSelectedIndex(0);
 			}
+
+			textArea.setSession(node.getSession());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			MessageLogger.error(ex);
