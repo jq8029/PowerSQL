@@ -163,6 +163,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()),
 						dataScroll);
 				rightPanel.setSelectedIndex(0);
+			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
+
 			}
 
 			textArea.setSession(node.getSession());
