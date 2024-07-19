@@ -1,6 +1,8 @@
 package com.jqtools.powersql;
 
 import java.awt.BorderLayout;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
@@ -53,6 +55,26 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		tree = new JTree(root);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.addTreeSelectionListener(this);
+		tree.addMouseListener(new MouseListener() {
+			public void mouseClicked(MouseEvent e) {
+			}
+
+			public void mouseEntered(MouseEvent e) {
+			}
+
+			public void mouseExited(MouseEvent e) {
+			}
+
+			public void mouseReleased(MouseEvent e) {
+			}
+
+			public void mousePressed(MouseEvent e) {
+				if (e.getClickCount() == 2) {
+					doubleClickNode();
+				}
+			}
+		});
+
 		root.setTree(tree);
 		leftScrollPane.setViewportView(tree);
 		leftScrollPane.updateUI();
@@ -150,4 +172,9 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			MessageLogger.error(ex);
 		}
 	}
+
+	private void doubleClickNode() {
+
+	}
+
 }
