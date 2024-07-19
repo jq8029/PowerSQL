@@ -24,6 +24,7 @@ import com.jqtools.powersql.obj.MainTextArea;
 import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
+import com.jqtools.powersql.utils.DBLoader;
 import com.jqtools.powersql.utils.DBTools;
 import com.jqtools.powersql.utils.ExecuteSQL;
 
@@ -171,6 +172,16 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	}
 
 	private void doubleClickNode() {
+		try {
+			TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
+
+			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION && node.getChildCount() == 0) {
+				// all database child nodes
+				DBLoader.loadDBNode(node.getSession());
+			}
+		} catch (Exception ex) {
+			MessageLogger.error(ex);
+		}
 	}
 
 }
