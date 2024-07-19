@@ -176,7 +176,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
 
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION && node.getChildCount() == 0) {
-				// all database child nodes
+				// load database child nodes
 				DBLoader.loadDBNode(node.getSession());
 			}
 		} catch (Exception ex) {
