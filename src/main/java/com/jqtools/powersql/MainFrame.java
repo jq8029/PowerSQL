@@ -20,6 +20,7 @@ import javax.swing.tree.TreeSelectionModel;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.obj.MainTextArea;
 import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
@@ -177,7 +178,11 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION && node.getChildCount() == 0) {
 				// load database child nodes
-				DBLoader.loadDBNode(node.getSession());
+				if (DBLoader.loadDBNode(node.getSession())) {
+					NoticeMessage.showMessage("Connected to database : " + node.getInfo().getName());
+				} else {
+					NoticeMessage.showMessage("Failed to connect database : " + node.getInfo().getName());
+				}
 			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
