@@ -321,6 +321,9 @@ public class DBTools {
 	}
 
 	public static void showDBInfo(JScrollPane scroll, DatabaseInfo info) {
+		if (info == null) {
+			return;
+		}
 
 		String colNames[] = { "Name", "Value" };
 		int colType[] = { Types.CHAR, Types.CHAR };
