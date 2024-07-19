@@ -68,6 +68,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			public void mouseReleased(MouseEvent e) {
 			}
 
+			// double click on tree node
 			public void mousePressed(MouseEvent e) {
 				if (e.getClickCount() == 2) {
 					doubleClickNode();
