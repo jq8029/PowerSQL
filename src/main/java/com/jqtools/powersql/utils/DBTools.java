@@ -14,9 +14,12 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.Properties;
 import java.util.TreeMap;
+
+import javax.swing.JScrollPane;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.db.DatabaseData;
@@ -24,6 +27,7 @@ import com.jqtools.powersql.db.H2Data;
 import com.jqtools.powersql.db.MySQLData;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.DatabaseInfo;
+import com.jqtools.powersql.obj.ResultTableModel;
 
 public class DBTools {
 	private static final Class<?>[] parameters = new Class[] { URL.class };
@@ -316,4 +320,43 @@ public class DBTools {
 		return true;
 	}
 
+	public static void showDBInfo(JScrollPane scroll, DatabaseInfo info) {
+
+		String colNames[] = { "Name", "Value" };
+		int colType[] = { Types.CHAR, Types.CHAR };
+		ResultTableModel tableModel = new ResultTableModel();
+		tableModel.setData(new ArrayList<Object[]>());
+		tableModel.setColNames(colNames);
+		tableModel.setColTypes(colType);
+
+		String[] objs = new String[2];
+		objs[0] = "Database Name";
+		objs[1] = info.getName();
+		tableModel.getData().add(objs);
+
+		objs = new String[2];
+		objs[0] = "User ID";
+		objs[1] = info.getUser();
+		tableModel.getData().add(objs);
+
+		objs = new String[2];
+		objs[0] = "Password";
+		objs[1] = Tools.getFixString("*", info.getPassword() == null ? 0 : info.getPassword().length());
+		tableModel.getData().add(objs);
+
+		objs = new String[2];
+		objs[0] = "Database URL";
+		objs[1] = info.getUrl();
+		tableModel.getData().add(objs);
+
+		objs = new String[2];
+		objs[0] = "Driver Name";
+		objs[1] = info.getDriverName();
+		tableModel.getData().add(objs);
+
+		objs = new String[2];
+		objs[0] = "Driver Jar";
+		objs[1] = info.getJarFiles();
+		tableModel.getData().add(objs);
+	}
 }
