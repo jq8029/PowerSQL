@@ -38,8 +38,6 @@ public class Constants {
 
 	// message
 	public static String MESSAGE_INFO = "Info";
-	public static String MESSAGE_WARN = "Warning";
-	public static String MESSAGE_ERROR = "Error";
 	public static String MESSAGE_CONFIRM = "Confirm";
 	public static String MESSAGE_CLOSE = "Close";
 }
