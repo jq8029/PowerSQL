@@ -345,7 +345,7 @@ public class DBTools {
 
 		objs = new String[2];
 		objs[0] = "Password";
-		objs[1] = Tools.getFixString("*", info.getPassword() == null ? 0 : info.getPassword().length());
+		objs[1] = Tools.getFixString("*", info.getPassword() == null ? 0 : info.getPassword().length(), '*', true);
 		tableModel.getData().add(objs);
 
 		objs = new String[2];
