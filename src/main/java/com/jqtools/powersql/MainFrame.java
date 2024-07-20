@@ -131,7 +131,16 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		try {
 			TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
 
-			displayNode(node);
+			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
+					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
+				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()),
+						dataScroll);
+				rightPanel.setSelectedIndex(0);
+			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
+				DBTools.showDBInfo(dataScroll, node.getSession().getDbInfo());
+			}
+
+			textArea.setSession(node.getSession());
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
 		}
@@ -153,24 +162,6 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			session.setDbNode(node);
 			session.setDbInfo(DBTools.getDBConnection(name));
 			session.setDbData(DBTools.getDatabaseData(session.getDbInfo().getDbName()));
-		}
-	}
-
-	public void displayNode(TreeNode node) {
-		try {
-			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
-					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
-				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()),
-						dataScroll);
-				rightPanel.setSelectedIndex(0);
-			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
-				DBTools.showDBInfo(dataScroll, node.getSession().getDbInfo());
-			}
-
-			textArea.setSession(node.getSession());
-		} catch (Exception ex) {
-			ex.printStackTrace();
-			MessageLogger.error(ex);
 		}
 	}
 
