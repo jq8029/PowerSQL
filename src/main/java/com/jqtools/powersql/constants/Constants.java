@@ -53,4 +53,8 @@ public class Constants {
 	public static String BUTTON_ADD = "Add";
 	public static String BUTTON_CLOSE = "Close";
 	public static String BUTTON_SAVE = "Save";
+
+	// Title
+	public static String TITLE_CONNECTION = "Connection";
+
 }
