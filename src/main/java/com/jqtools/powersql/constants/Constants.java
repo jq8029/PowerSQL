@@ -40,4 +40,12 @@ public class Constants {
 	public static String MESSAGE_INFO = "Info";
 	public static String MESSAGE_CONFIRM = "Confirm";
 	public static String MESSAGE_CLOSE = "Close";
+
+	// Connections
+	public static String CONNECTION_NAME = "Connection Name";
+	public static String CONNECTION_USER = "User Id";
+	public static String CONNECTION_PWD = "Password";
+	public static String CONNECTION_URL = "URL";
+	public static String CONNECTION_DRIVER_NAME = "Driver Name";
+	public static String CONNECTION_DRIVER_JAR = "Driver Jar Files";
 }
