@@ -164,7 +164,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 						dataScroll);
 				rightPanel.setSelectedIndex(0);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
-
+				DBTools.showDBInfo(dataScroll, node.getSession().getDbInfo());
 			}
 
 			textArea.setSession(node.getSession());
