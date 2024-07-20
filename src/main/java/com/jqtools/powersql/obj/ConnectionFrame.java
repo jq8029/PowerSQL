@@ -29,6 +29,14 @@ public class ConnectionFrame extends JFrame {
 
 	private static ConnectionFrame conFrame = null;
 
+	public static ConnectionFrame getInstance() {
+		if (conFrame == null) {
+			conFrame = new ConnectionFrame();
+		}
+
+		return conFrame;
+	}
+
 	private ConnectionFrame() {
 
 	}
