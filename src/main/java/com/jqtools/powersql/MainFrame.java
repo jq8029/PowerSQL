@@ -173,7 +173,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION && node.getChildCount() == 0) {
 				// load database child nodes
 				if (DBLoader.loadDBNode(node.getSession())) {
-					NoticeMessage.showMessage("Connected to database : " + node.getInfo().getName());
+//					NoticeMessage.showMessage("Connected to database : " + node.getInfo().getName());
 				} else {
 					NoticeMessage.showMessage("Failed to connect database : " + node.getInfo().getName());
 				}
