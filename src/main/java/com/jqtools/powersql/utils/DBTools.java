@@ -20,6 +20,7 @@ import java.util.Properties;
 import java.util.TreeMap;
 
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.db.DatabaseData;
@@ -362,6 +363,8 @@ public class DBTools {
 		objs[1] = info.getJarFiles();
 		tableModel.getData().add(objs);
 
+		tableModel.setTable(new JTable(tableModel));
+		tableModel.resizeColumnWidth();
 		scroll.setViewportView(tableModel.getTable());
 	}
 }
