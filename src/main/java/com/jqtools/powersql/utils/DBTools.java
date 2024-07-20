@@ -361,5 +361,7 @@ public class DBTools {
 		objs[0] = "Driver Jar";
 		objs[1] = info.getJarFiles();
 		tableModel.getData().add(objs);
+
+		scroll.setViewportView(tableModel.getTable());
 	}
 }
