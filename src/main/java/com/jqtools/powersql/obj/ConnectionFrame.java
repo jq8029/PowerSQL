@@ -79,7 +79,7 @@ public class ConnectionFrame extends JFrame {
 		this.panel.add(closeButton);
 
 		this.getContentPane().add("Center", panel);
-		this.panel.setPreferredSize(new Dimension(650, 500));
+		this.panel.setPreferredSize(new Dimension(390, 230));
 		this.pack();
 	}
 
