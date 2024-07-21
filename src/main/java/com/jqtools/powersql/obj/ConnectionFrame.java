@@ -38,6 +38,14 @@ public class ConnectionFrame extends JFrame {
 	}
 
 	private ConnectionFrame() {
+		this.setTitle(Constants.TITLE_CONNECTION);
 
+		for (int i = 0; i < names.length; i++) {
+
+		}
+	}
+
+	public static void main(String args[]) {
+		new ConnectionFrame().setVisible(true);
 	}
 }
