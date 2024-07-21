@@ -64,6 +64,8 @@ public class ConnectionFrame extends JFrame {
 			}
 			values[i].setBounds(x2, height, width2, 20);
 
+			this.panel.add(names[i]);
+			this.panel.add(values[i]);
 			height += 25;
 		}
 
