@@ -27,7 +27,7 @@ public class ConnectionFrame extends JFrame {
 
 	private JLabel names[] = new JLabel[TEXT.length];
 	private JTextField values[] = new JTextField[TEXT.length];
-	private JButton addButton = new JButton(Constants.BUTTON_ADD);
+	private JButton testButton = new JButton(Constants.BUTTON_TEST);
 	private JButton saveButton = new JButton(Constants.BUTTON_SAVE);
 	private JButton closeButton = new JButton(Constants.BUTTON_CLOSE);
 	private JPanel panel = new JPanel(null);
@@ -50,6 +50,7 @@ public class ConnectionFrame extends JFrame {
 		int height = 25;
 		int width1 = 150;
 		int width2 = 240;
+		int width = 80;
 
 		for (int i = 0; i < names.length; i++) {
 			names[i] = new JLabel(TEXT[i]);
@@ -68,6 +69,14 @@ public class ConnectionFrame extends JFrame {
 			this.panel.add(values[i]);
 			height += 25;
 		}
+
+		height += 15;
+		testButton.setBounds(x1 + width / 2, height, width, 20);
+		saveButton.setBounds(x1 + width + width / 2 + 15, height, width, 20);
+		closeButton.setBounds(x1 + width * 2 + width / 2 + 30, height, width, 20);
+		this.panel.add(testButton);
+		this.panel.add(saveButton);
+		this.panel.add(closeButton);
 
 		this.getContentPane().add("Center", panel);
 		this.panel.setPreferredSize(new Dimension(650, 500));
