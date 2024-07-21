@@ -1,8 +1,11 @@
 package com.jqtools.powersql.obj;
 
+import java.awt.Dimension;
+
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
@@ -27,6 +30,7 @@ public class ConnectionFrame extends JFrame {
 	private JButton addButton = new JButton(Constants.BUTTON_ADD);
 	private JButton saveButton = new JButton(Constants.BUTTON_SAVE);
 	private JButton closeButton = new JButton(Constants.BUTTON_CLOSE);
+	private JPanel panel = new JPanel(null);
 
 	private static ConnectionFrame conFrame = null;
 
@@ -62,6 +66,9 @@ public class ConnectionFrame extends JFrame {
 
 			height += 25;
 		}
+
+		this.getContentPane().add("Center", panel);
+		this.panel.setPreferredSize(new Dimension(650, 500));
 	}
 
 	public static void main(String args[]) {
