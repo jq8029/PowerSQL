@@ -45,8 +45,8 @@ public class ConnectionFrame extends JFrame {
 	private ConnectionFrame() {
 		this.setTitle(Constants.TITLE_CONNECTION);
 
-		int x1 = 200;
-		int x2 = 300;
+		int x1 = 20;
+		int x2 = 130;
 		int height = 25;
 		int width1 = 150;
 		int width2 = 240;
