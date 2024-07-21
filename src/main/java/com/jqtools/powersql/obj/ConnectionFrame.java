@@ -3,6 +3,7 @@ package com.jqtools.powersql.obj;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
@@ -40,8 +41,26 @@ public class ConnectionFrame extends JFrame {
 	private ConnectionFrame() {
 		this.setTitle(Constants.TITLE_CONNECTION);
 
-		for (int i = 0; i < names.length; i++) {
+		int x1 = 200;
+		int x2 = 300;
+		int height = 25;
+		int width1 = 150;
+		int width2 = 240;
 
+		for (int i = 0; i < names.length; i++) {
+			names[i] = new JLabel(TEXT[i]);
+
+			names[i].setBounds(x1, height, width1, 20);
+
+			if (i == INDEX_PWD) {
+				values[i] = new JPasswordField();
+			} else {
+				values[i] = new JTextField();
+				values[i].setBounds(x2, height, width2, 20);
+			}
+			values[i].setBounds(x2, height, width2, 20);
+
+			height += 25;
 		}
 	}
 
