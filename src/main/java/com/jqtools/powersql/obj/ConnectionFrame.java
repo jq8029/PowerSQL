@@ -3,6 +3,8 @@ package com.jqtools.powersql.obj;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -67,6 +69,19 @@ public class ConnectionFrame extends JFrame {
 				values[i].setBounds(x2, height, width2, 20);
 			}
 			values[i].setBounds(x2, height, width2, 20);
+			if (values[i] != null) {
+				values[i].addKeyListener(new KeyListener() {
+					public void keyPressed(KeyEvent e) {
+					}
+
+					public void keyReleased(KeyEvent e) {
+					}
+
+					public void keyTyped(KeyEvent e) {
+						saveButton.setEnabled(true);
+					}
+				});
+			}
 
 			this.panel.add(names[i]);
 			this.panel.add(values[i]);
