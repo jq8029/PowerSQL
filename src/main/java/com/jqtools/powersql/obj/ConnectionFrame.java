@@ -107,11 +107,19 @@ public class ConnectionFrame extends JFrame {
 	}
 
 	public void save() {
-
 	}
 
 	public void close() {
 		this.setVisible(false);
+	}
+
+	private String getValue(int index) {
+		String value = "";
+		if (index < values.length && values[index].getText() != null) {
+			value = values[index].getText().trim();
+		}
+
+		return value;
 	}
 
 	public static void main(String args[]) {
