@@ -12,6 +12,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.utils.DBTools;
 
 public class ConnectionFrame extends JFrame {
 	private static final long serialVersionUID = 4752644080497862101L;
@@ -107,6 +108,19 @@ public class ConnectionFrame extends JFrame {
 	}
 
 	public void save() {
+		String conName = getValue(INDEX_NAME);
+		DatabaseInfo dbInfo = DBTools.getDBConnection(conName);
+		if (dbInfo == null) {
+			dbInfo = new DatabaseInfo();
+		}
+
+		dbInfo.setUrl(getValue(INDEX_USER));
+		dbInfo.setPassword(getValue(INDEX_PWD));
+		dbInfo.setUrl(getValue(INDEX_URL));
+		dbInfo.setDriverName(getValue(INDEX_DRIVER));
+		dbInfo.setJarFiles(getValue(INDEX_JARS));
+
+		DBTools.updateDBConnection(conName, dbInfo);
 	}
 
 	public void close() {
