@@ -1,6 +1,8 @@
 package com.jqtools.powersql.obj;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -74,6 +76,11 @@ public class ConnectionFrame extends JFrame {
 		testButton.setBounds(x1 + width / 2, height, width, 20);
 		saveButton.setBounds(x1 + width + width / 2 + 15, height, width, 20);
 		closeButton.setBounds(x1 + width * 2 + width / 2 + 30, height, width, 20);
+		closeButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				close();
+			}
+		});
 		this.panel.add(testButton);
 		this.panel.add(saveButton);
 		this.panel.add(closeButton);
@@ -81,6 +88,10 @@ public class ConnectionFrame extends JFrame {
 		this.getContentPane().add("Center", panel);
 		this.panel.setPreferredSize(new Dimension(390, 230));
 		this.pack();
+	}
+
+	public void close() {
+
 	}
 
 	public static void main(String args[]) {
