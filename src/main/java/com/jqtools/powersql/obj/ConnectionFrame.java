@@ -74,7 +74,14 @@ public class ConnectionFrame extends JFrame {
 
 		height += 15;
 		testButton.setBounds(x1 + width / 2, height, width, 20);
+
 		saveButton.setBounds(x1 + width + width / 2 + 15, height, width, 20);
+		saveButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				save();
+			}
+		});
+
 		closeButton.setBounds(x1 + width * 2 + width / 2 + 30, height, width, 20);
 		closeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -88,6 +95,10 @@ public class ConnectionFrame extends JFrame {
 		this.getContentPane().add("Center", panel);
 		this.panel.setPreferredSize(new Dimension(390, 230));
 		this.pack();
+	}
+
+	public void save() {
+
 	}
 
 	public void close() {
