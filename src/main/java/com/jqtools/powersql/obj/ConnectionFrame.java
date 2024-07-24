@@ -111,7 +111,7 @@ public class ConnectionFrame extends JFrame {
 	}
 
 	public void close() {
-
+		this.setVisible(false);
 	}
 
 	public static void main(String args[]) {
