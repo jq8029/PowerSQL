@@ -102,6 +102,7 @@ public class ConnectionFrame extends JFrame {
 				save();
 			}
 		});
+		saveButton.setEnabled(false);
 
 		closeButton.setBounds(x1 + width * 2 + width / 2 + 30, height, width, 20);
 		closeButton.addActionListener(new ActionListener() {
