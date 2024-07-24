@@ -136,6 +136,8 @@ public class ConnectionFrame extends JFrame {
 		dbInfo.setJarFiles(getValue(INDEX_JARS));
 
 		DBTools.updateDBConnection(conName, dbInfo);
+
+		saveButton.setEnabled(false);
 	}
 
 	public void close() {
