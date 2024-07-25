@@ -15,6 +15,7 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.utils.DBTools;
 
 public class ConnectionFrame extends JFrame {
@@ -138,6 +139,13 @@ public class ConnectionFrame extends JFrame {
 			error = ex.getMessage();
 		}
 
+		if (conn == null) {
+			if (error == null) {
+				NoticeMessage.showMessage("Unable to connect database.");
+			} else {
+				NoticeMessage.showMessage("Unable to connect database.\n" + error.toString());
+			}
+		}
 	}
 
 	public void save() {
