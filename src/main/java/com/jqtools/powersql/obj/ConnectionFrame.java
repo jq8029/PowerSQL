@@ -145,6 +145,14 @@ public class ConnectionFrame extends JFrame {
 			} else {
 				NoticeMessage.showMessage("Unable to connect database.\n" + error.toString());
 			}
+		} else {
+			try {
+				conn.close();
+			} catch (Exception e) {
+			}
+			conn = null;
+
+			NoticeMessage.showMessage("Connect database successfully.");
 		}
 	}
 
