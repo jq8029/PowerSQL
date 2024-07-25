@@ -122,7 +122,7 @@ public class ConnectionFrame extends JFrame {
 	public void test() {
 		DatabaseInfo dbInfo = new DatabaseInfo();
 
-		dbInfo.setUrl(getValue(INDEX_USER));
+		dbInfo.setUser(getValue(INDEX_USER));
 		dbInfo.setPassword(getValue(INDEX_PWD));
 		dbInfo.setUrl(getValue(INDEX_URL));
 		dbInfo.setDriverName(getValue(INDEX_DRIVER));
@@ -160,7 +160,7 @@ public class ConnectionFrame extends JFrame {
 			dbInfo = new DatabaseInfo();
 		}
 
-		dbInfo.setUrl(getValue(INDEX_USER));
+		dbInfo.setUser(getValue(INDEX_USER));
 		dbInfo.setPassword(getValue(INDEX_PWD));
 		dbInfo.setUrl(getValue(INDEX_URL));
 		dbInfo.setDriverName(getValue(INDEX_DRIVER));
