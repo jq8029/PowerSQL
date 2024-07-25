@@ -95,8 +95,7 @@ public class DatabaseInfo {
 	public String toString() {
 		StringBuffer buffer = new StringBuffer().append("DatabaseInfo : ").append("name = ").append(name).append(", ")
 				.append("user = ").append(user).append(", ").append("password = ").append(password).append(", ")
-				.append("driverName = ").append(driverName).append(", ").append("jarFiles = ").append(jarFiles)
-				.append(", ").append("url = ").append(url).append(")");
+				.append("driverName = ").append(driverName).append(", ").append("url = ").append(url).append(")");
 
 		return buffer.toString();
 	}
