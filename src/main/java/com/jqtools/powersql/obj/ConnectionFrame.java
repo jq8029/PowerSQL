@@ -120,6 +120,13 @@ public class ConnectionFrame extends JFrame {
 	}
 
 	public void test() {
+		DatabaseInfo dbInfo = new DatabaseInfo();
+
+		dbInfo.setUrl(getValue(INDEX_USER));
+		dbInfo.setPassword(getValue(INDEX_PWD));
+		dbInfo.setUrl(getValue(INDEX_URL));
+		dbInfo.setDriverName(getValue(INDEX_DRIVER));
+		dbInfo.setJarFiles(getValue(INDEX_JARS));
 
 	}
 
