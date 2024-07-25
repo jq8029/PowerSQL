@@ -26,11 +26,9 @@ public class ConnectionFrame extends JFrame {
 	public static final int INDEX_PWD = 2;
 	public static final int INDEX_URL = 3;
 	public static final int INDEX_DRIVER = 4;
-	public static final int INDEX_JARS = 5;
 
 	private static final String TEXT[] = { Constants.CONNECTION_NAME, Constants.CONNECTION_USER,
-			Constants.CONNECTION_PWD, Constants.CONNECTION_URL, Constants.CONNECTION_DRIVER_NAME,
-			Constants.CONNECTION_DRIVER_JAR };
+			Constants.CONNECTION_PWD, Constants.CONNECTION_URL, Constants.CONNECTION_DRIVER_NAME };
 
 	private JLabel names[] = new JLabel[TEXT.length];
 	private JTextField values[] = new JTextField[TEXT.length];
@@ -128,7 +126,6 @@ public class ConnectionFrame extends JFrame {
 		dbInfo.setPassword(getValue(INDEX_PWD));
 		dbInfo.setUrl(getValue(INDEX_URL));
 		dbInfo.setDriverName(getValue(INDEX_DRIVER));
-		dbInfo.setJarFiles(getValue(INDEX_JARS));
 
 		Connection conn = null;
 		String error = null;
@@ -167,7 +164,6 @@ public class ConnectionFrame extends JFrame {
 		dbInfo.setPassword(getValue(INDEX_PWD));
 		dbInfo.setUrl(getValue(INDEX_URL));
 		dbInfo.setDriverName(getValue(INDEX_DRIVER));
-		dbInfo.setJarFiles(getValue(INDEX_JARS));
 
 		DBTools.updateDBConnection(conName, dbInfo);
 
