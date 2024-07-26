@@ -117,6 +117,8 @@ public class ConnectionFrame extends JFrame {
 		this.getContentPane().add("Center", panel);
 		this.panel.setPreferredSize(new Dimension(390, height + 45));
 		this.pack();
+
+		// set the frame to the window center
 		setLocationRelativeTo(this);
 	}
 
