@@ -5,11 +5,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.sql.Connection;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -120,6 +123,18 @@ public class ConnectionFrame extends JFrame {
 
 		// set the frame to the window center
 		setLocationRelativeTo(this);
+
+		// reminder to save the changes
+		this.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e) {
+				if (saveButton.isEnabled()) {
+					int option = NoticeMessage.showConfirm("Do you want to save the change?");
+					if (option == JOptionPane.YES_OPTION) {
+						save();
+					}
+				}
+			}
+		});
 	}
 
 	public void test() {
