@@ -57,4 +57,6 @@ public class Constants {
 	// Title
 	public static String TITLE_CONNECTION = "Connection";
 
+	// Messages
+	public static String MSG_SAVE_CHANGE = "Do you want to save the change?";
 }
