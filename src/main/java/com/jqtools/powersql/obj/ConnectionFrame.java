@@ -128,7 +128,7 @@ public class ConnectionFrame extends JFrame {
 		this.addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent e) {
 				if (saveButton.isEnabled()) {
-					int option = NoticeMessage.showConfirm("Do you want to save the change?");
+					int option = NoticeMessage.showConfirm(Constants.MSG_SAVE_CHANGE);
 					if (option == JOptionPane.YES_OPTION) {
 						save();
 					}
