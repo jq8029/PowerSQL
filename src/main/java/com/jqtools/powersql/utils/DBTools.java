@@ -37,12 +37,11 @@ public class DBTools {
 	private static final int USER = 1;
 	private static final int PWD = 2;
 	private static final int DRIVER = 3;
-	private static final int JAR = 4;
-	private static final int URL = 5;
-	private static final int DBNAME = 6;
+	private static final int URL = 4;
+	private static final int DBNAME = 5;
 
 	private static final String CON_COUNT = "connections";
-	private static final String CON_STRINGS[] = { "_name", "_user", "_pwd", "_driver", "_jar", "_url", "_db_name" };
+	private static final String CON_STRINGS[] = { "_name", "_user", "_pwd", "_driver", "_url", "_db_name" };
 
 	private static TreeMap<String, DatabaseInfo> conMap = null;
 	private static ArrayList<String> conNames = null;
@@ -105,7 +104,6 @@ public class DBTools {
 			con.setUser(getProp(prop, prefix + CON_STRINGS[USER]));
 			con.setPassword(getProp(prop, prefix + CON_STRINGS[PWD]));
 			con.setDriverName(getProp(prop, prefix + CON_STRINGS[DRIVER]));
-			con.setJarFiles(getProp(prop, prefix + CON_STRINGS[JAR]));
 			con.setUrl(getProp(prop, prefix + CON_STRINGS[URL]));
 			con.setDbName(getProp(prop, prefix + CON_STRINGS[DBNAME]));
 
@@ -176,8 +174,6 @@ public class DBTools {
 							.append(con.getPassword()).append(Constants.LINE_SEPERATOR)
 							.append(Tools.getFixString(prefix + CON_STRINGS[DRIVER], 20)).append(" = ")
 							.append(con.getDriverName()).append(Constants.LINE_SEPERATOR)
-							.append(Tools.getFixString(prefix + CON_STRINGS[JAR], 20)).append(" = ")
-							.append(Tools.replaceBackward(con.getJarFiles())).append(Constants.LINE_SEPERATOR)
 							.append(Tools.getFixString(prefix + CON_STRINGS[URL], 20)).append(" = ")
 							.append(Tools.replaceBackward(con.getUrl())).append(Constants.LINE_SEPERATOR)
 							.append(Tools.getFixString(prefix + CON_STRINGS[DBNAME], 20)).append(" = ")
@@ -209,9 +205,6 @@ public class DBTools {
 
 		// create connection based on database info.
 		Connection con = null;
-
-		loadLibrary(dbInfo.getJarFiles());
-//		addFile(dbInfo.getJarFiles());
 
 		Class.forName(dbInfo.getDriverName());
 
@@ -356,11 +349,6 @@ public class DBTools {
 		objs = new String[2];
 		objs[0] = "Driver Name";
 		objs[1] = info.getDriverName();
-		tableModel.getData().add(objs);
-
-		objs = new String[2];
-		objs[0] = "Driver Jar";
-		objs[1] = info.getJarFiles();
 		tableModel.getData().add(objs);
 
 		tableModel.setTable(new JTable(tableModel));
