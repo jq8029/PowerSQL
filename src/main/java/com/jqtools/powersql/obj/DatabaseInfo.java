@@ -5,7 +5,6 @@ public class DatabaseInfo {
 	private String user = null;
 	private String password = null;
 	private String driverName = null;
-	private String jarFiles = null;
 	private String url = null;
 
 	/**
@@ -65,20 +64,6 @@ public class DatabaseInfo {
 	}
 
 	/**
-	 * @return the jarFiles
-	 */
-	public String getJarFiles() {
-		return jarFiles;
-	}
-
-	/**
-	 * @param jarFiles the jarFiles to set
-	 */
-	public void setJarFiles(String jarFiles) {
-		this.jarFiles = jarFiles;
-	}
-
-	/**
 	 * @return the url
 	 */
 	public String getUrl() {
@@ -95,7 +80,7 @@ public class DatabaseInfo {
 	public String toString() {
 		StringBuffer buffer = new StringBuffer().append("DatabaseInfo : ").append("name = ").append(name).append(", ")
 				.append("user = ").append(user).append(", ").append("password = ").append(password).append(", ")
-				.append("driverName = ").append(driverName).append(", ").append("url = ").append(url).append(")");
+				.append("driverName = ").append(driverName).append(", ").append("url = ").append(url);
 
 		return buffer.toString();
 	}
