@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 
+import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.obj.ResultTableModel;
@@ -48,7 +49,7 @@ public class ExecuteSQL {
 				}
 			}
 		} catch (Throwable e) {
-			NoticeMessage.showMessage("Failed to execute sql : \n" + sql);
+			NoticeMessage.showMessage(Constants.MSG_FAIL_EXEC + sql);
 			e.printStackTrace();
 			MessageLogger.error(e);
 		} finally {
