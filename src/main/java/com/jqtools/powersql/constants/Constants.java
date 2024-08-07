@@ -59,5 +59,6 @@ public class Constants {
 
 	// Messages
 	public static String MSG_SAVE_CHANGE = "Do you want to save the change?";
-	public static String MSG_CONNECTION_FAILED = "Failed to connect database : ";
+	public static String MSG_CONN_FAILED = "Failed to connect database : ";
+	public static String MSG_UNABLE_CONN = "Unable to connect database.";
 }
