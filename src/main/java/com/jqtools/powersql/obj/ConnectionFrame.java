@@ -156,9 +156,9 @@ public class ConnectionFrame extends JFrame {
 
 		if (conn == null) {
 			if (error == null) {
-				NoticeMessage.showMessage("Unable to connect database.");
+				NoticeMessage.showMessage(Constants.MSG_UNABLE_CONN);
 			} else {
-				NoticeMessage.showMessage("Unable to connect database.\n" + error.toString());
+				NoticeMessage.showMessage(Constants.MSG_UNABLE_CONN + "\n" + error.toString());
 			}
 		} else {
 			try {
