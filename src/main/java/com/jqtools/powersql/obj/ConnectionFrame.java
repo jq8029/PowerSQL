@@ -167,7 +167,7 @@ public class ConnectionFrame extends JFrame {
 			}
 			conn = null;
 
-			NoticeMessage.showMessage("Connect database successfully.");
+			NoticeMessage.showMessage(Constants.MSG_CONN_SUCCESS);
 		}
 	}
 
