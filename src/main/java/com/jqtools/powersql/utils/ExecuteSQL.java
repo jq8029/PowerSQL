@@ -49,7 +49,7 @@ public class ExecuteSQL {
 				}
 			}
 		} catch (Throwable e) {
-			NoticeMessage.showMessage(Constants.MSG_FAIL_EXEC + sql);
+			NoticeMessage.showMessage(Constants.MSG_FAIL_EXECUTE + sql);
 			e.printStackTrace();
 			MessageLogger.error(e);
 		} finally {
