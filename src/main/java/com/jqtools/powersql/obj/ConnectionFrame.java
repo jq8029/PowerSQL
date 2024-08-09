@@ -201,7 +201,7 @@ public class ConnectionFrame extends JFrame {
 		return value;
 	}
 
-	public static void main(String args[]) {
-		new ConnectionFrame().setVisible(true);
-	}
+//	public static void main(String args[]) {
+//		new ConnectionFrame().setVisible(true);
+//	}
 }
