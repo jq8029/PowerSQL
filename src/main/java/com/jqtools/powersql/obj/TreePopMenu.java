@@ -23,13 +23,11 @@ public class TreePopMenu extends JPopupMenu implements ActionListener, ItemListe
 
 	@Override
 	public void itemStateChanged(ItemEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		// TODO Auto-generated method stub
 
 	}
 
