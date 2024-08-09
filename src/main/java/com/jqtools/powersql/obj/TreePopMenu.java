@@ -9,6 +9,8 @@ import javax.swing.JPopupMenu;
 
 public class TreePopMenu extends JPopupMenu implements ActionListener, ItemListener {
 
+	private static final long serialVersionUID = -3018117749624583256L;
+
 	public TreePopMenu() {
 		super("");
 	}
