@@ -13,6 +13,12 @@ public class TreePopMenu extends JPopupMenu implements ActionListener, ItemListe
 
 	public TreePopMenu() {
 		super("");
+
+		init();
+	}
+
+	private void init() {
+
 	}
 
 	@Override
