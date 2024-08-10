@@ -7,9 +7,13 @@ import java.awt.event.ItemListener;
 
 import javax.swing.JPopupMenu;
 
+import com.jqtools.powersql.constants.Constants;
+
 public class TreePopMenu extends JPopupMenu implements ActionListener, ItemListener {
 
 	private static final long serialVersionUID = -3018117749624583256L;
+
+	private static final String MENUS[] = { Constants.MENU_CREATE, Constants.MENU_EDIT, Constants.MENU_DELETE };
 
 	public TreePopMenu() {
 		super("");
