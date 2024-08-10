@@ -63,4 +63,9 @@ public class Constants {
 	public static String MSG_FAIL_EXECUTE = "Failed to execute sql : \n";
 	public static String MSG_CONN_SUCCESS = "Connect database successfully.";
 	public static String MSG_UNABLE_CONN = "Unable to connect database.";
+
+	// Menu
+	public static String MENU_CREATE = "Create";
+	public static String MENU_EDIT = "Edit";
+	public static String MENU_DELETE = "Delete";
 }
