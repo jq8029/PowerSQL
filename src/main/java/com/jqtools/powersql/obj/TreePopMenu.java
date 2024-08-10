@@ -5,6 +5,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
 
+import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 
 import com.jqtools.powersql.constants.Constants;
@@ -18,10 +19,12 @@ public class TreePopMenu extends JPopupMenu implements ActionListener, ItemListe
 	public TreePopMenu() {
 		super("");
 
-		init();
-	}
-
-	private void init() {
+		JMenuItem item;
+		for (String name : MENUS) {
+			item = new JMenuItem(name);
+			item.addActionListener(this);
+			add(item);
+		}
 
 	}
 
