@@ -135,6 +135,8 @@ public class ConnectionFrame extends JFrame {
 				}
 			}
 		});
+
+		this.setVisible(false);
 	}
 
 	public void test() {
