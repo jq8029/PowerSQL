@@ -45,6 +45,8 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			if (node == null) {
 				return;
 			}
+
+			ConnectionFrame.getInstance().setVisible(true);
 		} else if (Constants.MENU_CREATE.equalsIgnoreCase(text)) {
 			if (node == null) {
 				return;
