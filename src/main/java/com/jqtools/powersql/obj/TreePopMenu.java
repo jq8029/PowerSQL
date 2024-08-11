@@ -46,7 +46,9 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 				return;
 			}
 		} else if (Constants.MENU_CREATE.equalsIgnoreCase(text)) {
-
+			if (node == null) {
+				return;
+			}
 		}
 	}
 
