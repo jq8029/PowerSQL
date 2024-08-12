@@ -39,6 +39,7 @@ public class ConnectionFrame extends JFrame {
 	private JButton saveButton = new JButton(Constants.BUTTON_SAVE);
 	private JButton closeButton = new JButton(Constants.BUTTON_CLOSE);
 	private JPanel panel = new JPanel(null);
+	private DatabaseInfo dbInfo = null;
 
 	private static ConnectionFrame conFrame = null;
 
@@ -192,6 +193,10 @@ public class ConnectionFrame extends JFrame {
 
 	public void close() {
 		this.setVisible(false);
+	}
+
+	public void setDatabaseInfo(DatabaseInfo dbInfo) {
+		this.dbInfo = dbInfo;
 	}
 
 	private String getValue(int index) {
