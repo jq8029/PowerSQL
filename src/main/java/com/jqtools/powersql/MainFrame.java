@@ -25,6 +25,7 @@ import com.jqtools.powersql.obj.MainTextArea;
 import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
+import com.jqtools.powersql.obj.TreePopMenu;
 import com.jqtools.powersql.utils.DBLoader;
 import com.jqtools.powersql.utils.DBTools;
 import com.jqtools.powersql.utils.ExecuteSQL;
@@ -32,6 +33,7 @@ import com.jqtools.powersql.utils.ExecuteSQL;
 public class MainFrame extends JFrame implements TreeSelectionListener {
 	private static final long serialVersionUID = 7976543774029147512L;
 	private JTree tree = null;
+	private TreePopMenu popMenu = null;
 	private MainTextArea textArea = null;
 	private JScrollPane resultScroll = new JScrollPane();
 	private JScrollPane dataScroll = new JScrollPane();
@@ -76,6 +78,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 				}
 			}
 		});
+		popMenu = new TreePopMenu(tree);
 
 		root.setTree(tree);
 		leftScrollPane.setViewportView(tree);
