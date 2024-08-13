@@ -27,7 +27,6 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			item.addActionListener(this);
 			add(item);
 		}
-
 	}
 
 	@Override
@@ -58,5 +57,4 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			}
 		}
 	}
-
 }
