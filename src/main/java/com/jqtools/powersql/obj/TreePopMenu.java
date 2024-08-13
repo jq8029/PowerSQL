@@ -2,12 +2,14 @@ package com.jqtools.powersql.obj;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
 
 import javax.swing.JMenuItem;
 import javax.swing.JPopupMenu;
 import javax.swing.JTree;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.MessageLogger;
 
 public class TreePopMenu extends JPopupMenu implements ActionListener {
 
@@ -54,6 +56,20 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 		} else if (Constants.MENU_CREATE.equalsIgnoreCase(text)) {
 			if (node == null) {
 				return;
+			}
+		}
+	}
+
+	public void showPopup(MouseEvent e) {
+		if (e.isPopupTrigger()) {
+			if ((TreeNode) tree.getLastSelectedPathComponent() != null) {
+				try {
+					show(e.getComponent(), e.getX(), e.getY());
+				} catch (Exception ex) {
+					MessageLogger.error(ex);
+				} finally {
+					System.gc();
+				}
 			}
 		}
 	}
