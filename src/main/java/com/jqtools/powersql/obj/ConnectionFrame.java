@@ -198,6 +198,11 @@ public class ConnectionFrame extends JFrame {
 	public void setDatabaseInfo(DatabaseInfo dbInfo) {
 		this.dbInfo = dbInfo;
 
+		setValue(dbInfo.getName(), INDEX_NAME);
+		setValue(dbInfo.getUser(), INDEX_USER);
+		setValue(dbInfo.getPassword(), INDEX_PWD);
+		setValue(dbInfo.getUrl(), INDEX_URL);
+		setValue(dbInfo.getDriverName(), INDEX_DRIVER);
 	}
 
 	private String getValue(int index) {
