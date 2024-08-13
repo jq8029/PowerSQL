@@ -69,6 +69,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			}
 
 			public void mouseReleased(MouseEvent e) {
+				popMenu.showPopup(e);
 			}
 
 			// double click on tree node
