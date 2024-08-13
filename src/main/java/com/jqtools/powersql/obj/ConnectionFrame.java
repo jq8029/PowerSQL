@@ -197,6 +197,7 @@ public class ConnectionFrame extends JFrame {
 
 	public void setDatabaseInfo(DatabaseInfo dbInfo) {
 		this.dbInfo = dbInfo;
+
 	}
 
 	private String getValue(int index) {
@@ -206,6 +207,11 @@ public class ConnectionFrame extends JFrame {
 		}
 
 		return value;
+	}
+
+	private void setValue(String value, int index) {
+		value = value == null ? "" : value;
+		values[index].setText(value);
 	}
 
 //	public static void main(String args[]) {
