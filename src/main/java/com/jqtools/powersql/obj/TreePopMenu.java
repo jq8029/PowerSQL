@@ -42,7 +42,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 
 		if (Constants.MENU_CREATE.equalsIgnoreCase(text)) {
 
-		} else if (Constants.MENU_CREATE.equalsIgnoreCase(text)) {
+		} else if (Constants.MENU_EDIT.equalsIgnoreCase(text)) {
 			if (node == null) {
 				return;
 			}
@@ -53,7 +53,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 				ConnectionFrame.getInstance().setDatabaseInfo(node.getSession().getDbInfo());
 			}
 			ConnectionFrame.getInstance().setVisible(true);
-		} else if (Constants.MENU_CREATE.equalsIgnoreCase(text)) {
+		} else if (Constants.MENU_DELETE.equalsIgnoreCase(text)) {
 			if (node == null) {
 				return;
 			}
