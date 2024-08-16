@@ -36,7 +36,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 		String text = e.getActionCommand();
 		TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
 
-		if (text == null) {
+		if (text == null || node == null || node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
 			return;
 		}
 
