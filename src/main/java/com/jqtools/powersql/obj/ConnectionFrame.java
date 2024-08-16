@@ -181,6 +181,7 @@ public class ConnectionFrame extends JFrame {
 			dbInfo = new DatabaseInfo();
 		}
 
+		dbInfo.setName(conName);
 		dbInfo.setUser(getValue(INDEX_USER));
 		dbInfo.setPassword(getValue(INDEX_PWD));
 		dbInfo.setUrl(getValue(INDEX_URL));
