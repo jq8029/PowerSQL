@@ -233,8 +233,4 @@ public class ConnectionFrame extends JFrame {
 		value = value == null ? "" : value;
 		values[index].setText(value);
 	}
-
-//	public static void main(String args[]) {
-//		new ConnectionFrame().setVisible(true);
-//	}
 }
