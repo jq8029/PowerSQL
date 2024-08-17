@@ -38,10 +38,9 @@ public class DBTools {
 	private static final int PWD = 2;
 	private static final int DRIVER = 3;
 	private static final int URL = 4;
-	private static final int DBNAME = 5;
 
 	private static final String CON_COUNT = "connections";
-	private static final String CON_STRINGS[] = { "_name", "_user", "_pwd", "_driver", "_url", "_db_name" };
+	private static final String CON_STRINGS[] = { "_name", "_user", "_pwd", "_driver", "_url" };
 
 	private static TreeMap<String, DatabaseInfo> conMap = null;
 	private static ArrayList<String> conNames = null;
