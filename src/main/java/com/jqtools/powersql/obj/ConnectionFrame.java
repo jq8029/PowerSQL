@@ -190,6 +190,9 @@ public class ConnectionFrame extends JFrame {
 
 		DBTools.updateDBConnection(conName, dbInfo);
 
+		TreeNode newNode = new TreeNode(conName, Constants.NODE_CONNECTION);
+		newNode.addToParent((com.jqtools.powersql.obj.TreeNode) node.getParent());
+
 		saveButton.setEnabled(false);
 	}
 
