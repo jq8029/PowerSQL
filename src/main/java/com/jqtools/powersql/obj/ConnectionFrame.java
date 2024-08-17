@@ -41,6 +41,7 @@ public class ConnectionFrame extends JFrame {
 	private JPanel panel = new JPanel(null);
 	private DatabaseInfo dbInfo = null;
 	private TreeNode node = null;
+	private boolean newOne = false;
 
 	private static ConnectionFrame conFrame = null;
 
@@ -207,6 +208,7 @@ public class ConnectionFrame extends JFrame {
 	public void setDatabaseInfo(DatabaseInfo dbInfo, TreeNode node) {
 		this.dbInfo = dbInfo;
 		this.node = node;
+		this.newOne = dbInfo == null;
 
 		if (this.dbInfo == null) {
 			setValue("", INDEX_NAME);
