@@ -162,7 +162,7 @@ public class ConnectionFrame extends JFrame {
 			if (error == null) {
 				NoticeMessage.showMessage(Constants.MSG_UNABLE_CONN);
 			} else {
-				NoticeMessage.showMessage(Constants.MSG_UNABLE_CONN + "\n" + error.toString());
+				NoticeMessage.showMessage(Constants.MSG_UNABLE_CONN + Constants.LINE_SEPERATOR + error.toString());
 			}
 		} else {
 			try {
