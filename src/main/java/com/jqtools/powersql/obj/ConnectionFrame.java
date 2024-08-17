@@ -192,6 +192,7 @@ public class ConnectionFrame extends JFrame {
 
 		TreeNode newNode = new TreeNode(conName, Constants.NODE_CONNECTION);
 		newNode.addToParent((com.jqtools.powersql.obj.TreeNode) node.getParent());
+		newNode.setSession(new Session());
 
 		saveButton.setEnabled(false);
 	}
