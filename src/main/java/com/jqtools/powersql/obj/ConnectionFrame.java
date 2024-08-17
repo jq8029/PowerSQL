@@ -180,6 +180,9 @@ public class ConnectionFrame extends JFrame {
 		DatabaseInfo dbInfo = DBTools.getDBConnection(conName);
 		if (dbInfo == null) {
 			dbInfo = new DatabaseInfo();
+		} else {
+			// TODO check duplicate
+
 		}
 
 		dbInfo.setName(conName);
