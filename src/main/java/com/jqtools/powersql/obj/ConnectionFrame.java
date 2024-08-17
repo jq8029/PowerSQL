@@ -40,6 +40,7 @@ public class ConnectionFrame extends JFrame {
 	private JButton closeButton = new JButton(Constants.BUTTON_CLOSE);
 	private JPanel panel = new JPanel(null);
 	private DatabaseInfo dbInfo = null;
+	private TreeNode node = null;
 
 	private static ConnectionFrame conFrame = null;
 
@@ -196,8 +197,9 @@ public class ConnectionFrame extends JFrame {
 		this.setVisible(false);
 	}
 
-	public void setDatabaseInfo(DatabaseInfo dbInfo) {
+	public void setDatabaseInfo(DatabaseInfo dbInfo, TreeNode node) {
 		this.dbInfo = dbInfo;
+		this.node = node;
 
 		if (this.dbInfo == null) {
 			setValue("", INDEX_NAME);
