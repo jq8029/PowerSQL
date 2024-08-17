@@ -105,7 +105,6 @@ public class DBTools {
 			con.setPassword(getProp(prop, prefix + CON_STRINGS[PWD]));
 			con.setDriverName(getProp(prop, prefix + CON_STRINGS[DRIVER]));
 			con.setUrl(getProp(prop, prefix + CON_STRINGS[URL]));
-			con.setDbName(getProp(prop, prefix + CON_STRINGS[DBNAME]));
 
 			conMap.put(con.getName(), con);
 			conNames.add(con.getName());
@@ -176,8 +175,6 @@ public class DBTools {
 							.append(con.getDriverName()).append(Constants.LINE_SEPERATOR)
 							.append(Tools.getFixString(prefix + CON_STRINGS[URL], 20)).append(" = ")
 							.append(Tools.replaceBackward(con.getUrl())).append(Constants.LINE_SEPERATOR)
-							.append(Tools.getFixString(prefix + CON_STRINGS[DBNAME], 20)).append(" = ")
-							.append(Tools.replaceBackward(con.getDbName())).append(Constants.LINE_SEPERATOR)
 							.append(Constants.LINE_SEPERATOR);
 				}
 			}
