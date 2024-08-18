@@ -182,8 +182,11 @@ public class ConnectionFrame extends JFrame {
 		if (dbInfo == null) {
 			dbInfo = new DatabaseInfo();
 		} else {
-			// TODO check duplicate
-
+			if (this.newOne) {
+				if (NoticeMessage.showConfirm(Constants.MSG_OVERWRITE_CONN) != JOptionPane.YES_OPTION) {
+					return;
+				}
+			}
 		}
 
 		dbInfo.setName(conName);
