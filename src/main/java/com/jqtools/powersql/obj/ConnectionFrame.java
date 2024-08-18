@@ -183,6 +183,7 @@ public class ConnectionFrame extends JFrame {
 			dbInfo = new DatabaseInfo();
 		} else {
 			if (this.newOne) {
+				// confirm it can be overwritten.
 				if (NoticeMessage.showConfirm(Constants.MSG_OVERWRITE_CONN) != JOptionPane.YES_OPTION) {
 					return;
 				}
