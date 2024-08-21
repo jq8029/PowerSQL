@@ -70,6 +70,13 @@ public class DBTools {
 		save();
 	}
 
+	public static void deleteDBConnection(String conName) {
+		getConMap().remove(conName);
+		conNames.remove(conName);
+
+		save();
+	}
+
 	private static TreeMap<String, DatabaseInfo> getConMap() {
 		if (conMap == null) {
 			try {
