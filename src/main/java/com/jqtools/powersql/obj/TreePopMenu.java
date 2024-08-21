@@ -5,11 +5,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 
 import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
 import javax.swing.JPopupMenu;
 import javax.swing.JTree;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.log.NoticeMessage;
 
 public class TreePopMenu extends JPopupMenu implements ActionListener {
 
@@ -51,7 +53,9 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			}
 			ConnectionFrame.getInstance().setVisible(true);
 		} else if (Constants.MENU_DELETE.equalsIgnoreCase(text)) {
+			if (NoticeMessage.showConfirm(Constants.MSG_DELETE_CONN) == JOptionPane.YES_OPTION) {
 
+			}
 		}
 	}
 
