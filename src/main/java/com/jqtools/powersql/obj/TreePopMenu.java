@@ -12,6 +12,7 @@ import javax.swing.JTree;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
+import com.jqtools.powersql.utils.DBTools;
 
 public class TreePopMenu extends JPopupMenu implements ActionListener {
 
@@ -54,7 +55,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			ConnectionFrame.getInstance().setVisible(true);
 		} else if (Constants.MENU_DELETE.equalsIgnoreCase(text)) {
 			if (NoticeMessage.showConfirm(Constants.MSG_DELETE_CONN) == JOptionPane.YES_OPTION) {
-
+				DBTools.deleteDBConnection(node.getInfo().getName());
 			}
 		}
 	}
