@@ -70,25 +70,29 @@ public class ConnectionFrame extends JFrame {
 
 			names[i].setBounds(x1, height, width1, 20);
 
-			if (i == INDEX_PWD) {
-				values[i] = new JPasswordField();
+			if (i == names.length - 1) {
+
 			} else {
-				values[i] = new JTextField();
+				if (i == INDEX_PWD) {
+					values[i] = new JPasswordField();
+				} else {
+					values[i] = new JTextField();
+					values[i].setBounds(x2, height, width2, 20);
+				}
 				values[i].setBounds(x2, height, width2, 20);
-			}
-			values[i].setBounds(x2, height, width2, 20);
-			if (values[i] != null) {
-				values[i].addKeyListener(new KeyListener() {
-					public void keyPressed(KeyEvent e) {
-					}
+				if (values[i] != null) {
+					values[i].addKeyListener(new KeyListener() {
+						public void keyPressed(KeyEvent e) {
+						}
 
-					public void keyReleased(KeyEvent e) {
-					}
+						public void keyReleased(KeyEvent e) {
+						}
 
-					public void keyTyped(KeyEvent e) {
-						saveButton.setEnabled(true);
-					}
-				});
+						public void keyTyped(KeyEvent e) {
+							saveButton.setEnabled(true);
+						}
+					});
+				}
 			}
 
 			this.panel.add(names[i]);
