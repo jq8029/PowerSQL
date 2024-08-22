@@ -94,4 +94,16 @@ public class DatabaseInfo {
 
 		return buffer.toString();
 	}
+
+	public DatabaseInfo clone() {
+		DatabaseInfo dbInfo = new DatabaseInfo();
+		dbInfo.setName(this.getName());
+		dbInfo.setUser(this.getUser());
+		dbInfo.setPassword(this.getPassword());
+		dbInfo.setUrl(this.getUrl());
+		dbInfo.setDriverName(this.getDriverName());
+		dbInfo.setDbName(this.getDbName());
+
+		return dbInfo;
+	}
 }
