@@ -70,4 +70,5 @@ public class Constants {
 	public static String MENU_CREATE = "Create";
 	public static String MENU_EDIT = "Edit";
 	public static String MENU_DELETE = "Delete";
+	public static String MENU_DUPLICATE = "Duplicate";
 }
