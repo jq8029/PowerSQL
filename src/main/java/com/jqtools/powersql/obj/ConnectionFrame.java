@@ -29,9 +29,11 @@ public class ConnectionFrame extends JFrame {
 	public static final int INDEX_PWD = 2;
 	public static final int INDEX_URL = 3;
 	public static final int INDEX_DRIVER = 4;
+	public static final int INDEX_DB_NAME = 5;
 
 	private static final String TEXT[] = { Constants.CONNECTION_NAME, Constants.CONNECTION_USER,
-			Constants.CONNECTION_PWD, Constants.CONNECTION_URL, Constants.CONNECTION_DRIVER_NAME };
+			Constants.CONNECTION_PWD, Constants.CONNECTION_URL, Constants.CONNECTION_DRIVER_NAME,
+			Constants.CONNECTION_DB_NAME };
 
 	private JLabel names[] = new JLabel[TEXT.length];
 	private JTextField values[] = new JTextField[TEXT.length];
