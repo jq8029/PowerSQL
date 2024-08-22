@@ -48,6 +48,7 @@ public class Constants {
 	public static String CONNECTION_URL = "URL";
 	public static String CONNECTION_DRIVER_NAME = "Driver Name";
 	public static String CONNECTION_DRIVER_JAR = "Driver Jar Files";
+	public static String CONNECTION_DB_NAME = "Database Name";
 
 	// Button
 	public static String BUTTON_TEST = "Test";
