@@ -31,6 +31,7 @@ public class Constants {
 	public static final String NAME_TABLES = "Tables";
 	public static final String NAME_VIEWS = "Views";
 
+	// Supported Databases
 	public static final String DB_H2 = "H2";
 	public static final String DB_MYSQL = "MySQL";
 
