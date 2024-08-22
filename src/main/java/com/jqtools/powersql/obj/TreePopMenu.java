@@ -17,7 +17,8 @@ import com.jqtools.powersql.utils.DBTools;
 public class TreePopMenu extends JPopupMenu implements ActionListener {
 
 	private static final long serialVersionUID = -3018117749624583256L;
-	private static final String MENUS[] = { Constants.MENU_CREATE, Constants.MENU_EDIT, Constants.MENU_DELETE };
+	private static final String MENUS[] = { Constants.MENU_CREATE, Constants.MENU_EDIT, Constants.MENU_DELETE,
+			Constants.MENU_DUPLICATE };
 
 	private JTree tree;
 
@@ -58,6 +59,8 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 				DBTools.deleteDBConnection(node.getInfo().getName());
 				node.removeFromParent();
 			}
+		} else if (Constants.MENU_DUPLICATE.equalsIgnoreCase(text)) {
+
 		}
 	}
 
