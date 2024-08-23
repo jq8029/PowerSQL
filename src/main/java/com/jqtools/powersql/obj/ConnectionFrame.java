@@ -99,10 +99,10 @@ public class ConnectionFrame extends JFrame {
 					});
 				}
 
+				this.panel.add(values[i]);
 			}
 
 			this.panel.add(names[i]);
-			this.panel.add(values[i]);
 			height += 25;
 		}
 
