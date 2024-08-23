@@ -66,6 +66,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			TreeNode newNode = new TreeNode(dbInfo.getName(), Constants.NODE_CONNECTION);
 			newNode.addToParent((com.jqtools.powersql.obj.TreeNode) node.getParent());
 			newNode.setSession(new Session());
+			newNode.getSession().setDbInfo(dbInfo);
 		}
 	}
 
