@@ -236,12 +236,14 @@ public class ConnectionFrame extends JFrame {
 			setValue("", INDEX_PWD);
 			setValue("", INDEX_URL);
 			setValue("", INDEX_DRIVER);
+			box.setSelectedIndex(0);
 		} else {
 			setValue(dbInfo.getName(), INDEX_NAME);
 			setValue(dbInfo.getUser(), INDEX_USER);
 			setValue(dbInfo.getPassword(), INDEX_PWD);
 			setValue(dbInfo.getUrl(), INDEX_URL);
 			setValue(dbInfo.getDriverName(), INDEX_DRIVER);
+			box.setSelectedItem(dbInfo.getDbName());
 		}
 	}
 
