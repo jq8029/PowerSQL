@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 import java.sql.Connection;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -31,12 +32,15 @@ public class ConnectionFrame extends JFrame {
 	public static final int INDEX_DRIVER = 4;
 	public static final int INDEX_DB_NAME = 5;
 
+	private static final String SUPPORT_DBS[] = { Constants.DB_H2, Constants.DB_MYSQL };
+
 	private static final String TEXT[] = { Constants.CONNECTION_NAME, Constants.CONNECTION_USER,
 			Constants.CONNECTION_PWD, Constants.CONNECTION_URL, Constants.CONNECTION_DRIVER_NAME,
 			Constants.CONNECTION_DB_NAME };
 
 	private JLabel names[] = new JLabel[TEXT.length];
 	private JTextField values[] = new JTextField[TEXT.length];
+	private JComboBox box = new JComboBox(SUPPORT_DBS);
 	private JButton testButton = new JButton(Constants.BUTTON_TEST);
 	private JButton saveButton = new JButton(Constants.BUTTON_SAVE);
 	private JButton closeButton = new JButton(Constants.BUTTON_CLOSE);
@@ -71,7 +75,8 @@ public class ConnectionFrame extends JFrame {
 			names[i].setBounds(x1, height, width1, 20);
 
 			if (i == names.length - 1) {
-
+				box.setBounds(x2, height, width2, 20);
+				this.panel.add(box);
 			} else {
 				if (i == INDEX_PWD) {
 					values[i] = new JPasswordField();
@@ -93,6 +98,7 @@ public class ConnectionFrame extends JFrame {
 						}
 					});
 				}
+
 			}
 
 			this.panel.add(names[i]);
