@@ -73,4 +73,15 @@ public class Constants {
 	public static String MENU_EDIT = "Edit";
 	public static String MENU_DELETE = "Delete";
 	public static String MENU_DUPLICATE = "Duplicate";
+
+	// Images
+	public static String IMG_DATABASES = "images/databases.png";
+	public static String IMG_DATABASE = "images/database.png";
+	public static String IMG_SCHEMA = "images/schema.png";
+	public static String IMG_TABLES = "images/tables.png";
+	public static String IMG_TABLE = "images/table.png";
+	public static String IMG_VIEWS = "images/views.png";
+	public static String IMG_VIEW = "images/view.png";
+	public static String IMG_EXECUTE = "images/execute.png";
+
 }
