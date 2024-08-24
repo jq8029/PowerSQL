@@ -2,12 +2,14 @@ package com.jqtools.powersql.obj;
 
 import java.awt.Component;
 
+import javax.swing.JLabel;
 import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeCellRenderer;
 
 public class TreeRenderer extends DefaultTreeCellRenderer {
 
 	private static final long serialVersionUID = -7708912108715261741L;
+	private JLabel labelNull = new JLabel();
 
 	public TreeRenderer() {
 		super();
@@ -22,6 +24,10 @@ public class TreeRenderer extends DefaultTreeCellRenderer {
 			return this;
 		}
 
-		return this;
+		if (value != null && value instanceof TreeNode) {
+
+		}
+
+		return labelNull;
 	}
 }
