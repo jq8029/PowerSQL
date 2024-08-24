@@ -25,6 +25,8 @@ public class TreeRenderer extends DefaultTreeCellRenderer {
 		}
 
 		if (value != null && value instanceof TreeNode) {
+			// cast to TreeNode
+			TreeNode node = (TreeNode) value;
 
 		}
 
