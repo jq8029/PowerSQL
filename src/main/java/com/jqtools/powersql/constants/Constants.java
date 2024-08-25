@@ -1,5 +1,7 @@
 package com.jqtools.powersql.constants;
 
+import javax.swing.ImageIcon;
+
 public class Constants {
 	public static final String USER_NAME = System.getProperty("user.name");
 	public static final String USER_PATH = System.getProperty("user.home");
@@ -74,14 +76,14 @@ public class Constants {
 	public static String MENU_DELETE = "Delete";
 	public static String MENU_DUPLICATE = "Duplicate";
 
-	// Images
-	public static String IMG_DATABASES = "images/databases.png";
-	public static String IMG_DATABASE = "images/database.png";
-	public static String IMG_SCHEMA = "images/schema.png";
-	public static String IMG_TABLES = "images/tables.png";
-	public static String IMG_TABLE = "images/table.png";
-	public static String IMG_VIEWS = "images/views.png";
-	public static String IMG_VIEW = "images/view.png";
-	public static String IMG_EXECUTE = "images/execute.png";
+	// Images ICON
+	public static ImageIcon ICON_DATABASES = new ImageIcon("images/databases.png");
+	public static ImageIcon ICON_DATABASE = new ImageIcon("images/database.png");
+	public static ImageIcon ICON_SCHEMA = new ImageIcon("images/schema.png");
+	public static ImageIcon ICON_TABLES = new ImageIcon("images/table.png");
+	public static ImageIcon ICON_TABLE = new ImageIcon("images/table.png");
+	public static ImageIcon ICON_VIEWS = new ImageIcon("images/view.png");
+	public static ImageIcon ICON_VIEW = new ImageIcon("images/view.png");
+	public static ImageIcon ICON_EXECUTE = new ImageIcon("images/execute.png");
 
 }
