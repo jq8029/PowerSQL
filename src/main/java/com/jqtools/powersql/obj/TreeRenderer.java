@@ -31,9 +31,9 @@ public class TreeRenderer extends DefaultTreeCellRenderer {
 			TreeNode node = (TreeNode) value;
 
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTIONS) {
-
+				setIcon(Constants.ICON_DATABASES);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
-
+				setIcon(Constants.ICON_DATABASE);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CATALOG) {
 
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CATALOG) {
@@ -51,6 +51,6 @@ public class TreeRenderer extends DefaultTreeCellRenderer {
 			}
 		}
 
-		return labelNull;
+		return this;
 	}
 }
