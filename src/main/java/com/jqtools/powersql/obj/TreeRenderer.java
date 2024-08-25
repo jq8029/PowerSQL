@@ -33,11 +33,9 @@ public class TreeRenderer extends DefaultTreeCellRenderer {
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
 				setIcon(Constants.ICON_DATABASE);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CATALOG) {
-
-			} else if (node.getInfo().getNodeType() == Constants.NODE_CATALOG) {
-
+				setIcon(Constants.ICON_CATALOG);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_SCHEMA) {
-
+				setIcon(Constants.ICON_SCHEMA);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_TABLES) {
 				setIcon(Constants.ICON_TABLES);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_TABLE) {
