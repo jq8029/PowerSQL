@@ -79,6 +79,7 @@ public class Constants {
 	// Images ICON
 	public static ImageIcon ICON_DATABASES = new ImageIcon("images/databases.png");
 	public static ImageIcon ICON_DATABASE = new ImageIcon("images/database.png");
+	public static ImageIcon ICON_CATALOG = new ImageIcon("images/catalog.png");
 	public static ImageIcon ICON_SCHEMA = new ImageIcon("images/schema.png");
 	public static ImageIcon ICON_TABLES = new ImageIcon("images/table.png");
 	public static ImageIcon ICON_TABLE = new ImageIcon("images/table.png");
