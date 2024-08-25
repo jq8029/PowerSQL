@@ -39,13 +39,13 @@ public class TreeRenderer extends DefaultTreeCellRenderer {
 			} else if (node.getInfo().getNodeType() == Constants.NODE_SCHEMA) {
 
 			} else if (node.getInfo().getNodeType() == Constants.NODE_TABLES) {
-
+				setIcon(Constants.ICON_TABLES);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_TABLE) {
-
+				setIcon(Constants.ICON_TABLE);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_VIEWS) {
-
+				setIcon(Constants.ICON_VIEWS);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_VIEW) {
-
+				setIcon(Constants.ICON_VIEW);
 			}
 		}
 
