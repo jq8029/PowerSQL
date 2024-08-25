@@ -26,6 +26,7 @@ import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
 import com.jqtools.powersql.obj.TreePopMenu;
+import com.jqtools.powersql.obj.TreeRenderer;
 import com.jqtools.powersql.utils.DBLoader;
 import com.jqtools.powersql.utils.DBTools;
 import com.jqtools.powersql.utils.ExecuteSQL;
@@ -55,9 +56,11 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		leftPanel.add(Constants.PANEL_CENTER, leftScrollPane);
 		// add root node (Databases) to left panel
 		TreeNode root = new TreeNode(Constants.ROOT);
+		root.getInfo().setNodeType(Constants.NODE_CONNECTIONS);
 		tree = new JTree(root);
 		tree.getSelectionModel().setSelectionMode(TreeSelectionModel.SINGLE_TREE_SELECTION);
 		tree.addTreeSelectionListener(this);
+		tree.setCellRenderer(new TreeRenderer());
 		tree.addMouseListener(new MouseListener() {
 			public void mouseClicked(MouseEvent e) {
 			}
