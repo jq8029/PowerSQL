@@ -87,4 +87,13 @@ public class Constants {
 	public static ImageIcon ICON_VIEW = new ImageIcon("images/view.png");
 	public static ImageIcon ICON_EXECUTE = new ImageIcon("images/execute.png");
 
+	// Tool bar
+	public static final int TOOLBAR_EXECUTE = 0;
+	public static final int TOOLBAR_EXECUTE_STOP = 1;
+	public static final int TOOLBAR_UNDO = 2;
+	public static final int TOOLBAR_REDO = 3;
+	public static final int TOOLBAR_CUT = 4;
+	public static final int TOOLBAR_COPY = 5;
+	public static final int TOOLBAR_PASTE = 5;
+
 }
