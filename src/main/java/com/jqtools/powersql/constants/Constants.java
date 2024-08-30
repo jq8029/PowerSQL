@@ -95,5 +95,7 @@ public class Constants {
 	public static final int TOOLBAR_CUT = 4;
 	public static final int TOOLBAR_COPY = 5;
 	public static final int TOOLBAR_PASTE = 5;
+	public static int TOOLBAR_SEPERATOR[] = { TOOLBAR_EXECUTE_STOP, TOOLBAR_REDO };
 
+	public static String TEXTS[] = { "execute", "stop", "undo", "redo", "cut", "copy", "paste" };
 }
