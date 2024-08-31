@@ -28,9 +28,10 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 					Constants.SPACE_21);
 			add(buttons[i]);
 
-			for (int idx = 0; idx < Constants.TOOLBAR_SEPERATOR.length; idx++) {
-				if (i == Constants.TOOLBAR_SEPERATOR[idx]) {
-					space += SPACE_10;
+			// add group separator
+			for (int idx = 0; idx < Constants.TOOLBAR_SEPARATOR.length; idx++) {
+				if (i == Constants.TOOLBAR_SEPARATOR[idx]) {
+					space += Constants.SPACE_10;
 					this.addSeparator();
 				}
 			}
