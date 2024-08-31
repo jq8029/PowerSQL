@@ -87,6 +87,8 @@ public class Constants {
 	public static ImageIcon ICON_VIEW = new ImageIcon("images/view.png");
 	public static ImageIcon ICON_EXECUTE = new ImageIcon("images/execute.png");
 
+	public static String ICON_PATH = "images/";
+
 	// Tool bar
 	public static final int TOOLBAR_EXECUTE = 0;
 	public static final int TOOLBAR_EXECUTE_STOP = 1;
@@ -98,4 +100,10 @@ public class Constants {
 	public static int TOOLBAR_SEPERATOR[] = { TOOLBAR_EXECUTE_STOP, TOOLBAR_REDO };
 
 	public static String TEXTS[] = { "execute", "stop", "undo", "redo", "cut", "copy", "paste" };
+
+	public static final int SPACE_02 = 2;
+	public static final int SPACE_03 = 3;
+	public static final int SPACE_21 = 21;
+	public static final int SPACE_23 = 23;
+
 }
