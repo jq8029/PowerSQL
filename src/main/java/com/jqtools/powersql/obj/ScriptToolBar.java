@@ -7,6 +7,8 @@ import javax.swing.JToolBar;
 
 public class ScriptToolBar extends JToolBar implements ActionListener {
 
+	private static final long serialVersionUID = 2325100178568484815L;
+
 	public ScriptToolBar() {
 	}
 
