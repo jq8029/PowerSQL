@@ -103,6 +103,7 @@ public class Constants {
 
 	public static final int SPACE_02 = 2;
 	public static final int SPACE_03 = 3;
+	public static final int SPACE_10 = 10;
 	public static final int SPACE_21 = 21;
 	public static final int SPACE_23 = 23;
 
