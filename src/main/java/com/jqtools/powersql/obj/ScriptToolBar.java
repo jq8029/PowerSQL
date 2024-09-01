@@ -21,7 +21,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 		int count = 0;
 
 		for (int i = 0; i < Constants.TEXTS.length; i++) {
-			buttons[i] = new JButton(new ImageIcon(Constants.ICON_PATH + Constants.TEXTS[i]));
+			buttons[i] = new JButton(
+					new ImageIcon(Constants.ICON_PATH + Constants.TEXTS[i] + Constants.ICON_EXTENSION));
 			buttons[i].setActionCommand(Constants.TEXTS[i]);
 			buttons[i].addActionListener(this);
 			buttons[i].setToolTipText(Constants.TEXTS[i]);
