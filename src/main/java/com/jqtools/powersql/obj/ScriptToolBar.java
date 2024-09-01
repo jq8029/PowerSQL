@@ -14,6 +14,7 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 
 	private static final long serialVersionUID = 2325100178568484815L;
 	private JButton buttons[] = new JButton[Constants.TEXTS.length];
+	private MainTextArea textArea = new MainTextArea();
 
 	public ScriptToolBar() {
 		int space = Constants.SPACE_03;
