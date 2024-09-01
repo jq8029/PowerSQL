@@ -1,5 +1,6 @@
 package com.jqtools.powersql.obj;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -35,8 +36,9 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 					this.addSeparator();
 				}
 			}
-
 		}
+
+		this.setForeground(Color.BLACK);
 	}
 
 	@Override
