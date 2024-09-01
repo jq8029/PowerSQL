@@ -47,4 +47,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 
 	}
 
+	public MainTextArea getTextArea() {
+		return textArea;
+	}
+
 }
