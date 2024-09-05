@@ -51,6 +51,9 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 			return;
 		}
 
+		if (text.equals(Constants.TEXTS[Constants.TOOLBAR_EXECUTE])) {
+			this.textArea.executeSQL();
+		}
 	}
 
 	public MainTextArea getTextArea() {
