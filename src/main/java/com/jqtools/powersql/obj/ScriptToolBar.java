@@ -45,6 +45,11 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		String text = e.getActionCommand();
+
+		if (text == null) {
+			return;
+		}
 
 	}
 
