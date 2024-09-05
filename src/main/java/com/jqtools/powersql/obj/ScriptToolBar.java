@@ -46,6 +46,7 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		String text = e.getActionCommand();
+		System.out.println("text = " + text);
 
 		if (text == null) {
 			return;
@@ -53,6 +54,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 
 		if (text.equals(Constants.TEXTS[Constants.TOOLBAR_EXECUTE])) {
 			this.textArea.executeSQL();
+		} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_UNDO])) {
+			this.textArea.undo();
 		}
 	}
 
