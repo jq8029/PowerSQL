@@ -56,6 +56,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 			this.textArea.executeSQL();
 		} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_UNDO])) {
 			this.textArea.undo();
+		} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_REDO])) {
+			this.textArea.undo();
 		}
 	}
 
