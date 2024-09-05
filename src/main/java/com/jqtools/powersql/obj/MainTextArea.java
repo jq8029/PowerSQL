@@ -7,6 +7,7 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
+import javax.swing.undo.UndoManager;
 
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
@@ -19,6 +20,7 @@ public class MainTextArea extends RSyntaxTextArea {
 	private static final long serialVersionUID = 1064609692697845846L;
 	private Session session = null;
 	private JScrollPane resultScroll = null;
+	private UndoManager undoManager = new UndoManager();
 
 	public MainTextArea() {
 
@@ -68,6 +70,13 @@ public class MainTextArea extends RSyntaxTextArea {
 			}
 		} catch (Exception e) {
 			MessageLogger.error(e);
+		}
+	}
+
+	public void undo() {
+		try {
+			undoManager.undo();
+		} catch (Exception ex) {
 		}
 	}
 
