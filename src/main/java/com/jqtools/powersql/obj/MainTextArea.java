@@ -11,6 +11,7 @@ import javax.swing.KeyStroke;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.utils.ExecuteSQL;
 
 public class MainTextArea extends RSyntaxTextArea {
@@ -68,6 +69,7 @@ public class MainTextArea extends RSyntaxTextArea {
 				ExecuteSQL.execute(session, sql, resultScroll);
 			}
 		} catch (Exception e) {
+			MessageLogger.error(e);
 		}
 	}
 
