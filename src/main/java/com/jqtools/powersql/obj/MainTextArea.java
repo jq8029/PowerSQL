@@ -17,12 +17,10 @@ import com.jqtools.powersql.utils.ExecuteSQL;
 public class MainTextArea extends RSyntaxTextArea {
 
 	private static final long serialVersionUID = 1064609692697845846L;
-	private MainTextArea textArea = null;
 	private Session session = null;
 	private JScrollPane resultScroll = null;
 
 	public MainTextArea() {
-		textArea = this;
 
 		// register key (Ctrl + Enter) to execute current sql
 		getActionMap().put(Constants.KEY_EXEC_CURRENT_SQL, new AbstractAction(Constants.KEY_EXEC_CURRENT_SQL) {
@@ -44,25 +42,25 @@ public class MainTextArea extends RSyntaxTextArea {
 				return;
 
 			// skip it if no text in the textArea
-			if (textArea != null && textArea.getText() != null && textArea.getText().trim().length() > 0) {
-				String sql = textArea.getSelectedText();
+			if (this.getText() != null && this.getText().trim().length() > 0) {
+				String sql = this.getSelectedText();
 
 				if (sql == null || sql.length() == 0) {
-					int pos = textArea.getCaretPosition();
-					int start = textArea.getText().lastIndexOf(";", pos);
-					int end = textArea.getText().indexOf(";", pos);
+					int pos = this.getCaretPosition();
+					int start = this.getText().lastIndexOf(";", pos);
+					int end = this.getText().indexOf(";", pos);
 					if (start < 0) {
 						start = 0;
 					} else {
 						start = start + 1;
 					}
 					if (end < 0)
-						end = textArea.getText().length();
+						end = this.getText().length();
 
 					if (end <= start) {
 						return;
 					} else {
-						sql = textArea.getText().substring(start, end);
+						sql = this.getText().substring(start, end);
 					}
 				}
 
