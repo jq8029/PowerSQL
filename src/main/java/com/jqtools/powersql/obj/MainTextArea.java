@@ -102,4 +102,8 @@ public class MainTextArea extends RSyntaxTextArea {
 		this.resultScroll = resultScroll;
 	}
 
+	public UndoManager getUndoManager() {
+		return undoManager;
+	}
+
 }
