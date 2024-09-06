@@ -72,4 +72,10 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 		return buttons[buttonId].isEnabled();
 	}
 
+	public void setButtonEnabled(int buttonId, boolean enable) {
+		if (buttonId < 0 || buttonId >= buttons.length || buttons[buttonId] == null)
+			return;
+
+		buttons[buttonId].setEnabled(enable);
+	}
 }
