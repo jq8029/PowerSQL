@@ -58,6 +58,7 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 				this.textArea.executeSQL();
 			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_UNDO])) {
 				this.textArea.getUndoManager().undo();
+				this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
 			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_REDO])) {
 				this.textArea.getUndoManager().redo();
 			}
