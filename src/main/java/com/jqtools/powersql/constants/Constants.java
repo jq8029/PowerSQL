@@ -101,6 +101,7 @@ public class Constants {
 	public static int TOOLBAR_SEPARATOR[] = { TOOLBAR_EXECUTE_STOP, TOOLBAR_REDO };
 
 	public static String TEXTS[] = { "execute", "stop", "undo", "redo", "cut", "copy", "paste" };
+	public static boolean DISABLES[] = { false, false, true, true, true, true, true };
 
 	public static final int SPACE_02 = 2;
 	public static final int SPACE_03 = 3;
