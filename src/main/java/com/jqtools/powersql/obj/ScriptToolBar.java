@@ -9,6 +9,7 @@ import javax.swing.JButton;
 import javax.swing.JToolBar;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.MessageLogger;
 
 public class ScriptToolBar extends JToolBar implements ActionListener {
 
@@ -52,12 +53,16 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 			return;
 		}
 
-		if (text.equals(Constants.TEXTS[Constants.TOOLBAR_EXECUTE])) {
-			this.textArea.executeSQL();
-		} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_UNDO])) {
-			this.textArea.undo();
-		} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_REDO])) {
-			this.textArea.redo();
+		try {
+			if (text.equals(Constants.TEXTS[Constants.TOOLBAR_EXECUTE])) {
+				this.textArea.executeSQL();
+			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_UNDO])) {
+				this.textArea.undo();
+			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_REDO])) {
+				this.textArea.redo();
+			}
+		} catch (Exception ex) {
+			MessageLogger.error(ex);
 		}
 	}
 
