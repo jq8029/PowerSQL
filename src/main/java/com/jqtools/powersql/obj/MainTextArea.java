@@ -80,13 +80,6 @@ public class MainTextArea extends RSyntaxTextArea {
 		}
 	}
 
-	public void undo() {
-		try {
-			undoManager.undo();
-		} catch (Exception ex) {
-		}
-	}
-
 	public void redo() {
 		try {
 			undoManager.redo();
