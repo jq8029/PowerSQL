@@ -65,6 +65,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 				this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
 			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_CUT])) {
 				this.textArea.cut();
+			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_COPY])) {
+				this.textArea.copy();
 			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
