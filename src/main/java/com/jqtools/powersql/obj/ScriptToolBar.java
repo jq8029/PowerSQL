@@ -67,6 +67,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 				this.textArea.cut();
 			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_COPY])) {
 				this.textArea.copy();
+			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_PASTE])) {
+				this.textArea.paste();
 			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
