@@ -7,11 +7,13 @@ import java.awt.event.ActionListener;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 
-public class ScriptToolBar extends JToolBar implements ActionListener {
+public class ScriptToolBar extends JToolBar implements ActionListener, CaretListener {
 
 	private static final long serialVersionUID = 2325100178568484815L;
 	private JButton buttons[] = new JButton[Constants.TEXTS.length];
@@ -91,5 +93,14 @@ public class ScriptToolBar extends JToolBar implements ActionListener {
 			return;
 
 		buttons[buttonId].setEnabled(enable);
+	}
+
+	@Override
+	public void caretUpdate(CaretEvent e) {
+		int dot = e.getDot(), mark = e.getMark();
+
+		if (dot != mark) {
+
+		}
 	}
 }
