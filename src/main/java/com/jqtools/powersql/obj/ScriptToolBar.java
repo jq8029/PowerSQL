@@ -100,7 +100,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		int dot = e.getDot(), mark = e.getMark();
 
 		if (dot != mark) {
-
+			setButtonEnabled(Constants.TOOLBAR_CUT, true);
+			setButtonEnabled(Constants.TOOLBAR_COPY, true);
 		}
 	}
 }
