@@ -44,6 +44,7 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		}
 
 		this.setForeground(Color.BLACK);
+		this.textArea.addCaretListener(this);
 	}
 
 	@Override
