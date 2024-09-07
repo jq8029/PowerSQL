@@ -7,6 +7,8 @@ import java.awt.event.KeyEvent;
 import javax.swing.AbstractAction;
 import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.CaretListener;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
 import javax.swing.undo.UndoManager;
@@ -17,7 +19,7 @@ import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.utils.ExecuteSQL;
 
-public class MainTextArea extends RSyntaxTextArea {
+public class MainTextArea extends RSyntaxTextArea implements CaretListener {
 
 	private static final long serialVersionUID = 1064609692697845846L;
 	private Session session = null;
@@ -90,6 +92,11 @@ public class MainTextArea extends RSyntaxTextArea {
 
 	public UndoManager getUndoManager() {
 		return undoManager;
+	}
+
+	@Override
+	public void caretUpdate(CaretEvent e) {
+
 	}
 
 }
