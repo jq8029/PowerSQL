@@ -29,6 +29,7 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 			buttons[i].setActionCommand(Constants.TEXTS[i]);
 			buttons[i].addActionListener(this);
 			buttons[i].setToolTipText(Constants.TEXTS[i]);
+			buttons[i].setEnabled(Constants.ENABLES[i]);
 
 			buttons[i].setBounds(Constants.SPACE_23 * count + space, Constants.SPACE_02, Constants.SPACE_21,
 					Constants.SPACE_21);
@@ -104,5 +105,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 			setButtonEnabled(Constants.TOOLBAR_CUT, true);
 			setButtonEnabled(Constants.TOOLBAR_COPY, true);
 		}
+
+		this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
+		this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
 	}
 }
