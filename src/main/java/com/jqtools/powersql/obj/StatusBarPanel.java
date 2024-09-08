@@ -18,4 +18,8 @@ public class StatusBarPanel extends JPanel {
 
 		this.add(this.posLabel);
 	}
+
+	public void setPos(int pos, int row, int col) {
+		this.posLabel.setText("    Pos : " + pos + "        Row : " + row + ",  Col : " + col + "  ");
+	}
 }
