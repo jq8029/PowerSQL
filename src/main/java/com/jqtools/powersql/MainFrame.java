@@ -104,6 +104,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		scriptToolBar.getTextArea().setResultScroll(resultScroll);
 		textAreaPanel.add("North", scriptToolBar);
 		textAreaPanel.add("Center", scriptToolBar.getTextArea());
+		textAreaPanel.add("South", scriptToolBar.getStatusPanel());
 		JPanel resultPanel = new JPanel(new BorderLayout());
 		ResultTableModel resultTableModel = new ResultTableModel();
 		resultTableModel.setTable(new JTable(resultTableModel));
