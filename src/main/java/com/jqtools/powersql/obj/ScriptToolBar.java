@@ -18,6 +18,7 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 	private static final long serialVersionUID = 2325100178568484815L;
 	private JButton buttons[] = new JButton[Constants.TEXTS.length];
 	private MainTextArea textArea = new MainTextArea();
+	private StatusPanel statusPanel = new StatusPanel();
 
 	public ScriptToolBar() {
 		int space = Constants.SPACE_03;
@@ -79,10 +80,6 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		}
 	}
 
-	public MainTextArea getTextArea() {
-		return textArea;
-	}
-
 	public boolean isButtonEnabled(int buttonId) {
 		if (buttonId < 0 || buttonId >= buttons.length || buttons[buttonId] == null)
 			return false;
@@ -108,5 +105,13 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 
 		this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
 		this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
+	}
+
+	public MainTextArea getTextArea() {
+		return textArea;
+	}
+
+	public StatusPanel getStatusPanel() {
+		return statusPanel;
 	}
 }
