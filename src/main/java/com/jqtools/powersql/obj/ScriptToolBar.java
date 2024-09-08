@@ -96,10 +96,12 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 
 	@Override
 	public void caretUpdate(CaretEvent e) {
-		int dot = e.getDot(), mark = e.getMark();
+		// update the location in text area
 		statusPanel.setPos(this.getTextArea().getCaretPosition() + 1, (this.getTextArea().getCaretLineNumber() + 1),
 				(this.getTextArea().getCaretOffsetFromLineStart() + 1));
 
+		// update cut/copy/undo/redo button
+		int dot = e.getDot(), mark = e.getMark();
 		if (dot != mark) {
 			setButtonEnabled(Constants.TOOLBAR_CUT, true);
 			setButtonEnabled(Constants.TOOLBAR_COPY, true);
