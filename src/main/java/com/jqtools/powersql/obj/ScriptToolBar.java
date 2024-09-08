@@ -4,7 +4,6 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.event.CaretEvent;
@@ -12,11 +11,12 @@ import javax.swing.event.CaretListener;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.utils.Tools;
 
 public class ScriptToolBar extends JToolBar implements ActionListener, CaretListener {
 
 	private static final long serialVersionUID = 2325100178568484815L;
-	private JButton buttons[] = new JButton[Constants.TEXTS.length];
+	private JButton buttons[] = new JButton[Constants.SQL_TEXTS.length];
 	private MainTextArea textArea = new MainTextArea();
 	private StatusPanel statusPanel = new StatusPanel();
 
@@ -24,13 +24,12 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		int space = Constants.SPACE_03;
 		int count = 0;
 
-		for (int i = 0; i < Constants.TEXTS.length; i++) {
-			buttons[i] = new JButton(
-					new ImageIcon(Constants.ICON_PATH + Constants.TEXTS[i] + Constants.ICON_EXTENSION));
-			buttons[i].setActionCommand(Constants.TEXTS[i]);
+		for (int i = 0; i < Constants.SQL_TEXTS.length; i++) {
+			buttons[i] = new JButton(Tools.getImageIcon(Constants.SQL_TEXTS[i]));
+			buttons[i].setActionCommand(Constants.SQL_TEXTS[i]);
 			buttons[i].addActionListener(this);
-			buttons[i].setToolTipText(Constants.TEXTS[i]);
-			buttons[i].setEnabled(Constants.ENABLES[i]);
+			buttons[i].setToolTipText(Constants.SQL_TEXTS[i]);
+			buttons[i].setEnabled(Constants.SQL_ENABLES[i]);
 
 			buttons[i].setBounds(Constants.SPACE_23 * count + space, Constants.SPACE_02, Constants.SPACE_21,
 					Constants.SPACE_21);
@@ -58,21 +57,21 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		}
 
 		try {
-			if (text.equals(Constants.TEXTS[Constants.TOOLBAR_EXECUTE])) {
+			if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_EXECUTE])) {
 				this.textArea.executeSQL();
-			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_UNDO])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_UNDO])) {
 				this.textArea.getUndoManager().undo();
 				this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
 				this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
-			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_REDO])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_REDO])) {
 				this.textArea.getUndoManager().redo();
 				this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
 				this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
-			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_CUT])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_CUT])) {
 				this.textArea.cut();
-			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_COPY])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_COPY])) {
 				this.textArea.copy();
-			} else if (text.equals(Constants.TEXTS[Constants.TOOLBAR_PASTE])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_PASTE])) {
 				this.textArea.paste();
 			}
 		} catch (Exception ex) {
