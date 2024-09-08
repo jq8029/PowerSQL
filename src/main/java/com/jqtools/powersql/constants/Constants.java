@@ -100,8 +100,10 @@ public class Constants {
 	public static final int TOOLBAR_PASTE = 6;
 	public static int TOOLBAR_SEPARATOR[] = { TOOLBAR_EXECUTE_STOP, TOOLBAR_REDO };
 
-	public static String TEXTS[] = { "execute", "stop", "undo", "redo", "cut", "copy", "paste" };
-	public static boolean ENABLES[] = { true, true, false, false, false, false, true };
+	public static String SQL_TEXTS[] = { "execute", "stop", "undo", "redo", "cut", "copy", "paste" };
+	public static boolean SQL_ENABLES[] = { true, true, false, false, false, false, true };
+	public static String DATA_TEXTS[] = { "refresh", "filter", "export", "add", "delete", "duplicate", "save",
+			"search" };
 
 	public static final int SPACE_02 = 2;
 	public static final int SPACE_03 = 3;
