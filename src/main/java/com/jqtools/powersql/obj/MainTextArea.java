@@ -23,7 +23,6 @@ public class MainTextArea extends RSyntaxTextArea {
 	private Session session = null;
 	private JScrollPane resultScroll = null;
 	private UndoManager undoManager = new UndoManager();
-	private StatusPanel statusPanel = new StatusPanel();
 
 	public MainTextArea() {
 
@@ -91,10 +90,6 @@ public class MainTextArea extends RSyntaxTextArea {
 
 	public UndoManager getUndoManager() {
 		return undoManager;
-	}
-
-	public StatusPanel getStatusPanel() {
-		return statusPanel;
 	}
 
 }
