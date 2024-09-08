@@ -1,5 +1,9 @@
 package com.jqtools.powersql.utils;
 
+import javax.swing.ImageIcon;
+
+import com.jqtools.powersql.constants.Constants;
+
 public class Tools {
 	public static boolean getBoolean(String key, boolean defaultValue) {
 		try {
@@ -76,5 +80,9 @@ public class Tools {
 		}
 
 		return value;
+	}
+
+	public static ImageIcon getImageIcon(String name) {
+		return new ImageIcon(Constants.ICON_PATH + name + Constants.ICON_EXTENSION);
 	}
 }
