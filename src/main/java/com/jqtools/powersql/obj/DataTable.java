@@ -15,4 +15,8 @@ public class DataTable extends JTable {
 	public ArrayList<Integer> duplicateRows(int[] rows) {
 		return new ArrayList<Integer>();
 	}
+
+	public ArrayList<Integer> deleteRows(int[] rows) {
+		return new ArrayList<Integer>();
+	}
 }
