@@ -25,11 +25,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		int count = 0;
 
 		for (int i = 0; i < Constants.SQL_TEXTS.length; i++) {
-			buttons[i] = new JButton(Tools.getImageIcon(Constants.SQL_TEXTS[i]));
-			buttons[i].setActionCommand(Constants.SQL_TEXTS[i]);
+			buttons[i] = Tools.getImageButton(Constants.SQL_TEXTS[i], Constants.SQL_ENABLES[i]);
 			buttons[i].addActionListener(this);
-			buttons[i].setToolTipText(Constants.SQL_TEXTS[i]);
-			buttons[i].setEnabled(Constants.SQL_ENABLES[i]);
 
 			buttons[i].setBounds(Constants.SPACE_23 * count + space, Constants.SPACE_02, Constants.SPACE_21,
 					Constants.SPACE_21);
