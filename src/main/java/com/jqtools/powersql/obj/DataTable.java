@@ -6,4 +6,7 @@ public class DataTable extends JTable {
 
 	private static final long serialVersionUID = -7489359896418415220L;
 
+	public int addRow(int row) {
+		return row;
+	}
 }
