@@ -1,5 +1,7 @@
 package com.jqtools.powersql.obj;
 
+import java.util.ArrayList;
+
 import javax.swing.JTable;
 
 public class DataTable extends JTable {
@@ -8,5 +10,9 @@ public class DataTable extends JTable {
 
 	public int addRow(int row) {
 		return row;
+	}
+
+	public ArrayList<Integer> duplicateRows(int[] rows) {
+		return new ArrayList<Integer>();
 	}
 }
