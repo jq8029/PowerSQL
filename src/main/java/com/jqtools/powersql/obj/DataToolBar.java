@@ -4,13 +4,16 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JButton;
 import javax.swing.JToolBar;
 
+import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 
 public class DataToolBar extends JToolBar implements ActionListener {
 
 	private static final long serialVersionUID = -7341179788939094727L;
+	private JButton buttons[] = new JButton[Constants.DATA_TEXTS.length];
 
 	public DataToolBar() {
 
