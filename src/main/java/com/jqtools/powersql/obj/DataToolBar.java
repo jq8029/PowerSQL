@@ -33,4 +33,18 @@ public class DataToolBar extends JToolBar implements ActionListener {
 			MessageLogger.error(ex);
 		}
 	}
+
+	public boolean isButtonEnabled(int buttonId) {
+		if (buttonId < 0 || buttonId >= buttons.length || buttons[buttonId] == null)
+			return false;
+
+		return buttons[buttonId].isEnabled();
+	}
+
+	public void setButtonEnabled(int buttonId, boolean enable) {
+		if (buttonId < 0 || buttonId >= buttons.length || buttons[buttonId] == null)
+			return;
+
+		buttons[buttonId].setEnabled(enable);
+	}
 }
