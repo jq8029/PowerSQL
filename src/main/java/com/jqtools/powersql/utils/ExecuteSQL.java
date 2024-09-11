@@ -7,11 +7,11 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
+import com.jqtools.powersql.obj.DataTable;
 import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 
@@ -53,7 +53,7 @@ public class ExecuteSQL {
 			e.printStackTrace();
 			MessageLogger.error(e);
 		} finally {
-			tableModel.setTable(new JTable(tableModel));
+			tableModel.setTable(new DataTable(tableModel));
 			tableModel.resizeColumnWidth();
 			scroll.setViewportView(tableModel.getTable());
 			System.gc();
