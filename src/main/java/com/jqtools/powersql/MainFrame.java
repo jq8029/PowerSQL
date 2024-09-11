@@ -12,7 +12,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSplitPane;
 import javax.swing.JTabbedPane;
-import javax.swing.JTable;
 import javax.swing.JTree;
 import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
@@ -21,6 +20,7 @@ import javax.swing.tree.TreeSelectionModel;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
+import com.jqtools.powersql.obj.DataTable;
 import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.ScriptToolBar;
 import com.jqtools.powersql.obj.Session;
@@ -91,7 +91,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		// Right Panel : data/sql
 		JPanel dataPanel = new JPanel(new BorderLayout());
 		ResultTableModel dataTableModel = new ResultTableModel();
-		dataTableModel.setTable(new JTable(dataTableModel));
+		dataTableModel.setTable(new DataTable(dataTableModel));
 		dataPanel.add(Constants.PANEL_CENTER, dataScroll);
 		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		rightPanel.add(Constants.TAB_DATA, dataPanel);
@@ -107,7 +107,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		textAreaPanel.add("South", scriptToolBar.getStatusPanel());
 		JPanel resultPanel = new JPanel(new BorderLayout());
 		ResultTableModel resultTableModel = new ResultTableModel();
-		resultTableModel.setTable(new JTable(resultTableModel));
+		resultTableModel.setTable(new DataTable(resultTableModel));
 		resultPanel.add(Constants.PANEL_CENTER, resultScroll);
 		sqlSplitPane.setTopComponent(textAreaPanel);
 		sqlSplitPane.setBottomComponent(resultPanel);
