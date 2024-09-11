@@ -8,6 +8,14 @@ public class DataTable extends JTable {
 
 	private static final long serialVersionUID = -7489359896418415220L;
 
+	private ResultTableModel resultTableModel = null;
+
+	public DataTable(ResultTableModel resultTableModel) {
+		super(resultTableModel);
+
+		this.resultTableModel = resultTableModel;
+	}
+
 	public int addRow(int row) {
 		return row;
 	}
@@ -19,4 +27,9 @@ public class DataTable extends JTable {
 	public ArrayList<Integer> deleteRows(int[] rows) {
 		return new ArrayList<Integer>();
 	}
+
+	public ResultTableModel getResultTableModel() {
+		return resultTableModel;
+	}
+
 }
