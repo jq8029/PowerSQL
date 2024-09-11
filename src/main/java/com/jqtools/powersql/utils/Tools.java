@@ -1,5 +1,6 @@
 package com.jqtools.powersql.utils;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
 import com.jqtools.powersql.constants.Constants;
@@ -83,7 +84,7 @@ public class Tools {
 	}
 
 	public static JButton getImageButton(String text, boolean enabled) {
-		JButton button = new JButton(Constants.ICON_PATH + text + Constants.ICON_EXTENSION);
+		JButton button = new JButton(new ImageIcon(Constants.ICON_PATH + text + Constants.ICON_EXTENSION));
 		button.setEnabled(enabled);
 		button.setToolTipText(text);
 
