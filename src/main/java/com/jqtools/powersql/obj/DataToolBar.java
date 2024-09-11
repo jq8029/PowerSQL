@@ -15,6 +15,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	private static final long serialVersionUID = -7341179788939094727L;
 	private JButton buttons[] = new JButton[Constants.DATA_TEXTS.length];
+	private DataTable dataTable = null;
 
 	public DataToolBar() {
 		int space = Constants.SPACE_03;
@@ -59,4 +60,13 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 		buttons[buttonId].setEnabled(enable);
 	}
+
+	public DataTable getDataTable() {
+		return dataTable;
+	}
+
+	public void setDataTable(DataTable dataTable) {
+		this.dataTable = dataTable;
+	}
+
 }
