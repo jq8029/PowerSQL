@@ -15,7 +15,7 @@ public class ResultTableModel extends AbstractTableModel {
 	private ArrayList<Object[]> data = null;
 	private String[] colNames = null;
 	private int[] colTypes = null;
-	private JTable table = null;
+	private DataTable table = null;
 
 	public ResultTableModel() {
 		this.data = new ArrayList<Object[]>();
@@ -133,7 +133,7 @@ public class ResultTableModel extends AbstractTableModel {
 		return table;
 	}
 
-	public void setTable(JTable table) {
+	public void setTable(DataTable table) {
 		this.table = table;
 	}
 
