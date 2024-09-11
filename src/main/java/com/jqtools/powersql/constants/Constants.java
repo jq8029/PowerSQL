@@ -12,7 +12,10 @@ public class Constants {
 	public static final String TITLE = "Power SQL";
 	public static final String ROOT = "Databases";
 
+	public static final String PANEL_NORTH = "North";
 	public static final String PANEL_CENTER = "Center";
+	public static final String PANEL_SOUTH = "South";
+
 	public static final int DIVIDER_SIZE = 2;
 	public static final int LEFT_WIDE = 300;
 	public static final int TOP_WIDE = 320;
