@@ -20,13 +20,13 @@ import java.util.Properties;
 import java.util.TreeMap;
 
 import javax.swing.JScrollPane;
-import javax.swing.JTable;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.db.DatabaseData;
 import com.jqtools.powersql.db.H2Data;
 import com.jqtools.powersql.db.MySQLData;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.DataTable;
 import com.jqtools.powersql.obj.DatabaseInfo;
 import com.jqtools.powersql.obj.ResultTableModel;
 
@@ -358,7 +358,7 @@ public class DBTools {
 		objs[1] = info.getDriverName();
 		tableModel.getData().add(objs);
 
-		tableModel.setTable(new JTable(tableModel));
+		tableModel.setTable(new DataTable(tableModel));
 		tableModel.resizeColumnWidth();
 		scroll.setViewportView(tableModel.getTable());
 	}
