@@ -17,12 +17,16 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	private JButton buttons[] = new JButton[Constants.DATA_TEXTS.length];
 	private DataTable dataTable = null;
 
-	public DataToolBar() {
+	public DataToolBar(boolean isResult) {
 		int space = Constants.SPACE_03;
 		int count = 0;
 
-		for (int i = 0; i < Constants.SQL_TEXTS.length; i++) {
-			buttons[i] = Tools.getImageButton(Constants.SQL_TEXTS[i], Constants.SQL_ENABLES[i]);
+		for (int i = 0; i < Constants.DATA_TEXTS.length; i++) {
+			if (isResult) {
+				buttons[i] = Tools.getImageButton(Constants.DATA_TEXTS[i], Constants.DATA_ENABLES[i]);
+			} else {
+				buttons[i] = Tools.getImageButton(Constants.DATA_TEXTS[i], true);
+			}
 			buttons[i].addActionListener(this);
 
 			buttons[i].setBounds(Constants.SPACE_23 * count + space, Constants.SPACE_02, Constants.SPACE_21,
