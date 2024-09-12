@@ -20,9 +20,7 @@ import javax.swing.tree.TreeSelectionModel;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
-import com.jqtools.powersql.obj.DataTable;
 import com.jqtools.powersql.obj.DataToolBar;
-import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.ScriptToolBar;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
@@ -37,8 +35,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	private JTree tree = null;
 	private TreePopMenu popMenu = null;
 	private ScriptToolBar scriptToolBar = null;
-	private JScrollPane resultScroll = new JScrollPane();
-	private JScrollPane dataScroll = new JScrollPane();
+	private DataToolBar resultToolBar = new DataToolBar(true);
+	private DataToolBar dataToolBar = new DataToolBar(false);
 	private JTabbedPane rightPanel = new JTabbedPane();
 
 	public static void main(String args[]) {
@@ -91,10 +89,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 
 		// Right Panel : data/sql
 		JPanel dataPanel = new JPanel(new BorderLayout());
-		ResultTableModel dataTableModel = new ResultTableModel();
-		dataTableModel.setTable(new DataTable(dataTableModel));
-		dataPanel.add(Constants.PANEL_NORTH, new DataToolBar(false));
-		dataPanel.add(Constants.PANEL_CENTER, dataScroll);
+		dataPanel.add(Constants.PANEL_NORTH, dataToolBar);
+		dataPanel.add(Constants.PANEL_CENTER, dataToolBar.getDataScroll());
 		JSplitPane sqlSplitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		rightPanel.add(Constants.TAB_DATA, dataPanel);
 		rightPanel.add(Constants.TAB_SQL, sqlSplitPane);
@@ -103,15 +99,13 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		JPanel textAreaPanel = new JPanel();
 		textAreaPanel.setLayout(new BorderLayout());
 		scriptToolBar = new ScriptToolBar();
-		scriptToolBar.getTextArea().setResultScroll(resultScroll);
+		scriptToolBar.getTextArea().setDataToolBar(resultToolBar);
 		textAreaPanel.add(Constants.PANEL_NORTH, scriptToolBar);
 		textAreaPanel.add(Constants.PANEL_CENTER, scriptToolBar.getTextArea());
 		textAreaPanel.add(Constants.PANEL_SOUTH, scriptToolBar.getStatusPanel());
 		JPanel resultPanel = new JPanel(new BorderLayout());
-		ResultTableModel resultTableModel = new ResultTableModel();
-		resultTableModel.setTable(new DataTable(resultTableModel));
-		resultPanel.add(Constants.PANEL_NORTH, new DataToolBar(true));
-		resultPanel.add(Constants.PANEL_CENTER, resultScroll);
+		resultPanel.add(Constants.PANEL_NORTH, resultToolBar);
+		resultPanel.add(Constants.PANEL_CENTER, resultToolBar.getDataScroll());
 		sqlSplitPane.setTopComponent(textAreaPanel);
 		sqlSplitPane.setBottomComponent(resultPanel);
 		sqlSplitPane.setDividerSize(Constants.DIVIDER_SIZE);
@@ -146,10 +140,10 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
 					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
 				ExecuteSQL.execute(node.getSession(), node.getSession().getDbData().getTableSQL(node.getInfo()),
-						dataScroll);
+						dataToolBar);
 				rightPanel.setSelectedIndex(0);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
-				DBTools.showDBInfo(dataScroll, node.getSession().getDbInfo());
+				DBTools.showDBInfo(dataToolBar, node.getSession().getDbInfo());
 			}
 
 			scriptToolBar.getTextArea().setSession(node.getSession());
