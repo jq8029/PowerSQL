@@ -85,6 +85,7 @@ public class Tools {
 
 	public static JButton getImageButton(String text, boolean enabled) {
 		JButton button = new JButton(new ImageIcon(Constants.ICON_PATH + text + Constants.ICON_EXTENSION));
+		button.setActionCommand(text);
 		button.setEnabled(enabled);
 		button.setToolTipText(text);
 
