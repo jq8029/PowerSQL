@@ -6,17 +6,16 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import javax.swing.JScrollPane;
-
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.obj.DataTable;
+import com.jqtools.powersql.obj.DataToolBar;
 import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
-	public static boolean execute(Session session, String sql, JScrollPane scroll) {
+	public static boolean execute(Session session, String sql, DataToolBar dataToolBar) {
 		PreparedStatement stat = null;
 		ResultSet result = null;
 		ResultTableModel tableModel = new ResultTableModel();
@@ -53,9 +52,10 @@ public class ExecuteSQL {
 			e.printStackTrace();
 			MessageLogger.error(e);
 		} finally {
-			tableModel.setTable(new DataTable(tableModel));
+			dataToolBar.setDataTable(new DataTable(tableModel));
+			tableModel.setTable(dataToolBar.getDataTable());
 			tableModel.resizeColumnWidth();
-			scroll.setViewportView(tableModel.getTable());
+			dataToolBar.getDataScroll().setViewportView(dataToolBar.getDataTable());
 			System.gc();
 		}
 
