@@ -19,14 +19,13 @@ import java.util.ArrayList;
 import java.util.Properties;
 import java.util.TreeMap;
 
-import javax.swing.JScrollPane;
-
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.db.DatabaseData;
 import com.jqtools.powersql.db.H2Data;
 import com.jqtools.powersql.db.MySQLData;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.DataTable;
+import com.jqtools.powersql.obj.DataToolBar;
 import com.jqtools.powersql.obj.DatabaseInfo;
 import com.jqtools.powersql.obj.ResultTableModel;
 
@@ -321,7 +320,7 @@ public class DBTools {
 		return true;
 	}
 
-	public static void showDBInfo(JScrollPane scroll, DatabaseInfo info) {
+	public static void showDBInfo(DataToolBar dataToolBar, DatabaseInfo info) {
 		if (info == null) {
 			return;
 		}
@@ -358,8 +357,9 @@ public class DBTools {
 		objs[1] = info.getDriverName();
 		tableModel.getData().add(objs);
 
-		tableModel.setTable(new DataTable(tableModel));
+		dataToolBar.setDataTable(new DataTable(tableModel));
+		tableModel.setTable(dataToolBar.getDataTable());
 		tableModel.resizeColumnWidth();
-		scroll.setViewportView(tableModel.getTable());
+		dataToolBar.getDataScroll().setViewportView(dataToolBar.getDataTable());
 	}
 }
