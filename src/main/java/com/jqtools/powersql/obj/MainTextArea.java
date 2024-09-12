@@ -5,7 +5,6 @@ import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 
 import javax.swing.AbstractAction;
-import javax.swing.JScrollPane;
 import javax.swing.KeyStroke;
 import javax.swing.event.UndoableEditEvent;
 import javax.swing.event.UndoableEditListener;
@@ -21,7 +20,7 @@ public class MainTextArea extends RSyntaxTextArea {
 
 	private static final long serialVersionUID = 1064609692697845846L;
 	private Session session = null;
-	private JScrollPane resultScroll = null;
+	private DataToolBar dataToolBar = null;
 	private UndoManager undoManager = new UndoManager();
 
 	public MainTextArea() {
@@ -73,7 +72,7 @@ public class MainTextArea extends RSyntaxTextArea {
 					}
 				}
 
-				ExecuteSQL.execute(session, sql, resultScroll);
+				ExecuteSQL.execute(session, sql, dataToolBar);
 			}
 		} catch (Exception e) {
 			MessageLogger.error(e);
@@ -84,8 +83,8 @@ public class MainTextArea extends RSyntaxTextArea {
 		this.session = session;
 	}
 
-	public void setResultScroll(JScrollPane resultScroll) {
-		this.resultScroll = resultScroll;
+	public void setDataToolBar(DataToolBar dataToolBar) {
+		this.dataToolBar = dataToolBar;
 	}
 
 	public UndoManager getUndoManager() {
