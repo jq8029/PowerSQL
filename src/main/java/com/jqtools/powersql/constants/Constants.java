@@ -94,14 +94,14 @@ public class Constants {
 	public static String ICON_EXTENSION = ".png";
 
 	// Tool bar
-	public static final int TOOLBAR_EXECUTE = 0;
-	public static final int TOOLBAR_EXECUTE_STOP = 1;
-	public static final int TOOLBAR_UNDO = 2;
-	public static final int TOOLBAR_REDO = 3;
-	public static final int TOOLBAR_CUT = 4;
-	public static final int TOOLBAR_COPY = 5;
-	public static final int TOOLBAR_PASTE = 6;
-	public static int TOOLBAR_SEPARATOR[] = { TOOLBAR_EXECUTE_STOP, TOOLBAR_REDO };
+	public static final int SQL_TOOLBAR_EXECUTE = 0;
+	public static final int SQL_TOOLBAR_EXECUTE_STOP = 1;
+	public static final int SQL_TOOLBAR_UNDO = 2;
+	public static final int SQL_TOOLBAR_REDO = 3;
+	public static final int SQL_TOOLBAR_CUT = 4;
+	public static final int SQL_TOOLBAR_COPY = 5;
+	public static final int SQL_TOOLBAR_PASTE = 6;
+	public static int TOOLBAR_SEPARATOR[] = { SQL_TOOLBAR_EXECUTE_STOP, SQL_TOOLBAR_REDO };
 
 	public static String SQL_TEXTS[] = { "execute", "stop", "undo", "redo", "cut", "copy", "paste" };
 	public static boolean SQL_ENABLES[] = { true, true, false, false, false, false, true };
