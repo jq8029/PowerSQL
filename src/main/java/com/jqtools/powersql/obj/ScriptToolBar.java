@@ -54,21 +54,21 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		}
 
 		try {
-			if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_EXECUTE])) {
+			if (text.equals(Constants.SQL_TEXTS[Constants.SQL_TOOLBAR_EXECUTE])) {
 				this.textArea.executeSQL();
-			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_UNDO])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.SQL_TOOLBAR_UNDO])) {
 				this.textArea.getUndoManager().undo();
-				this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
-				this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
-			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_REDO])) {
+				this.setButtonEnabled(Constants.SQL_TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
+				this.setButtonEnabled(Constants.SQL_TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.SQL_TOOLBAR_REDO])) {
 				this.textArea.getUndoManager().redo();
-				this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
-				this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
-			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_CUT])) {
+				this.setButtonEnabled(Constants.SQL_TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
+				this.setButtonEnabled(Constants.SQL_TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.SQL_TOOLBAR_CUT])) {
 				this.textArea.cut();
-			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_COPY])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.SQL_TOOLBAR_COPY])) {
 				this.textArea.copy();
-			} else if (text.equals(Constants.SQL_TEXTS[Constants.TOOLBAR_PASTE])) {
+			} else if (text.equals(Constants.SQL_TEXTS[Constants.SQL_TOOLBAR_PASTE])) {
 				this.textArea.paste();
 			}
 		} catch (Exception ex) {
@@ -99,12 +99,12 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 		// update cut/copy/undo/redo button
 		int dot = e.getDot(), mark = e.getMark();
 		if (dot != mark) {
-			setButtonEnabled(Constants.TOOLBAR_CUT, true);
-			setButtonEnabled(Constants.TOOLBAR_COPY, true);
+			setButtonEnabled(Constants.SQL_TOOLBAR_CUT, true);
+			setButtonEnabled(Constants.SQL_TOOLBAR_COPY, true);
 		}
 
-		this.setButtonEnabled(Constants.TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
-		this.setButtonEnabled(Constants.TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
+		this.setButtonEnabled(Constants.SQL_TOOLBAR_UNDO, this.getTextArea().getUndoManager().canUndo());
+		this.setButtonEnabled(Constants.SQL_TOOLBAR_REDO, this.getTextArea().getUndoManager().canRedo());
 	}
 
 	public MainTextArea getTextArea() {
