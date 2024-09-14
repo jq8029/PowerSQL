@@ -10,6 +10,7 @@ import javax.swing.JToolBar;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.utils.ExecuteSQL;
 import com.jqtools.powersql.utils.Tools;
 
 public class DataToolBar extends JToolBar implements ActionListener {
@@ -55,7 +56,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 		try {
 			if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_REFRESH])) {
-
+				refresh();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_FILTER])) {
 
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_EXPORT])) {
@@ -123,5 +124,6 @@ public class DataToolBar extends JToolBar implements ActionListener {
 			return;
 		}
 
+		ExecuteSQL.execute(this);
 	}
 }
