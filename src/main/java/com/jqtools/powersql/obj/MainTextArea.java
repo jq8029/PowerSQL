@@ -72,7 +72,9 @@ public class MainTextArea extends RSyntaxTextArea {
 					}
 				}
 
-				ExecuteSQL.execute(session, sql, dataToolBar);
+				dataToolBar.setSession(session);
+				dataToolBar.setSql(sql);
+				ExecuteSQL.execute(dataToolBar);
 			}
 		} catch (Exception e) {
 			MessageLogger.error(e);
