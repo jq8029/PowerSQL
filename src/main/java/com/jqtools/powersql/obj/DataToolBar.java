@@ -52,6 +52,23 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		}
 
 		try {
+			if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_REFRESH])) {
+
+			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_FILTER])) {
+
+			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_EXPORT])) {
+
+			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_ADD])) {
+
+			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_DELETE])) {
+
+			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_DUPLICATE])) {
+
+			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_SAVE])) {
+
+			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_SEARCH])) {
+
+			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
 		}
