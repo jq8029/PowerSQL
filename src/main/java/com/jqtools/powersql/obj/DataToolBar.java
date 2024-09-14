@@ -118,4 +118,10 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		this.sql = sql;
 	}
 
+	public void refresh() {
+		if (this.session == null || this.sql == null) {
+			return;
+		}
+
+	}
 }
