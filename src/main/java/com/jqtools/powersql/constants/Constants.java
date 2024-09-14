@@ -101,8 +101,7 @@ public class Constants {
 	public static final int SQL_TOOLBAR_CUT = 4;
 	public static final int SQL_TOOLBAR_COPY = 5;
 	public static final int SQL_TOOLBAR_PASTE = 6;
-	public static int TOOLBAR_SEPARATOR[] = { SQL_TOOLBAR_EXECUTE_STOP, SQL_TOOLBAR_REDO };
-
+	public static int SQL_TOOLBAR_SEPARATOR[] = { SQL_TOOLBAR_EXECUTE_STOP, SQL_TOOLBAR_REDO };
 	public static String SQL_TEXTS[] = { "execute", "stop", "undo", "redo", "cut", "copy", "paste" };
 	public static boolean SQL_ENABLES[] = { true, true, false, false, false, false, true };
 	public static String DATA_TEXTS[] = { "refresh", "filter", "export", "add", "delete", "duplicate", "save",
