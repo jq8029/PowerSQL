@@ -15,7 +15,9 @@ import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
-	public static boolean execute(Session session, String sql, DataToolBar dataToolBar) {
+	public static boolean execute(DataToolBar dataToolBar) {
+		Session session = dataToolBar.getSession();
+		String sql = dataToolBar.getSql();
 		PreparedStatement stat = null;
 		ResultSet result = null;
 		ResultTableModel tableModel = new ResultTableModel();
