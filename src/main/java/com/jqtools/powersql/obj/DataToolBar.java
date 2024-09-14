@@ -26,6 +26,9 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	private String sql = null;
 
 	public DataToolBar(boolean isResult) {
+		this.setLayout(null);
+		this.setPreferredSize(new Dimension(Constants.DATA_TEXTS.length * 29 + 300, 29));
+
 		int space = Constants.SPACE_03;
 		int count = 0;
 
