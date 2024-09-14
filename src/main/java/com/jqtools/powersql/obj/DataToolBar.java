@@ -18,6 +18,8 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	private JButton buttons[] = new JButton[Constants.DATA_TEXTS.length];
 	private JScrollPane dataScroll = new JScrollPane();
 	private DataTable dataTable = null;
+	private Session session = null;
+	private String sql = null;
 
 	public DataToolBar(boolean isResult) {
 		int space = Constants.SPACE_03;
@@ -98,6 +100,22 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	public JScrollPane getDataScroll() {
 		return dataScroll;
+	}
+
+	public Session getSession() {
+		return session;
+	}
+
+	public void setSession(Session session) {
+		this.session = session;
+	}
+
+	public String getSql() {
+		return sql;
+	}
+
+	public void setSql(String sql) {
+		this.sql = sql;
 	}
 
 }
