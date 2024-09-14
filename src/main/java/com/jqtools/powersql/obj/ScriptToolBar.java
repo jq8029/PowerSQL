@@ -33,8 +33,8 @@ public class ScriptToolBar extends JToolBar implements ActionListener, CaretList
 			add(buttons[i]);
 
 			// add group separator
-			for (int idx = 0; idx < Constants.TOOLBAR_SEPARATOR.length; idx++) {
-				if (i == Constants.TOOLBAR_SEPARATOR[idx]) {
+			for (int idx = 0; idx < Constants.SQL_TOOLBAR_SEPARATOR.length; idx++) {
+				if (i == Constants.SQL_TOOLBAR_SEPARATOR[idx]) {
 					space += Constants.SPACE_10;
 					this.addSeparator();
 				}
