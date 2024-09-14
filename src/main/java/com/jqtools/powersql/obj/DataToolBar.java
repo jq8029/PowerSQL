@@ -1,11 +1,13 @@
 package com.jqtools.powersql.obj;
 
 import java.awt.Color;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.JToolBar;
 
 import com.jqtools.powersql.constants.Constants;
@@ -17,6 +19,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	private static final long serialVersionUID = -7341179788939094727L;
 	private JButton buttons[] = new JButton[Constants.DATA_TEXTS.length];
+	private JTextField searchField = new JTextField();
 	private JScrollPane dataScroll = new JScrollPane();
 	private DataTable dataTable = null;
 	private Session session = null;
@@ -27,6 +30,18 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		int count = 0;
 
 		for (int i = 0; i < Constants.DATA_TEXTS.length; i++) {
+			if (i == Constants.DATA_TOOLBAR_SEARCH) {
+				space += Constants.SPACE_02;
+				searchField = new JTextField();
+				searchField.setBounds(Constants.SPACE_24 * count + space, Constants.SPACE_02, Constants.SPACE_100,
+						Constants.SPACE_21);
+				searchField.setPreferredSize(new Dimension(Constants.SPACE_100, Constants.SPACE_21));
+				searchField.addActionListener(this);
+				add(searchField);
+				space += Constants.SPACE_100;
+				space += Constants.SPACE_10;
+			}
+
 			if (isResult) {
 				buttons[i] = Tools.getImageButton(Constants.DATA_TEXTS[i], Constants.DATA_ENABLES[i]);
 			} else {
