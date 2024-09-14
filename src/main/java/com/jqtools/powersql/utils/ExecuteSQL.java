@@ -61,6 +61,8 @@ public class ExecuteSQL {
 			System.gc();
 		}
 
+		MessageLogger.info("execute sql = " + sql);
+
 		return true;
 	}
 
