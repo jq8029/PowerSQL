@@ -115,7 +115,7 @@ public class Constants {
 	public static final int DATA_TOOLBAR_SEARCH = 7;
 	public static String DATA_TEXTS[] = { "refresh", "filter", "export", "add", "delete", "duplicate", "save",
 			"search" };
-	public static boolean DATA_ENABLES[] = { true, true, true, false, false, false, true, true };
+	public static boolean DATA_ENABLES[] = { true, true, true, false, false, false, false, true };
 
 	public static final int SPACE_02 = 2;
 	public static final int SPACE_03 = 3;
