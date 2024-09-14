@@ -52,6 +52,8 @@ public class DataToolBar extends JToolBar implements ActionListener {
 			buttons[i].setBounds(Constants.SPACE_23 * count + space, Constants.SPACE_02, Constants.SPACE_21,
 					Constants.SPACE_21);
 			add(buttons[i]);
+
+			count++;
 		}
 
 		ResultTableModel dataTableModel = new ResultTableModel();
