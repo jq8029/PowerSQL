@@ -78,7 +78,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 			if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_REFRESH])) {
 				refresh();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_FILTER])) {
-
+				filter();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_EXPORT])) {
 
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_ADD])) {
@@ -145,6 +145,10 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		}
 
 		ExecuteSQL.execute(this);
+	}
+
+	public void filter() {
+
 	}
 
 	public void export() {
