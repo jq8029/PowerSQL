@@ -49,4 +49,10 @@ public class DatabaseData {
 
 		return sql.toString();
 	}
+
+	public String getFilterSQL(String sql, String filterSQL) {
+		return new StringBuffer().append("select * from (").append(sql).append(") as filter_sort_tb where ")
+				.append(filterSQL).toString();
+	}
+
 }
