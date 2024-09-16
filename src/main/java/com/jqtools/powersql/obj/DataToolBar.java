@@ -146,4 +146,28 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 		ExecuteSQL.execute(this);
 	}
+
+	public void export() {
+
+	}
+
+	public void add() {
+
+	}
+
+	public void delete() {
+
+	}
+
+	public void duplidate() {
+
+	}
+
+	public void save() {
+
+	}
+
+	public void search() {
+
+	}
 }
