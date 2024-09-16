@@ -80,17 +80,17 @@ public class DataToolBar extends JToolBar implements ActionListener {
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_FILTER])) {
 				filter();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_EXPORT])) {
-
+				export();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_ADD])) {
-
+				add();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_DELETE])) {
-
+				delete();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_DUPLICATE])) {
-
+				duplicate();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_SAVE])) {
-
+				save();
 			} else if (text.equals(Constants.DATA_TEXTS[Constants.DATA_TOOLBAR_SEARCH])) {
-
+				search();
 			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
@@ -163,7 +163,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	}
 
-	public void duplidate() {
+	public void duplicate() {
 
 	}
 
