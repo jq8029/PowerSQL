@@ -1,5 +1,6 @@
 package com.jqtools.powersql.obj;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -24,6 +25,11 @@ public class FilterSortFrame extends JFrame {
 
 		// add sort panel
 		JPanel sortPanel = new JPanel(null);
+
+		// add control button
+		JButton applyButton = new JButton(Constants.BUTTON_APPLY);
+		JButton resetButton = new JButton(Constants.BUTTON_RESET);
+		JButton cancelButton = new JButton(Constants.BUTTON_CANCEL);
 
 		this.getContentPane().add(filterPanel);
 		this.getContentPane().add(sortPanel);
