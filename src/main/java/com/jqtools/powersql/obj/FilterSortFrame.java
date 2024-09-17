@@ -33,6 +33,9 @@ public class FilterSortFrame extends JFrame {
 
 		this.getContentPane().add(filterPanel);
 		this.getContentPane().add(sortPanel);
+		this.getContentPane().add(applyButton);
+		this.getContentPane().add(resetButton);
+		this.getContentPane().add(cancelButton);
 
 		this.pack();
 		setLocationRelativeTo(this);
