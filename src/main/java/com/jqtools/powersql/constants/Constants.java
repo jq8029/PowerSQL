@@ -11,6 +11,7 @@ public class Constants {
 
 	public static final String TITLE = "Power SQL";
 	public static final String TITLE_FILTER_SORT = "Filter & Sort Table";
+	public static final String TITLE_FILTER = "Filter";
 
 	public static final String ROOT = "Databases";
 
