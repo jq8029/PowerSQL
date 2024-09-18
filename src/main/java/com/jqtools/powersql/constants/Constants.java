@@ -146,10 +146,13 @@ public class Constants {
 	public static final String CONDITION_NOT_BETWEEN = "NOT BETWEEN";
 	public static final String CONDITION_IS_NULL = "IS NULL";
 	public static final String CONDITION_IS_NOT_NULL = "IS NOT NULL";
-
 	public static final String CONDITIONS[] = { CONDITION_EQUAL, CONDITION_NOT_EQUAL_S, CONDITION_NOT_EQUAL_N,
 			CONDITION_NOT_MORE, CONDITION_NOT_LESS, CONDITION_NOT_MORE_E, CONDITION_NOT_LESS_E, CONDITION_LIKE,
 			CONDITION_NOT_LIKE, CONDITION_IN, CONDITION_NOT_IN, CONDITION_BETWEEN, CONDITION_NOT_BETWEEN,
 			CONDITION_IS_NULL, CONDITION_IS_NOT_NULL };
 
+	// and/or options
+	public static final String OPTION_AND = "AND";
+	public static final String OPTION_OR = "OR";
+	public static final String AND_OR[] = { OPTION_AND, OPTION_OR };
 }
