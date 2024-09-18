@@ -155,4 +155,10 @@ public class Constants {
 	public static final String OPTION_AND = "AND";
 	public static final String OPTION_OR = "OR";
 	public static final String AND_OR[] = { OPTION_AND, OPTION_OR };
+
+	// asc/desc
+	public static final String ORDER_ASC = "ASC";
+	public static final String ORDER_DESC = "DESC";
+	public static final String ORDERS[] = { ORDER_ASC, ORDER_DESC };
+
 }
