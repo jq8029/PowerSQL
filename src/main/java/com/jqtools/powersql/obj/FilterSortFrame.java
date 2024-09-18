@@ -1,5 +1,6 @@
 package com.jqtools.powersql.obj;
 
+import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
@@ -33,6 +34,8 @@ public class FilterSortFrame extends JFrame {
 
 		// add filter panel
 		JPanel filterPanel = new JPanel(null);
+		filterPanel.setBounds(5, 5, 600, 140);
+		filterPanel.setBorder(BorderFactory.createTitledBorder(" " + Constants.TITLE_FILTER + " "));
 
 		// add sort panel
 		JPanel sortPanel = new JPanel(null);
