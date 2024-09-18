@@ -130,4 +130,26 @@ public class Constants {
 	public static final int SPACE_24 = 24;
 	public static final int SPACE_100 = 100;
 
+	// filter condition
+	public static final String CONDITION_EQUAL = "=";
+	public static final String CONDITION_NOT_EQUAL_S = "!=";
+	public static final String CONDITION_NOT_EQUAL_N = "<>";
+	public static final String CONDITION_NOT_MORE = ">";
+	public static final String CONDITION_NOT_LESS = "<";
+	public static final String CONDITION_NOT_MORE_E = ">=";
+	public static final String CONDITION_NOT_LESS_E = "<=";
+	public static final String CONDITION_LIKE = "LIKE";
+	public static final String CONDITION_NOT_LIKE = "NOT LIKE";
+	public static final String CONDITION_IN = "IN";
+	public static final String CONDITION_NOT_IN = "NOT IN";
+	public static final String CONDITION_BETWEEN = "BETWEEN";
+	public static final String CONDITION_NOT_BETWEEN = "NOT BETWEEN";
+	public static final String CONDITION_IS_NULL = "IS NULL";
+	public static final String CONDITION_IS_NOT_NULL = "IS NOT NULL";
+
+	public static final String CONDITIONS[] = { CONDITION_EQUAL, CONDITION_NOT_EQUAL_S, CONDITION_NOT_EQUAL_N,
+			CONDITION_NOT_MORE, CONDITION_NOT_LESS, CONDITION_NOT_MORE_E, CONDITION_NOT_LESS_E, CONDITION_LIKE,
+			CONDITION_NOT_LIKE, CONDITION_IN, CONDITION_NOT_IN, CONDITION_BETWEEN, CONDITION_NOT_BETWEEN,
+			CONDITION_IS_NULL, CONDITION_IS_NOT_NULL };
+
 }
