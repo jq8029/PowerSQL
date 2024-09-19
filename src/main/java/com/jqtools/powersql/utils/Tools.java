@@ -2,6 +2,7 @@ package com.jqtools.powersql.utils;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 
 import com.jqtools.powersql.constants.Constants;
 
@@ -91,4 +92,12 @@ public class Tools {
 
 		return button;
 	}
+
+	public static String getSelectedItem(JComboBox<String> box) {
+		if (box == null || box.getSelectedItem() == null)
+			return null;
+
+		return box.getSelectedItem().toString();
+	}
+
 }
