@@ -1,5 +1,8 @@
 package com.jqtools.powersql.obj;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -47,6 +50,11 @@ public class FilterSortFrame extends JFrame {
 		filterPanel.add(andOrBox);
 		JButton filterAddButton = new JButton(Constants.BUTTON_ADD);
 		filterAddButton.setBounds(535, y1, 50, height);
+		filterAddButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addFilter();
+			}
+		});
 		filterPanel.add(filterAddButton);
 
 		// add sort panel
@@ -67,4 +75,7 @@ public class FilterSortFrame extends JFrame {
 		setLocationRelativeTo(this);
 	}
 
+	public void addFilter() {
+
+	}
 }
