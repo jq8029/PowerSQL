@@ -45,6 +45,9 @@ public class FilterSortFrame extends JFrame {
 		filterPanel.add(filterField);
 		andOrBox.setBounds(480, y1, 50, height);
 		filterPanel.add(andOrBox);
+		JButton filterAddButton = new JButton(Constants.BUTTON_ADD);
+		filterAddButton.setBounds(535, y1, 50, height);
+		filterPanel.add(filterAddButton);
 
 		// add sort panel
 		JPanel sortPanel = new JPanel(null);
