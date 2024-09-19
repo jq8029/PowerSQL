@@ -37,6 +37,15 @@ public class FilterSortFrame extends JFrame {
 		filterPanel.setBounds(5, 5, 600, 140);
 		filterPanel.setBorder(BorderFactory.createTitledBorder(" " + Constants.TITLE_FILTER + " "));
 
+		filterColBox.setBounds(x1, y1, 160, height);
+		filterPanel.add(filterColBox);
+		condBox.setBounds(180, y1, 110, height);
+		filterPanel.add(condBox);
+		filterField.setBounds(295, y1, 180, height);
+		filterPanel.add(filterField);
+		andOrBox.setBounds(480, y1, 50, height);
+		filterPanel.add(andOrBox);
+
 		// add sort panel
 		JPanel sortPanel = new JPanel(null);
 
