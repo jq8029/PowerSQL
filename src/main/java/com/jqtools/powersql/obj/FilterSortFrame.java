@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
+import org.fife.ui.rtextarea.RTextScrollPane;
 
 import com.jqtools.powersql.constants.Constants;
 
@@ -56,6 +57,9 @@ public class FilterSortFrame extends JFrame {
 			}
 		});
 		filterPanel.add(filterAddButton);
+		RTextScrollPane textScrollPanel = new RTextScrollPane(filterArea);
+		;
+		filterPanel.add(textScrollPanel);
 
 		// add sort panel
 		JPanel sortPanel = new JPanel(null);
