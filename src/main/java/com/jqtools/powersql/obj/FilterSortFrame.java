@@ -23,6 +23,7 @@ public class FilterSortFrame extends JFrame {
 	private JComboBox<String> filterColBox = new JComboBox<String>();
 	private JComboBox<String> condBox = new JComboBox<String>(Constants.CONDITIONS);
 	private JComboBox<String> andOrBox = new JComboBox<String>(Constants.AND_OR);
+	private JComboBox<String> sortColBox = new JComboBox<String>();
 	private JComboBox<String> ascDescBox = new JComboBox<String>(Constants.ORDERS);
 	private JTextField filterField = new JTextField();
 
@@ -65,6 +66,9 @@ public class FilterSortFrame extends JFrame {
 		JPanel sortPanel = new JPanel(null);
 		sortPanel.setBounds(5, 155, 600, 140);
 		sortPanel.setBorder(BorderFactory.createTitledBorder(" " + Constants.TITLE_SORT + " "));
+
+		sortColBox.setBounds(x1, y1, 160, height);
+		sortPanel.add(sortColBox);
 
 		// add control button
 		JButton applyButton = new JButton(Constants.BUTTON_APPLY);
