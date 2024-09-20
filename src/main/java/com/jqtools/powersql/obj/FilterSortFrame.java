@@ -71,6 +71,14 @@ public class FilterSortFrame extends JFrame {
 		sortPanel.add(sortColBox);
 		ascDescBox.setBounds(180, y1, 80, height);
 		sortPanel.add(ascDescBox);
+		JButton sortAddButton = new JButton(Constants.BUTTON_ADD);
+		sortAddButton.setBounds(535, y1, 50, height);
+		sortAddButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				addSort();
+			}
+		});
+		sortPanel.add(sortAddButton);
 
 		// add control button
 		JButton applyButton = new JButton(Constants.BUTTON_APPLY);
@@ -88,6 +96,10 @@ public class FilterSortFrame extends JFrame {
 	}
 
 	public void addFilter() {
+
+	}
+
+	public void addSort() {
 
 	}
 }
