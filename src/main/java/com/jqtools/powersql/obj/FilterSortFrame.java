@@ -102,4 +102,16 @@ public class FilterSortFrame extends JFrame {
 	public void addSort() {
 
 	}
+
+	public void apply() {
+
+	}
+
+	public void reset() {
+
+	}
+
+	public void cancel() {
+
+	}
 }
