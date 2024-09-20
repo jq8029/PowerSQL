@@ -63,6 +63,8 @@ public class FilterSortFrame extends JFrame {
 
 		// add sort panel
 		JPanel sortPanel = new JPanel(null);
+		sortPanel.setBounds(5, 155, 600, 140);
+		sortPanel.setBorder(BorderFactory.createTitledBorder(" " + Constants.TITLE_SORT + " "));
 
 		// add control button
 		JButton applyButton = new JButton(Constants.BUTTON_APPLY);
