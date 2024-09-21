@@ -169,6 +169,11 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		this.sortSQL = null;
 	}
 
+	public void setFilterSort(String filterSQL, String sortSQL) {
+		this.filterSQL = filterSQL;
+		this.sortSQL = sortSQL;
+	}
+
 	public void refresh() {
 		if (this.session == null || this.sql == null) {
 			return;
