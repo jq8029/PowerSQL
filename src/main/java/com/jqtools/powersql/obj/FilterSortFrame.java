@@ -132,7 +132,8 @@ public class FilterSortFrame extends JFrame {
 	}
 
 	public void reset() {
-
+		this.filterArea.setText("");
+		this.sortArea.setText("");
 	}
 
 	public void cancel() {
