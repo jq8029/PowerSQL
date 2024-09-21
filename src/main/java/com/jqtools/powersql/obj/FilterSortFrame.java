@@ -14,6 +14,8 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.NoticeMessage;
+import com.jqtools.powersql.utils.Tools;
 
 public class FilterSortFrame extends JFrame {
 
@@ -127,7 +129,37 @@ public class FilterSortFrame extends JFrame {
 	}
 
 	public void addSort() {
+		String name = Tools.getSelectedItem(this.sortColBox);
+		String sort = Tools.getSelectedItem(this.ascDescBox);
+		String text = null;
 
+		if (name == null || name.length() == 0) {
+			NoticeMessage.showMessage(Constants.MSG_SELECT_COL);
+		} else {
+			if (colNames != null) {
+				for (int i = 0; i < colNames.length; i++) {
+					if (Tools.isEqual(name, colNames[i])) {
+						StringBuffer buffer = new StringBuffer();
+						text = this.sortArea.getText();
+
+						if (text.trim().endsWith(",")) {
+							text = text.substring(0, text.lastIndexOf(","));
+						}
+
+						buffer.append(text);
+						if (buffer.length() > 0) {
+							buffer.append(", ");
+						}
+
+						buffer.append(name).append(" ").append(sort);
+
+						this.sortArea.setText(buffer.toString());
+
+						break;
+					}
+				}
+			}
+		}
 	}
 
 	public void apply() {
