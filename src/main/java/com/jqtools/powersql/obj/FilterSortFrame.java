@@ -96,6 +96,12 @@ public class FilterSortFrame extends JFrame {
 			}
 		});
 		JButton cancelButton = new JButton(Constants.BUTTON_CANCEL);
+		cancelButton.setBounds(350, 310, 60, height);
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cancel();
+			}
+		});
 
 		this.getContentPane().add(filterPanel);
 		this.getContentPane().add(sortPanel);
