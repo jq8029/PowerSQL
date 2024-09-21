@@ -27,6 +27,7 @@ public class FilterSortFrame extends JFrame {
 	private JComboBox<String> sortColBox = new JComboBox<String>();
 	private JComboBox<String> ascDescBox = new JComboBox<String>(Constants.ORDERS);
 	private JTextField filterField = new JTextField();
+	private DataToolBar dataToolBar = null;
 
 	public FilterSortFrame() {
 		super();
@@ -138,5 +139,9 @@ public class FilterSortFrame extends JFrame {
 
 	public void cancel() {
 		super.setVisible(false);
+	}
+
+	public void setDataToolBar(DataToolBar dataToolBar) {
+		this.dataToolBar = dataToolBar;
 	}
 }
