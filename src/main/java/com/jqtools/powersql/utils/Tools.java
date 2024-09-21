@@ -100,4 +100,15 @@ public class Tools {
 		return box.getSelectedItem().toString();
 	}
 
+	public static boolean isEqual(String value1, String value2) {
+		if (value1 == null && value2 == null) {
+			return true;
+		} else if (value1 != null && value2 == null) {
+			return false;
+		} else if (value1 == null && value2 != null) {
+			return false;
+		} else {
+			return value1.equals(value2);
+		}
+	}
 }
