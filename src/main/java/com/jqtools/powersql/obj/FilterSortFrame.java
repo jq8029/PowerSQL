@@ -82,6 +82,12 @@ public class FilterSortFrame extends JFrame {
 
 		// add control button
 		JButton applyButton = new JButton(Constants.BUTTON_APPLY);
+		applyButton.setBounds(220, 310, 60, height);
+		applyButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				apply();
+			}
+		});
 		JButton resetButton = new JButton(Constants.BUTTON_RESET);
 		JButton cancelButton = new JButton(Constants.BUTTON_CANCEL);
 
