@@ -125,7 +125,16 @@ public class FilterSortFrame extends JFrame {
 	}
 
 	public void addFilter() {
+		String value = this.filterField.getText().trim();
+		String name = Tools.getSelectedItem(this.filterColBox);
+		String cond = Tools.getSelectedItem(this.condBox);
+		String andOr = Tools.getSelectedItem(this.andOrBox);
 
+		if (name == null || name.length() == 0) {
+			NoticeMessage.showMessage(Constants.MSG_SELECT_COL);
+		} else {
+
+		}
 	}
 
 	public void addSort() {
