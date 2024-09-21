@@ -80,6 +80,7 @@ public class Constants {
 	public static String MSG_UNABLE_CONN = "Unable to connect database.";
 	public static String MSG_OVERWRITE_CONN = "Do you want to overwrite current connection ?";
 	public static String MSG_DELETE_CONN = "Do you want to delete current connection ?";
+	public static String MSG_SELECT_COL = "Please select column name.";
 
 	// Menu
 	public static String MENU_CREATE = "Create";
