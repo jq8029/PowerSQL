@@ -133,6 +133,32 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		this.session = session;
 	}
 
+	public String getExecSQL() {
+		if (filterSQL != null && filterSQL.trim().length() == 0) {
+			filterSQL = null;
+		}
+		if (sortSQL != null && sortSQL.trim().length() == 0) {
+			sortSQL = null;
+		}
+
+		StringBuffer buffer = new StringBuffer();
+		if (filterSQL == null && sortSQL == null) {
+			buffer.append(sql);
+		} else {
+			if (filterSQL != null) {
+				buffer.append(session.getDbData().getFilterSQL(sql, filterSQL));
+			} else {
+				buffer.append(sql);
+			}
+
+			if (sortSQL != null && sortSQL.trim().length() > 0) {
+				buffer.append(" order by ").append(sortSQL);
+			}
+		}
+
+		return buffer.toString();
+	}
+
 	public String getSql() {
 		return sql;
 	}
