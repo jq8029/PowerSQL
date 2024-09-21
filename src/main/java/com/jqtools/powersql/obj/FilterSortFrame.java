@@ -137,6 +137,6 @@ public class FilterSortFrame extends JFrame {
 	}
 
 	public void cancel() {
-
+		super.setVisible(false);
 	}
 }
