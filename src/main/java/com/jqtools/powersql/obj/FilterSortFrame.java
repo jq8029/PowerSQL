@@ -82,6 +82,7 @@ public class FilterSortFrame extends JFrame {
 		});
 		sortPanel.add(sortAddButton);
 		textScrollPanel = new RTextScrollPane(filterArea);
+		textScrollPanel.setLineNumbersEnabled(true);
 		textScrollPanel.setBounds(x1, 45, 570, 80);
 		sortPanel.add(textScrollPanel);
 
