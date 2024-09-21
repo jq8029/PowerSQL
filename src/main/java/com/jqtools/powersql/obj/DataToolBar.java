@@ -24,6 +24,8 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	private DataTable dataTable = null;
 	private Session session = null;
 	private String sql = null;
+	private String filterSQL = null;
+	private String sortSQL = null;
 
 	public DataToolBar(boolean isResult) {
 		this.setLayout(null);
@@ -137,6 +139,8 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	public void setSql(String sql) {
 		this.sql = sql;
+		this.filterSQL = null;
+		this.sortSQL = null;
 	}
 
 	public void refresh() {
