@@ -81,6 +81,7 @@ public class Constants {
 	public static String MSG_OVERWRITE_CONN = "Do you want to overwrite current connection ?";
 	public static String MSG_DELETE_CONN = "Do you want to delete current connection ?";
 	public static String MSG_SELECT_COL = "Please select column name.";
+	public static String MSG_ENTER_TWO = "Please enter two values separated by comma(,).";
 
 	// Menu
 	public static String MENU_CREATE = "Create";
