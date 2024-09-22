@@ -133,7 +133,14 @@ public class FilterSortFrame extends JFrame {
 		if (name == null || name.length() == 0) {
 			NoticeMessage.showMessage(Constants.MSG_SELECT_COL);
 		} else {
+			if (colNames != null && colTypes != null) {
+				if ((Constants.CONDITION_BETWEEN.equals(cond) || Constants.CONDITION_NOT_BETWEEN.equals(cond))
+						&& value.indexOf(",") < 0) {
+					NoticeMessage.showMessage(Constants.MSG_ENTER_TWO);
+					return;
+				}
 
+			}
 		}
 	}
 
