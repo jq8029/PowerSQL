@@ -1,5 +1,6 @@
 package com.jqtools.powersql.obj;
 
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -54,12 +55,12 @@ public class FilterSortFrame extends JFrame {
 		filterPanel.add(filterColBox);
 		condBox.setBounds(180, y1, 110, height);
 		filterPanel.add(condBox);
-		filterField.setBounds(295, y1, 180, height);
+		filterField.setBounds(295, y1, 170, height);
 		filterPanel.add(filterField);
-		andOrBox.setBounds(480, y1, 50, height);
+		andOrBox.setBounds(470, y1, 50, height);
 		filterPanel.add(andOrBox);
 		JButton filterAddButton = new JButton(Constants.BUTTON_ADD);
-		filterAddButton.setBounds(535, y1, 50, height);
+		filterAddButton.setBounds(525, y1, 60, height);
 		filterAddButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addFilter();
@@ -81,7 +82,7 @@ public class FilterSortFrame extends JFrame {
 		ascDescBox.setBounds(180, y1, 80, height);
 		sortPanel.add(ascDescBox);
 		JButton sortAddButton = new JButton(Constants.BUTTON_ADD);
-		sortAddButton.setBounds(535, y1, 50, height);
+		sortAddButton.setBounds(525, y1, 60, height);
 		sortAddButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				addSort();
@@ -122,6 +123,7 @@ public class FilterSortFrame extends JFrame {
 		this.getContentPane().add(resetButton);
 		this.getContentPane().add(cancelButton);
 
+		this.setPreferredSize(new Dimension(625, 375));
 		this.pack();
 		setLocationRelativeTo(this);
 	}
