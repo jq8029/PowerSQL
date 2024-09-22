@@ -32,6 +32,8 @@ public class FilterSortFrame extends JFrame {
 	private DataToolBar dataToolBar = null;
 	private int colTypes[] = null;
 	private String colNames[] = null;
+	private String filterSQL = null;
+	private String sortSQL = null;
 
 	public FilterSortFrame() {
 		super();
@@ -235,4 +237,21 @@ public class FilterSortFrame extends JFrame {
 		this.colNames = colNames;
 		this.colTypes = colTypes;
 	}
+
+	public String getFilterSQL() {
+		return filterSQL;
+	}
+
+	public void setFilterSQL(String filterSQL) {
+		this.filterSQL = filterSQL;
+	}
+
+	public String getSortSQL() {
+		return sortSQL;
+	}
+
+	public void setSortSQL(String sortSQL) {
+		this.sortSQL = sortSQL;
+	}
+
 }
