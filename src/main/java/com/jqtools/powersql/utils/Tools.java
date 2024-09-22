@@ -1,5 +1,8 @@
 package com.jqtools.powersql.utils;
 
+import java.sql.Types;
+import java.util.HashMap;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -7,6 +10,8 @@ import javax.swing.JComboBox;
 import com.jqtools.powersql.constants.Constants;
 
 public class Tools {
+	private static HashMap<Integer, Boolean> quotaMap = null;
+
 	public static boolean getBoolean(String key, boolean defaultValue) {
 		try {
 			return Boolean.parseBoolean(key);
@@ -109,6 +114,55 @@ public class Tools {
 			return false;
 		} else {
 			return value1.equals(value2);
+		}
+	}
+
+	public static boolean isQuote(int type) {
+		if (quotaMap == null) {
+			quotaMap = new HashMap<Integer, Boolean>();
+
+			quotaMap.put(Types.ARRAY, false);
+			quotaMap.put(Types.BIGINT, false);
+			quotaMap.put(Types.BINARY, false);
+			quotaMap.put(Types.BIT, false);
+			quotaMap.put(Types.BLOB, false);
+			quotaMap.put(Types.BOOLEAN, false);
+			quotaMap.put(Types.CHAR, true);
+			quotaMap.put(Types.CLOB, true);
+			quotaMap.put(Types.DATALINK, false);
+			quotaMap.put(Types.DATE, true);
+			quotaMap.put(Types.DECIMAL, false);
+			quotaMap.put(Types.DISTINCT, false);
+			quotaMap.put(Types.DOUBLE, false);
+			quotaMap.put(Types.FLOAT, false);
+			quotaMap.put(Types.INTEGER, false);
+			quotaMap.put(Types.JAVA_OBJECT, false);
+			quotaMap.put(Types.LONGNVARCHAR, true);
+			quotaMap.put(Types.LONGVARBINARY, false);
+			quotaMap.put(Types.LONGVARCHAR, true);
+			quotaMap.put(Types.NCHAR, true);
+			quotaMap.put(Types.NCLOB, true);
+			quotaMap.put(Types.NULL, false);
+			quotaMap.put(Types.NUMERIC, false);
+			quotaMap.put(Types.NVARCHAR, true);
+			quotaMap.put(Types.OTHER, false);
+			quotaMap.put(Types.REAL, false);
+			quotaMap.put(Types.REF, false);
+			quotaMap.put(Types.ROWID, false);
+			quotaMap.put(Types.SMALLINT, false);
+			quotaMap.put(Types.SQLXML, true);
+			quotaMap.put(Types.STRUCT, false);
+			quotaMap.put(Types.TIME, true);
+			quotaMap.put(Types.TIMESTAMP, true);
+			quotaMap.put(Types.TINYINT, false);
+			quotaMap.put(Types.VARBINARY, false);
+			quotaMap.put(Types.VARCHAR, true);
+		}
+
+		if (quotaMap.containsKey(type)) {
+			return quotaMap.get(type);
+		} else {
+			return false;
 		}
 	}
 }
