@@ -67,10 +67,10 @@ public class FilterSortFrame extends JFrame {
 			}
 		});
 		filterPanel.add(filterAddButton);
-		RTextScrollPane textScrollPanel = new RTextScrollPane(filterArea);
-		textScrollPanel.setLineNumbersEnabled(true);
-		textScrollPanel.setBounds(x1, 45, 570, 80);
-		filterPanel.add(textScrollPanel);
+		RTextScrollPane filterScrollPanel = new RTextScrollPane(filterArea);
+		filterScrollPanel.setLineNumbersEnabled(true);
+		filterScrollPanel.setBounds(x1, 45, 570, 80);
+		filterPanel.add(filterScrollPanel);
 
 		// add sort panel
 		JPanel sortPanel = new JPanel(null);
@@ -89,28 +89,28 @@ public class FilterSortFrame extends JFrame {
 			}
 		});
 		sortPanel.add(sortAddButton);
-		textScrollPanel = new RTextScrollPane(filterArea);
-		textScrollPanel.setLineNumbersEnabled(true);
-		textScrollPanel.setBounds(x1, 45, 570, 80);
-		sortPanel.add(textScrollPanel);
+		RTextScrollPane sortScrollPanel = new RTextScrollPane(filterArea);
+		sortScrollPanel.setLineNumbersEnabled(true);
+		sortScrollPanel.setBounds(x1, 45, 570, 80);
+		sortPanel.add(sortScrollPanel);
 
 		// add control button
 		JButton applyButton = new JButton(Constants.BUTTON_APPLY);
-		applyButton.setBounds(220, 310, 60, height);
+		applyButton.setBounds(200, 310, 70, height);
 		applyButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				apply();
 			}
 		});
 		JButton resetButton = new JButton(Constants.BUTTON_RESET);
-		resetButton.setBounds(285, 310, 60, height);
+		resetButton.setBounds(275, 310, 70, height);
 		resetButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				reset();
 			}
 		});
 		JButton cancelButton = new JButton(Constants.BUTTON_CANCEL);
-		cancelButton.setBounds(350, 310, 60, height);
+		cancelButton.setBounds(350, 310, 80, height);
 		cancelButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				cancel();
