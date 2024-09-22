@@ -227,8 +227,11 @@ public class FilterSortFrame extends JFrame {
 		super.setVisible(false);
 	}
 
-	public void setDataToolBar(DataToolBar dataToolBar, String[] colNames, int[] colTypes) {
+	public void setDataToolBar(DataToolBar dataToolBar) {
 		this.dataToolBar = dataToolBar;
+	}
+
+	public void setColData(String[] colNames, int[] colTypes) {
 		this.colNames = colNames;
 		this.colTypes = colTypes;
 	}
