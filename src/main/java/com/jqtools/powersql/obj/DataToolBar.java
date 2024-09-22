@@ -26,6 +26,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	private String sql = null;
 	private String filterSQL = null;
 	private String sortSQL = null;
+	private FilterSortFrame filterSortFrame = new FilterSortFrame();
 
 	public DataToolBar(boolean isResult) {
 		this.setLayout(null);
@@ -64,6 +65,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		ResultTableModel dataTableModel = new ResultTableModel();
 		this.dataTable = new DataTable(dataTableModel);
 		dataTableModel.setTable(this.dataTable);
+		this.filterSortFrame.setDataToolBar(this);
 
 		this.setForeground(Color.BLACK);
 	}
