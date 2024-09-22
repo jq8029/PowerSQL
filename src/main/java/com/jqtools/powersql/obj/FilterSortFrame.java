@@ -212,10 +212,6 @@ public class FilterSortFrame extends JFrame {
 
 	public void apply() {
 		if (this.dataToolBar != null) {
-			String filterSQL = this.filterArea.getText();
-			String sortSQL = this.sortArea.getText();
-
-			this.dataToolBar.setFilterSort(filterSQL, sortSQL);
 			this.dataToolBar.refresh();
 		}
 
