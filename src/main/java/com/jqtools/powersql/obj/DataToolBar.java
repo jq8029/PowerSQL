@@ -24,8 +24,6 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	private DataTable dataTable = null;
 	private Session session = null;
 	private String sql = null;
-	private String filterSQL = null;
-	private String sortSQL = null;
 	private FilterSortFrame filterSortFrame = new FilterSortFrame();
 
 	public DataToolBar(boolean isResult) {
@@ -136,9 +134,11 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	}
 
 	public String getExecSQL() {
+		String filterSQL = this.filterSortFrame.getFilterSQL();
 		if (filterSQL != null && filterSQL.trim().length() == 0) {
 			filterSQL = null;
 		}
+		String sortSQL = this.filterSortFrame.getSortSQL();
 		if (sortSQL != null && sortSQL.trim().length() == 0) {
 			sortSQL = null;
 		}
@@ -167,13 +167,8 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	public void setSql(String sql) {
 		this.sql = sql;
-		this.filterSQL = null;
-		this.sortSQL = null;
-	}
-
-	public void setFilterSort(String filterSQL, String sortSQL) {
-		this.filterSQL = filterSQL;
-		this.sortSQL = sortSQL;
+		this.filterSortFrame.setFilterSQL(null);
+		this.filterSortFrame.setSortSQL(null);
 	}
 
 	public void refresh() {
