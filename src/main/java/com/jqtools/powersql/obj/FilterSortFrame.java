@@ -140,6 +140,34 @@ public class FilterSortFrame extends JFrame {
 					return;
 				}
 
+				for (int i = 0; i < colNames.length; i++) {
+					if (Tools.isEqual(name, colNames[i])) {
+						StringBuffer buffer = new StringBuffer();
+
+						buffer.append(this.filterArea.getText());
+						if (buffer.length() > 0) {
+							buffer.append(" ").append(andOr).append(" ");
+						}
+
+						if (!Constants.CONDITION_IS_NOT_NULL.equals(andOr)
+								&& !Constants.CONDITION_IS_NULL.equals(andOr)) {
+							buffer.append(name).append(" ").append(cond).append(" ");
+							if (Tools.isQuote(colTypes[i])) {
+								buffer.append("'");
+							}
+
+							buffer.append(value);
+
+							if (Tools.isQuote(colTypes[i])) {
+								buffer.append("'");
+							}
+						}
+
+						this.filterArea.setText(buffer.toString());
+
+						break;
+					}
+				}
 			}
 		}
 	}
