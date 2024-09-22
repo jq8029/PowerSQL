@@ -166,6 +166,7 @@ public class FilterSortFrame extends JFrame {
 						}
 
 						this.filterArea.setText(buffer.toString());
+						this.filterSQL = buffer.toString();
 
 						break;
 					}
@@ -200,6 +201,7 @@ public class FilterSortFrame extends JFrame {
 						buffer.append(name).append(" ").append(sort);
 
 						this.sortArea.setText(buffer.toString());
+						this.sortSQL = buffer.toString();
 
 						break;
 					}
