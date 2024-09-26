@@ -1,5 +1,6 @@
 package com.jqtools.powersql.obj;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -215,6 +216,11 @@ public class FilterSortFrame extends JFrame {
 	public void apply() {
 		if (this.dataToolBar != null) {
 			this.dataToolBar.refresh();
+			if (Tools.hasValue(this.filterSQL) || Tools.hasValue(this.sortSQL)) {
+				this.dataToolBar.setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Color.GREEN);
+			} else {
+				this.dataToolBar.setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Constants.DEFAULT_BACKGROUND);
+			}
 		}
 
 		this.setVisible(false);
