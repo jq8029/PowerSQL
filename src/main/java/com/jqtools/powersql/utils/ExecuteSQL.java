@@ -36,7 +36,7 @@ public class ExecuteSQL {
 					// load the result column number
 					if (colNum < 0) {
 						colNum = result.getMetaData().getColumnCount();
-						updateSession(session, result.getMetaData(), tableModel);
+						updateSession(dataToolBar, result.getMetaData(), tableModel);
 					}
 
 					while (result.next()) {
