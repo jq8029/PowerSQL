@@ -165,6 +165,13 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		return sql;
 	}
 
+	public void setButtonBackgroud(int buttonId, Color color) {
+		if (buttonId < 0 || buttonId >= buttons.length || color == null || buttons[buttonId] == null)
+			return;
+
+		buttons[buttonId].setBackground(color);
+	}
+
 	public void setSql(String sql) {
 		this.sql = sql;
 		this.filterSortFrame.setFilterSQL(null);
