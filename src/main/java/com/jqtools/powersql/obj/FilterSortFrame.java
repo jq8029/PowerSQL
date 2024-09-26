@@ -270,6 +270,13 @@ public class FilterSortFrame extends JFrame {
 		if (b) {
 			filterColBox.removeAllItems();
 			sortColBox.removeAllItems();
+
+			if (this.colNames != null) {
+				for (String s : colNames) {
+					filterColBox.addItem(s);
+					sortColBox.addItem(s);
+				}
+			}
 		}
 
 		super.setVisible(b);
