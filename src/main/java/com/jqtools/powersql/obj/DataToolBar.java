@@ -206,4 +206,9 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	public void search() {
 
 	}
+
+	public FilterSortFrame getFilterSortFrame() {
+		return filterSortFrame;
+	}
+
 }
