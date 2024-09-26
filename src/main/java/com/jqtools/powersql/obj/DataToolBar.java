@@ -180,7 +180,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	}
 
 	public void filter() {
-		this.filterSortFrame.setVisible(true);
+		this.filterSortFrame.setVisible(this.sql != null && this.sql.trim().length() > 0);
 	}
 
 	public void export() {
