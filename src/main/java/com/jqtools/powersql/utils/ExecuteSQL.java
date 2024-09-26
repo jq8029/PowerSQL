@@ -66,7 +66,7 @@ public class ExecuteSQL {
 		return true;
 	}
 
-	public static void updateSession(Session session, ResultSetMetaData metaData, ResultTableModel tableModel)
+	public static void updateSession(DataToolBar dataToolBar, ResultSetMetaData metaData, ResultTableModel tableModel)
 			throws SQLException {
 		int colNum = metaData.getColumnCount();
 		int colType[] = new int[colNum];
@@ -78,5 +78,6 @@ public class ExecuteSQL {
 
 		tableModel.setColNames(colNames);
 		tableModel.setColTypes(colType);
+		dataToolBar.getFilterSortFrame().setColData(colNames, colType);
 	}
 }
