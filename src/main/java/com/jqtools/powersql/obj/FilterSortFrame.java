@@ -266,4 +266,12 @@ public class FilterSortFrame extends JFrame {
 		}
 	}
 
+	public void setVisible(boolean b) {
+		if (b) {
+			filterColBox.removeAllItems();
+			sortColBox.removeAllItems();
+		}
+
+		super.setVisible(b);
+	}
 }
