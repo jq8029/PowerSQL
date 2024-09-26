@@ -1,5 +1,7 @@
 package com.jqtools.powersql.constants;
 
+import java.awt.Color;
+
 import javax.swing.ImageIcon;
 
 public class Constants {
@@ -68,6 +70,7 @@ public class Constants {
 	public static String BUTTON_TEST = "Test";
 	public static String BUTTON_CLOSE = "Close";
 	public static String BUTTON_SAVE = "Save";
+	public static final Color DEFAULT_BACKGROUND = new Color(238, 238, 238);
 
 	// Title
 	public static String TITLE_CONNECTION = "Connection";
