@@ -89,7 +89,7 @@ public class FilterSortFrame extends JFrame {
 			}
 		});
 		sortPanel.add(sortAddButton);
-		RTextScrollPane sortScrollPanel = new RTextScrollPane(filterArea);
+		RTextScrollPane sortScrollPanel = new RTextScrollPane(sortArea);
 		sortScrollPanel.setLineNumbersEnabled(true);
 		sortScrollPanel.setBounds(x1, 45, 570, 80);
 		sortPanel.add(sortScrollPanel);
