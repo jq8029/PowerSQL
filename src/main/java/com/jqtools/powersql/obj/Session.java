@@ -11,7 +11,8 @@ public class Session {
 	private Connection connection = null;
 	private DatabaseInfo dbInfo = null;
 	private DatabaseData dbData = null;
-	private HashMap<String, String[]> filterMap = new HashMap<String, String[]>();
+	private HashMap<String, String> filterMap = new HashMap<String, String>();
+	private HashMap<String, String> sortMap = new HashMap<String, String>();
 
 	/**
 	 * @return the connection
@@ -65,7 +66,11 @@ public class Session {
 		this.currentNode = currentNode;
 	}
 
-	public HashMap<String, String[]> getFilterMap() {
+	public HashMap<String, String> getFilterMap() {
 		return filterMap;
+	}
+
+	public HashMap<String, String> getSortMap() {
+		return sortMap;
 	}
 }
