@@ -1,6 +1,7 @@
 package com.jqtools.powersql.obj;
 
 import java.sql.Connection;
+import java.util.HashMap;
 
 import com.jqtools.powersql.db.DatabaseData;
 
@@ -10,6 +11,7 @@ public class Session {
 	private Connection connection = null;
 	private DatabaseInfo dbInfo = null;
 	private DatabaseData dbData = null;
+	private HashMap<String, String[]> filterMap = new HashMap<String, String[]>();
 
 	/**
 	 * @return the connection
@@ -61,5 +63,9 @@ public class Session {
 
 	public void setCurrentNode(TreeNode currentNode) {
 		this.currentNode = currentNode;
+	}
+
+	public HashMap<String, String[]> getFilterMap() {
+		return filterMap;
 	}
 }
