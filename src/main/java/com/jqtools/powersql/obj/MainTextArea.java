@@ -19,7 +19,6 @@ import com.jqtools.powersql.utils.ExecuteSQL;
 public class MainTextArea extends RSyntaxTextArea {
 
 	private static final long serialVersionUID = 1064609692697845846L;
-	private Session session = null;
 	private DataToolBar dataToolBar = null;
 	private UndoManager undoManager = new UndoManager();
 
@@ -46,8 +45,9 @@ public class MainTextArea extends RSyntaxTextArea {
 	public void executeSQL() {
 		try {
 			// skip it if there is no session
-			if (session == null)
+			if (dataToolBar == null || dataToolBar.getSession() == null) {
 				return;
+			}
 
 			// skip it if no text in the textArea
 			if (this.getText() != null && this.getText().trim().length() > 0) {
@@ -72,17 +72,13 @@ public class MainTextArea extends RSyntaxTextArea {
 					}
 				}
 
-				dataToolBar.setSession(session);
 				dataToolBar.setSql(sql);
+				dataToolBar.getSession().setCurrentNode(null);
 				ExecuteSQL.execute(dataToolBar);
 			}
 		} catch (Exception e) {
 			MessageLogger.error(e);
 		}
-	}
-
-	public void setSession(Session session) {
-		this.session = session;
 	}
 
 	public void setDataToolBar(DataToolBar dataToolBar) {
