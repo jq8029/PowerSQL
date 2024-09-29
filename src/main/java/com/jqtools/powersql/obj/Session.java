@@ -6,6 +6,7 @@ import com.jqtools.powersql.db.DatabaseData;
 
 public class Session {
 	private TreeNode DbNode = null;
+	private TreeNode currentNode = null;
 	private Connection connection = null;
 	private DatabaseInfo dbInfo = null;
 	private DatabaseData dbData = null;
@@ -54,4 +55,11 @@ public class Session {
 		this.dbData = dbData;
 	}
 
+	public TreeNode getCurrentNode() {
+		return currentNode;
+	}
+
+	public void setCurrentNode(TreeNode currentNode) {
+		this.currentNode = currentNode;
+	}
 }
