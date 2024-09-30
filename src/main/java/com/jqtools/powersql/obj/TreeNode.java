@@ -70,6 +70,24 @@ public class TreeNode extends DefaultMutableTreeNode {
 		this.session = session;
 	}
 
+	public String getFullPath() {
+		StringBuffer buffer = new StringBuffer();
+		javax.swing.tree.TreeNode[] path = this.getPathToRoot(session.getCurrentNode(), 0);
+		if (path != null) {
+			for (javax.swing.tree.TreeNode node : path) {
+				if (node == null)
+					continue;
+
+				if (buffer.length() > 0)
+					buffer.append("->");
+
+				buffer.append(node.toString());
+			}
+		}
+
+		return buffer.toString();
+	}
+
 	// return the display tree node name
 	public String toString() {
 		return this.info == null ? "" : this.info.toString();
