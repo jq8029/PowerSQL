@@ -174,8 +174,18 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	public void setSql(String sql) {
 		this.sql = sql;
-		this.filterSortFrame.setFilterSQL(null);
-		this.filterSortFrame.setSortSQL(null);
+		if (session != null && session.getCurrentNode() != null) {
+			String path = session.getCurrentNode().getFullPath();
+			if (session.getFilterMap().get(path) != null) {
+				this.getFilterSortFrame().setFilterSQL(session.getFilterMap().get(path));
+			}
+			if (session.getSortMap().get(path) != null) {
+				this.getFilterSortFrame().setSortSQL(session.getFilterMap().get(path));
+			}
+		} else {
+			this.filterSortFrame.setFilterSQL(null);
+			this.filterSortFrame.setSortSQL(null);
+		}
 	}
 
 	public void refresh() {
