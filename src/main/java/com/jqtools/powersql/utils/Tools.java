@@ -1,5 +1,8 @@
 package com.jqtools.powersql.utils;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 import java.sql.Types;
 import java.util.HashMap;
 
@@ -8,6 +11,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.MessageLogger;
 
 public class Tools {
 	private static HashMap<Integer, Boolean> quotaMap = null;
@@ -173,4 +177,46 @@ public class Tools {
 			return true;
 		}
 	}
+
+	public static boolean saveObject(Object object, String fileName) {
+		if (object == null || fileName == null)
+			return false;
+
+		ObjectOutputStream oos = null;
+
+		File file = new File(fileName);
+		File bakFile = new File(fileName + Constants.BAK_EXT);
+
+		try {
+			if (file.exists()) {
+				if (bakFile.exists()) {
+					bakFile.delete();
+				}
+				file.renameTo(bakFile);
+			} else {
+				file.createNewFile();
+			}
+
+			oos = new ObjectOutputStream(new FileOutputStream(file));
+			oos.writeObject(object);
+			oos.flush();
+
+			if (bakFile.exists()) {
+				bakFile.delete();
+			}
+
+			return true;
+		} catch (Exception ex) {
+			MessageLogger.info(ex);
+		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+			} catch (Exception e) {
+			}
+		}
+
+		return false;
+	}
+
 }
