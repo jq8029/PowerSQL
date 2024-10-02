@@ -173,11 +173,11 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	}
 
 	public void setSql(String sql) {
-		this.filterSortFrame.reset();
 		this.sql = sql;
 
 		// load the filter/sort if it exists
 		if (session != null && session.getCurrentNode() != null) {
+			this.filterSortFrame.reset();
 			String path = session.getCurrentNode().getFullPath();
 			if (session.getFilterMap().get(path) != null) {
 				this.getFilterSortFrame().setFilterSQL(session.getFilterMap().get(path));
@@ -188,10 +188,10 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		}
 
 		// set the filter button color
-		if (Tools.hasValue(this.filterSortFrame.getFilterSQL()) && Tools.hasValue(this.filterSortFrame.getSortSQL())) {
-			setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Constants.DEFAULT_BACKGROUND);
-		} else {
+		if (Tools.hasValue(this.filterSortFrame.getFilterSQL()) || Tools.hasValue(this.filterSortFrame.getSortSQL())) {
 			setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Color.GREEN);
+		} else {
+			setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Constants.DEFAULT_BACKGROUND);
 		}
 	}
 
