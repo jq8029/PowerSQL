@@ -267,6 +267,11 @@ public class FilterSortFrame extends JFrame {
 		} else {
 			this.sortArea.setText("");
 		}
+
+		if (this.dataToolBar.getSession().getCurrentNode() != null) {
+			String path = this.dataToolBar.getSession().getCurrentNode().getFullPath();
+			this.dataToolBar.getSession().getSortMap().put(path, this.sortArea.getText());
+		}
 	}
 
 	public void setVisible(boolean b) {
