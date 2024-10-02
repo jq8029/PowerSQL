@@ -245,10 +245,10 @@ public class FilterSortFrame extends JFrame {
 	}
 
 	public void setFilterSQL(String filterSQL) {
-		if (filterSQL == null || filterSQL.trim().length() == 0) {
-			this.filterArea.setText("");
-		} else {
+		if (Tools.hasValue(filterSQL)) {
 			this.filterArea.setText(filterSQL);
+		} else {
+			this.filterArea.setText("");
 		}
 	}
 
