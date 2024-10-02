@@ -183,7 +183,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 				this.getFilterSortFrame().setFilterSQL(session.getFilterMap().get(path));
 			}
 			if (session.getSortMap().get(path) != null) {
-				this.getFilterSortFrame().setSortSQL(session.getFilterMap().get(path));
+				this.getFilterSortFrame().setSortSQL(session.getSortMap().get(path));
 			}
 		}
 
