@@ -186,6 +186,12 @@ public class DataToolBar extends JToolBar implements ActionListener {
 			this.filterSortFrame.setFilterSQL(null);
 			this.filterSortFrame.setSortSQL(null);
 		}
+
+		if (this.filterSortFrame.getFilterSQL() == null && this.filterSortFrame.getSortSQL() == null) {
+			setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Color.RED);
+		} else {
+			setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Constants.DEFAULT_BACKGROUND);
+		}
 	}
 
 	public void refresh() {
