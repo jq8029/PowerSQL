@@ -250,6 +250,11 @@ public class FilterSortFrame extends JFrame {
 		} else {
 			this.filterArea.setText("");
 		}
+
+		if (this.dataToolBar.getSession().getCurrentNode() != null) {
+			String path = this.dataToolBar.getSession().getCurrentNode().getFullPath();
+			this.dataToolBar.getSession().getFilterMap().put(path, this.filterArea.getText());
+		}
 	}
 
 	public String getSortSQL() {
