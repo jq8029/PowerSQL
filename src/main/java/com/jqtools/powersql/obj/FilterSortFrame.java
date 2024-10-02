@@ -34,8 +34,6 @@ public class FilterSortFrame extends JFrame {
 	private DataToolBar dataToolBar = null;
 	private int colTypes[] = null;
 	private String colNames[] = null;
-	private String filterSQL = null;
-	private String sortSQL = null;
 
 	public FilterSortFrame() {
 		super();
@@ -169,7 +167,6 @@ public class FilterSortFrame extends JFrame {
 						}
 
 						this.filterArea.setText(buffer.toString());
-						this.filterSQL = buffer.toString();
 
 						break;
 					}
@@ -204,7 +201,6 @@ public class FilterSortFrame extends JFrame {
 						buffer.append(name).append(" ").append(sort);
 
 						this.sortArea.setText(buffer.toString());
-						this.sortSQL = buffer.toString();
 
 						break;
 					}
@@ -216,7 +212,7 @@ public class FilterSortFrame extends JFrame {
 	public void apply() {
 		if (this.dataToolBar != null) {
 			this.dataToolBar.refresh();
-			if (Tools.hasValue(this.filterSQL) || Tools.hasValue(this.sortSQL)) {
+			if (Tools.hasValue(this.filterArea.getText()) || Tools.hasValue(this.sortArea.getText())) {
 				this.dataToolBar.setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Color.GREEN);
 			} else {
 				this.dataToolBar.setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Constants.DEFAULT_BACKGROUND);
@@ -245,30 +241,26 @@ public class FilterSortFrame extends JFrame {
 	}
 
 	public String getFilterSQL() {
-		return filterSQL;
+		return this.filterArea.getText();
 	}
 
 	public void setFilterSQL(String filterSQL) {
 		if (filterSQL == null || filterSQL.trim().length() == 0) {
 			this.filterArea.setText("");
-			this.filterSQL = null;
 		} else {
 			this.filterArea.setText(filterSQL);
-			this.filterSQL = filterSQL;
 		}
 	}
 
 	public String getSortSQL() {
-		return sortSQL;
+		return this.sortArea.getText();
 	}
 
 	public void setSortSQL(String sortSQL) {
 		if (sortSQL == null || sortSQL.trim().length() == 0) {
 			this.sortArea.setText("");
-			this.sortSQL = null;
 		} else {
 			this.sortArea.setText(sortSQL);
-			this.sortSQL = sortSQL;
 		}
 	}
 
