@@ -188,7 +188,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		}
 
 		// set the filter button color
-		if (this.filterSortFrame.getFilterSQL() == null && this.filterSortFrame.getSortSQL() == null) {
+		if (Tools.hasValue(this.filterSortFrame.getFilterSQL()) && Tools.hasValue(this.filterSortFrame.getSortSQL())) {
 			setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Constants.DEFAULT_BACKGROUND);
 		} else {
 			setButtonBackgroud(Constants.DATA_TOOLBAR_FILTER, Color.RED);
