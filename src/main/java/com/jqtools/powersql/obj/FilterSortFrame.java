@@ -166,7 +166,8 @@ public class FilterSortFrame extends JFrame {
 							}
 						}
 
-						this.filterArea.setText(buffer.toString());
+						setFilterSQL(buffer.toString());
+						updateCache();
 
 						break;
 					}
@@ -200,7 +201,8 @@ public class FilterSortFrame extends JFrame {
 
 						buffer.append(name).append(" ").append(sort);
 
-						this.sortArea.setText(buffer.toString());
+						setSortSQL(buffer.toString());
+						updateCache();
 
 						break;
 					}
@@ -225,6 +227,9 @@ public class FilterSortFrame extends JFrame {
 	public void reset() {
 		this.filterArea.setText("");
 		this.sortArea.setText("");
+		this.condBox.setSelectedIndex(0);
+		this.filterField.setText("");
+		this.sortColBox.setSelectedIndex(0);
 	}
 
 	public void cancel() {
@@ -250,15 +255,22 @@ public class FilterSortFrame extends JFrame {
 		} else {
 			this.filterArea.setText("");
 		}
-
-		if (this.dataToolBar.getSession().getCurrentNode() != null) {
-			String path = this.dataToolBar.getSession().getCurrentNode().getFullPath();
-			this.dataToolBar.getSession().getFilterMap().put(path, this.filterArea.getText());
-		}
 	}
 
 	public String getSortSQL() {
 		return this.sortArea.getText();
+	}
+
+	public void updateCache() {
+		if (this.dataToolBar.getSession().getCurrentNode() != null) {
+			String path = this.dataToolBar.getSession().getCurrentNode().getFullPath();
+			this.dataToolBar.getSession().getFilterMap().put(path, this.filterArea.getText());
+		}
+
+		if (this.dataToolBar.getSession().getCurrentNode() != null) {
+			String path = this.dataToolBar.getSession().getCurrentNode().getFullPath();
+			this.dataToolBar.getSession().getSortMap().put(path, this.sortArea.getText());
+		}
 	}
 
 	public void setSortSQL(String sortSQL) {
@@ -266,11 +278,6 @@ public class FilterSortFrame extends JFrame {
 			this.sortArea.setText(sortSQL);
 		} else {
 			this.sortArea.setText("");
-		}
-
-		if (this.dataToolBar.getSession().getCurrentNode() != null) {
-			String path = this.dataToolBar.getSession().getCurrentNode().getFullPath();
-			this.dataToolBar.getSession().getSortMap().put(path, this.sortArea.getText());
 		}
 	}
 
