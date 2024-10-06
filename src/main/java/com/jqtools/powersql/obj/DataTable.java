@@ -32,4 +32,7 @@ public class DataTable extends JTable {
 		return resultTableModel;
 	}
 
+	public void filterData(final String text) {
+
+	}
 }
