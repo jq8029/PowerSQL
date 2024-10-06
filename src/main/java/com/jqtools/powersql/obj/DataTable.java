@@ -3,6 +3,7 @@ package com.jqtools.powersql.obj;
 import java.util.ArrayList;
 
 import javax.swing.JTable;
+import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
 public class DataTable extends JTable {
@@ -36,6 +37,27 @@ public class DataTable extends JTable {
 	}
 
 	public void filterData(final String text) {
+		RowFilter<ResultTableModel, Object> rf = null;
 
+		try {
+			rf = new RowFilter<ResultTableModel, Object>() {
+				@Override
+				public boolean include(Entry<? extends ResultTableModel, ? extends Object> entry) {
+					for (int i = entry.getValueCount() - 1; i >= 0; i--) {
+						String filteredField = entry.getStringValue(i).toLowerCase();
+						if (filteredField.contains(text)) {
+							return true;
+						}
+					}
+					return false;
+				}
+			};
+		} catch (Exception e) {
+			return;
+		}
+
+		this.sorter.setRowFilter(rf);
+
+		this.repaint();
 	}
 }
