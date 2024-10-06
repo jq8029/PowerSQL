@@ -43,12 +43,10 @@ public class DataTable extends JTable {
 			rf = new RowFilter<ResultTableModel, Object>() {
 				@Override
 				public boolean include(Entry<? extends ResultTableModel, ? extends Object> entry) {
-					if (entry != null && entry.getValueCount() > 0) {
-						for (int i = entry.getValueCount() - 1; i >= 0; i--) {
-							String filteredField = entry.getStringValue(i).toLowerCase();
-							if (filteredField.contains(text)) {
-								return true;
-							}
+					for (int i = entry.getValueCount() - 1; i >= 0; i--) {
+						String filteredField = entry.getStringValue(i).toLowerCase();
+						if (filteredField.contains(text)) {
+							return true;
 						}
 					}
 
