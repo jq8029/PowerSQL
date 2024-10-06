@@ -229,7 +229,9 @@ public class FilterSortFrame extends JFrame {
 		this.sortArea.setText("");
 		this.condBox.setSelectedIndex(0);
 		this.filterField.setText("");
-		this.sortColBox.setSelectedIndex(0);
+		if (this.sortColBox.getItemCount() > 0) {
+			this.sortColBox.setSelectedIndex(0);
+		}
 	}
 
 	public void cancel() {
