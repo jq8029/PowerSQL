@@ -18,6 +18,7 @@ public class DataTable extends JTable {
 
 		this.resultTableModel = resultTableModel;
 		this.sorter = new TableRowSorter<ResultTableModel>(resultTableModel);
+		this.setRowSorter(sorter);
 	}
 
 	public int addRow(int row) {
