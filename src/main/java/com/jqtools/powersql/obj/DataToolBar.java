@@ -9,6 +9,8 @@ import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
@@ -41,6 +43,19 @@ public class DataToolBar extends JToolBar implements ActionListener {
 						Constants.SPACE_21);
 				searchField.setPreferredSize(new Dimension(Constants.SPACE_100, Constants.SPACE_21));
 				searchField.addActionListener(this);
+				searchField.getDocument().addDocumentListener(new DocumentListener() {
+					public void changedUpdate(DocumentEvent e) {
+						dataTable.filterData(searchField.getText().trim().toLowerCase());
+					}
+
+					public void insertUpdate(DocumentEvent e) {
+						dataTable.filterData(searchField.getText().trim().toLowerCase());
+					}
+
+					public void removeUpdate(DocumentEvent e) {
+						dataTable.filterData(searchField.getText().trim().toLowerCase());
+					}
+				});
 				add(searchField);
 				space += Constants.SPACE_100;
 				space += Constants.SPACE_10;
