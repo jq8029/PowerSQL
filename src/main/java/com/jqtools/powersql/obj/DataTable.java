@@ -41,6 +41,13 @@ public class DataTable extends JTable {
 	}
 
 	public void dupRow(int row) {
+		Object values[] = resultTableModel.getData().get(row - 1);
+		if (values != null) {
+			Object newValues[] = new Object[values.length];
+			System.arraycopy(values, 0, newValues, 0, values.length);
+
+			addRow(row, newValues);
+		}
 	}
 
 	public ArrayList<Integer> deleteRows(int[] rows) {
