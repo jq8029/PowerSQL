@@ -36,22 +36,27 @@ public class DataTable extends JTable {
 		return row;
 	}
 
-	public ArrayList<Integer> duplicateRows(ArrayList<Integer> rows) {
+	public ArrayList<Integer> duplicateRows(int rows[]) {
+		ArrayList<Integer> results = new ArrayList<Integer>();
 		for (int row : rows) {
-			dupRow(row);
+			if (dupRow(row)) {
+				results.add(row);
+			}
 		}
 
-		return rows;
+		return results;
 	}
 
-	public void dupRow(int row) {
+	public boolean dupRow(int row) {
 		Object values[] = resultTableModel.getData().get(row - 1);
 		if (values != null) {
 			Object newValues[] = new Object[values.length];
 			System.arraycopy(values, 0, newValues, 0, values.length);
 
-			addRow(row, newValues);
+			return addRow(row, newValues) > 0;
 		}
+
+		return false;
 	}
 
 	public ArrayList<Integer> deleteRows(int[] rows) {
