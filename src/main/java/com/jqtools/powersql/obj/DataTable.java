@@ -48,7 +48,7 @@ public class DataTable extends JTable {
 	}
 
 	public boolean dupRow(int row) {
-		Object values[] = resultTableModel.getData().get(row - 1);
+		Object values[] = resultTableModel.getData().get(row);
 		if (values != null) {
 			Object newValues[] = new Object[values.length];
 			System.arraycopy(values, 0, newValues, 0, values.length);
