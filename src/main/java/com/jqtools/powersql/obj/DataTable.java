@@ -60,7 +60,14 @@ public class DataTable extends JTable {
 	}
 
 	public ArrayList<Integer> deleteRows(int[] rows) {
-		return new ArrayList<Integer>();
+		ArrayList<Integer> results = new ArrayList<Integer>();
+		for (int row : rows) {
+			if (deleteRow(row)) {
+				results.add(row);
+			}
+		}
+
+		return results;
 	}
 
 	public boolean deleteRow(int row) {
