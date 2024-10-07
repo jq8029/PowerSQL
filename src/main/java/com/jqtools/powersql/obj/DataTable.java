@@ -22,7 +22,10 @@ public class DataTable extends JTable {
 	}
 
 	public int addRow(int row) {
-		Object values[] = new Object[getColumnCount()];
+		return addRow(row, new Object[getColumnCount()]);
+	}
+
+	public int addRow(int row, Object values[]) {
 		if ((this.getRowCount() > 0 && row < 1) || row > resultTableModel.getData().size()) {
 			row = resultTableModel.getData().size();
 		}
