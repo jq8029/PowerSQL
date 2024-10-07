@@ -40,6 +40,9 @@ public class DataTable extends JTable {
 		return new ArrayList<Integer>();
 	}
 
+	public void dupRow(int row) {
+	}
+
 	public ArrayList<Integer> deleteRows(int[] rows) {
 		return new ArrayList<Integer>();
 	}
