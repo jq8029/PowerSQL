@@ -38,9 +38,9 @@ public class DataTable extends JTable {
 
 	public ArrayList<Integer> duplicateRows(int rows[]) {
 		ArrayList<Integer> results = new ArrayList<Integer>();
-		for (int row : rows) {
-			if (dupRow(row)) {
-				results.add(row);
+		for (int i = rows.length - 1; i >= 0; i--) {
+			if (dupRow(rows[i])) {
+				results.add(rows[i]);
 			}
 		}
 
