@@ -36,8 +36,12 @@ public class DataTable extends JTable {
 		return row;
 	}
 
-	public ArrayList<Integer> duplicateRows(int[] rows) {
-		return new ArrayList<Integer>();
+	public ArrayList<Integer> duplicateRows(ArrayList<Integer> rows) {
+		for (int row : rows) {
+			dupRow(row);
+		}
+
+		return rows;
 	}
 
 	public void dupRow(int row) {
