@@ -1,6 +1,7 @@
 package com.jqtools.powersql.obj;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.utils.Tools;
 
 public class Info {
 	private String catalog = null;
@@ -42,5 +43,13 @@ public class Info {
 
 	public String toString() {
 		return this.name;
+	}
+
+	public boolean equal(Info info) {
+		if (info == null)
+			return false;
+
+		return Tools.isEqual(info.getCatalog(), this.getCatalog()) && Tools.isEqual(info.getSchema(), this.getSchema())
+				&& Tools.isEqual(info.getName(), this.getName());
 	}
 }
