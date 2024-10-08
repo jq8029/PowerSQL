@@ -227,7 +227,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	}
 
 	public void add() {
-		if (dataTable.addRow(dataTable.getSelectedRow()) > 0) {
+		if (dataTable.addRow(dataTable.getSelectedRow() + 1) > 0) {
 			setButtonEnabled(Constants.DATA_TOOLBAR_SAVE, true);
 		}
 	}
