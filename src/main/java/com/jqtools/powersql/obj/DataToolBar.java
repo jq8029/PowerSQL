@@ -233,7 +233,9 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	}
 
 	public void delete() {
-
+		if (dataTable.deleteRows(dataTable.getSelectedRows()).size() > 0) {
+			setButtonEnabled(Constants.DATA_TOOLBAR_SAVE, true);
+		}
 	}
 
 	public void duplicate() {
