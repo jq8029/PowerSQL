@@ -1,5 +1,6 @@
 package com.jqtools.powersql.utils;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -15,6 +16,19 @@ import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
+	public static boolean execute(Connection conn, String sqls[]) {
+		try {
+			if (conn == null || conn.isClosed() || sqls == null || sqls.length == 0) {
+				return false;
+			}
+		} catch (Exception e) {
+			MessageLogger.error(e);
+			return false;
+		}
+
+		return true;
+	}
+
 	public static boolean execute(DataToolBar dataToolBar) {
 		Session session = dataToolBar.getSession();
 		String sql = dataToolBar.getExecSQL();
