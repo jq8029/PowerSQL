@@ -1,6 +1,9 @@
 package com.jqtools.powersql.db;
 
+import java.util.HashMap;
+
 import com.jqtools.powersql.obj.Info;
+import com.jqtools.powersql.obj.Session;
 
 public class DatabaseData {
 	public static final String MY_CATALOG = "MY_CATALOG";
@@ -55,4 +58,17 @@ public class DatabaseData {
 				.append(filterSQL).toString();
 	}
 
+	private String getSQL(Session session, Info info, int[] colTypes, HashMap<Object, Object> changedData,
+			HashMap<Object, Integer> rowStatus) {
+		if (session == null || info == null || colTypes == null || changedData == null)
+			return "";
+
+		StringBuffer buffer = new StringBuffer();
+
+		if (changedData.size() > 0) {
+
+		}
+
+		return buffer.toString();
+	}
 }
