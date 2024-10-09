@@ -1,9 +1,12 @@
 package com.jqtools.powersql.db;
 
 import java.util.HashMap;
+import java.util.Vector;
 
+import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
+import com.jqtools.powersql.utils.ExecuteSQL;
 
 public class DatabaseData {
 	public static final String MY_CATALOG = "MY_CATALOG";
@@ -56,6 +59,15 @@ public class DatabaseData {
 	public String getFilterSQL(String sql, String filterSQL) {
 		return new StringBuffer().append("select * from (").append(sql).append(") as filter_sort_tb where ")
 				.append(filterSQL).toString();
+	}
+
+	public void saveTableData(Session session, Info info, Vector<ColumnInfo> colInfo, int[] colTypes,
+			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
+		if (session != null) {
+			if (ExecuteSQL.execute(session.getConnection(), getSQL(session, info, colTypes, changedData, rowStatus))) {
+
+			}
+		}
 	}
 
 	private String getSQL(Session session, Info info, int[] colTypes, HashMap<Object, Object> changedData,
