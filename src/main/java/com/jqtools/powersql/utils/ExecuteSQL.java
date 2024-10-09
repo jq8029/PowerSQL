@@ -17,13 +17,31 @@ import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
 	public static boolean execute(Connection conn, String sqls[]) {
+		PreparedStatement stat = null;
+		boolean autoCommit = false;
+
 		try {
 			if (conn == null || conn.isClosed() || sqls == null || sqls.length == 0) {
 				return false;
 			}
+
+			autoCommit = conn.getAutoCommit();
+			conn.setAutoCommit(false);
+
+			for (String sql : sqls) {
+				if (sql == null || sql.trim().length() == 0)
+					continue;
+
+				stat = conn.prepareStatement(sql);
+				if (!stat.execute()) {
+					return false;
+				}
+			}
 		} catch (Exception e) {
 			MessageLogger.error(e);
 			return false;
+		} finally {
+
 		}
 
 		return true;
