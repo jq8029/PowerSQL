@@ -16,6 +16,13 @@ import com.jqtools.powersql.obj.ResultTableModel;
 import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
+	public static boolean execute(Connection conn, String sql) {
+		String sqls[] = new String[1];
+		sqls[0] = sql;
+
+		return execute(conn, sqls);
+	}
+
 	public static boolean execute(Connection conn, String sqls[]) {
 		PreparedStatement stat = null;
 		boolean autoCommit = false;
