@@ -3,6 +3,7 @@ package com.jqtools.powersql.db;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
@@ -72,16 +73,21 @@ public class DatabaseData {
 		return false;
 	}
 
-	private String getSQL(Session session, Info info, ArrayList<ColumnInfo> colInfo,
+	private String getSQL(Session session, Info info, ArrayList<ColumnInfo> colInfoList,
 			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
-		if (session == null || info == null || colInfo == null || changedData == null) {
+		if (session == null || info == null || colInfoList == null || changedData == null) {
 			return "";
 		}
 
 		StringBuffer buffer = new StringBuffer();
+		int status = Constants.REC_STATUS_NONE;
 
 		if (changedData.size() > 0) {
-
+			for (ColumnInfo colInfo : colInfoList) {
+				if (colInfo == null || colInfo.getName() == null || changedData.get(colInfo.getName()) == null) {
+					continue;
+				}
+			}
 		}
 
 		return buffer.toString();
