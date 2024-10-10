@@ -171,4 +171,10 @@ public class Constants {
 	public static final String ORDER_DESC = "DESC";
 	public static final String ORDERS[] = { ORDER_ASC, ORDER_DESC };
 
+	// table record status
+	public static final int REC_STATUS_NONE = 0;
+	public static final int REC_STATUS_ADD = 1;
+	public static final int REC_STATUS_DUP = 2;
+	public static final int REC_STATUS_DEL = 3;
+	public static final int REC_STATUS_CHANGED = 4;
 }
