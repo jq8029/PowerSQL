@@ -26,6 +26,7 @@ public class ExecuteSQL {
 	public static boolean execute(Connection conn, String sqls[]) {
 		PreparedStatement stat = null;
 		boolean autoCommit = false;
+		boolean success = false;
 
 		try {
 			if (conn == null || conn.isClosed() || sqls == null || sqls.length == 0) {
@@ -44,11 +45,30 @@ public class ExecuteSQL {
 					return false;
 				}
 			}
+			success = true;
 		} catch (Exception e) {
 			MessageLogger.error(e);
 			return false;
 		} finally {
+			if (conn != null) {
+				try {
+					if (success) {
+						conn.commit();
+					} else {
+						conn.rollback();
+					}
+				} catch (Exception ex) {
+					MessageLogger.error(ex);
+					return false;
+				}
 
+				try {
+					conn.setAutoCommit(autoCommit);
+				} catch (SQLException ex) {
+					MessageLogger.error(ex);
+					return false;
+				}
+			}
 		}
 
 		return true;
