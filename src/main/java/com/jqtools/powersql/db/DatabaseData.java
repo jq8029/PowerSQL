@@ -64,7 +64,7 @@ public class DatabaseData {
 	public void saveTableData(Session session, Info info, ArrayList<ColumnInfo> colInfo,
 			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
 		if (session != null) {
-			if (ExecuteSQL.execute(session.getConnection(), getSQL(session, info, changedData, rowStatus))) {
+			if (ExecuteSQL.execute(session.getConnection(), getSQL(session, info, colInfo, changedData, rowStatus))) {
 
 			}
 		}
