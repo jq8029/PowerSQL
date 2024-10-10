@@ -1,7 +1,7 @@
 package com.jqtools.powersql.db;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Vector;
 
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
@@ -61,19 +61,20 @@ public class DatabaseData {
 				.append(filterSQL).toString();
 	}
 
-	public void saveTableData(Session session, Info info, Vector<ColumnInfo> colInfo, int[] colTypes,
+	public void saveTableData(Session session, Info info, ArrayList<ColumnInfo> colInfo,
 			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
 		if (session != null) {
-			if (ExecuteSQL.execute(session.getConnection(), getSQL(session, info, colTypes, changedData, rowStatus))) {
+			if (ExecuteSQL.execute(session.getConnection(), getSQL(session, info, changedData, rowStatus))) {
 
 			}
 		}
 	}
 
-	private String getSQL(Session session, Info info, int[] colTypes, HashMap<Object, Object> changedData,
-			HashMap<Object, Integer> rowStatus) {
-		if (session == null || info == null || colTypes == null || changedData == null)
+	private String getSQL(Session session, Info info, ArrayList<ColumnInfo> colInfo,
+			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
+		if (session == null || info == null || colInfo == null || changedData == null) {
 			return "";
+		}
 
 		StringBuffer buffer = new StringBuffer();
 
