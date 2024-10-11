@@ -15,6 +15,8 @@ public class DatabaseData {
 	public static final String MY_TABLE = "MY_TABLE";
 	public static final String MY_VIEW = "MY_VIEW";
 
+	private ArrayList<String> dataTypesWithQuota = new ArrayList<String>();
+
 	public String getCatalogAllSQL() {
 		return null;
 	}
@@ -45,6 +47,10 @@ public class DatabaseData {
 
 	public String getViewName() {
 		return MY_VIEW;
+	}
+
+	public ArrayList<String> getDataTypesWithQuota() {
+		return dataTypesWithQuota;
 	}
 
 	public String getTableSQL(Info info) {
@@ -84,6 +90,7 @@ public class DatabaseData {
 		Object[] keys = changedData.keySet().toArray();
 		Object originValues[] = null;
 		Object values[] = null;
+		String tableName = info.getName();
 
 		if (keys.length > 0) {
 			for (int i = 0; i < keys.length; i++) {
@@ -97,9 +104,7 @@ public class DatabaseData {
 				if (status == Constants.REC_STATUS_ADD || status == Constants.REC_STATUS_DUP) {
 					values = (Object[]) keys[i];
 				} else if (status == Constants.REC_STATUS_CHANGED) {
-
 				} else if (status == Constants.REC_STATUS_DEL) {
-
 				}
 
 				buffer.append(Constants.LINE_SEPERATOR);
