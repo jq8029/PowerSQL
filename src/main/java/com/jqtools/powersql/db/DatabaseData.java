@@ -105,10 +105,51 @@ public class DatabaseData {
 					values = (Object[]) keys[i];
 				} else if (status == Constants.REC_STATUS_CHANGED) {
 				} else if (status == Constants.REC_STATUS_DEL) {
+					buffer.append(getDeleteSQL(tableName, colInfoList, originValues));
 				}
 
 				buffer.append(Constants.LINE_SEPERATOR);
 			}
+		}
+
+		return buffer.toString();
+	}
+
+	private String getDeleteSQL(String tableName, ArrayList<ColumnInfo> colInfo, Object[] originValues) {
+
+		StringBuffer buffer = new StringBuffer();
+
+		if (originValues != null && originValues.length == colInfo.size()) {
+
+			buffer.append("DELETE FROM ").append(tableName).append(" WHERE ");
+
+			int add = 0;
+			ColumnInfo cInfo = null;
+			boolean quote = false;
+			for (int i = 0; i < colInfo.size(); i++) {
+				if (add > 0) {
+					buffer.append(" AND ");
+				}
+				cInfo = colInfo.get(i);
+
+				if (originValues[i] == null) {
+					buffer.append(cInfo.getColumnName()).append(" IS NULL ");
+				} else {
+					quote = this.getDataTypesWithQuota().contains(cInfo.getTypeName().toLowerCase());
+					buffer.append(cInfo.getColumnName()).append(" = ");
+					if (quote) {
+						buffer.append(Constants.ESCAPE_CHAR);
+					}
+					buffer.append(originValues[i]);
+					if (quote) {
+						buffer.append(Constants.ESCAPE_CHAR);
+					}
+				}
+
+				add++;
+			}
+
+			buffer.append(";");
 		}
 
 		return buffer.toString();
