@@ -81,12 +81,20 @@ public class DatabaseData {
 
 		StringBuffer buffer = new StringBuffer();
 		int status = Constants.REC_STATUS_NONE;
+		Object[] keys = changedData.keySet().toArray();
+		Object originValues[] = null;
+		Object values[] = null;
 
-		if (changedData.size() > 0) {
-			for (ColumnInfo colInfo : colInfoList) {
-				if (colInfo == null || colInfo.getName() == null || changedData.get(colInfo.getName()) == null) {
+		if (keys.length > 0) {
+			for (int i = 0; i < keys.length; i++) {
+				if (keys[i] == null || changedData.get(keys[i]) == null) {
 					continue;
 				}
+
+				originValues = (Object[]) changedData.get(keys[i]);
+				status = rowStatus.get(keys[i]);
+
+				buffer.append(Constants.LINE_SEPERATOR);
 			}
 		}
 
