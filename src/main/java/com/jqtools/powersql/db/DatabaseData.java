@@ -79,7 +79,7 @@ public class DatabaseData {
 		return false;
 	}
 
-	private String getSQL(Session session, Info info, ArrayList<ColumnInfo> colInfoList,
+	public String getSQL(Session session, Info info, ArrayList<ColumnInfo> colInfoList,
 			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
 		if (session == null || info == null || colInfoList == null || changedData == null) {
 			return "";
@@ -115,7 +115,7 @@ public class DatabaseData {
 		return buffer.toString();
 	}
 
-	private String getDeleteSQL(String tableName, ArrayList<ColumnInfo> colInfo, Object[] originValues) {
+	public String getDeleteSQL(String tableName, ArrayList<ColumnInfo> colInfo, Object[] originValues) {
 
 		StringBuffer buffer = new StringBuffer();
 
