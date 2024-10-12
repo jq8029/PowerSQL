@@ -248,4 +248,22 @@ public class Tools {
 
 		return object;
 	}
+
+	public static String formatBoolean(String pattern, Boolean b) {
+		if (pattern == null || b == null)
+			return null;
+
+		if (pattern.equals(Constants.BOOL_TRUE_FALSE)) {
+			return b ? "true" : "false";
+		} else if (pattern.equals(Constants.BOOL_YES_NO)) {
+			return b ? "yes" : "no";
+		} else if (pattern.equals(Constants.BOOL_ON_OFF)) {
+			return b ? "on" : "off";
+		} else if (pattern.equals(Constants.BOOL_0_1)) {
+			return b ? "1" : "0";
+		} else {
+			return b.toString();
+		}
+
+	}
 }
