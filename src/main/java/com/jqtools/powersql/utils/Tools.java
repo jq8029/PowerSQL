@@ -6,6 +6,8 @@ import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.sql.Types;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 
 import javax.swing.ImageIcon;
@@ -17,6 +19,7 @@ import com.jqtools.powersql.log.MessageLogger;
 
 public class Tools {
 	private static HashMap<Integer, Boolean> quotaMap = null;
+	private static final SimpleDateFormat SDF = new SimpleDateFormat(Constants.TS01);
 
 	public static boolean getBoolean(String key, boolean defaultValue) {
 		try {
@@ -249,6 +252,7 @@ public class Tools {
 		return object;
 	}
 
+	// format data
 	public static String formatBoolean(String pattern, Boolean b) {
 		if (pattern == null || b == null)
 			return null;
@@ -264,6 +268,18 @@ public class Tools {
 		} else {
 			return b.toString();
 		}
-
 	}
+
+	public static String formatDate(String pattern, Date date) {
+		if (pattern == null || date == null) {
+			return null;
+		}
+
+		if (!pattern.equals(SDF.toPattern())) {
+			SDF.applyPattern(pattern);
+		}
+
+		return SDF.format(date);
+	}
+
 }
