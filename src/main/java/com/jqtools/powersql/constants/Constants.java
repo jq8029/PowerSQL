@@ -178,4 +178,10 @@ public class Constants {
 	public static final int REC_STATUS_DUP = 2;
 	public static final int REC_STATUS_DEL = 3;
 	public static final int REC_STATUS_CHANGED = 4;
+
+	public static final String BOOL_UNFORMATTED = "Unformatted";
+	public static final String BOOL_TRUE_FALSE = "true/false";
+	public static final String BOOL_YES_NO = "yes/no";
+	public static final String BOOL_ON_OFF = "on/off";
+	public static final String BOOL_0_1 = "1/0";
 }
