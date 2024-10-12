@@ -179,9 +179,16 @@ public class Constants {
 	public static final int REC_STATUS_DEL = 3;
 	public static final int REC_STATUS_CHANGED = 4;
 
+	// Boolean pattern
 	public static final String BOOL_UNFORMATTED = "Unformatted";
 	public static final String BOOL_TRUE_FALSE = "true/false";
 	public static final String BOOL_YES_NO = "yes/no";
 	public static final String BOOL_ON_OFF = "on/off";
 	public static final String BOOL_0_1 = "1/0";
+
+	// Date/Time pattern
+	public static final String TIME01 = "HH:mm:ss";
+	public static final String TS01 = "yyyy-MM-dd HH:mm:ss.SSS";
+	public static final String DATE01 = "yyyy-MM-dd";
+
 }
