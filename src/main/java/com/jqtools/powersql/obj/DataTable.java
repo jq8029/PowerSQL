@@ -78,12 +78,16 @@ public class DataTable extends JTable {
 	}
 
 	public boolean deleteRow(int row) {
-		if (row < 0 || row >= resultTableModel.getData().size()) {
+		Object values[] = resultTableModel.getData().get(row);
+		if (row < 0 || row >= resultTableModel.getData().size() || values == null) {
 			return false;
 		}
 
 		resultTableModel.getData().remove(row);
 		resultTableModel.fireTableRowsDeleted(row - 1, row - 1);
+		rowStatus.put(values, Constants.REC_STATUS_ADD);
+		changedData.put(values, values);
+
 		this.repaint();
 
 		return true;
