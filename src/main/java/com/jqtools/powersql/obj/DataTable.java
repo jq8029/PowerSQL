@@ -1,6 +1,7 @@
 package com.jqtools.powersql.obj;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.swing.JTable;
 import javax.swing.RowFilter;
@@ -12,6 +13,8 @@ public class DataTable extends JTable {
 
 	private ResultTableModel resultTableModel = null;
 	private TableRowSorter<ResultTableModel> sorter = null;
+	private HashMap<Object, Object> changedData = new HashMap<Object, Object>();
+	private HashMap<Object, Integer> rowStatus = new HashMap<Object, Integer>();
 
 	public DataTable(ResultTableModel resultTableModel) {
 		super(resultTableModel);
