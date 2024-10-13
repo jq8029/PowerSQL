@@ -121,7 +121,7 @@ public class DatabaseData {
 		return buffer.toString();
 	}
 
-	private String getInsertSQL(String tableName, ArrayList<ColumnInfo> colInfo, String values[]) {
+	public String getInsertSQL(String tableName, ArrayList<ColumnInfo> colInfo, String values[]) {
 
 		if (tableName == null || values == null || colInfo == null) {
 			return "";
