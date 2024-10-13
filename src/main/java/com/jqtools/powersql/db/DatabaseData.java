@@ -2,12 +2,14 @@ package com.jqtools.powersql.db;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Vector;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.utils.ExecuteSQL;
+import com.jqtools.powersql.utils.Tools;
 
 public class DatabaseData {
 	public static final String MY_CATALOG = "MY_CATALOG";
@@ -146,6 +148,59 @@ public class DatabaseData {
 		}
 
 		buffer.append(");");
+
+		return buffer.toString();
+	}
+
+	public String getUpdateSQL(String tableName, Vector<ColumnInfo> colInfo, Object[] values, Object[] originValues) {
+
+		StringBuffer buffer = new StringBuffer();
+
+		if (values != null && originValues != null && values.length == originValues.length
+				&& originValues.length == colInfo.size()) {
+
+			buffer.append("UPDATE ").append(tableName).append(" SET ");
+
+			ColumnInfo cInfo = null;
+			int add = 0;
+			for (int i = 0; i < values.length; i++) {
+				if (!Tools.isEqual(values[i], originValues[i]) || (add == 0 && i == values.length - 1)) {
+					if (add > 0) {
+						buffer.append(", ");
+					}
+					cInfo = colInfo.get(i);
+
+					if (values[i] == null) {
+						buffer.append(cInfo.getColumnName()).append(" IS NULL ");
+					} else {
+						buffer.append(cInfo.getColumnName()).append(" = ")
+								.append(getFormatValue((String) values[i], cInfo));
+					}
+
+					add++;
+				}
+			}
+
+			buffer.append(" WHERE ");
+
+			add = 0;
+			for (int i = 0; i < colInfo.size(); i++) {
+				if (add > 0) {
+					buffer.append(" AND ");
+				}
+
+				if (originValues[i] == null) {
+					buffer.append(colInfo.elementAt(i).getColumnName()).append(" IS NULL ");
+				} else {
+					buffer.append(cInfo.getColumnName()).append(" = ")
+							.append(getFormatValue((String) originValues[i], cInfo));
+				}
+
+				add++;
+			}
+
+			buffer.append(";");
+		}
 
 		return buffer.toString();
 	}
