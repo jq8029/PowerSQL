@@ -5,6 +5,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.Time;
 import java.sql.Types;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -282,4 +283,39 @@ public class Tools {
 		return SDF.format(date);
 	}
 
+	public static String formatCell(int colType, Object object) {
+		if (object == null)
+			return null;
+
+		String value = null;
+		switch (colType) {
+		case Types.NULL:
+			value = null;
+			break;
+
+		case Types.BIT:
+		case Types.BOOLEAN:
+			value = object.toString();
+			break;
+
+		case Types.TIME:
+			value = formatDate(Constants.TIME01, (Time) object);
+			break;
+
+		case Types.DATE:
+			value = formatDate(Constants.DATE01, (Date) object);
+			break;
+
+		case Types.TIMESTAMP:
+		case -101: // Oracle Time Zone
+		case -102: // Oracle Local Time Zone
+			value = formatDate(Constants.TS01, (Date) object);
+			break;
+
+		default:
+			value = object.toString();
+		}
+
+		return value;
+	}
 }
