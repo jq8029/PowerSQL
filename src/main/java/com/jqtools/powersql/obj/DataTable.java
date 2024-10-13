@@ -77,6 +77,14 @@ public class DataTable extends JTable {
 		return results;
 	}
 
+	public void changeRow(Object[] values, Object[] originValues) {
+		if (this.changedData.get(values) == null) {
+			changedData.put(values, originValues);
+		}
+
+		rowStatus.put(values, Constants.REC_STATUS_CHANGED);
+	}
+
 	public boolean deleteRow(int row) {
 		Object values[] = resultTableModel.getData().get(row);
 		if (row < 0 || row >= resultTableModel.getData().size() || values == null) {
