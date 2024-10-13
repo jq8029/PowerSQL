@@ -175,9 +175,8 @@ public class Constants {
 	// table record status
 	public static final int REC_STATUS_NONE = 0;
 	public static final int REC_STATUS_ADD = 1;
-	public static final int REC_STATUS_DUP = 2;
-	public static final int REC_STATUS_DEL = 3;
-	public static final int REC_STATUS_CHANGED = 4;
+	public static final int REC_STATUS_DEL = 2;
+	public static final int REC_STATUS_CHANGED = 3;
 
 	// Boolean pattern
 	public static final String BOOL_UNFORMATTED = "Unformatted";
