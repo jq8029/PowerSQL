@@ -85,7 +85,7 @@ public class DataTable extends JTable {
 
 		resultTableModel.getData().remove(row);
 		resultTableModel.fireTableRowsDeleted(row - 1, row - 1);
-		rowStatus.put(values, Constants.REC_STATUS_ADD);
+		rowStatus.put(values, Constants.REC_STATUS_DEL);
 		changedData.put(values, values);
 
 		this.repaint();
