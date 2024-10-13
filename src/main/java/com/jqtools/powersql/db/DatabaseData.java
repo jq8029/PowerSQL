@@ -88,9 +88,11 @@ public class DatabaseData {
 		StringBuffer buffer = new StringBuffer();
 		int status = Constants.REC_STATUS_NONE;
 		Object[] keys = changedData.keySet().toArray();
-		Object originValues[] = null;
+		String originValues[] = null;
 		Object values[] = null;
 		String tableName = info.getName();
+		String strValues[] = null;
+		ColumnInfo colInfo = null;
 
 		if (keys.length > 0) {
 			for (int i = 0; i < keys.length; i++) {
@@ -98,11 +100,11 @@ public class DatabaseData {
 					continue;
 				}
 
-				originValues = (Object[]) changedData.get(keys[i]);
+				colInfo = colInfoList.get(i);
+				originValues = (String[]) changedData.get(keys[i]);
 				status = rowStatus.get(keys[i]);
 
 				if (status == Constants.REC_STATUS_ADD || status == Constants.REC_STATUS_DUP) {
-					values = (Object[]) keys[i];
 				} else if (status == Constants.REC_STATUS_CHANGED) {
 				} else if (status == Constants.REC_STATUS_DEL) {
 					buffer.append(getDeleteSQL(tableName, colInfoList, originValues));
@@ -125,7 +127,6 @@ public class DatabaseData {
 
 			int add = 0;
 			ColumnInfo cInfo = null;
-			boolean quote = false;
 			for (int i = 0; i < colInfo.size(); i++) {
 				if (add > 0) {
 					buffer.append(" AND ");
@@ -135,15 +136,8 @@ public class DatabaseData {
 				if (originValues[i] == null) {
 					buffer.append(cInfo.getColumnName()).append(" IS NULL ");
 				} else {
-					quote = this.getDataTypesWithQuota().contains(cInfo.getTypeName().toLowerCase());
-					buffer.append(cInfo.getColumnName()).append(" = ");
-					if (quote) {
-						buffer.append(Constants.ESCAPE_CHAR);
-					}
-					buffer.append(originValues[i]);
-					if (quote) {
-						buffer.append(Constants.ESCAPE_CHAR);
-					}
+					buffer.append(cInfo.getColumnName()).append(" = ")
+							.append(getFormatValue((String) originValues[i], cInfo));
 				}
 
 				add++;
@@ -154,4 +148,25 @@ public class DatabaseData {
 
 		return buffer.toString();
 	}
+
+	public String getFormatValue(String value, ColumnInfo cInfo) {
+		boolean quote = this.getDataTypesWithQuota().contains(cInfo.getTypeName().toLowerCase());
+
+		StringBuffer buffer = new StringBuffer();
+
+		if (value == null) {
+			buffer.append("null");
+		} else {
+			if (quote) {
+				buffer.append(Constants.ESCAPE_CHAR);
+			}
+			buffer.append(value);
+			if (quote) {
+				buffer.append(Constants.ESCAPE_CHAR);
+			}
+		}
+
+		return buffer.toString();
+	}
+
 }
