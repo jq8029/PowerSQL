@@ -92,8 +92,6 @@ public class DatabaseData {
 		String originValues[] = null;
 		Object values[] = null;
 		String tableName = info.getName();
-		String strValues[] = null;
-		ColumnInfo colInfo = null;
 
 		if (keys.length > 0) {
 			for (int i = 0; i < keys.length; i++) {
@@ -101,7 +99,6 @@ public class DatabaseData {
 					continue;
 				}
 
-				colInfo = colInfoList.get(i);
 				originValues = (String[]) changedData.get(keys[i]);
 				status = rowStatus.get(keys[i]);
 
