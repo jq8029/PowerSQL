@@ -105,6 +105,10 @@ public class DatabaseData {
 				status = rowStatus.get(keys[i]);
 
 				if (status == Constants.REC_STATUS_ADD || status == Constants.REC_STATUS_DUP) {
+					values = (Object[]) keys[i];
+					if (values != null) {
+						buffer.append(getInsertSQL(tableName, colInfoList, originValues));
+					}
 				} else if (status == Constants.REC_STATUS_CHANGED) {
 				} else if (status == Constants.REC_STATUS_DEL) {
 					buffer.append(getDeleteSQL(tableName, colInfoList, originValues));
@@ -113,6 +117,35 @@ public class DatabaseData {
 				buffer.append(Constants.LINE_SEPERATOR);
 			}
 		}
+
+		return buffer.toString();
+	}
+
+	private String getInsertSQL(String tableName, ArrayList<ColumnInfo> colInfo, String values[]) {
+
+		if (tableName == null || values == null || colInfo == null) {
+			return "";
+		}
+
+		StringBuffer buffer = new StringBuffer().append("INSERT INTO ").append(tableName).append("(");
+
+		for (int i = 0; i < colInfo.size(); i++) {
+			if (i > 0) {
+				buffer.append(", ");
+			}
+			buffer.append(colInfo.get(i).getColumnName());
+		}
+		buffer.append(") VALUES (");
+
+		for (int i = 0; i < values.length; i++) {
+			if (i > 0) {
+				buffer.append(", ");
+			}
+
+			buffer.append(getFormatValue(values[i], colInfo.get(i)));
+		}
+
+		buffer.append(");");
 
 		return buffer.toString();
 	}
