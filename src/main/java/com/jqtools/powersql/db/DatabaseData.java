@@ -2,7 +2,6 @@ package com.jqtools.powersql.db;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Vector;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.ColumnInfo;
@@ -112,6 +111,7 @@ public class DatabaseData {
 						buffer.append(getInsertSQL(tableName, colInfoList, originValues));
 					}
 				} else if (status == Constants.REC_STATUS_CHANGED) {
+					buffer.append(getUpdateSQL(tableName, colInfoList, keys, originValues));
 				} else if (status == Constants.REC_STATUS_DEL) {
 					buffer.append(getDeleteSQL(tableName, colInfoList, originValues));
 				}
@@ -152,7 +152,8 @@ public class DatabaseData {
 		return buffer.toString();
 	}
 
-	public String getUpdateSQL(String tableName, Vector<ColumnInfo> colInfo, Object[] values, Object[] originValues) {
+	public String getUpdateSQL(String tableName, ArrayList<ColumnInfo> colInfo, Object[] values,
+			Object[] originValues) {
 
 		StringBuffer buffer = new StringBuffer();
 
@@ -190,7 +191,7 @@ public class DatabaseData {
 				}
 
 				if (originValues[i] == null) {
-					buffer.append(colInfo.elementAt(i).getColumnName()).append(" IS NULL ");
+					buffer.append(colInfo.get(i).getColumnName()).append(" IS NULL ");
 				} else {
 					buffer.append(cInfo.getColumnName()).append(" = ")
 							.append(getFormatValue((String) originValues[i], cInfo));
