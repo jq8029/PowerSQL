@@ -7,6 +7,8 @@ import javax.swing.JTable;
 import javax.swing.RowFilter;
 import javax.swing.table.TableRowSorter;
 
+import com.jqtools.powersql.constants.Constants;
+
 public class DataTable extends JTable {
 
 	private static final long serialVersionUID = -7489359896418415220L;
@@ -35,6 +37,8 @@ public class DataTable extends JTable {
 
 		resultTableModel.getData().add(row, values);
 		resultTableModel.fireTableRowsInserted(row + 1, row + 1);
+		rowStatus.put(values, Constants.REC_STATUS_ADD);
+		changedData.put(values, values);
 
 		return row;
 	}
