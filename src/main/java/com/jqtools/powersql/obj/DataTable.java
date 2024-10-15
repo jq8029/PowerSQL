@@ -130,4 +130,13 @@ public class DataTable extends JTable {
 
 		this.repaint();
 	}
+
+	public HashMap<Object, Object> getChangedData() {
+		return changedData;
+	}
+
+	public HashMap<Object, Integer> getRowStatus() {
+		return rowStatus;
+	}
+
 }
