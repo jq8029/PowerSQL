@@ -141,6 +141,7 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
 				node.getSession().setCurrentNode(node);
 				dataToolBar.setSql(node.getSession().getDbData().getTableSQL(node.getInfo()));
+				dataToolBar.getDataTable().setInfo(node.getInfo());
 				ExecuteSQL.execute(dataToolBar);
 				rightPanel.setSelectedIndex(0);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
