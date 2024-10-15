@@ -245,7 +245,8 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	}
 
 	public void save() {
-
+		session.getDbData().saveTableData(session, dataTable.getInfo(),
+				dataTable.getResultTableModel().getColInfoList(), dataTable.getChangedData(), dataTable.getRowStatus());
 	}
 
 	public void search() {
