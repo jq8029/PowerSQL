@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
+import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.DataTable;
 import com.jqtools.powersql.obj.DataToolBar;
 import com.jqtools.powersql.obj.ResultTableModel;
@@ -130,13 +131,20 @@ public class ExecuteSQL {
 		int colNum = metaData.getColumnCount();
 		int colType[] = new int[colNum];
 		String colNames[] = new String[colNum];
+		ArrayList<ColumnInfo> colInfoList = new ArrayList<ColumnInfo>();
+		ColumnInfo colInfo = null;
 		for (int i = 0; i < colNum; i++) {
-			colType[i] = metaData.getColumnType(i + 1);
-			colNames[i] = metaData.getColumnName(i + 1);
+			colInfo = new ColumnInfo();
+			colInfoList.add(colInfo);
+			colInfo.setColumnName(metaData.getColumnName(i + 1));
+			colInfo.setDataType(metaData.getColumnType(i + 1));
+			colType[i] = colInfo.getDataType();
+			colNames[i] = colInfo.getColumnName();
 		}
 
 		tableModel.setColNames(colNames);
 		tableModel.setColTypes(colType);
+		tableModel.setColInfo(colInfoList);
 		dataToolBar.getFilterSortFrame().setColData(colNames, colType);
 	}
 }
