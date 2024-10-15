@@ -17,6 +17,7 @@ public class DataTable extends JTable {
 	private TableRowSorter<ResultTableModel> sorter = null;
 	private HashMap<Object, Object> changedData = new HashMap<Object, Object>();
 	private HashMap<Object, Integer> rowStatus = new HashMap<Object, Integer>();
+	private Info info = null;
 
 	public DataTable(ResultTableModel resultTableModel) {
 		super(resultTableModel);
@@ -137,6 +138,14 @@ public class DataTable extends JTable {
 
 	public HashMap<Object, Integer> getRowStatus() {
 		return rowStatus;
+	}
+
+	public Info getInfo() {
+		return info;
+	}
+
+	public void setInfo(Info info) {
+		this.info = info;
 	}
 
 }
