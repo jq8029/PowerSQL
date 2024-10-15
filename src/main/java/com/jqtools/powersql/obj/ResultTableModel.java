@@ -16,6 +16,7 @@ public class ResultTableModel extends AbstractTableModel {
 	private String[] colNames = null;
 	private int[] colTypes = null;
 	private DataTable table = null;
+	private ArrayList<ColumnInfo> colInfo = null;
 
 	public ResultTableModel() {
 		this.data = new ArrayList<Object[]>();
@@ -137,4 +138,11 @@ public class ResultTableModel extends AbstractTableModel {
 		this.table = table;
 	}
 
+	public ArrayList<ColumnInfo> getColInfo() {
+		return colInfo;
+	}
+
+	public void setColInfo(ArrayList<ColumnInfo> colInfo) {
+		this.colInfo = colInfo;
+	}
 }
