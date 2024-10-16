@@ -63,7 +63,15 @@ public class TreeNode extends DefaultMutableTreeNode {
 	}
 
 	public Session getSession() {
-		return session;
+		if (this.session == null) {
+			if (this.parent != null) {
+				return ((TreeNode) this.parent).getSession();
+			} else {
+				return null;
+			}
+		} else {
+			return session;
+		}
 	}
 
 	public void setSession(Session session) {
