@@ -136,6 +136,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 	public void valueChanged(TreeSelectionEvent e) {
 		try {
 			TreeNode node = (TreeNode) tree.getLastSelectedPathComponent();
+			dataToolBar.setSession(node.getSession());
+			resultToolBar.setSession(node.getSession());
 
 			if (node.getInfo().getNodeType() == Constants.NODE_TABLE
 					|| node.getInfo().getNodeType() == Constants.NODE_VIEW) {
