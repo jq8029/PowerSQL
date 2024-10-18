@@ -55,13 +55,18 @@ public class DatabaseData {
 	}
 
 	public String getTableSQL(Info info) {
-		StringBuilder sql = new StringBuilder().append("select * from ");
-		if (info.getSchema() != null) {
-			sql.append(info.getSchema()).append(".");
-		}
-		sql.append(info.getName());
+		return new StringBuilder().append("select * from ").append(getTableName(info)).toString();
+	}
 
-		return sql.toString();
+	public String getTableName(Info info) {
+		StringBuilder tableName = new StringBuilder();
+
+		if (info.getSchema() != null) {
+			tableName.append(info.getSchema()).append(".");
+		}
+		tableName.append(info.getName());
+
+		return tableName.toString();
 	}
 
 	public String getFilterSQL(String sql, String filterSQL) {
