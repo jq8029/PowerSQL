@@ -102,7 +102,7 @@ public class DatabaseData {
 				originValues = (String[]) changedData.get(keys[i]);
 				status = rowStatus.get(keys[i]);
 
-				if (status == Constants.REC_STATUS_ADD || status == Constants.REC_STATUS_DUP) {
+				if (status == Constants.REC_STATUS_ADD) {
 					values = (Object[]) keys[i];
 					if (values != null) {
 						buffer.append(getInsertSQL(tableName, colInfoList, originValues));
