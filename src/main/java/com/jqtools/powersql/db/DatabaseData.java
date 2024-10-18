@@ -96,7 +96,7 @@ public class DatabaseData {
 		Object[] keys = changedData.keySet().toArray();
 		String originValues[] = null;
 		Object values[] = null;
-		String tableName = info.getName();
+		String tableName = getTableName(info);
 
 		if (keys.length > 0) {
 			for (int i = 0; i < keys.length; i++) {
