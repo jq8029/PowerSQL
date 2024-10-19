@@ -23,22 +23,27 @@ public class H2Data extends DatabaseData {
 		return "SELECT TABLE_NAME FROM information_schema.TABLES where TABLE_SCHEMA = '?' and TABLE_TYPE = 'VIEW' order by TABLE_NAME";
 	}
 
+	@Override
 	public String getCatalogName() {
 		return "TABLE_CATALOG";
 	}
 
+	@Override
 	public String getSchemaName() {
 		return "SCHEMA_NAME";
 	}
 
+	@Override
 	public String getTableName() {
 		return "TABLE_NAME";
 	}
 
+	@Override
 	public String getViewName() {
 		return "TABLE_NAME";
 	}
 
+	@Override
 	public String getTableName(Info info) {
 		StringBuilder tableName = new StringBuilder();
 
