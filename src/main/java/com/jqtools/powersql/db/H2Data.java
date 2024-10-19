@@ -1,5 +1,7 @@
 package com.jqtools.powersql.db;
 
+import com.jqtools.powersql.obj.Info;
+
 public class H2Data extends DatabaseData {
 	@Override
 	public String getCatalogAllSQL() {
@@ -37,4 +39,14 @@ public class H2Data extends DatabaseData {
 		return "TABLE_NAME";
 	}
 
+	public String getTableName(Info info) {
+		StringBuilder tableName = new StringBuilder();
+
+		if (info.getSchema() != null) {
+			tableName.append("\"").append(info.getSchema()).append("\".\"");
+		}
+		tableName.append(info.getName()).append("\"");
+
+		return tableName.toString();
+	}
 }
