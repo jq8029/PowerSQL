@@ -17,6 +17,7 @@ public class ResultTableModel extends AbstractTableModel {
 	private int[] colTypes = null;
 	private DataTable table = null;
 	private ArrayList<ColumnInfo> colInfoList = null;
+	private boolean tableEditable = false;
 
 	public ResultTableModel() {
 		this.data = new ArrayList<Object[]>();
@@ -145,4 +146,13 @@ public class ResultTableModel extends AbstractTableModel {
 	public void setColInfo(ArrayList<ColumnInfo> colInfoList) {
 		this.colInfoList = colInfoList;
 	}
+
+	public boolean isTableEditable() {
+		return tableEditable;
+	}
+
+	public void setTableEditable(boolean tableEditable) {
+		this.tableEditable = tableEditable;
+	}
+
 }
