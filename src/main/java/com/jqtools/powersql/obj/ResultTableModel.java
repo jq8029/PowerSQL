@@ -58,6 +58,11 @@ public class ResultTableModel extends AbstractTableModel {
 		}
 	}
 
+	@Override
+	public boolean isCellEditable(int rowIndex, int columnIndex) {
+		return this.tableEditable;
+	}
+
 	public String getColumnName(int columnIndex) {
 		if (colNames == null || columnIndex >= colNames.length || columnIndex < 0) {
 			return "";
