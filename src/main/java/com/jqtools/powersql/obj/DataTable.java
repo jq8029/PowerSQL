@@ -37,7 +37,7 @@ public class DataTable extends JTable {
 		}
 
 		resultTableModel.getData().add(row, values);
-		resultTableModel.fireTableRowsInserted(row + 1, row + 1);
+		resultTableModel.fireTableRowsInserted(row, row);
 		rowStatus.put(values, Constants.REC_STATUS_ADD);
 		changedData.put(values, values);
 
