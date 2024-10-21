@@ -8,6 +8,9 @@ import javax.swing.table.AbstractTableModel;
 import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 
+import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.utils.Tools;
+
 public class ResultTableModel extends AbstractTableModel {
 
 	private static final long serialVersionUID = -8670835121747587879L;
@@ -55,6 +58,32 @@ public class ResultTableModel extends AbstractTableModel {
 					return values[columnIndex].toString();
 				}
 			}
+		}
+	}
+
+	@Override
+	public void setValueAt(Object newValue, int row, int column) {
+		Object values[] = data.get(row);
+
+		if (values != null) {
+			if (!Tools.isEqual(values[column], newValue)) {
+
+				Object originValues[] = new Object[values.length];
+				System.arraycopy(values, 0, originValues, 0, values.length);
+
+				if (this.table.getRowStatus(values) == Constants.REC_STATUS_NONE) {
+					this.table.changeRow(values, originValues);
+				}
+				Object oldValue = values[column];
+
+				values[column] = newValue == null ? null : newValue;
+			}
+		}
+
+		fireTableCellUpdated(row, column);
+
+		if (table != null) {
+			table.repaint();
 		}
 	}
 
