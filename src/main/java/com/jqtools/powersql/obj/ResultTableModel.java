@@ -74,7 +74,6 @@ public class ResultTableModel extends AbstractTableModel {
 				if (this.table.getRowStatus(values) == Constants.REC_STATUS_NONE) {
 					this.table.changeRow(values, originValues);
 				}
-				Object oldValue = values[column];
 
 				values[column] = newValue == null ? null : newValue;
 			}
