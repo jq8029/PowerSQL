@@ -140,6 +140,14 @@ public class DataTable extends JTable {
 		return rowStatus;
 	}
 
+	public int getRowStatus(Object key) {
+		if (key == null || !rowStatus.containsKey(key)) {
+			return Constants.REC_STATUS_NONE;
+		} else {
+			return rowStatus.get(key);
+		}
+	}
+
 	public Info getInfo() {
 		return info;
 	}
