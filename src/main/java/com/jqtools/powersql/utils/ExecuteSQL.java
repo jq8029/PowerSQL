@@ -111,7 +111,6 @@ public class ExecuteSQL {
 			}
 		} catch (Throwable e) {
 			NoticeMessage.showMessage(Constants.MSG_FAIL_EXECUTE + sql);
-			e.printStackTrace();
 			MessageLogger.error(e);
 		} finally {
 			dataToolBar.setDataTable(new DataTable(tableModel));
@@ -120,8 +119,6 @@ public class ExecuteSQL {
 			dataToolBar.getDataScroll().setViewportView(dataToolBar.getDataTable());
 			System.gc();
 		}
-
-		MessageLogger.info("execute sql = " + sql);
 
 		return true;
 	}
