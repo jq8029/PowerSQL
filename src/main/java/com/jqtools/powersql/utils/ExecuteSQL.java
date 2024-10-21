@@ -18,6 +18,8 @@ import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
 	public static boolean execute(Connection conn, String sql) {
+		MessageLogger.info("execute sql = " + sql);
+
 		String sqls[] = new String[1];
 		sqls[0] = sql;
 
