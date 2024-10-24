@@ -94,7 +94,7 @@ public class DatabaseData {
 		StringBuffer buffer = new StringBuffer();
 		int status = Constants.REC_STATUS_NONE;
 		Object[] keys = changedData.keySet().toArray();
-		String originValues[] = null;
+		Object originValues[] = null;
 		Object values[] = null;
 		String tableName = getTableName(info);
 
@@ -104,7 +104,7 @@ public class DatabaseData {
 					continue;
 				}
 
-				originValues = (String[]) changedData.get(keys[i]);
+				originValues = (Object[]) changedData.get(keys[i]);
 				status = rowStatus.get(keys[i]);
 
 				if (status == Constants.REC_STATUS_ADD) {
@@ -125,7 +125,7 @@ public class DatabaseData {
 		return buffer.toString();
 	}
 
-	public String getInsertSQL(String tableName, ArrayList<ColumnInfo> colInfo, String values[]) {
+	public String getInsertSQL(String tableName, ArrayList<ColumnInfo> colInfo, Object values[]) {
 
 		if (tableName == null || values == null || colInfo == null) {
 			return "";
@@ -240,7 +240,7 @@ public class DatabaseData {
 		return buffer.toString();
 	}
 
-	public String getFormatValue(String value, ColumnInfo cInfo) {
+	public String getFormatValue(Object value, ColumnInfo cInfo) {
 		boolean quote = this.getDataTypesWithQuota().contains(cInfo.getTypeName().toLowerCase());
 
 		StringBuffer buffer = new StringBuffer();
