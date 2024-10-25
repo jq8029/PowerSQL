@@ -137,6 +137,7 @@ public class ExecuteSQL {
 			colInfoList.add(colInfo);
 			colInfo.setColumnName(metaData.getColumnName(i + 1));
 			colInfo.setDataType(metaData.getColumnType(i + 1));
+			colInfo.setTypeName(metaData.getColumnTypeName(i + 1));
 			colType[i] = colInfo.getDataType();
 			colNames[i] = colInfo.getColumnName();
 		}
