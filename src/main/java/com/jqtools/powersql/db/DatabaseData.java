@@ -74,10 +74,11 @@ public class DatabaseData {
 				.append(filterSQL).toString();
 	}
 
-	public boolean saveTableData(Session session, Info info, ArrayList<ColumnInfo> colInfo,
+	public boolean saveTableData(Session session, Info info, ArrayList<ColumnInfo> colInfoList,
 			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
 		if (session != null) {
-			if (ExecuteSQL.execute(session.getConnection(), getSQL(session, info, colInfo, changedData, rowStatus))) {
+			if (ExecuteSQL.execute(session.getConnection(),
+					getSQL(session, info, colInfoList, changedData, rowStatus))) {
 				return true;
 			}
 		}
