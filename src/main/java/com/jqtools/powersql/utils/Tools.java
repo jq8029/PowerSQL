@@ -116,7 +116,13 @@ public class Tools {
 	}
 
 	public static boolean isEqual(Object value1, Object value2) {
-		return isEqual((String) value1, (String) value2);
+		if (value1 == null && value2 == null) {
+			return true;
+		} else if (value1 == null || value2 == null) {
+			return false;
+		} else {
+			return isEqual(value1.toString(), value2.toString());
+		}
 	}
 
 	public static boolean isEqual(String value1, String value2) {
