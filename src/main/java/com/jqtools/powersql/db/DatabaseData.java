@@ -180,8 +180,7 @@ public class DatabaseData {
 					if (values[i] == null) {
 						buffer.append(cInfo.getColumnName()).append(" IS NULL ");
 					} else {
-						buffer.append(cInfo.getColumnName()).append(" = ")
-								.append(getFormatValue((String) values[i], cInfo));
+						buffer.append(cInfo.getColumnName()).append(" = ").append(getFormatValue(values[i], cInfo));
 					}
 
 					add++;
@@ -229,8 +228,7 @@ public class DatabaseData {
 				if (originValues[i] == null) {
 					buffer.append(cInfo.getColumnName()).append(" IS NULL ");
 				} else {
-					buffer.append(cInfo.getColumnName()).append(" = ")
-							.append(getFormatValue((String) originValues[i], cInfo));
+					buffer.append(cInfo.getColumnName()).append(" = ").append(getFormatValue(originValues[i], cInfo));
 				}
 
 				add++;
