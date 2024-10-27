@@ -153,7 +153,7 @@ public class DatabaseData {
 			buffer.append(getFormatValue(values[i], colInfo.get(i)));
 		}
 
-		buffer.append(");");
+		buffer.append(")");
 
 		return buffer.toString();
 	}
@@ -205,8 +205,6 @@ public class DatabaseData {
 
 				add++;
 			}
-
-			buffer.append(";");
 		}
 
 		return buffer.toString();
@@ -237,8 +235,6 @@ public class DatabaseData {
 
 				add++;
 			}
-
-			buffer.append(";");
 		}
 
 		return buffer.toString();
