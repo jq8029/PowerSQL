@@ -86,10 +86,10 @@ public class DatabaseData {
 		return false;
 	}
 
-	public String getSQL(Session session, Info info, ArrayList<ColumnInfo> colInfoList,
+	public String[] getSQL(Session session, Info info, ArrayList<ColumnInfo> colInfoList,
 			HashMap<Object, Object> changedData, HashMap<Object, Integer> rowStatus) {
 		if (session == null || info == null || colInfoList == null || changedData == null) {
-			return "";
+			return null;
 		}
 
 		StringBuffer buffer = new StringBuffer();
@@ -98,9 +98,12 @@ public class DatabaseData {
 		Object originValues[] = null;
 		Object values[] = null;
 		String tableName = getTableName(info);
+		String sqls[] = null;
 
 		if (keys.length > 0) {
+			sqls = new String[keys.length];
 			for (int i = 0; i < keys.length; i++) {
+				buffer.delete(0, buffer.length());
 				if (keys[i] == null || changedData.get(keys[i]) == null) {
 					continue;
 				}
@@ -119,11 +122,11 @@ public class DatabaseData {
 					buffer.append(getDeleteSQL(tableName, colInfoList, originValues));
 				}
 
-				buffer.append(Constants.LINE_SEPERATOR);
+				sqls[i] = buffer.toString();
 			}
 		}
 
-		return buffer.toString();
+		return sqls;
 	}
 
 	public String getInsertSQL(String tableName, ArrayList<ColumnInfo> colInfo, Object values[]) {
