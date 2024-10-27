@@ -216,6 +216,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		}
 
 		ExecuteSQL.execute(this);
+		dataTable.getResultTableModel().setTableEditable(true);
 	}
 
 	public void filter() {
