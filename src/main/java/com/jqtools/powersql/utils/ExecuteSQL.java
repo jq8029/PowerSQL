@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 
 import com.jqtools.powersql.constants.Constants;
@@ -50,6 +51,7 @@ public class ExecuteSQL {
 			MessageLogger.error(e);
 			return false;
 		} finally {
+			close(stat, null);
 
 			if (conn != null) {
 				try {
@@ -117,6 +119,7 @@ public class ExecuteSQL {
 			tableModel.setTable(dataToolBar.getDataTable());
 			tableModel.resizeColumnWidth();
 			dataToolBar.getDataScroll().setViewportView(dataToolBar.getDataTable());
+			close(stat, result);
 			System.gc();
 		}
 
@@ -144,5 +147,23 @@ public class ExecuteSQL {
 		tableModel.setColTypes(colType);
 		tableModel.setColInfo(colInfoList);
 		dataToolBar.getFilterSortFrame().setColData(colNames, colType);
+	}
+
+	public static void close(Statement stat, ResultSet resultSet) {
+		if (stat != null) {
+			try {
+				stat.close();
+			} catch (SQLException e) {
+				MessageLogger.error(e);
+			}
+		}
+
+		if (resultSet != null) {
+			try {
+				resultSet.close();
+			} catch (SQLException e) {
+				MessageLogger.error(e);
+			}
+		}
 	}
 }
