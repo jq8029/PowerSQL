@@ -198,8 +198,7 @@ public class DatabaseData {
 				if (originValues[i] == null) {
 					buffer.append(colInfo.get(i).getColumnName()).append(" IS NULL ");
 				} else {
-					buffer.append(cInfo.getColumnName()).append(" = ")
-							.append(getFormatValue((String) originValues[i], cInfo));
+					buffer.append(cInfo.getColumnName()).append(" = ").append(getFormatValue(originValues[i], cInfo));
 				}
 
 				add++;
