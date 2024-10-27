@@ -109,15 +109,15 @@ public class DatabaseData {
 				}
 
 				originValues = (Object[]) changedData.get(keys[i]);
+				values = (Object[]) keys[i];
 				status = rowStatus.get(keys[i]);
 
 				if (status == Constants.REC_STATUS_ADD) {
-					values = (Object[]) keys[i];
 					if (values != null) {
 						buffer.append(getInsertSQL(tableName, colInfoList, originValues));
 					}
 				} else if (status == Constants.REC_STATUS_CHANGED) {
-					buffer.append(getUpdateSQL(tableName, colInfoList, keys, originValues));
+					buffer.append(getUpdateSQL(tableName, colInfoList, values, originValues));
 				} else if (status == Constants.REC_STATUS_DEL) {
 					buffer.append(getDeleteSQL(tableName, colInfoList, originValues));
 				}
