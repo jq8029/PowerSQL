@@ -18,8 +18,6 @@ import com.jqtools.powersql.obj.Session;
 
 public class ExecuteSQL {
 	public static boolean execute(Connection conn, String sql) {
-		MessageLogger.info("execute sql = " + sql);
-
 		String sqls[] = new String[1];
 		sqls[0] = sql;
 
@@ -43,16 +41,16 @@ public class ExecuteSQL {
 				if (sql == null || sql.trim().length() == 0)
 					continue;
 
+				MessageLogger.info("Execute sql = " + sql);
 				stat = conn.prepareStatement(sql);
-				if (!stat.execute()) {
-					return false;
-				}
+				stat.execute();
 			}
 			success = true;
 		} catch (Exception e) {
 			MessageLogger.error(e);
 			return false;
 		} finally {
+
 			if (conn != null) {
 				try {
 					if (success) {
