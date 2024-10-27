@@ -191,6 +191,7 @@ public class DatabaseData {
 
 			add = 0;
 			for (int i = 0; i < colInfo.size(); i++) {
+				cInfo = colInfo.get(i);
 				if (add > 0) {
 					buffer.append(" AND ");
 				}
