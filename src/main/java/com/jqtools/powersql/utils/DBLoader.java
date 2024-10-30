@@ -136,7 +136,11 @@ public class DBLoader {
 				newNode = new TreeNode(info);
 				newNode.addToParent(node);
 				if (nodeType == Constants.NODE_TABLE || nodeType == Constants.NODE_VIEW) {
-					newNode.setLeaf(false);
+					Info colsInfo = info.clone();
+					colsInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
+					TreeNode colsNode = new TreeNode(colsInfo);
+					colsNode.add(newNode);
+					colsNode.setLeaf(false);
 				}
 			}
 		} finally {
