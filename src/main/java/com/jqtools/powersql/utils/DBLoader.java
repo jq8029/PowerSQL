@@ -120,9 +120,7 @@ public class DBLoader {
 		try {
 			rs = (stmt = DBTools.getStatement(con, sql)).executeQuery();
 			while (rs.next()) {
-				info = new Info();
-				info.setCatalog(node.getInfo().getCatalog());
-				info.setSchema(node.getInfo().getSchema());
+				info = node.getInfo().clone();
 				info.setName(DBTools.getValue(rs, colName));
 				info.setNodeType(nodeType);
 
