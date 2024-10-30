@@ -51,7 +51,11 @@ public class Info {
 	}
 
 	public String toString() {
-		return this.name;
+		if (nodeType == Constants.NODE_TABLE_COLUMNS || nodeType == Constants.NODE_COLUMN) {
+			return this.colName;
+		} else {
+			return this.name;
+		}
 	}
 
 	public boolean equal(Info info) {
