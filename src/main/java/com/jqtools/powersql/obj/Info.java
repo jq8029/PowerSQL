@@ -8,6 +8,7 @@ public class Info {
 	private String schema = null;
 	private String name = null;
 	private int nodeType = Constants.NODE_TEXT;
+	private String colName = null;
 
 	public String getCatalog() {
 		return catalog;
@@ -41,6 +42,14 @@ public class Info {
 		this.nodeType = nodeType;
 	}
 
+	public String getColName() {
+		return colName;
+	}
+
+	public void setColName(String colName) {
+		this.colName = colName;
+	}
+
 	public String toString() {
 		return this.name;
 	}
@@ -51,5 +60,15 @@ public class Info {
 
 		return Tools.isEqual(info.getCatalog(), this.getCatalog()) && Tools.isEqual(info.getSchema(), this.getSchema())
 				&& Tools.isEqual(info.getName(), this.getName());
+	}
+
+	public Info clone() {
+		Info info = new Info();
+		info.setCatalog(catalog);
+		info.setName(name);
+		info.setNodeType(nodeType);
+		info.setSchema(schema);
+
+		return info;
 	}
 }
