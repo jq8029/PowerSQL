@@ -57,7 +57,11 @@ public class TreeNode extends DefaultMutableTreeNode {
 
 	@Override
 	public boolean isLeaf() {
-		return leaf;
+		if (this.leaf) {
+			return super.isLeaf();
+		} else {
+			return this.leaf;
+		}
 	}
 
 	public void setLeaf(boolean leaf) {
