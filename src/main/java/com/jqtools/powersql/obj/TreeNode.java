@@ -13,6 +13,7 @@ public class TreeNode extends DefaultMutableTreeNode {
 	private Info info = null;
 	private JTree tree = null;
 	private Session session = null;
+	private boolean leaf = true;
 
 	public TreeNode(Info info) {
 		this.info = info;
@@ -52,6 +53,15 @@ public class TreeNode extends DefaultMutableTreeNode {
 
 	public Info getInfo() {
 		return info;
+	}
+
+	@Override
+	public boolean isLeaf() {
+		return leaf;
+	}
+
+	public void setLeaf(boolean leaf) {
+		this.leaf = leaf;
 	}
 
 	public JTree getTree() {
