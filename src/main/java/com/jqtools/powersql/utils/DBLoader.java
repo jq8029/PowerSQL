@@ -138,6 +138,7 @@ public class DBLoader {
 				if (nodeType == Constants.NODE_TABLE || nodeType == Constants.NODE_VIEW) {
 					Info colsInfo = info.clone();
 					colsInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
+					colsInfo.setColName(Constants.NAME_COLS);
 					TreeNode colsNode = new TreeNode(colsInfo);
 					colsNode.add(newNode);
 					colsNode.setLeaf(false);
