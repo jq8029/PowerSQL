@@ -135,6 +135,9 @@ public class DBLoader {
 
 				newNode = new TreeNode(info);
 				newNode.addToParent(node);
+				if (nodeType == Constants.NODE_TABLE || nodeType == Constants.NODE_VIEW) {
+					newNode.setLeaf(false);
+				}
 			}
 		} finally {
 			DBTools.close(stmt, rs);
