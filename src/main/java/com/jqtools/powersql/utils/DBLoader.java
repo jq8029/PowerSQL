@@ -106,7 +106,7 @@ public class DBLoader {
 		return loadNode(con, node, sql, Constants.NODE_VIEW, session.getDbData().getViewName());
 	}
 
-	private static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType, String colName)
+	public static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType, String colName)
 			throws Exception {
 		if (sql == null) {
 			return false;
