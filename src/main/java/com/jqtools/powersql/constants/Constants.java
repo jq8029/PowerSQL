@@ -42,6 +42,7 @@ public class Constants {
 	public static final int NODE_TABLE = 501;
 	public static final int NODE_VIEW = 601;
 	public static final int NODE_TABLE_COLUMNS = 60101;
+	public static final int NODE_COLUMN = 7;
 
 	public static final String NAME_TABLES = "Tables";
 	public static final String NAME_VIEWS = "Views";
