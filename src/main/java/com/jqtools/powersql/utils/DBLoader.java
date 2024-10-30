@@ -140,7 +140,7 @@ public class DBLoader {
 					colsInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
 					colsInfo.setColName(Constants.NAME_COLS);
 					TreeNode colsNode = new TreeNode(colsInfo);
-					colsNode.add(newNode);
+					colsNode.addToParent(newNode);
 					colsNode.setLeaf(false);
 				}
 			}
