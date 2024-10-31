@@ -129,4 +129,26 @@ public class ColumnInfo extends Info {
 
 		return super.equal(info) && Tools.isEqual(((ColumnInfo) info).getColumnName(), this.getColumnName());
 	}
+
+	@Override
+	public Info clone() {
+		ColumnInfo info = new ColumnInfo();
+		info.setCatalog(this.getCatalog());
+		info.setName(this.getName());
+		info.setNodeType(this.getNodeType());
+		info.setSchema(this.getSchema());
+		info.setColName(columnName);
+		info.setDefaultValue(defaultValue);
+		info.setMaxLength(maxLength);
+		info.setDataType(dataType);
+		info.setNullable(nullable);
+		info.setNumericLen(numericLen);
+		info.setNumericScale(numericScale);
+		info.setOrdinalPosition(ordinalPosition);
+		info.setPrimaryKey(primaryKey);
+		info.setTableType(tableType);
+		info.setTypeName(typeName);
+
+		return info;
+	}
 }
