@@ -11,43 +11,26 @@ import com.jqtools.powersql.utils.ExecuteSQL;
 import com.jqtools.powersql.utils.Tools;
 
 public class DatabaseData {
-	public static final String MY_CATALOG = "MY_CATALOG";
-	public static final String MY_SCHEMA = "MY_SCHEMA";
-	public static final String MY_TABLE = "MY_TABLE";
-	public static final String MY_VIEW = "MY_VIEW";
-
 	private ArrayList<String> dataTypesWithQuota = new ArrayList<String>();
 
 	public String getCatalogAllSQL() {
 		return null;
 	}
 
-	public String getSchemaAllSQL() {
+	public String getSchemaAllSQL(Info info) {
 		return null;
 	}
 
-	public String getTableSchemaSQL() {
+	public String getTableSchemaSQL(Info info) {
 		return null;
 	}
 
-	public String getViewSchemaSQL() {
+	public String getViewSchemaSQL(Info info) {
 		return null;
 	}
 
-	public String getCatalogName() {
-		return MY_CATALOG;
-	}
-
-	public String getSchemaName() {
-		return MY_SCHEMA;
-	}
-
-	public String getTableName() {
-		return MY_TABLE;
-	}
-
-	public String getViewName() {
-		return MY_VIEW;
+	public String getColumnSQL(Info info) {
+		return null;
 	}
 
 	public ArrayList<String> getDataTypesWithQuota() {
