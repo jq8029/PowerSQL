@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
@@ -42,8 +43,7 @@ public class DBLoader {
 		}
 
 		// load all catalogs
-		loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG,
-				session.getDbData().getCatalogName());
+		loadNode(con, node, session.getDbData().getCatalogAllSQL(), Constants.NODE_CATALOG);
 
 		// load tables and views for each schema
 		for (int i = 0; i < node.getChildCount(); i++) {
@@ -53,18 +53,14 @@ public class DBLoader {
 	}
 
 	private static boolean loadSchemaNode(Session session, Connection con, TreeNode node) throws Exception {
-		String sql = session.getDbData().getSchemaAllSQL();
+		String sql = session.getDbData().getSchemaAllSQL(node.getInfo());
 
 		if (sql == null) {
 			return false;
-		} else {
-			if (node.getInfo().getCatalog() != null) {
-				sql = updateSQL(sql, node.getInfo().getCatalog());
-			}
 		}
 
 		// load all schemas
-		loadNode(con, node, sql, Constants.NODE_SCHEMA, session.getDbData().getSchemaName());
+		loadNode(con, node, sql, Constants.NODE_SCHEMA);
 
 		// load tables and views for each schema
 		for (int i = 0; i < node.getChildCount(); i++) {
@@ -89,58 +85,25 @@ public class DBLoader {
 	}
 
 	private static boolean loadTableNode(Session session, Connection con, TreeNode node) throws Exception {
-		String sql = session.getDbData().getTableSchemaSQL();
-		if (node.getInfo().getSchema() != null) {
-			sql = updateSQL(sql, node.getInfo().getSchema());
-		}
-
-		return loadNode(con, node, sql, Constants.NODE_TABLE, session.getDbData().getTableName());
+		return loadNode(con, node, session.getDbData().getTableSchemaSQL(node.getInfo()), Constants.NODE_TABLE);
 	}
 
 	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
-		String sql = session.getDbData().getViewSchemaSQL();
-		if (node.getInfo().getSchema() != null) {
-			sql = updateSQL(sql, node.getInfo().getSchema());
-		}
-
-		return loadNode(con, node, sql, Constants.NODE_VIEW, session.getDbData().getViewName());
+		return loadNode(con, node, session.getDbData().getViewSchemaSQL(node.getInfo()), Constants.NODE_VIEW);
 	}
 
-	public static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType, String colName)
-			throws Exception {
+	public static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType) throws Exception {
 		if (sql == null) {
 			return false;
 		}
 
 		ResultSet rs = null;
 		PreparedStatement stmt = null;
-		Info info = null;
-		TreeNode newNode = null;
 
 		try {
 			rs = (stmt = DBTools.getStatement(con, sql)).executeQuery();
 			while (rs.next()) {
-				info = node.getInfo().clone();
-				info.setName(DBTools.getValue(rs, colName));
-				info.setNodeType(nodeType);
-
-				// update the node catalog or schema
-				if (nodeType == Constants.NODE_CATALOG) {
-					info.setCatalog(info.getName());
-				} else if (nodeType == Constants.NODE_SCHEMA) {
-					info.setSchema(info.getName());
-				}
-
-				newNode = new TreeNode(info);
-				newNode.addToParent(node);
-				if (nodeType == Constants.NODE_TABLE || nodeType == Constants.NODE_VIEW) {
-					Info colsInfo = info.clone();
-					colsInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
-					colsInfo.setColName(Constants.NAME_COLS);
-					TreeNode colsNode = new TreeNode(colsInfo);
-					colsNode.addToParent(newNode);
-					colsNode.setLeaf(false);
-				}
+				loadNode(rs, node, nodeType);
 			}
 		} finally {
 			DBTools.close(stmt, rs);
@@ -149,11 +112,47 @@ public class DBLoader {
 		return true;
 	}
 
-	private static String updateSQL(String sql, String name) {
-		if (name == null) {
-			return sql;
-		} else {
-			return sql.replaceFirst("\\?", name);
+	private static TreeNode loadNode(ResultSet rs, TreeNode node, int nodeType) {
+		if (nodeType == Constants.NODE_COLUMN) {
+			return loadColumnNode(rs, node, nodeType);
 		}
+
+		Info info = node.getInfo().clone();
+		info.setName(DBTools.getValue(rs, null));
+		info.setNodeType(nodeType);
+
+		// update the node catalog or schema
+		if (nodeType == Constants.NODE_CATALOG) {
+			info.setCatalog(info.getName());
+		} else if (nodeType == Constants.NODE_SCHEMA) {
+			info.setSchema(info.getName());
+		}
+
+		TreeNode newNode = new TreeNode(info);
+		newNode.addToParent(node);
+
+		if (nodeType == Constants.NODE_TABLE || nodeType == Constants.NODE_VIEW) {
+			Info colsInfo = info.clone();
+			colsInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
+			colsInfo.setColName(Constants.NAME_COLS);
+			TreeNode colsNode = new TreeNode(colsInfo);
+			colsNode.addToParent(newNode);
+			colsNode.setLeaf(false);
+		}
+
+		return newNode;
+	}
+
+	private static TreeNode loadColumnNode(ResultSet rs, TreeNode node, int nodeType) {
+		ColumnInfo info = new ColumnInfo();
+		info.setCatalog(node.getInfo().getCatalog());
+		info.setSchema(node.getInfo().getSchema());
+		info.setName(node.getInfo().getName());
+		info.setNodeType(nodeType);
+
+		TreeNode newNode = new TreeNode(info);
+		newNode.addToParent(node);
+
+		return newNode;
 	}
 }
