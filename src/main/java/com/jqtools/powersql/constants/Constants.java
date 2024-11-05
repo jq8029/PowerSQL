@@ -47,6 +47,15 @@ public class Constants {
 	public static final String NAME_TABLES = "Tables";
 	public static final String NAME_VIEWS = "Views";
 	public static final String NAME_COLS = "Columns";
+	// Column Info Key Words
+	public static final String COL_NAME = "COLUMN_NAME";
+	public static final String COL_ORDINAL_POSITION = "ORDINAL_POSITION";
+	public static final String COL_IS_NULLABLE = "IS_NULLABLE";
+	public static final String COL_TYPE_NAME = "TYPE_NAME";
+	public static final String COL_MAX_LENGTH = "MAX_LENGTH";
+	public static final String COL_NUM_LENGTH = "NUM_LENGTH";
+	public static final String COL_NUM_SCALE = "NUM_SCALE";
+	public static final String COL_COL_DEFAULT = "COL_DEFAULT";
 
 	// Supported Databases
 	public static final String DB_H2 = "H2";
