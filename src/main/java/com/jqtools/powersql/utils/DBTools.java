@@ -241,8 +241,8 @@ public class DBTools {
 		}
 	}
 
-	public static boolean getBooleanValue(ResultSet rs, String name) {
-		boolean value = false;
+	public static boolean getBooleanValue(ResultSet rs, String name, boolean defaultValue) {
+		boolean value = defaultValue;
 
 		try {
 			Boolean.parseBoolean(getValue(rs, name));
@@ -252,8 +252,8 @@ public class DBTools {
 		return value;
 	}
 
-	public static int getIntValue(ResultSet rs, String name) {
-		int value = 0;
+	public static int getIntValue(ResultSet rs, String name, int defaultValue) {
+		int value = defaultValue;
 
 		try {
 			Integer.parseInt(getValue(rs, name));
