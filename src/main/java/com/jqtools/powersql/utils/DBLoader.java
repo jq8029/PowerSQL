@@ -134,7 +134,6 @@ public class DBLoader {
 		if (nodeType == Constants.NODE_TABLE || nodeType == Constants.NODE_VIEW) {
 			Info colsInfo = info.clone();
 			colsInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
-			colsInfo.setColName(Constants.NAME_COLS);
 			TreeNode colsNode = new TreeNode(colsInfo);
 			colsNode.addToParent(newNode);
 			colsNode.setLeaf(false);
@@ -149,6 +148,14 @@ public class DBLoader {
 		info.setSchema(node.getInfo().getSchema());
 		info.setName(node.getInfo().getName());
 		info.setNodeType(nodeType);
+		info.setColumnName(DBTools.getValue(rs, Constants.COL_NAME));
+		info.setTypeName(DBTools.getValue(rs, Constants.COL_TYPE_NAME));
+		info.setMaxLength(DBTools.getIntValue(rs, Constants.COL_MAX_LENGTH, 0));
+		info.setNullable(DBTools.getBooleanValue(rs, Constants.COL_IS_NULLABLE, true));
+		info.setNumericLen(DBTools.getIntValue(rs, Constants.COL_NUM_LENGTH, 0));
+		info.setNumericScale(DBTools.getIntValue(rs, Constants.COL_NUM_SCALE, 0));
+		info.setOrdinalPosition(DBTools.getIntValue(rs, Constants.COL_ORDINAL_POSITION, 0));
+		info.setPrimaryKey(false);
 
 		TreeNode newNode = new TreeNode(info);
 		newNode.addToParent(node);
