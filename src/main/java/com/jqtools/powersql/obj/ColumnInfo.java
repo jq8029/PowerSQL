@@ -104,6 +104,7 @@ public class ColumnInfo extends Info {
 		this.primaryKey = primaryKey;
 	}
 
+	@Override
 	public String toString() {
 		if (columnName == null) {
 			return "";
