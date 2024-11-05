@@ -138,7 +138,6 @@ public class ColumnInfo extends Info {
 		info.setName(this.getName());
 		info.setNodeType(this.getNodeType());
 		info.setSchema(this.getSchema());
-		info.setColName(columnName);
 		info.setDefaultValue(defaultValue);
 		info.setMaxLength(maxLength);
 		info.setDataType(dataType);
