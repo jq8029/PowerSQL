@@ -8,7 +8,6 @@ public class Info {
 	private String schema = null;
 	private String name = null;
 	private int nodeType = Constants.NODE_TEXT;
-	private String colName = null;
 
 	public String getCatalog() {
 		return catalog;
@@ -42,20 +41,8 @@ public class Info {
 		this.nodeType = nodeType;
 	}
 
-	public String getColName() {
-		return colName;
-	}
-
-	public void setColName(String colName) {
-		this.colName = colName;
-	}
-
 	public String toString() {
-		if (nodeType == Constants.NODE_TABLE_COLUMNS || nodeType == Constants.NODE_COLUMN) {
-			return this.colName;
-		} else {
-			return this.name;
-		}
+		return this.name;
 	}
 
 	public boolean equal(Info info) {
