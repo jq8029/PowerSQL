@@ -42,7 +42,11 @@ public class Info {
 	}
 
 	public String toString() {
-		return this.name;
+		if (nodeType == Constants.NODE_TABLE_COLUMNS) {
+			return Constants.NAME_COLS;
+		} else {
+			return this.name;
+		}
 	}
 
 	public boolean equal(Info info) {
