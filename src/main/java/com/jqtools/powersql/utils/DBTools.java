@@ -241,6 +241,17 @@ public class DBTools {
 		}
 	}
 
+	public static int getIntValue(ResultSet rs, String name) {
+		int value = 0;
+
+		try {
+			Integer.parseInt(getValue(rs, name));
+		} catch (Exception e) {
+		}
+
+		return value;
+	}
+
 	public static String getValue(ResultSet rs, String name) {
 		String value = null;
 
