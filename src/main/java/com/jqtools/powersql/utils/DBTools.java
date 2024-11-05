@@ -241,6 +241,17 @@ public class DBTools {
 		}
 	}
 
+	public static boolean getBooleanValue(ResultSet rs, String name) {
+		boolean value = false;
+
+		try {
+			Boolean.parseBoolean(getValue(rs, name));
+		} catch (Exception e) {
+		}
+
+		return value;
+	}
+
 	public static int getIntValue(ResultSet rs, String name) {
 		int value = 0;
 
