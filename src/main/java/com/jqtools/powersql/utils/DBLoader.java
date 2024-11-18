@@ -85,11 +85,27 @@ public class DBLoader {
 	}
 
 	private static boolean loadTableNode(Session session, Connection con, TreeNode node) throws Exception {
-		return loadNode(con, node, session.getDbData().getTableSchemaSQL(node.getInfo()), Constants.NODE_TABLE);
+		boolean rc = loadNode(con, node, session.getDbData().getTableSchemaSQL(node.getInfo()), Constants.NODE_TABLE);
+
+		// load tables and views for each schema
+		for (int i = 0; i < node.getChildCount(); i++) {
+			TreeNode child = (TreeNode) node.getChildAt(i).getChildAt(0);
+			rc = rc && loadNode(con, child, session.getDbData().getColumnSQL(child.getInfo()), Constants.NODE_COLUMN);
+		}
+
+		return rc;
 	}
 
 	private static boolean loadViewNode(Session session, Connection con, TreeNode node) throws Exception {
-		return loadNode(con, node, session.getDbData().getViewSchemaSQL(node.getInfo()), Constants.NODE_VIEW);
+		boolean rc = loadNode(con, node, session.getDbData().getViewSchemaSQL(node.getInfo()), Constants.NODE_VIEW);
+
+		// load tables and views for each schema
+//		for (int i = 0; i < node.getChildCount(); i++) {
+//			TreeNode child = (TreeNode) node.getChildAt(i).getChildAt(0);
+//			rc = rc && loadNode(con, child, session.getDbData().getColumnSQL(child.getInfo()), Constants.NODE_COLUMN);
+//		}
+
+		return rc;
 	}
 
 	public static boolean loadNode(Connection con, TreeNode node, String sql, int nodeType) throws Exception {
