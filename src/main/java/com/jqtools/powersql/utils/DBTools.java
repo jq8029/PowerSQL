@@ -237,7 +237,12 @@ public class DBTools {
 		if (sql == null || sql.trim().length() == 0) {
 			return null;
 		} else {
-			return conn.prepareStatement(sql);
+			try {
+				return conn.prepareStatement(sql);
+			} catch (Exception ex) {
+				MessageLogger.info(ex);
+				throw ex;
+			}
 		}
 	}
 
