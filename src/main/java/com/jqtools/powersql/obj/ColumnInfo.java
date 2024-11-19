@@ -152,11 +152,11 @@ public class ColumnInfo extends Info {
 		return info;
 	}
 
-	private String getColumnName(String colName, int colTupe) {
-		if (colName == null) {
-			return Tools.typeToString(colTupe);
+	private String getTypeName(String typeName, int dataType) {
+		if (typeName == null) {
+			return Tools.typeToString(dataType);
 		} else {
-			return colName;
+			return typeName;
 		}
 	}
 }
