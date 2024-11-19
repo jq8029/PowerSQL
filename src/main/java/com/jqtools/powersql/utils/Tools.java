@@ -328,4 +328,68 @@ public class Tools {
 
 		return value;
 	}
+
+	public static String typeToString(int columnType) {
+		switch (columnType) {
+		case Types.NULL:
+			return Constants.TYPE_NULL_STR;
+		case Types.BIT:
+			return Constants.TYPE_BIT_STR;
+		case Types.BOOLEAN:
+			return Constants.TYPE_BOOLEAN_STR;
+		case Types.TIME:
+			return Constants.TYPE_TIME_STR;
+		case Types.DATE:
+			return Constants.TYPE_DATE_STR;
+		case Types.TIMESTAMP:
+		case -101: // Oracle's 'TIMESTAMP WITH TIME ZONE'
+		case -102: // Oracle's 'TIMESTAMP WITH LOCAL TIME ZONE'
+			return Constants.TYPE_TIMESTAMP_STR;
+		case Types.BIGINT:
+			return Constants.TYPE_BIGINT_STR;
+		case Types.DOUBLE:
+			return Constants.TYPE_DOUBLE_STR;
+		case Types.FLOAT:
+			return Constants.TYPE_FLOAT_STR;
+		case Types.REAL:
+			return Constants.TYPE_REAL_STR;
+		case Types.DECIMAL:
+			return Constants.TYPE_DECIMAL_STR;
+		case Types.NUMERIC:
+			return Constants.TYPE_NUMERIC_STR;
+		case Types.INTEGER:
+			return Constants.TYPE_INTEGER_STR;
+		case Types.SMALLINT:
+			return Constants.TYPE_SMALLINT_STR;
+		case Types.TINYINT:
+			return Constants.TYPE_TINYINT_STR;
+		case Types.CHAR:
+			return Constants.TYPE_CHAR_STR;
+		case Types.VARCHAR:
+			return Constants.TYPE_VARCHAR_STR;
+		case Types.LONGVARCHAR:
+			return Constants.TYPE_LONGVARCHAR_STR;
+		case -9:
+			return Constants.TYPE_NVARCHAR_STR;
+		case -8:
+			return Constants.TYPE_ROWID_STR;
+		case Types.BINARY:
+			return Constants.TYPE_BINARY_STR;
+		case Types.VARBINARY:
+			return Constants.TYPE_VARBINARY_STR;
+		case Types.LONGVARBINARY:
+			return Constants.TYPE_LONGVARBINARY_STR;
+		case Types.BLOB:
+			return Constants.TYPE_BLOB_STR;
+		case Types.CLOB:
+			return Constants.TYPE_CLOB_STR;
+		case Types.JAVA_OBJECT:
+			return Constants.TYPE_JAVA_OBJECT_STR;
+		case Types.OTHER:
+			return Constants.TYPE_OTHER_STR;
+		default:
+			return Constants.TYPE_UNKNOWN_STR;
+		}
+	}
+
 }
