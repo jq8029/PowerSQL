@@ -202,4 +202,34 @@ public class Constants {
 	public static final String TS01 = "yyyy-MM-dd HH:mm:ss.SSS";
 	public static final String DATE01 = "yyyy-MM-dd";
 
+	// Data type names
+	public static final String TYPE_NULL_STR = "NULL";
+	public static final String TYPE_BIT_STR = "BIT";
+	public static final String TYPE_BOOLEAN_STR = "BOOLEAN";
+	public static final String TYPE_TIME_STR = "TIME";
+	public static final String TYPE_DATE_STR = "DATE";
+	public static final String TYPE_TIMESTAMP_STR = "TIMESTAMP";
+	public static final String TYPE_BIGINT_STR = "BIGINT";
+	public static final String TYPE_DOUBLE_STR = "DOUBLE";
+	public static final String TYPE_FLOAT_STR = "FLOAT";
+	public static final String TYPE_REAL_STR = "REAL";
+	public static final String TYPE_DECIMAL_STR = "DECIMAL";
+	public static final String TYPE_NUMERIC_STR = "NUMERIC";
+	public static final String TYPE_INTEGER_STR = "INTEGER";
+	public static final String TYPE_SMALLINT_STR = "SMALLINT";
+	public static final String TYPE_TINYINT_STR = "TINYINT";
+	public static final String TYPE_CHAR_STR = "CHAR";
+	public static final String TYPE_VARCHAR_STR = "VARCHAR";
+	public static final String TYPE_LONGVARCHAR_STR = "LONGVARCHAR";
+	public static final String TYPE_NVARCHAR_STR = "NVARCHAR";
+	public static final String TYPE_ROWID_STR = "ROWID";
+	public static final String TYPE_BINARY_STR = "BINARY";
+	public static final String TYPE_VARBINARY_STR = "VARBINARY";
+	public static final String TYPE_LONGVARBINARY_STR = "LONGVARBINARY";
+	public static final String TYPE_BLOB_STR = "BLOB";
+	public static final String TYPE_CLOB_STR = "CLOB";
+	public static final String TYPE_JAVA_OBJECT_STR = "JAVA_OBJECT";
+	public static final String TYPE_OTHER_STR = "OTHER";
+	public static final String TYPE_UNKNOWN_STR = "UNKNOWN";
+
 }
