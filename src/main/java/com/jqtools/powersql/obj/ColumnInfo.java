@@ -151,4 +151,12 @@ public class ColumnInfo extends Info {
 
 		return info;
 	}
+
+	private String getColumnName(String colName, int colTupe) {
+		if (colName == null) {
+			return Tools.typeToString(colTupe);
+		} else {
+			return colName;
+		}
+	}
 }
