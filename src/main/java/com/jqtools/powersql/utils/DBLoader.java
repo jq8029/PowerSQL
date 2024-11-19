@@ -3,6 +3,7 @@ package com.jqtools.powersql.utils;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Types;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
@@ -166,6 +167,7 @@ public class DBLoader {
 		info.setNodeType(nodeType);
 		info.setColumnName(DBTools.getValue(rs, Constants.COL_NAME));
 		info.setTypeName(DBTools.getValue(rs, Constants.COL_TYPE_NAME));
+		info.setDataType(DBTools.getIntValue(rs, Constants.COL_DATA_TYPE, Types.VARCHAR));
 		info.setMaxLength(DBTools.getIntValue(rs, Constants.COL_MAX_LENGTH, 0));
 		info.setNullable(DBTools.getBooleanValue(rs, Constants.COL_IS_NULLABLE, true));
 		info.setNumericLen(DBTools.getIntValue(rs, Constants.COL_NUM_LENGTH, 0));
