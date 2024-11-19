@@ -52,6 +52,7 @@ public class Constants {
 	public static final String COL_ORDINAL_POSITION = "ORDINAL_POSITION";
 	public static final String COL_IS_NULLABLE = "IS_NULLABLE";
 	public static final String COL_TYPE_NAME = "TYPE_NAME";
+	public static final String COL_DATA_TYPE = "DATA_TYPE";
 	public static final String COL_MAX_LENGTH = "MAX_LENGTH";
 	public static final String COL_NUM_LENGTH = "NUM_LENGTH";
 	public static final String COL_NUM_SCALE = "NUM_SCALE";
