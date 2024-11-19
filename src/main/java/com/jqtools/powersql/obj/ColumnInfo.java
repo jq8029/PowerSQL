@@ -109,7 +109,8 @@ public class ColumnInfo extends Info {
 		if (columnName == null) {
 			return "";
 		} else {
-			StringBuffer buffer = new StringBuffer().append(columnName).append("  ( ").append(typeName);
+			StringBuffer buffer = new StringBuffer().append(columnName).append("  ( ")
+					.append(getTypeName(typeName, dataType));
 			if (this.numericLen > 0) {
 				buffer.append("(").append(numericLen);
 				if (this.numericScale > 0) {
