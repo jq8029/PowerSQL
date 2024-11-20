@@ -101,10 +101,10 @@ public class DBLoader {
 		boolean rc = loadNode(con, node, session.getDbData().getViewSchemaSQL(node.getInfo()), Constants.NODE_VIEW);
 
 		// load tables and views for each schema
-//		for (int i = 0; i < node.getChildCount(); i++) {
-//			TreeNode child = (TreeNode) node.getChildAt(i).getChildAt(0);
-//			rc = rc && loadNode(con, child, session.getDbData().getColumnSQL(child.getInfo()), Constants.NODE_COLUMN);
-//		}
+		for (int i = 0; i < node.getChildCount(); i++) {
+			TreeNode child = (TreeNode) node.getChildAt(i).getChildAt(0);
+			rc = rc && loadNode(con, child, session.getDbData().getColumnSQL(child.getInfo()), Constants.NODE_COLUMN);
+		}
 
 		return rc;
 	}
