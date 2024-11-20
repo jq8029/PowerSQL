@@ -17,6 +17,8 @@ import javax.swing.event.TreeSelectionEvent;
 import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.TreeSelectionModel;
 
+import org.fife.ui.rtextarea.RTextScrollPane;
+
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
@@ -101,7 +103,8 @@ public class MainFrame extends JFrame implements TreeSelectionListener {
 		scriptToolBar = new ScriptToolBar();
 		scriptToolBar.getTextArea().setDataToolBar(resultToolBar);
 		textAreaPanel.add(Constants.PANEL_NORTH, scriptToolBar);
-		textAreaPanel.add(Constants.PANEL_CENTER, scriptToolBar.getTextArea());
+		RTextScrollPane textScrollPanel = new RTextScrollPane(scriptToolBar.getTextArea());
+		textAreaPanel.add(Constants.PANEL_CENTER, textScrollPanel);
 		textAreaPanel.add(Constants.PANEL_SOUTH, scriptToolBar.getStatusPanel());
 		JPanel resultPanel = new JPanel(new BorderLayout());
 		resultPanel.add(Constants.PANEL_NORTH, resultToolBar);
