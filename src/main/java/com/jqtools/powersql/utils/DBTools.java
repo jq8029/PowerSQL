@@ -250,7 +250,7 @@ public class DBTools {
 		boolean value = defaultValue;
 
 		try {
-			Boolean.parseBoolean(getValue(rs, name));
+			value = Boolean.parseBoolean(getValue(rs, name));
 		} catch (Exception e) {
 		}
 
@@ -261,7 +261,7 @@ public class DBTools {
 		int value = defaultValue;
 
 		try {
-			Integer.parseInt(getValue(rs, name));
+			value = Integer.parseInt(getValue(rs, name));
 		} catch (Exception e) {
 		}
 
