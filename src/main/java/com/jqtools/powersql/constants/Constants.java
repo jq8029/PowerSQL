@@ -48,15 +48,15 @@ public class Constants {
 	public static final String NAME_VIEWS = "Views";
 	public static final String NAME_COLS = "Columns";
 	// Column Info Key Words
-	public static final String COL_NAME = "COLUMN_NAME";
-	public static final String COL_ORDINAL_POSITION = "ORDINAL_POSITION";
-	public static final String COL_IS_NULLABLE = "IS_NULLABLE";
-	public static final String COL_TYPE_NAME = "TYPE_NAME";
-	public static final String COL_DATA_TYPE = "DATA_TYPE";
-	public static final String COL_MAX_LENGTH = "MAX_LENGTH";
-	public static final String COL_NUM_LENGTH = "NUM_LENGTH";
-	public static final String COL_NUM_SCALE = "NUM_SCALE";
-	public static final String COL_COL_DEFAULT = "COL_DEFAULT";
+	public static final String COL_NAME = "PT_COLUMN_NAME";
+	public static final String COL_ORDINAL_POSITION = "PT_ORDINAL_POSITION";
+	public static final String COL_IS_NULLABLE = "PT_IS_NULLABLE";
+	public static final String COL_TYPE_NAME = "PT_TYPE_NAME";
+	public static final String COL_DATA_TYPE = "PT_DATA_TYPE";
+	public static final String COL_MAX_LENGTH = "PT_MAX_LENGTH";
+	public static final String COL_NUM_LENGTH = "PT_NUM_LENGTH";
+	public static final String COL_NUM_SCALE = "PT_NUM_SCALE";
+	public static final String COL_COL_DEFAULT = "PT_COL_DEFAULT";
 
 	// Supported Databases
 	public static final String DB_H2 = "H2";
