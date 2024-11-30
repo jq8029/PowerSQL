@@ -268,14 +268,29 @@ public class DBTools {
 		return value;
 	}
 
+	public static Object getObject(ResultSet rs, String name) {
+		Object value = null;
+
+		try {
+			if (name == null) {
+				value = rs.getObject(1);
+			} else {
+				value = rs.getObject(name);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+
+		return value;
+	}
+
 	public static String getValue(ResultSet rs, String name) {
 		String value = null;
 
 		try {
-			if (name == null) {
-				value = rs.getString(1);
-			} else {
-				value = rs.getString(name);
+			Object obj = getObject(rs, name);
+			if (obj != null) {
+				value = obj.toString();
 			}
 		} catch (Exception e) {
 		}
