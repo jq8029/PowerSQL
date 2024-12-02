@@ -250,7 +250,8 @@ public class DBTools {
 		boolean value = defaultValue;
 
 		try {
-			value = Boolean.parseBoolean(getValue(rs, name));
+			String s = getValue(rs, name).trim();
+			value = "TRUE".equalsIgnoreCase(s) || "YES".equalsIgnoreCase(s) || "1".equalsIgnoreCase(s) ? true : false;
 		} catch (Exception e) {
 		}
 
