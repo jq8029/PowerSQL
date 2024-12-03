@@ -21,6 +21,6 @@ connections     = 2
 02_user              = root
 02_pwd               = root
 02_driver            = com.mysql.cj.jdbc.Driver
-02_jar               = files/mysql-connector-java-5.1.49.jar
+02_jar               = files/mysql-connector-j-9.1.0.jar
 02_url               = jdbc:mysql://localhost:3306/
 02_db_name           = MySQL
