@@ -6,7 +6,7 @@ public class MySQLData extends DatabaseData {
 
 	@Override
 	public String getSchemaAllSQL(Info info) {
-		return "SELECT CATALOG_NAME as MY_CATALOG, SCHEMA_NAME as MY_SCHEMA FROM information_schema.SCHEMATA order by SCHEMA_NAME";
+		return "SELECT SCHEMA_NAME as MY_SCHEMA FROM information_schema.SCHEMATA order by SCHEMA_NAME";
 	}
 
 	@Override
