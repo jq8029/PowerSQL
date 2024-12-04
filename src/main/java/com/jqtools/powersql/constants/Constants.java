@@ -15,6 +15,7 @@ public class Constants {
 	public static final String CACHE_FILE = "data" + FILE_SEPERATOR + "cache.txt";
 	public static final char ESCAPE_CHAR = '\'';
 
+	// button tips
 	public static final String TITLE = "Power SQL";
 	public static final String TITLE_FILTER_SORT = "Filter & Sort Table";
 	public static final String TITLE_FILTER = "Filter";
