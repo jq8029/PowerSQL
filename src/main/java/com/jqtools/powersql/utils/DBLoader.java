@@ -163,6 +163,7 @@ public class DBLoader {
 				subNode.addToParent(newNode);
 				subNode.setLeaf(false);
 
+				// add table constraints
 				subInfo = info.clone();
 				colsInfo.setNodeType(Constants.NODE_TABLE_CONSTRAINTS);
 				subNode = new TreeNode(subInfo);
