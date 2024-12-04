@@ -154,6 +154,14 @@ public class DBLoader {
 			TreeNode colsNode = new TreeNode(colsInfo);
 			colsNode.addToParent(newNode);
 			colsNode.setLeaf(false);
+
+			if (nodeType == Constants.NODE_TABLE) {
+				Info subInfo = info.clone();
+				colsInfo.setNodeType(Constants.NODE_TABLE_INDEXES);
+				TreeNode subNode = new TreeNode(subInfo);
+				subNode.addToParent(newNode);
+				subNode.setLeaf(false);
+			}
 		}
 
 		return newNode;
