@@ -5,6 +5,7 @@ import java.awt.Color;
 import javax.swing.ImageIcon;
 
 public class Constants {
+	// system properties
 	public static final String USER_NAME = System.getProperty("user.name");
 	public static final String USER_PATH = System.getProperty("user.home");
 	public static final String FILE_SEPERATOR = System.getProperty("file.separator");
