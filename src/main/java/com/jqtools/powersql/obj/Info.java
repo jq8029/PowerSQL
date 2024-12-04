@@ -46,6 +46,8 @@ public class Info {
 			return Constants.NAME_COLUMNS;
 		} else if (nodeType == Constants.NODE_TABLE_INDEXES) {
 			return Constants.NAME_INDEXES;
+		} else if (nodeType == Constants.NODE_TABLE_CONSTRAINTS) {
+			return Constants.NAME_CONSTRAINTS;
 		} else {
 			return this.name;
 		}
