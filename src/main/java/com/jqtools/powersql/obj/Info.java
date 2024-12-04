@@ -43,7 +43,7 @@ public class Info {
 
 	public String toString() {
 		if (nodeType == Constants.NODE_TABLE_COLUMNS) {
-			return Constants.NAME_COLS;
+			return Constants.NAME_COLUMNS;
 		} else {
 			return this.name;
 		}
