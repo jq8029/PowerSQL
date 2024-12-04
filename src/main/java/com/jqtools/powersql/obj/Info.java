@@ -44,6 +44,8 @@ public class Info {
 	public String toString() {
 		if (nodeType == Constants.NODE_TABLE_COLUMNS) {
 			return Constants.NAME_COLUMNS;
+		} else if (nodeType == Constants.NODE_TABLE_INDEXES) {
+			return Constants.NAME_INDEXES;
 		} else {
 			return this.name;
 		}
