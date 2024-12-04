@@ -46,6 +46,7 @@ public class Constants {
 	public static final int NODE_TABLE_CONSTRAINTS = 60103;
 	public static final int NODE_COLUMN = 7;
 
+	// node names
 	public static final String NAME_TABLES = "Tables";
 	public static final String NAME_VIEWS = "Views";
 	public static final String NAME_COLUMNS = "Columns";
