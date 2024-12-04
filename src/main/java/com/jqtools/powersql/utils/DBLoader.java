@@ -161,6 +161,12 @@ public class DBLoader {
 				TreeNode subNode = new TreeNode(subInfo);
 				subNode.addToParent(newNode);
 				subNode.setLeaf(false);
+
+				subInfo = info.clone();
+				colsInfo.setNodeType(Constants.NODE_TABLE_CONSTRAINTS);
+				subNode = new TreeNode(subInfo);
+				subNode.addToParent(newNode);
+				subNode.setLeaf(false);
 			}
 		}
 
