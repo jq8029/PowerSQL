@@ -156,6 +156,7 @@ public class DBLoader {
 			colsNode.setLeaf(false);
 
 			if (nodeType == Constants.NODE_TABLE) {
+				// add table indexes
 				Info subInfo = info.clone();
 				colsInfo.setNodeType(Constants.NODE_TABLE_INDEXES);
 				TreeNode subNode = new TreeNode(subInfo);
