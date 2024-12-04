@@ -279,7 +279,6 @@ public class DBTools {
 				value = rs.getObject(name);
 			}
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 
 		return value;
