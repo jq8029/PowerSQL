@@ -20,8 +20,6 @@ public class Constants {
 	public static final String TITLE_FILTER = "Filter";
 	public static String TITLE_SORT = "Sort";
 
-	public static final String ROOT = "Databases";
-
 	public static final String PANEL_NORTH = "North";
 	public static final String PANEL_CENTER = "Center";
 	public static final String PANEL_SOUTH = "South";
@@ -49,6 +47,7 @@ public class Constants {
 	public static final int NODE_COLUMN = 7;
 
 	// node names
+	public static final String ROOT = "Databases";
 	public static final String NAME_TABLES = "Tables";
 	public static final String NAME_VIEWS = "Views";
 	public static final String NAME_COLUMNS = "Columns";
