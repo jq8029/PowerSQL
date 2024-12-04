@@ -49,7 +49,7 @@ public class Constants {
 	public static final String NAME_TABLES = "Tables";
 	public static final String NAME_VIEWS = "Views";
 	public static final String NAME_COLS = "Columns";
-	public static final String NAME_IDXS = "Indexes";
+	public static final String NAME_INDEXES = "Indexes";
 	public static final String NAME_CONSTRAINTS = "Constraints";
 
 	// Column Info Key Words
