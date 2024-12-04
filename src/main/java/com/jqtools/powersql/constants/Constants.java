@@ -32,6 +32,7 @@ public class Constants {
 	public static final String TAB_DATA = "Data";
 	public static final String TAB_SQL = "SQL";
 
+	// node types
 	public static final int NODE_TEXT = 0;
 	public static final int NODE_CONNECTIONS = 1;
 	public static final int NODE_CONNECTION = 2;
