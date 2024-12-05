@@ -31,4 +31,9 @@ public class MySQLData extends DatabaseData {
 	public String getIndexSQL(Info info) {
 		return null;
 	}
+
+	@Override
+	public String getConstraintSQL(Info info) {
+		return null;
+	}
 }
