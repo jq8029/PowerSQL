@@ -38,6 +38,11 @@ public class H2Data extends DatabaseData {
 	}
 
 	@Override
+	public String getConstraintSQL(Info info) {
+		return null;
+	}
+
+	@Override
 	public String getTableName(Info info) {
 		StringBuilder tableName = new StringBuilder();
 
