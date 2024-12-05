@@ -37,6 +37,10 @@ public class DatabaseData {
 		return null;
 	}
 
+	public String getConstraintSQL(Info info) {
+		return null;
+	}
+
 	public ArrayList<String> getDataTypesWithQuota() {
 		return dataTypesWithQuota;
 	}
