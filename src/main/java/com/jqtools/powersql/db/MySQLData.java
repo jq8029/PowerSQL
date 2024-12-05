@@ -29,7 +29,9 @@ public class MySQLData extends DatabaseData {
 
 	@Override
 	public String getIndexSQL(Info info) {
-		return null;
+		return "SELECT TABLE_SCHEMA, TABLE_NAME, INDEX_NAME, NON_UNIQUE, INDEX_TYPE, SEQ_IN_INDEX as ORDINAL_POSITION, COLUMN_NAME, COLLATION as ASC_OR_DESC, CARDINALITY FROM information_schema.STATISTICS where TABLE_SCHEMA='"
+				+ info.getSchema() + "' and TABLE_NAME='" + info.getName()
+				+ "'  ORDER BY TABLE_SCHEMA, TABLE_NAME, INDEX_NAME, ORDINAL_POSITION";
 	}
 
 	@Override
