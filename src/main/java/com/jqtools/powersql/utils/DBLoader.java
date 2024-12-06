@@ -150,15 +150,15 @@ public class DBLoader {
 
 		if (nodeType == Constants.NODE_TABLE || nodeType == Constants.NODE_VIEW) {
 			// add table/view columns node
-			Info colsInfo = info.clone();
-			colsInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
-			TreeNode colsNode = new TreeNode(colsInfo);
+			Info subInfo = info.clone();
+			subInfo.setNodeType(Constants.NODE_TABLE_COLUMNS);
+			TreeNode colsNode = new TreeNode(subInfo);
 			colsNode.addToParent(newNode);
 			colsNode.setLeaf(false);
 
 			if (nodeType == Constants.NODE_TABLE) {
 				// add table indexes node
-				Info subInfo = info.clone();
+				subInfo = info.clone();
 				subInfo.setNodeType(Constants.NODE_TABLE_INDEXES);
 				TreeNode subNode = new TreeNode(subInfo);
 				subNode.addToParent(newNode);
