@@ -159,7 +159,7 @@ public class DBLoader {
 			if (nodeType == Constants.NODE_TABLE) {
 				// add table indexes node
 				Info subInfo = info.clone();
-				colsInfo.setNodeType(Constants.NODE_TABLE_INDEXES);
+				subInfo.setNodeType(Constants.NODE_TABLE_INDEXES);
 				TreeNode subNode = new TreeNode(subInfo);
 				subNode.addToParent(newNode);
 				subNode.setLeaf(false);
