@@ -1,5 +1,7 @@
 package com.jqtools.powersql.obj;
 
+import com.jqtools.powersql.constants.Constants;
+
 public class ConstraintInfo extends Info {
 	public static final String CONSTRAINT_PK = "Primary Key";
 	public static final String CONSTRAINT_FK = "Foreign Key";
@@ -83,7 +85,11 @@ public class ConstraintInfo extends Info {
 		if (constraintName == null) {
 			return "";
 		} else {
-			return constraintName + "  (" + constraintType + ", " + this.getName() + ")";
+			if (getNodeType() == Constants.NODE_TABLE_CONSTRAINT_KEY) {
+				return columnName;
+			} else {
+				return constraintName + "  (" + constraintType + ")";
+			}
 		}
 	}
 }
