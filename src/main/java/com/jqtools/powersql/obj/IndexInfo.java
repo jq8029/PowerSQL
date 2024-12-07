@@ -76,7 +76,7 @@ public class IndexInfo extends Info {
 				if (getName() == null || columnName == null) {
 					return "";
 				} else {
-					return columnName + "  ( " + (nonUnique ? " : non-unique" : " : unique") + " )";
+					return columnName + "  ( " + ordinalPosition + (nonUnique ? " : non-unique" : " : unique") + " )";
 				}
 			} else {
 				return getIndexName();
