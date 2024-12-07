@@ -8,6 +8,7 @@ public class ConstraintInfo extends Info {
 
 	private String constraintName = null;
 	private String constraintType = null;
+	private String columnName = null;
 
 	public String getConstraintName() {
 		return constraintName;
@@ -23,6 +24,14 @@ public class ConstraintInfo extends Info {
 
 	public void setConstraintType(String constraintType) {
 		this.constraintType = constraintType;
+	}
+
+	public String getColumnName() {
+		return columnName;
+	}
+
+	public void setColumnName(String columnName) {
+		this.columnName = columnName;
 	}
 
 	public String toString() {
