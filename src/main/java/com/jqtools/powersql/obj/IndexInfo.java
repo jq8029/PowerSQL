@@ -5,6 +5,7 @@ public class IndexInfo extends Info {
 	private String indexName = null;
 	private String nonUniqueStr = null;
 	private String type = null;
+	private String columnName = null;
 
 	public String getIndexName() {
 		return indexName;
@@ -28,6 +29,14 @@ public class IndexInfo extends Info {
 
 	public void setType(String type) {
 		this.type = type;
+	}
+
+	public String getColumnName() {
+		return columnName;
+	}
+
+	public void setColumnName(String columnName) {
+		this.columnName = columnName;
 	}
 
 	public String toString() {
