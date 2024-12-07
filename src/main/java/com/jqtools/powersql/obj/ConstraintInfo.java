@@ -12,6 +12,7 @@ public class ConstraintInfo extends Info {
 	private int ordinalPosition = 0;
 	private String referenceSchema = null;
 	private String referenceTable = null;
+	private String referenceColName = null;
 
 	public String getConstraintName() {
 		return constraintName;
@@ -59,6 +60,14 @@ public class ConstraintInfo extends Info {
 
 	public void setReferenceTable(String referenceTable) {
 		this.referenceTable = referenceTable;
+	}
+
+	public String getReferenceColName() {
+		return referenceColName;
+	}
+
+	public void setReferenceColName(String referenceColName) {
+		this.referenceColName = referenceColName;
 	}
 
 	public String toString() {
