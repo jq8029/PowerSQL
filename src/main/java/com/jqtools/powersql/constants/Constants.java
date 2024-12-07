@@ -50,6 +50,7 @@ public class Constants {
 	public static final int NODE_TABLE_INDEX_KEY = 6010202;
 	public static final int NODE_TABLE_CONSTRAINTS = 60103;
 	public static final int NODE_TABLE_CONSTRAINT = 6010301;
+	public static final int NODE_TABLE_CONSTRAINT_KEY = 6010302;
 	public static final int NODE_COLUMN = 7;
 
 	// node names
