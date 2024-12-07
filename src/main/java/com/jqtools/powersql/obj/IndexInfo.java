@@ -1,5 +1,7 @@
 package com.jqtools.powersql.obj;
 
+import com.jqtools.powersql.constants.Constants;
+
 public class IndexInfo extends Info {
 
 	private String indexName = null;
@@ -61,7 +63,15 @@ public class IndexInfo extends Info {
 		if (getIndexName() == null) {
 			return "";
 		} else {
-			return getIndexName();
+			if (getNodeType() == Constants.NODE_TABLE_INDEX_KEY) {
+				if (getName() == null || columnName == null) {
+					return "";
+				} else {
+					return columnName + "  ( " + (nonUnique ? " : non-unique" : " : unique") + " )";
+				}
+			} else {
+				return getIndexName();
+			}
 		}
 	}
 }
