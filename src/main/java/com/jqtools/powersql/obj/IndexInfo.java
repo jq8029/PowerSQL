@@ -6,6 +6,7 @@ public class IndexInfo extends Info {
 	private String nonUniqueStr = null;
 	private String type = null;
 	private String columnName = null;
+	private boolean nonUnique = false;
 
 	public String getIndexName() {
 		return indexName;
@@ -37,6 +38,14 @@ public class IndexInfo extends Info {
 
 	public void setColumnName(String columnName) {
 		this.columnName = columnName;
+	}
+
+	public boolean isNonUnique() {
+		return nonUnique;
+	}
+
+	public void setNonUnique(boolean nonUnique) {
+		this.nonUnique = nonUnique;
 	}
 
 	public String toString() {
