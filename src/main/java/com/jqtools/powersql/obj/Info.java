@@ -7,7 +7,7 @@ public class Info {
 	private String catalog = null;
 	private String schema = null;
 	private String name = null;
-	protected int nodeType = Constants.NODE_TEXT;
+	private int nodeType = Constants.NODE_TEXT;
 
 	public String getCatalog() {
 		return catalog;
