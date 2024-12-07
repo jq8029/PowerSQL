@@ -86,7 +86,11 @@ public class ConstraintInfo extends Info {
 			return "";
 		} else {
 			if (getNodeType() == Constants.NODE_TABLE_CONSTRAINT_KEY) {
-				return columnName;
+				if (CONSTRAINT_FK.equals(this.getConstraintType())) {
+					return columnName + " => " + this.referenceColName + " (" + this.referenceTable + ")";
+				} else {
+					return columnName;
+				}
 			} else {
 				return constraintName + "  (" + constraintType + ")";
 			}
