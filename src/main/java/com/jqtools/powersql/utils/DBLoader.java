@@ -8,6 +8,7 @@ import java.sql.Types;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.ColumnInfo;
+import com.jqtools.powersql.obj.IndexInfo;
 import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.obj.TreeNode;
@@ -206,7 +207,22 @@ public class DBLoader {
 	}
 
 	private static TreeNode loadIndexNode(ResultSet rs, TreeNode node, int nodeType) {
-		return null;
+		IndexInfo info = new IndexInfo();
+		info.setCatalog(node.getInfo().getCatalog());
+		info.setSchema(node.getInfo().getSchema());
+		info.setName(node.getInfo().getName());
+		info.setNodeType(nodeType);
+		info.setIndexName(DBTools.getValue(rs, Constants.INDEX_NAME));
+		info.setType(DBTools.getValue(rs, Constants.INDEX_TYPE));
+		info.setColumnName(DBTools.getValue(rs, Constants.COL_NAME));
+		info.setAscOrDesc(DBTools.getValue(rs, Constants.INDEX_ASC_DESC));
+		info.setNonUnique(DBTools.getBooleanValue(rs, Constants.INDEX_NON_UNIQUE, true));
+		info.setOrdinalPosition(DBTools.getIntValue(rs, Constants.COL_ORDINAL_POSITION, 0));
+
+		TreeNode newNode = new TreeNode(info);
+		newNode.addToParent(node);
+
+		return newNode;
 	}
 
 	private static TreeNode loadConstraintNode(ResultSet rs, TreeNode node, int nodeType) {
