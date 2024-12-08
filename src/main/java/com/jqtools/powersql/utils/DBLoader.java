@@ -228,6 +228,9 @@ public class DBLoader {
 				indexNode = (TreeNode) node.getChildAt(i);
 			}
 		}
+		if (indexNode == null) {
+			indexNode = new TreeNode(info.clone());
+		}
 
 		TreeNode newNode = new TreeNode(info);
 		newNode.addToParent(node);
