@@ -138,7 +138,7 @@ public class DBLoader {
 		} else if (nodeType == Constants.NODE_INDEX) {
 			return loadIndexNode(rs, node, nodeType);
 		} else if (nodeType == Constants.NODE_CONSTRAINT) {
-
+			return loadConstraintNode(rs, node, nodeType);
 		}
 
 		Info info = node.getInfo().clone();
