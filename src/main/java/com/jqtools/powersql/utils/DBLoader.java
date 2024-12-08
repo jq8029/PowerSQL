@@ -219,6 +219,16 @@ public class DBLoader {
 		info.setNonUnique(DBTools.getBooleanValue(rs, Constants.INDEX_NON_UNIQUE, true));
 		info.setOrdinalPosition(DBTools.getIntValue(rs, Constants.COL_ORDINAL_POSITION, 0));
 
+		TreeNode indexNode = null;
+		IndexInfo childInfo = null;
+		for (int i = 0; i < node.getChildCount(); i++) {
+			childInfo = (IndexInfo) ((TreeNode) node.getChildAt(i)).getInfo();
+			if (Tools.isEqual(childInfo.getName(), info.getName())
+					&& Tools.isEqual(childInfo.getIndexName(), info.getIndexName())) {
+				indexNode = (TreeNode) node.getChildAt(i);
+			}
+		}
+
 		TreeNode newNode = new TreeNode(info);
 		newNode.addToParent(node);
 
