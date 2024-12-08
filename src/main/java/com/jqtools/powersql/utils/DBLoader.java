@@ -105,6 +105,8 @@ public class DBLoader {
 			TreeNode child = (TreeNode) node.getChildAt(i).getChildAt(0);
 			rc = rc && loadNode(con, child, session.getDbData().getColumnSQL(child.getInfo()), Constants.NODE_COLUMN);
 			rc = rc && loadNode(con, child, session.getDbData().getIndexSQL(child.getInfo()), Constants.NODE_INDEX);
+			rc = rc && loadNode(con, child, session.getDbData().getConstraintSQL(child.getInfo()),
+					Constants.NODE_CONSTRAINT);
 		}
 
 		return rc;
