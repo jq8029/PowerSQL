@@ -5,7 +5,6 @@ import com.jqtools.powersql.constants.Constants;
 public class IndexInfo extends Info {
 
 	private String indexName = null;
-	private String nonUniqueStr = null;
 	private String type = null;
 	private String columnName = null;
 	private String ascOrDesc = null;
@@ -18,14 +17,6 @@ public class IndexInfo extends Info {
 
 	public void setIndexName(String indexName) {
 		this.indexName = indexName;
-	}
-
-	public String getNonUniqueStr() {
-		return nonUniqueStr;
-	}
-
-	public void setNonUniqueStr(String nonUniqueStr) {
-		this.nonUniqueStr = nonUniqueStr;
 	}
 
 	public String getType() {
