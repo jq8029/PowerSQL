@@ -63,7 +63,7 @@ public class IndexInfo extends Info {
 		if (getIndexName() == null) {
 			return "";
 		} else {
-			if (getNodeType() == Constants.NODE_TABLE_INDEX_KEY) {
+			if (getNodeType() == Constants.NODE_INDEX_KEY) {
 				if (getName() == null || columnName == null) {
 					return "";
 				} else {
