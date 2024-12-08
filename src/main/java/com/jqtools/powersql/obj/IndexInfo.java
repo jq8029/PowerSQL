@@ -9,7 +9,7 @@ public class IndexInfo extends Info {
 	private String columnName = null;
 	private String ascOrDesc = null;
 	private boolean nonUnique = false;
-	private short ordinalPosition = 0;
+	private int ordinalPosition = 0;
 
 	public String getIndexName() {
 		return indexName;
@@ -51,11 +51,11 @@ public class IndexInfo extends Info {
 		this.nonUnique = nonUnique;
 	}
 
-	public short getOrdinalPosition() {
+	public int getOrdinalPosition() {
 		return ordinalPosition;
 	}
 
-	public void setOrdinalPosition(short ordinalPosition) {
+	public void setOrdinalPosition(int ordinalPosition) {
 		this.ordinalPosition = ordinalPosition;
 	}
 
