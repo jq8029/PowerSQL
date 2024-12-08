@@ -46,12 +46,12 @@ public class Constants {
 	public static final int NODE_VIEW = 601;
 	public static final int NODE_TABLE_COLUMNS = 60101;
 	public static final int NODE_TABLE_INDEXES = 60102;
-	public static final int NODE_TABLE_INDEX = 6010201;
-	public static final int NODE_TABLE_INDEX_KEY = 6010202;
 	public static final int NODE_TABLE_CONSTRAINTS = 60103;
 	public static final int NODE_TABLE_CONSTRAINT = 6010301;
 	public static final int NODE_TABLE_CONSTRAINT_KEY = 6010302;
 	public static final int NODE_COLUMN = 7;
+	public static final int NODE_INDEX = 8;
+	public static final int NODE_INDEX_KEY = 801;
 
 	// node names
 	public static final String ROOT = "Databases";
