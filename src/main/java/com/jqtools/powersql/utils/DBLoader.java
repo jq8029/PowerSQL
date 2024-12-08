@@ -230,6 +230,7 @@ public class DBLoader {
 		}
 		if (indexNode == null) {
 			indexNode = new TreeNode(info.clone());
+			indexNode.getInfo().setNodeType(Constants.NODE_INDEX_KEY);
 		}
 
 		TreeNode newNode = new TreeNode(info);
