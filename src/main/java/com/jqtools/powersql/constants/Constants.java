@@ -72,6 +72,12 @@ public class Constants {
 	public static final String COL_NUM_SCALE = "NUM_SCALE";
 	public static final String COL_COL_DEFAULT = "COL_DEFAULT";
 
+	// Index Info Key words
+	public static final String INDEX_NAME = "INDEX_NAME";
+	public static final String INDEX_NON_UNIQUE = "NON_UNIQUE";
+	public static final String INDEX_TYPE = "INDEX_TYPE";
+	public static final String INDEX_ASC_DESC = "ASC_OR_DESC";
+
 	// Supported Databases
 	public static final String DB_H2 = "H2";
 	public static final String DB_MYSQL = "MySQL";
