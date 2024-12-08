@@ -136,7 +136,7 @@ public class DBLoader {
 		if (nodeType == Constants.NODE_COLUMN) {
 			return loadColumnNode(rs, node, nodeType);
 		} else if (nodeType == Constants.NODE_INDEX) {
-			return loadColumnNode(rs, node, nodeType);
+			return loadIndexNode(rs, node, nodeType);
 		} else if (nodeType == Constants.NODE_CONSTRAINT) {
 
 		}
