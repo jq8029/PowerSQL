@@ -208,4 +208,8 @@ public class DBLoader {
 	private static TreeNode loadIndexNode(ResultSet rs, TreeNode node, int nodeType) {
 		return null;
 	}
+
+	private static TreeNode loadConstraintNode(ResultSet rs, TreeNode node, int nodeType) {
+		return null;
+	}
 }
