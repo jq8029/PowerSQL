@@ -74,4 +74,22 @@ public class IndexInfo extends Info {
 			}
 		}
 	}
+
+	public IndexInfo clone() {
+		IndexInfo info = new IndexInfo();
+
+		info.setCatalog(this.getCatalog());
+		info.setSchema(this.getSchema());
+		info.setName(this.getName());
+		info.setNodeType(this.getNodeType());
+
+		info.setAscOrDesc(this.getAscOrDesc());
+		info.setColumnName(this.getColumnName());
+		info.setIndexName(this.getIndexName());
+		info.setNonUnique(this.isNonUnique());
+		info.setOrdinalPosition(this.getOrdinalPosition());
+		info.setType(this.getType());
+
+		return info;
+	}
 }
