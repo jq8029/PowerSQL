@@ -135,6 +135,8 @@ public class DBLoader {
 	private static TreeNode loadNode(ResultSet rs, TreeNode node, int nodeType) {
 		if (nodeType == Constants.NODE_COLUMN) {
 			return loadColumnNode(rs, node, nodeType);
+		} else if (nodeType == Constants.NODE_INDEX) {
+
 		}
 
 		Info info = node.getInfo().clone();
