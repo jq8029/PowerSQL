@@ -137,6 +137,8 @@ public class DBLoader {
 			return loadColumnNode(rs, node, nodeType);
 		} else if (nodeType == Constants.NODE_INDEX) {
 
+		} else if (nodeType == Constants.NODE_CONSTRAINT) {
+
 		}
 
 		Info info = node.getInfo().clone();
