@@ -136,7 +136,7 @@ public class DBLoader {
 		if (nodeType == Constants.NODE_COLUMN) {
 			return loadColumnNode(rs, node, nodeType);
 		} else if (nodeType == Constants.NODE_INDEX) {
-
+			return loadColumnNode(rs, node, nodeType);
 		} else if (nodeType == Constants.NODE_CONSTRAINT) {
 
 		}
@@ -203,5 +203,9 @@ public class DBLoader {
 		newNode.addToParent(node);
 
 		return newNode;
+	}
+
+	private static TreeNode loadIndexNode(ResultSet rs, TreeNode node, int nodeType) {
+		return null;
 	}
 }
