@@ -250,6 +250,14 @@ public class DBLoader {
 		info.setSchema(node.getInfo().getSchema());
 		info.setName(node.getInfo().getName());
 		info.setNodeType(Constants.NODE_CONSTRAINT_KEY);
+		info.setConstraintName(DBTools.getValue(rs, Constants.CONSTRAINT_NAME));
+		info.setConstraintType(DBTools.getValue(rs, Constants.CONSTRAINT_TYPE));
+		info.setColumnName(DBTools.getValue(rs, Constants.COL_NAME));
+		info.setOrdinalPosition(DBTools.getIntValue(rs, Constants.COL_ORDINAL_POSITION, 0));
+		info.setReferenceSchema(DBTools.getValue(rs, Constants.REF_SCHEMA));
+		info.setReferenceTable(DBTools.getValue(rs, Constants.REF_TABLE_NAME));
+		info.setReferenceColName(DBTools.getValue(rs, Constants.REF_COLUMN_NAME));
+		info.setReferencePosition(DBTools.getIntValue(rs, Constants.REF_POSITION, 0));
 
 		return null;
 	}
