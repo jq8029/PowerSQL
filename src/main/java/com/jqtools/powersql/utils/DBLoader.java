@@ -213,7 +213,7 @@ public class DBLoader {
 		info.setCatalog(node.getInfo().getCatalog());
 		info.setSchema(node.getInfo().getSchema());
 		info.setName(node.getInfo().getName());
-		info.setNodeType(nodeType);
+		info.setNodeType(Constants.NODE_INDEX_KEY);
 		info.setIndexName(DBTools.getValue(rs, Constants.INDEX_NAME));
 		info.setType(DBTools.getValue(rs, Constants.INDEX_TYPE));
 		info.setColumnName(DBTools.getValue(rs, Constants.COL_NAME));
@@ -232,7 +232,7 @@ public class DBLoader {
 		}
 		if (indexNode == null) {
 			indexNode = new TreeNode(info.clone());
-			indexNode.getInfo().setNodeType(Constants.NODE_INDEX_KEY);
+			indexNode.getInfo().setNodeType(nodeType);
 			indexNode.addToParent(node);
 		}
 
