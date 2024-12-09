@@ -259,6 +259,17 @@ public class DBLoader {
 		info.setReferenceColName(DBTools.getValue(rs, Constants.REF_COLUMN_NAME));
 		info.setReferencePosition(DBTools.getIntValue(rs, Constants.REF_POSITION, 0));
 
+		TreeNode constraintNode = null;
+		ConstraintInfo childInfo = null;
+		for (int i = 0; i < node.getChildCount(); i++) {
+			childInfo = (ConstraintInfo) ((TreeNode) node.getChildAt(i)).getInfo();
+			if (Tools.isEqual(childInfo.getName(), info.getName())
+					&& Tools.isEqual(childInfo.getConstraintName(), info.getConstraintName())) {
+				constraintNode = (TreeNode) node.getChildAt(i);
+				break;
+			}
+		}
+
 		return null;
 	}
 }
