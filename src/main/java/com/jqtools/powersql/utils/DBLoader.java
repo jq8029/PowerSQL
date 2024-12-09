@@ -228,6 +228,7 @@ public class DBLoader {
 			if (Tools.isEqual(childInfo.getName(), info.getName())
 					&& Tools.isEqual(childInfo.getIndexName(), info.getIndexName())) {
 				indexNode = (TreeNode) node.getChildAt(i);
+				break;
 			}
 		}
 		if (indexNode == null) {
