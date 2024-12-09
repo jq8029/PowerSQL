@@ -269,6 +269,14 @@ public class DBLoader {
 				break;
 			}
 		}
+		if (constraintNode == null) {
+			constraintNode = new TreeNode(info.clone());
+			constraintNode.getInfo().setNodeType(nodeType);
+			constraintNode.addToParent(node);
+		}
+
+		TreeNode newNode = new TreeNode(info);
+		newNode.addToParent(constraintNode);
 
 		return null;
 	}
