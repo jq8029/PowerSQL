@@ -78,6 +78,14 @@ public class Constants {
 	public static final String INDEX_TYPE = "INDEX_TYPE";
 	public static final String INDEX_ASC_DESC = "ASC_OR_DESC";
 
+	// Constraint Info Key words
+	public static final String CONSTRAINT_NAME = "CONSTRAINT_NAME";
+	public static final String CONSTRAINT_TYPE = "CONSTRAINT_TYPE";
+	public static final String REF_SCHEMA = "REF_SCHEMA";
+	public static final String REF_TABLE_NAME = "REF_TABLE_NAME";
+	public static final String REF_COLUMN_NAME = "REF_COLUMN_NAME";
+	public static final String REF_POSITION = "REF_POSITION";
+
 	// Supported Databases
 	public static final String DB_H2 = "H2";
 	public static final String DB_MYSQL = "MySQL";
