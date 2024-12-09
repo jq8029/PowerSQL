@@ -8,6 +8,7 @@ import java.sql.Types;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.ColumnInfo;
+import com.jqtools.powersql.obj.ConstraintInfo;
 import com.jqtools.powersql.obj.IndexInfo;
 import com.jqtools.powersql.obj.Info;
 import com.jqtools.powersql.obj.Session;
@@ -244,6 +245,12 @@ public class DBLoader {
 	}
 
 	private static TreeNode loadConstraintNode(ResultSet rs, TreeNode node, int nodeType) {
+		ConstraintInfo info = new ConstraintInfo();
+		info.setCatalog(node.getInfo().getCatalog());
+		info.setSchema(node.getInfo().getSchema());
+		info.setName(node.getInfo().getName());
+		info.setNodeType(Constants.NODE_CONSTRAINT_KEY);
+
 		return null;
 	}
 }
