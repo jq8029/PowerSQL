@@ -278,6 +278,6 @@ public class DBLoader {
 		TreeNode newNode = new TreeNode(info);
 		newNode.addToParent(constraintNode);
 
-		return null;
+		return newNode;
 	}
 }
