@@ -97,4 +97,25 @@ public class ConstraintInfo extends Info {
 			}
 		}
 	}
+
+	public ConstraintInfo clone() {
+		ConstraintInfo info = new ConstraintInfo();
+
+		info.setSchema(this.getSchema());
+		info.setName(this.getName());
+		info.setNodeType(this.getNodeType());
+
+		info.setConstraintName(this.getConstraintName());
+		info.setConstraintType(this.getConstraintType());
+
+		info.setColumnName(this.getColumnName());
+		info.setOrdinalPosition(this.getOrdinalPosition());
+		info.setReferenceSchema(this.getReferenceSchema());
+		info.setReferenceTable(this.getReferenceTable());
+
+		info.setReferenceColName(this.getReferenceColName());
+		info.setReferencePosition(this.getReferencePosition());
+
+		return info;
+	}
 }
