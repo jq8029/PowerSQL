@@ -75,6 +75,7 @@ public class IndexInfo extends Info {
 		}
 	}
 
+	@Override
 	public IndexInfo clone() {
 		IndexInfo info = new IndexInfo();
 
