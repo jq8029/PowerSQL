@@ -96,9 +96,9 @@ public class DBLoader {
 			rc = rc && loadNode(con, child, session.getDbData().getColumnSQL(child.getInfo()), Constants.NODE_COLUMN);
 			child = (TreeNode) node.getChildAt(i).getChildAt(1);
 			rc = rc && loadNode(con, child, session.getDbData().getIndexSQL(child.getInfo()), Constants.NODE_INDEX);
-//			child = (TreeNode) node.getChildAt(i).getChildAt(2);
-//			rc = rc && loadNode(con, child, session.getDbData().getConstraintSQL(child.getInfo()),
-//					Constants.NODE_CONSTRAINT);
+			child = (TreeNode) node.getChildAt(i).getChildAt(2);
+			rc = rc && loadNode(con, child, session.getDbData().getConstraintSQL(child.getInfo()),
+					Constants.NODE_CONSTRAINT);
 		}
 
 		return rc;
