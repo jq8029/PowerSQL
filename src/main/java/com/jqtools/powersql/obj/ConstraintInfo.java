@@ -98,6 +98,7 @@ public class ConstraintInfo extends Info {
 		}
 	}
 
+	@Override
 	public ConstraintInfo clone() {
 		ConstraintInfo info = new ConstraintInfo();
 
