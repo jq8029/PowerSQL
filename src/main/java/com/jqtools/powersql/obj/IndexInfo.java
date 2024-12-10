@@ -59,6 +59,7 @@ public class IndexInfo extends Info {
 		this.ordinalPosition = ordinalPosition;
 	}
 
+	@Override
 	public String toString() {
 		if (getIndexName() == null) {
 			return "";
