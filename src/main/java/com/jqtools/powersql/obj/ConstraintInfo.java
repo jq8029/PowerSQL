@@ -81,6 +81,7 @@ public class ConstraintInfo extends Info {
 		this.referencePosition = referencePosition;
 	}
 
+	@Override
 	public String toString() {
 		if (constraintName == null) {
 			return "";
