@@ -40,7 +40,7 @@ public class ConnectionFrame extends JFrame {
 
 	private JLabel names[] = new JLabel[TEXT.length];
 	private JTextField values[] = new JTextField[TEXT.length];
-	private JComboBox box = new JComboBox(SUPPORT_DBS);
+	private JComboBox<String> box = new JComboBox<String>(SUPPORT_DBS);
 	private JButton testButton = new JButton(Constants.BUTTON_TEST);
 	private JButton saveButton = new JButton(Constants.BUTTON_SAVE);
 	private JButton closeButton = new JButton(Constants.BUTTON_CLOSE);
