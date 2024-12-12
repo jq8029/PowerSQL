@@ -5,6 +5,8 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.Time;
 import java.sql.Types;
 import java.text.SimpleDateFormat;
@@ -17,6 +19,7 @@ import javax.swing.JComboBox;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.obj.Session;
 
 public class Tools {
 	private static HashMap<Integer, Boolean> quotaMap = null;
@@ -392,7 +395,10 @@ public class Tools {
 		}
 	}
 
-	public static void exportDataToXLS() throws Exception {
+	public static void exportDataToXLS(Session session, String sql) throws Exception {
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String values[] = null;
 
 	}
 }
