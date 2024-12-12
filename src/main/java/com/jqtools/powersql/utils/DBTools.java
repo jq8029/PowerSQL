@@ -419,4 +419,20 @@ public class DBTools {
 
 		return colNames;
 	}
+
+	public static int[] getColumnTypes(ResultSet rs) throws SQLException {
+		if (rs == null)
+			return null;
+
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int colNum = rsmd.getColumnCount();
+
+		int colTypes[] = new int[colNum];
+
+		for (int i = 0; i < colTypes.length; i++) {
+			colTypes[i] = rsmd.getColumnType(i + 1);
+		}
+
+		return colTypes;
+	}
 }
