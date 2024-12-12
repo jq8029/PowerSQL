@@ -420,6 +420,9 @@ public class Tools {
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
 
+			String colNames[] = DBTools.getColumnNames(rs);
+			int colTypes[] = DBTools.getColumnTypes(rs);
+
 		} finally {
 			DBTools.close(stmt, rs);
 		}
