@@ -419,5 +419,4 @@ public class DBTools {
 
 		return colNames;
 	}
-
 }
