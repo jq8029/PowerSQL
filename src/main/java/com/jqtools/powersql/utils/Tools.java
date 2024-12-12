@@ -416,6 +416,10 @@ public class Tools {
 			WritableSheet sheet = null;
 			cf.setWrap(false);
 
+			MessageLogger.info("  Started to execute. Please wait ...");
+			stmt = session.getConnection().prepareStatement(sql);
+			rs = stmt.executeQuery();
+
 		} finally {
 			DBTools.close(stmt, rs);
 		}
