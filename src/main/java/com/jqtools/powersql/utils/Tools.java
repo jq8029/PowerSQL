@@ -21,6 +21,7 @@ import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.Session;
 
+import jxl.Workbook;
 import jxl.WorkbookSettings;
 import jxl.write.WritableCellFormat;
 import jxl.write.WritableFont;
@@ -401,16 +402,17 @@ public class Tools {
 		}
 	}
 
-	public static void exportDataToXLS(Session session, String sql) throws Exception {
+	public static void exportDataToXLS(Session session, String sql, File file) throws Exception {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String values[] = null;
 
 		WorkbookSettings ws = new WorkbookSettings();
+		WritableWorkbook workbook = Workbook.createWorkbook(file, ws);
 		WritableFont wf = new WritableFont(WritableFont.ARIAL, 10, WritableFont.NO_BOLD);
 		WritableCellFormat cf = new WritableCellFormat(wf);
-		WritableWorkbook workbook = null;
 		WritableSheet sheet = null;
+		cf.setWrap(false);
 
 	}
 }
