@@ -20,6 +20,9 @@ dependencies {
     // text editor jar file
     implementation 'com.fifesoft:rsyntaxtextarea:3.4.0'
     
+    // JExcelApi jar file for excel
+    implementation 'net.sourceforge.jexcelapi:jxl:2.6.12'
+    
     // database jar files
     implementation 'mysql:mysql-connector-java:8.0.33'
     implementation 'com.h2database:h2:2.2.224'
