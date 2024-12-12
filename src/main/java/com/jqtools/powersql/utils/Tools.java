@@ -21,6 +21,12 @@ import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.Session;
 
+import jxl.WorkbookSettings;
+import jxl.write.WritableCellFormat;
+import jxl.write.WritableFont;
+import jxl.write.WritableSheet;
+import jxl.write.WritableWorkbook;
+
 public class Tools {
 	private static HashMap<Integer, Boolean> quotaMap = null;
 	private static final SimpleDateFormat SDF = new SimpleDateFormat(Constants.TS01);
@@ -399,6 +405,12 @@ public class Tools {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String values[] = null;
+
+		WorkbookSettings ws = new WorkbookSettings();
+		WritableFont wf = new WritableFont(WritableFont.ARIAL, 10, WritableFont.NO_BOLD);
+		WritableCellFormat cf = new WritableCellFormat(wf);
+		WritableWorkbook workbook = null;
+		WritableSheet sheet = null;
 
 	}
 }
