@@ -13,6 +13,8 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
 import java.util.ArrayList;
@@ -402,4 +404,20 @@ public class DBTools {
 		tableModel.resizeColumnWidth();
 		dataToolBar.getDataScroll().setViewportView(dataToolBar.getDataTable());
 	}
+
+	public static String[] getColumnNames(ResultSet rs) throws SQLException {
+		if (rs == null)
+			return null;
+
+		ResultSetMetaData rsmd = rs.getMetaData();
+		int colNum = rsmd.getColumnCount();
+
+		String colNames[] = new String[colNum];
+		for (int i = 0; i < colNames.length; i++) {
+			colNames[i] = rsmd.getColumnName(i + 1);
+		}
+
+		return colNames;
+	}
+
 }
