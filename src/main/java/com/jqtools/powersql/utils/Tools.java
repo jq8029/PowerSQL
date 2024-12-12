@@ -406,13 +406,18 @@ public class Tools {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String values[] = null;
+		WritableWorkbook workbook = null;
 
-		WorkbookSettings ws = new WorkbookSettings();
-		WritableWorkbook workbook = Workbook.createWorkbook(file, ws);
-		WritableFont wf = new WritableFont(WritableFont.ARIAL, 10, WritableFont.NO_BOLD);
-		WritableCellFormat cf = new WritableCellFormat(wf);
-		WritableSheet sheet = null;
-		cf.setWrap(false);
+		try {
+			WorkbookSettings ws = new WorkbookSettings();
+			workbook = Workbook.createWorkbook(file, ws);
+			WritableFont wf = new WritableFont(WritableFont.ARIAL, 10, WritableFont.NO_BOLD);
+			WritableCellFormat cf = new WritableCellFormat(wf);
+			WritableSheet sheet = null;
+			cf.setWrap(false);
 
+		} finally {
+			DBTools.close(stmt, rs);
+		}
 	}
 }
