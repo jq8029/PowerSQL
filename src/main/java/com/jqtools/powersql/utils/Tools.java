@@ -440,6 +440,9 @@ public class Tools {
 
 				total++;
 			}
+			workbook.write();
+
+			MessageLogger.info("  Finished exporting " + total + " records from result.");
 		} finally {
 			DBTools.close(stmt, rs);
 		}
