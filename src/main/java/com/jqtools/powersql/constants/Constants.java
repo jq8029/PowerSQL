@@ -182,6 +182,9 @@ public class Constants {
 	public static final int SPACE_24 = 24;
 	public static final int SPACE_100 = 100;
 
+	// Font size
+	public static final int FONT_10 = 10;
+
 	// filter condition
 	public static final String CONDITION_EQUAL = "=";
 	public static final String CONDITION_NOT_EQUAL_S = "!=";
