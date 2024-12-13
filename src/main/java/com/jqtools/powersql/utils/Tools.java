@@ -414,15 +414,13 @@ public class Tools {
 			WritableFont wf = new WritableFont(WritableFont.ARIAL, Constants.FONT_10, WritableFont.NO_BOLD);
 			WritableCellFormat cf = new WritableCellFormat(wf);
 			WritableSheet sheet = null;
+			int total = 0;
+
 			cf.setWrap(false);
 
 			MessageLogger.info("  Started to execute. Please wait ...");
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
-
-			String colNames[] = DBTools.getColumnNames(rs);
-			int colTypes[] = DBTools.getColumnTypes(rs);
-			int total = 0;
 
 			while (rs.next()) {
 				values = DBTools.getValues(rs);
