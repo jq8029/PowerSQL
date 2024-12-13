@@ -411,7 +411,7 @@ public class Tools {
 		try {
 			WorkbookSettings ws = new WorkbookSettings();
 			workbook = Workbook.createWorkbook(file, ws);
-			WritableFont wf = new WritableFont(WritableFont.ARIAL, 10, WritableFont.NO_BOLD);
+			WritableFont wf = new WritableFont(WritableFont.ARIAL, Constants.FONT_10, WritableFont.NO_BOLD);
 			WritableCellFormat cf = new WritableCellFormat(wf);
 			WritableSheet sheet = null;
 			cf.setWrap(false);
