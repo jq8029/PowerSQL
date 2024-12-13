@@ -432,6 +432,7 @@ public class Tools {
 					continue;
 				}
 
+				// write a row of records to sheet
 				count = 0;
 				for (int x = 0; x < values.length; x++) {
 					label = new Label(count++, total, values[x] == null ? "" : values[x], cf);
@@ -445,6 +446,11 @@ public class Tools {
 			MessageLogger.info("  Finished exporting " + total + " records from result.");
 		} finally {
 			DBTools.close(stmt, rs);
+
+			try {
+				workbook.close();
+			} catch (Exception e) {
+			}
 		}
 	}
 }
