@@ -282,20 +282,6 @@ public class DBTools {
 		return value;
 	}
 
-	public static String getValue(ResultSet rs, int index) {
-		String value = null;
-
-		try {
-			Object obj = rs.getObject(index);
-			if (obj != null) {
-				value = obj.toString();
-			}
-		} catch (Exception e) {
-		}
-
-		return value;
-	}
-
 	public static Object getObject(ResultSet rs, String name) {
 		Object value = null;
 
@@ -316,6 +302,20 @@ public class DBTools {
 
 		try {
 			Object obj = getObject(rs, name);
+			if (obj != null) {
+				value = obj.toString();
+			}
+		} catch (Exception e) {
+		}
+
+		return value;
+	}
+
+	public static String getValue(ResultSet rs, int index) {
+		String value = null;
+
+		try {
+			Object obj = rs.getObject(index);
 			if (obj != null) {
 				value = obj.toString();
 			}
