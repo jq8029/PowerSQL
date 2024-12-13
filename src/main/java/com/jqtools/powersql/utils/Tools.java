@@ -23,6 +23,7 @@ import com.jqtools.powersql.obj.Session;
 
 import jxl.Workbook;
 import jxl.WorkbookSettings;
+import jxl.write.Label;
 import jxl.write.WritableCellFormat;
 import jxl.write.WritableFont;
 import jxl.write.WritableSheet;
@@ -413,8 +414,9 @@ public class Tools {
 			workbook = Workbook.createWorkbook(file, ws);
 			WritableFont wf = new WritableFont(WritableFont.ARIAL, Constants.FONT_10, WritableFont.NO_BOLD);
 			WritableCellFormat cf = new WritableCellFormat(wf);
-			WritableSheet sheet = null;
-			int total = 0;
+			WritableSheet sheet = workbook.createSheet("Result", 0);
+			Label label = null;
+			int total = 0, count = 0;
 
 			cf.setWrap(false);
 
