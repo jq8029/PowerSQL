@@ -432,6 +432,7 @@ public class Tools {
 					continue;
 				}
 
+				count = 0;
 				for (int x = 0; x < values.length; x++) {
 					label = new Label(count++, total, values[x] == null ? "" : values[x], cf);
 					sheet.addCell(label);
