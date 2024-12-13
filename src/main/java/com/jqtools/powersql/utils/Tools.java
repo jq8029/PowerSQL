@@ -422,7 +422,11 @@ public class Tools {
 
 			String colNames[] = DBTools.getColumnNames(rs);
 			int colTypes[] = DBTools.getColumnTypes(rs);
+			int total = 0;
 
+			while (rs.next()) {
+				values = DBTools.getValues(rs);
+			}
 		} finally {
 			DBTools.close(stmt, rs);
 		}
