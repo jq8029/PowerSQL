@@ -424,6 +424,9 @@ public class Tools {
 
 			while (rs.next()) {
 				values = DBTools.getValues(rs);
+				if (values == null) {
+					continue;
+				}
 			}
 		} finally {
 			DBTools.close(stmt, rs);
