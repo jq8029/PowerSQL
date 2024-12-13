@@ -424,6 +424,8 @@ public class Tools {
 
 			while (rs.next()) {
 				values = DBTools.getValues(rs);
+
+				// skip it if there is no data
 				if (values == null) {
 					continue;
 				}
