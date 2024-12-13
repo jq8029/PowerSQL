@@ -431,6 +431,13 @@ public class Tools {
 				if (values == null) {
 					continue;
 				}
+
+				for (int x = 0; x < values.length; x++) {
+					label = new Label(count++, total, values[x] == null ? "" : values[x], cf);
+					sheet.addCell(label);
+				}
+
+				total++;
 			}
 		} finally {
 			DBTools.close(stmt, rs);
