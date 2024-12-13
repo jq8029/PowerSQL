@@ -248,6 +248,17 @@ public class DBTools {
 		}
 	}
 
+	public static String[] getValues(ResultSet rs) throws Exception {
+		int colNum = rs.getMetaData().getColumnCount();
+		String values[] = new String[colNum];
+
+		for (int i = 1; i <= colNum; i++) {
+			values[i - 1] = getValue(rs, i);
+		}
+
+		return values;
+	}
+
 	public static boolean getBooleanValue(ResultSet rs, String name, boolean defaultValue) {
 		boolean value = defaultValue;
 
