@@ -19,6 +19,7 @@ public class ExportDataFrame extends JFrame {
 	private static final long serialVersionUID = -7199346870193411461L;
 	private JLabel fileLabel = new JLabel(Constants.LABEL_EXPORT_TO_FILE + " : ");
 	private JTextField fileField = new JTextField();;
+	private JButton openButton = new JButton(Constants.BUTTON_OPEN);
 
 	public ExportDataFrame() {
 		initialize();
