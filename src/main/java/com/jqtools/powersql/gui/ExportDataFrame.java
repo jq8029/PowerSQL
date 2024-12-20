@@ -2,6 +2,7 @@ package com.jqtools.powersql.gui;
 
 import java.awt.Dimension;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -22,6 +23,10 @@ public class ExportDataFrame extends JFrame {
 
 		JPanel buttonPanel = new JPanel(null);
 		buttonPanel.setPreferredSize(new Dimension(350, 35));
+
+		JButton exportButton = new JButton(Constants.BUTTON_EXPORT);
+		exportButton.setBounds(100, 10, 80, 18);
+		buttonPanel.add(exportButton);
 
 		this.getContentPane().add("South", buttonPanel);
 
