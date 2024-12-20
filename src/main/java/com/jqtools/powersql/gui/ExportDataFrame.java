@@ -23,6 +23,8 @@ public class ExportDataFrame extends JFrame {
 	public void initialize() {
 		this.setTitle(Constants.TITLE_EXPORT_DATA);
 
+		JPanel dataPanel = new JPanel(null);
+
 		JPanel buttonPanel = new JPanel(null);
 		buttonPanel.setPreferredSize(new Dimension(350, 35));
 
