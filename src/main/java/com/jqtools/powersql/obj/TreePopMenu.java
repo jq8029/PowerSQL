@@ -10,6 +10,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTree;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.gui.ConnectionFrame;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.utils.DBTools;
