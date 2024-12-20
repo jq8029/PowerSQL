@@ -36,6 +36,11 @@ public class ExportDataFrame extends JFrame {
 		buttonPanel.add(exportButton);
 		JButton cancelButton = new JButton(Constants.BUTTON_CLOSE);
 		cancelButton.setBounds(200, 10, 80, 18);
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cancel();
+			}
+		});
 		buttonPanel.add(cancelButton);
 
 		this.getContentPane().add("South", buttonPanel);
