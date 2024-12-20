@@ -38,6 +38,9 @@ public class ExportDataFrame extends JFrame {
 		setLocationRelativeTo(this);
 	}
 
+	public void export() {
+	}
+
 	public void setVisible(boolean b) {
 		super.setVisible(b);
 	}
