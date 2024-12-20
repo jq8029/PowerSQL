@@ -1,6 +1,8 @@
 package com.jqtools.powersql.gui;
 
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -26,6 +28,11 @@ public class ExportDataFrame extends JFrame {
 
 		JButton exportButton = new JButton(Constants.BUTTON_EXPORT);
 		exportButton.setBounds(100, 10, 80, 18);
+		exportButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				export();
+			}
+		});
 		buttonPanel.add(exportButton);
 		JButton cancelButton = new JButton(Constants.BUTTON_CLOSE);
 		cancelButton.setBounds(200, 10, 80, 18);
