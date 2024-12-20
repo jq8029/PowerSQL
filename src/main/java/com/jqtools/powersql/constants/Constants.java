@@ -118,6 +118,7 @@ public class Constants {
 
 	// Title
 	public static String TITLE_CONNECTION = "Connection";
+	public static String TITLE_EXPORT_DATA = "Export Data";
 
 	// Messages
 	public static String MSG_SAVE_CHANGE = "Do you want to save the change?";
