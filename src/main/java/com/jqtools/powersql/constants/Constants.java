@@ -20,7 +20,7 @@ public class Constants {
 	public static final String TITLE_FILTER_SORT = "Filter & Sort Table";
 	public static final String TITLE_FILTER = "Filter";
 	public static final String TITLE_SORT = "Sort";
-
+	
 	// panel layout
 	public static final String PANEL_NORTH = "North";
 	public static final String PANEL_CENTER = "Center";
