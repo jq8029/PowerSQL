@@ -112,12 +112,13 @@ public class Constants {
 	// Button
 	public static String BUTTON_ADD = "Add";
 	public static String BUTTON_APPLY = "Apply";
-	public static String BUTTON_RESET = "Reset";
 	public static String BUTTON_CANCEL = "Cancel";
-	public static String BUTTON_EXPORT = "Export";
-	public static String BUTTON_TEST = "Test";
 	public static String BUTTON_CLOSE = "Close";
+	public static String BUTTON_EXPORT = "Export";
+	public static String BUTTON_OPEN = "Open";
+	public static String BUTTON_RESET = "Reset";
 	public static String BUTTON_SAVE = "Save";
+	public static String BUTTON_TEST = "Test";
 	public static final Color DEFAULT_BACKGROUND = new Color(238, 238, 238);
 
 	// Title
