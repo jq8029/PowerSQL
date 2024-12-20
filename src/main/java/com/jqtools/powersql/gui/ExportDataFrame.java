@@ -27,6 +27,9 @@ public class ExportDataFrame extends JFrame {
 		JButton exportButton = new JButton(Constants.BUTTON_EXPORT);
 		exportButton.setBounds(100, 10, 80, 18);
 		buttonPanel.add(exportButton);
+		JButton cancelButton = new JButton(Constants.BUTTON_CLOSE);
+		cancelButton.setBounds(200, 10, 80, 18);
+		buttonPanel.add(cancelButton);
 
 		this.getContentPane().add("South", buttonPanel);
 
