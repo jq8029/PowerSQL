@@ -1,4 +1,4 @@
-package com.jqtools.powersql.obj;
+package com.jqtools.powersql.gui;
 
 import java.awt.Color;
 import java.awt.Dimension;
