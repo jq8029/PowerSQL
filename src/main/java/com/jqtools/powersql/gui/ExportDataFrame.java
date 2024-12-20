@@ -45,8 +45,8 @@ public class ExportDataFrame extends JFrame {
 		});
 		buttonPanel.add(cancelButton);
 
-		this.getContentPane().add("Center", dataPanel);
-		this.getContentPane().add("South", buttonPanel);
+		this.getContentPane().add(Constants.PANEL_CENTER, dataPanel);
+		this.getContentPane().add(Constants.PANEL_SOUTH, buttonPanel);
 
 		this.setPreferredSize(new Dimension(420, 200));
 		this.pack();
