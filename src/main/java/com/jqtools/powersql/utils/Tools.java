@@ -1,5 +1,6 @@
 package com.jqtools.powersql.utils;
 
+import java.awt.Component;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -16,6 +17,9 @@ import java.util.HashMap;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.LookAndFeel;
+import javax.swing.UIManager;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
@@ -32,6 +36,7 @@ import jxl.write.WritableWorkbook;
 public class Tools {
 	private static HashMap<Integer, Boolean> quotaMap = null;
 	private static final SimpleDateFormat SDF = new SimpleDateFormat(Constants.TS01);
+	private static JFileChooser fc = new JFileChooser();
 
 	public static boolean getBoolean(String key, boolean defaultValue) {
 		try {
@@ -454,4 +459,24 @@ public class Tools {
 			}
 		}
 	}
+
+	public static File chooseFiles(File oldFile, String[] fileExts, Component component) {
+		LookAndFeel lookFeel = UIManager.getLookAndFeel();
+		File newFile = null;
+
+		try {
+			UIManager.setLookAndFeel(Constants.WIN_CLASS_NAME);
+		} catch (Exception ex) {
+			MessageLogger.info(ex);
+		}
+
+		try {
+			UIManager.setLookAndFeel(lookFeel);
+		} catch (Exception ex) {
+			MessageLogger.info(ex);
+		}
+
+		return newFile;
+	}
+
 }
