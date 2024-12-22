@@ -28,4 +28,22 @@ public class PFileFilter extends FileFilter {
 		return false;
 	}
 
+	@Override
+	public String getDescription() {
+		if (fileExts == null || fileExts.length == 0) {
+			return "All Files";
+		} else {
+			StringBuffer buffer = new StringBuffer();
+			for (String ext : fileExts) {
+				if (ext == null)
+					continue;
+				if (buffer.length() > 0)
+					buffer.append(";");
+
+				buffer.append("*").append(ext);
+			}
+			return buffer.toString();
+		}
+	}
+
 }
