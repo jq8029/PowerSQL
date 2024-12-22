@@ -270,4 +270,7 @@ public class Constants {
 	public static final String TYPE_OTHER_STR = "OTHER";
 	public static final String TYPE_UNKNOWN_STR = "UNKNOWN";
 
+	// Look And Feel
+	public static final String WIN_CLASS_NAME = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+
 }
