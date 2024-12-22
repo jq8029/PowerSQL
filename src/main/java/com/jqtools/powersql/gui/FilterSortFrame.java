@@ -17,6 +17,7 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.NoticeMessage;
+import com.jqtools.powersql.obj.DataToolBar;
 import com.jqtools.powersql.utils.Tools;
 
 public class FilterSortFrame extends JFrame {
