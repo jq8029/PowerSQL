@@ -497,6 +497,16 @@ public class Tools {
 		fc.addChoosableFileFilter(new PFileFilter(fileExts));
 		fc.setMultiSelectionEnabled(false);
 
+		int rc = fc.showOpenDialog(component);
+		if (rc == JFileChooser.APPROVE_OPTION) {
+			try {
+				newFile = fc.getSelectedFile();
+			} catch (Exception e1) {
+				MessageLogger.info(e1);
+				newFile = null;
+			}
+		}
+
 		try {
 			UIManager.setLookAndFeel(lookFeel);
 		} catch (Exception ex) {
