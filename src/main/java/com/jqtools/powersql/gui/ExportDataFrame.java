@@ -25,6 +25,15 @@ public class ExportDataFrame extends JFrame {
 	private JButton openButton = new JButton(Constants.BUTTON_OPEN);
 	private Session session;
 	private String sql;
+	private static ExportDataFrame instance = null;
+
+	public static ExportDataFrame getInstance() {
+		if (instance == null) {
+			instance = new ExportDataFrame();
+		}
+
+		return instance;
+	}
 
 	public ExportDataFrame() {
 		initialize();
