@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.utils.Tools;
 
@@ -23,6 +24,7 @@ public class ExportDataFrame extends JFrame {
 	private JTextField fileField = new JTextField();;
 	private JButton openButton = new JButton(Constants.BUTTON_OPEN);
 	private Session session;
+	private String sql;
 
 	public ExportDataFrame() {
 		initialize();
@@ -85,6 +87,11 @@ public class ExportDataFrame extends JFrame {
 	}
 
 	public void export() {
+		try {
+			Tools.exportDataToXLS(session, sql, new File(fileField.getText().trim()));
+		} catch (Exception e) {
+			MessageLogger.info(e);
+		}
 	}
 
 	public void cancel() {
@@ -93,6 +100,11 @@ public class ExportDataFrame extends JFrame {
 
 	public void setVisible(boolean b) {
 		super.setVisible(b);
+	}
+
+	public void setData(Session session, String sql) {
+		this.session = session;
+		this.sql = sql;
 	}
 
 	public static void main(String[] args) {
