@@ -33,6 +33,10 @@ public class ExportDataFrame extends JFrame {
 		fileLabel.setBounds(25, 15, 120, 20);
 		fileField.setBounds(25, 45, 320, 20);
 		openButton.setBounds(25 + 320 + 3, 45, 20, 18);
+		openButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		dataPanel.add(fileLabel);
 		dataPanel.add(fileField);
 		dataPanel.add(openButton);
