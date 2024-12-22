@@ -431,8 +431,18 @@ public class Tools {
 			MessageLogger.info("  Started to execute. Please wait ...");
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
-
+			
 			while (rs.next()) {
+				if (total == 0) {
+					values = DBTools.getColumnNames(rs);
+					// write column name to sheet
+					count = 0;
+					for (int x = 0; x < values.length; x++) {
+						label = new Label(count++, total, values[x] == null ? "" : values[x], cf);
+						sheet.addCell(label);
+					}
+				}
+				
 				values = DBTools.getValues(rs);
 
 				// skip it if there is no data
