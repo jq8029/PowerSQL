@@ -21,6 +21,7 @@ import javax.swing.JFileChooser;
 import javax.swing.LookAndFeel;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
+import javax.swing.filechooser.FileFilter;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
@@ -482,6 +483,14 @@ public class Tools {
 
 		if (oldFile != null) {
 			fc.setSelectedFile(oldFile.getAbsoluteFile());
+		}
+
+		if (fc.getChoosableFileFilters() != null && fc.getChoosableFileFilters().length > 0) {
+			for (int i = 0; i < fc.getChoosableFileFilters().length; i++) {
+				if (fc.getChoosableFileFilters()[i] instanceof FileFilter) {
+					fc.removeChoosableFileFilter(fc.getChoosableFileFilters()[i]);
+				}
+			}
 		}
 
 		try {
