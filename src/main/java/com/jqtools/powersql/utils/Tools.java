@@ -24,6 +24,7 @@ import javax.swing.UIManager;
 import javax.swing.filechooser.FileFilter;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.gui.PFileFilter;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.Session;
 
@@ -492,6 +493,9 @@ public class Tools {
 				}
 			}
 		}
+
+		fc.addChoosableFileFilter(new PFileFilter(fileExts));
+		fc.setMultiSelectionEnabled(false);
 
 		try {
 			UIManager.setLookAndFeel(lookFeel);
