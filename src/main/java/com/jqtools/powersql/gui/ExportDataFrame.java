@@ -92,6 +92,8 @@ public class ExportDataFrame extends JFrame {
 		} catch (Exception e) {
 			MessageLogger.info(e);
 		}
+
+		this.setVisible(false);
 	}
 
 	public void cancel() {
