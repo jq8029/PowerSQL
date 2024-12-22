@@ -19,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.LookAndFeel;
+import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
 import com.jqtools.powersql.constants.Constants;
@@ -474,6 +475,14 @@ public class Tools {
 			UIManager.setLookAndFeel(lookFeel);
 		} catch (Exception ex) {
 			MessageLogger.info(ex);
+		}
+
+		if (fc != null) {
+			try {
+				SwingUtilities.updateComponentTreeUI(fc);
+			} catch (Exception ex) {
+				MessageLogger.info(ex);
+			}
 		}
 
 		return newFile;
