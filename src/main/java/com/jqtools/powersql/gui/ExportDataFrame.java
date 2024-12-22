@@ -29,6 +29,8 @@ public class ExportDataFrame extends JFrame {
 		this.setTitle(Constants.TITLE_EXPORT_DATA);
 
 		JPanel dataPanel = new JPanel(null);
+		JLabel fileLabel = new JLabel(Constants.LABEL_EXPORT_TO_FILE + " : ");
+		fileLabel.setBounds(15, 15, 80, 20);
 
 		JPanel buttonPanel = new JPanel(null);
 		buttonPanel.setPreferredSize(new Dimension(350, 35));
