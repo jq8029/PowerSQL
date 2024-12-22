@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.utils.Tools;
 
 public class ExportDataFrame extends JFrame {
@@ -21,6 +22,7 @@ public class ExportDataFrame extends JFrame {
 	private static final long serialVersionUID = -7199346870193411461L;
 	private JTextField fileField = new JTextField();;
 	private JButton openButton = new JButton(Constants.BUTTON_OPEN);
+	private Session session;
 
 	public ExportDataFrame() {
 		initialize();
