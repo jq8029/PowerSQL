@@ -463,7 +463,7 @@ public class Tools {
 			}
 			workbook.write();
 
-			MessageLogger.info("  Finished exporting " + total + " records from result.");
+			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
 		} finally {
 			DBTools.close(stmt, rs);
 
