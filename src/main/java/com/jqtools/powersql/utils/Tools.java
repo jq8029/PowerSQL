@@ -431,7 +431,7 @@ public class Tools {
 			MessageLogger.info("  Started to execute. Please wait ...");
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
-			
+
 			while (rs.next()) {
 				if (total == 0) {
 					values = DBTools.getColumnNames(rs);
@@ -441,8 +441,9 @@ public class Tools {
 						label = new Label(count++, total, values[x] == null ? "" : values[x], cf);
 						sheet.addCell(label);
 					}
+					total++;
 				}
-				
+
 				values = DBTools.getValues(rs);
 
 				// skip it if there is no data
