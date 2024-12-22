@@ -13,6 +13,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.gui.ExportDataFrame;
 import com.jqtools.powersql.gui.FilterSortFrame;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.utils.ExecuteSQL;
@@ -225,7 +226,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 	}
 
 	public void export() {
-
+		ExportDataFrame.getInstance().setData(session, sql);
 	}
 
 	public void add() {
