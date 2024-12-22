@@ -30,9 +30,9 @@ public class ExportDataFrame extends JFrame {
 
 		JPanel dataPanel = new JPanel(null);
 		JLabel fileLabel = new JLabel(Constants.LABEL_EXPORT_TO_FILE + " : ");
-		fileLabel.setBounds(15, 15, 80, 20);
-		fileField.setBounds(95, 15, 260, 20);
-		openButton.setBounds(95 + 260 + 3, 15, 20, 18);
+		fileLabel.setBounds(25, 15, 120, 20);
+		fileField.setBounds(25, 45, 320, 20);
+		openButton.setBounds(25 + 320 + 3, 45, 20, 18);
 		dataPanel.add(fileLabel);
 		dataPanel.add(fileField);
 		dataPanel.add(openButton);
