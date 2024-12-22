@@ -480,6 +480,10 @@ public class Tools {
 			fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		}
 
+		if (oldFile != null) {
+			fc.setSelectedFile(oldFile.getAbsoluteFile());
+		}
+
 		try {
 			UIManager.setLookAndFeel(lookFeel);
 		} catch (Exception ex) {
