@@ -471,6 +471,15 @@ public class Tools {
 			MessageLogger.info(ex);
 		}
 
+		if (fc != null) {
+			try {
+				SwingUtilities.updateComponentTreeUI(fc);
+			} catch (Exception ex) {
+				MessageLogger.info(ex);
+			}
+			fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+		}
+
 		try {
 			UIManager.setLookAndFeel(lookFeel);
 		} catch (Exception ex) {
