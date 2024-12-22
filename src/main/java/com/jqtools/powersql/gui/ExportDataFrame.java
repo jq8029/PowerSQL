@@ -77,6 +77,10 @@ public class ExportDataFrame extends JFrame {
 		String exts[] = { ".xls" };
 
 		file = Tools.chooseFiles(file, exts, this);
+
+		if (file != null) {
+			fileField.setText(file.getAbsolutePath());
+		}
 	}
 
 	public void export() {
