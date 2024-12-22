@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.utils.Tools;
 
 public class ExportDataFrame extends JFrame {
 	/**
@@ -73,7 +74,9 @@ public class ExportDataFrame extends JFrame {
 
 	public void openFile() {
 		File file = new File(fileField.getText().trim());
+		String exts[] = { ".xls" };
 
+		file = Tools.chooseFiles(file, exts, this);
 	}
 
 	public void export() {
