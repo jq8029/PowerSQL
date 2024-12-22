@@ -35,6 +35,7 @@ public class ExportDataFrame extends JFrame {
 		openButton.setBounds(25 + 320 + 3, 45, 20, 18);
 		openButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				openFile();
 			}
 		});
 		dataPanel.add(fileLabel);
@@ -67,6 +68,10 @@ public class ExportDataFrame extends JFrame {
 		this.setPreferredSize(new Dimension(420, 200));
 		this.pack();
 		setLocationRelativeTo(this);
+	}
+
+	public void openFile() {
+
 	}
 
 	public void export() {
