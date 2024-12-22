@@ -227,6 +227,7 @@ public class DataToolBar extends JToolBar implements ActionListener {
 
 	public void export() {
 		ExportDataFrame.getInstance().setData(session, sql);
+		ExportDataFrame.getInstance().setVisible(true);
 	}
 
 	public void add() {
