@@ -20,6 +20,9 @@ import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.NoticeMessage;
+import com.jqtools.powersql.obj.DatabaseInfo;
+import com.jqtools.powersql.obj.Session;
+import com.jqtools.powersql.obj.TreeNode;
 import com.jqtools.powersql.utils.DBTools;
 
 public class ConnectionFrame extends JFrame {
