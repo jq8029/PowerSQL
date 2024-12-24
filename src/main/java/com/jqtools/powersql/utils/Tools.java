@@ -505,6 +505,14 @@ public class Tools {
 					}
 					total++;
 				}
+
+				values = DBTools.getValues(rs);
+
+				// skip it if there is no data
+				if (values == null) {
+					continue;
+				}
+
 			}
 
 			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
