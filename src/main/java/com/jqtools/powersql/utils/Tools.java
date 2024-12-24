@@ -476,6 +476,9 @@ public class Tools {
 
 	public static void exportDataToCSV(Session session, String sql, File file) throws Exception {
 		FileOutputStream out = null;
+		PreparedStatement stmt = null;
+		ResultSet rs = null;
+		String values[] = null;
 
 		if (file.exists()) {
 			file.delete();
@@ -486,7 +489,6 @@ public class Tools {
 		} catch (Exception ex) {
 			throw new Exception("Failed to create exporting data file " + file.getAbsolutePath());
 		}
-
 	}
 
 	public static File chooseFiles(File oldFile, String[] fileExts, Component component) {
