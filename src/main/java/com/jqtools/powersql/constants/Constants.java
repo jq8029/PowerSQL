@@ -22,6 +22,7 @@ public class Constants {
 	public static final String TITLE_SORT = "Sort";
 
 	// Label
+	public static final String LABEL_FILE_TYPE = "File Type";
 	public static final String LABEL_EXPORT_TO_FILE = "Export to File";
 
 	// panel layout
