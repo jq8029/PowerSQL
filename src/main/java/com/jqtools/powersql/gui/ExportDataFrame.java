@@ -22,7 +22,7 @@ public class ExportDataFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = -7199346870193411461L;
-	private JComboBox schemaBox = new JComboBox();
+	private JComboBox fileTypeBox = new JComboBox(Constants.FILE_TYPES[0]);
 	private JTextField fileField = new JTextField();;
 	private JButton openButton = new JButton(Constants.BUTTON_OPEN);
 	private Session session;
@@ -46,7 +46,7 @@ public class ExportDataFrame extends JFrame {
 
 		JPanel dataPanel = new JPanel(null);
 		JLabel fileLabel = new JLabel(Constants.LABEL_EXPORT_TO_FILE + " : ");
-		fileLabel.setBounds(25, 15, 120, 20);
+		fileLabel.setBounds(25, 45, 120, 20);
 		fileField.setBounds(25, 45, 320, 20);
 		openButton.setBounds(25 + 320 + 3, 45, 20, 18);
 		openButton.addActionListener(new ActionListener() {
