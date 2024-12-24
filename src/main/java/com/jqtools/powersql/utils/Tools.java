@@ -475,6 +475,11 @@ public class Tools {
 	}
 
 	public static void exportDataToCSV(Session session, String sql, File file) throws Exception {
+		FileOutputStream out = null;
+
+		if (file.exists()) {
+			file.delete();
+		}
 
 	}
 
