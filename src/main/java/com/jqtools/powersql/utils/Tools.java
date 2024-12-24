@@ -474,6 +474,10 @@ public class Tools {
 		}
 	}
 
+	public static void exportDataToCSV(Session session, String sql, File file) throws Exception {
+
+	}
+
 	public static File chooseFiles(File oldFile, String[] fileExts, Component component) {
 		LookAndFeel lookFeel = UIManager.getLookAndFeel();
 		File newFile = null;
