@@ -495,6 +495,8 @@ public class Tools {
 			MessageLogger.info("  Started to execute. Please wait ...");
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
+
+			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
 		} finally {
 			DBTools.close(stmt, rs);
 
