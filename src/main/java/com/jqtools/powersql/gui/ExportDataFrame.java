@@ -58,6 +58,7 @@ public class ExportDataFrame extends JFrame {
 			}
 		});
 		dataPanel.add(fileTypeLabel);
+		dataPanel.add(fileTypeBox);
 		dataPanel.add(fileLabel);
 		dataPanel.add(fileField);
 		dataPanel.add(openButton);
