@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +22,7 @@ public class ExportDataFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = -7199346870193411461L;
+	private JComboBox schemaBox = new JComboBox();
 	private JTextField fileField = new JTextField();;
 	private JButton openButton = new JButton(Constants.BUTTON_OPEN);
 	private Session session;
