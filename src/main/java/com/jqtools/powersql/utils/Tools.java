@@ -496,13 +496,15 @@ public class Tools {
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
 
-			if (total == 0) {
-				values = DBTools.getColumnNames(rs);
-				// write column name to file
-				count = 0;
-				for (int x = 0; x < values.length; x++) {
+			while (rs.next()) {
+				if (total == 0) {
+					values = DBTools.getColumnNames(rs);
+					// write column name to file
+					count = 0;
+					for (int x = 0; x < values.length; x++) {
+					}
+					total++;
 				}
-				total++;
 			}
 
 			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
