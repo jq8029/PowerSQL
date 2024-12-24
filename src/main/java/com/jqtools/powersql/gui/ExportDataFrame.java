@@ -45,6 +45,7 @@ public class ExportDataFrame extends JFrame {
 		this.setTitle(Constants.TITLE_EXPORT_DATA);
 
 		JPanel dataPanel = new JPanel(null);
+		JLabel fileTypeLabel = new JLabel(Constants.LABEL_FILE_TYPE + " : ");
 		JLabel fileLabel = new JLabel(Constants.LABEL_EXPORT_TO_FILE + " : ");
 		fileLabel.setBounds(25, 45, 120, 20);
 		fileField.setBounds(25, 45, 320, 20);
