@@ -428,7 +428,7 @@ public class Tools {
 
 			cf.setWrap(false);
 
-			MessageLogger.info("  Started to execute. Please wait ...");
+			MessageLogger.info("  Started to export. Please wait ...");
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
 
@@ -492,7 +492,7 @@ public class Tools {
 		}
 
 		try {
-			MessageLogger.info("  Started to execute. Please wait ...");
+			MessageLogger.info("  Started to export. Please wait ...");
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
 
