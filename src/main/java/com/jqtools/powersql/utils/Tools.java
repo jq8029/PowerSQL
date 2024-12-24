@@ -513,6 +513,11 @@ public class Tools {
 					continue;
 				}
 
+				// write a row of records to file
+				count = 0;
+				for (int x = 0; x < values.length; x++) {
+
+				}
 			}
 
 			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
