@@ -479,6 +479,7 @@ public class Tools {
 		PreparedStatement stmt = null;
 		ResultSet rs = null;
 		String values[] = null;
+		int total = 0, count = 0;
 
 		if (file.exists()) {
 			file.delete();
@@ -491,7 +492,9 @@ public class Tools {
 		}
 
 		try {
-
+			MessageLogger.info("  Started to execute. Please wait ...");
+			stmt = session.getConnection().prepareStatement(sql);
+			rs = stmt.executeQuery();
 		} finally {
 			DBTools.close(stmt, rs);
 
