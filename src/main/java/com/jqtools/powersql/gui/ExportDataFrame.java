@@ -49,8 +49,8 @@ public class ExportDataFrame extends JFrame {
 		fileTypeLabel.setBounds(25, 15, 120, 20);
 		fileTypeBox.setBounds(25, 45, 320, 20);
 		JLabel fileLabel = new JLabel(Constants.LABEL_EXPORT_TO_FILE + " : ");
-		fileLabel.setBounds(25, 45, 120, 20);
-		fileField.setBounds(25, 45, 320, 20);
+		fileLabel.setBounds(25, 45, 100, 20);
+		fileField.setBounds(115, 45, 230, 20);
 		openButton.setBounds(25 + 320 + 3, 45, 20, 18);
 		openButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
