@@ -25,6 +25,9 @@ public class Constants {
 	public static final String LABEL_FILE_TYPE = "File Type";
 	public static final String LABEL_EXPORT_TO_FILE = "Export to File";
 
+	// File Types
+	public static final String FILE_TYPES[][] = { { "Excel File", "CSV File" }, { ".xls", ".csv" } };
+
 	// panel layout
 	public static final String PANEL_NORTH = "North";
 	public static final String PANEL_CENTER = "Center";
