@@ -481,6 +481,12 @@ public class Tools {
 			file.delete();
 		}
 
+		try {
+			file.createNewFile();
+		} catch (Exception ex) {
+			throw new Exception("Failed to create exporting data file " + file.getAbsolutePath());
+		}
+
 	}
 
 	public static File chooseFiles(File oldFile, String[] fileExts, Component component) {
