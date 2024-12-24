@@ -93,7 +93,8 @@ public class ExportDataFrame extends JFrame {
 
 	public void openFile() {
 		File file = new File(fileField.getText().trim());
-		String exts[] = { ".xls" };
+		String exts[] = new String[1];
+		exts[0] = Constants.FILE_TYPES[1][this.fileTypeBox.getSelectedIndex()];
 
 		file = Tools.chooseFiles(file, exts, this);
 
