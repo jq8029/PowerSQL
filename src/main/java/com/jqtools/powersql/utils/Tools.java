@@ -493,7 +493,7 @@ public class Tools {
 			fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
 		}
 
-		if (oldFile != null) {
+		if (oldFile != null && oldFile.getName() != null && oldFile.getName().trim().length() > 0) {
 			fc.setSelectedFile(oldFile.getAbsoluteFile());
 		}
 
