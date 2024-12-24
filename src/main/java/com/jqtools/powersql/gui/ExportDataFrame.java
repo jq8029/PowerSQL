@@ -105,7 +105,11 @@ public class ExportDataFrame extends JFrame {
 
 	public void export() {
 		try {
-			Tools.exportDataToXLS(session, sql, new File(fileField.getText().trim()));
+			if (Constants.FILE_TYPES[0][1].equals(fileTypeBox.getSelectedItem())) {
+
+			} else {
+				Tools.exportDataToXLS(session, sql, new File(fileField.getText().trim()));
+			}
 		} catch (Exception e) {
 			MessageLogger.info(e);
 		}
