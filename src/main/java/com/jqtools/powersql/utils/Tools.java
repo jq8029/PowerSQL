@@ -489,6 +489,17 @@ public class Tools {
 		} catch (Exception ex) {
 			throw new Exception("Failed to create exporting data file " + file.getAbsolutePath());
 		}
+
+		try {
+
+		} finally {
+			DBTools.close(stmt, rs);
+
+			try {
+				out.close();
+			} catch (Exception e) {
+			}
+		}
 	}
 
 	public static File chooseFiles(File oldFile, String[] fileExts, Component component) {
