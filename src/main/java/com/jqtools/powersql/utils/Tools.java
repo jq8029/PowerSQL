@@ -518,6 +518,9 @@ public class Tools {
 				for (int x = 0; x < values.length; x++) {
 
 				}
+
+				// total control the row number
+				total++;
 			}
 
 			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
