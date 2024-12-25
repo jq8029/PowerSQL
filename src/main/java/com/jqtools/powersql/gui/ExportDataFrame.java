@@ -22,7 +22,7 @@ public class ExportDataFrame extends JFrame {
 	 * 
 	 */
 	private static final long serialVersionUID = -7199346870193411461L;
-	private JComboBox fileTypeBox = new JComboBox(Constants.FILE_TYPES[0]);
+	private JComboBox<String> fileTypeBox = new JComboBox<String>(Constants.FILE_TYPES[0]);
 	private JTextField fileField = new JTextField();;
 	private JButton openButton = new JButton(Constants.BUTTON_OPEN);
 	private Session session;
