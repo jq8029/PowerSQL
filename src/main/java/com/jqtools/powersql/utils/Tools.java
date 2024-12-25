@@ -503,6 +503,9 @@ public class Tools {
 					// write column name to file
 					count = 0;
 					for (int x = 0; x < values.length; x++) {
+						if (x > 0) {
+							build.append(Constants.LINE_SEPERATOR);
+						}
 						build.append(values[x]);
 					}
 					total++;
