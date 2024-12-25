@@ -510,8 +510,8 @@ public class Tools {
 						}
 						build.append(values[i]);
 					}
-					out.write(build.toString().getBytes());
 					total++;
+					out.write(build.toString().getBytes());
 				}
 
 				values = DBTools.getValues(rs);
@@ -533,6 +533,7 @@ public class Tools {
 
 				// total control the row number
 				total++;
+				out.write(build.toString().getBytes());
 			}
 
 			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
