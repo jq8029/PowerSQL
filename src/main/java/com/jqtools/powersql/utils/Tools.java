@@ -535,6 +535,7 @@ public class Tools {
 				// total control the row number
 				total++;
 				out.write(build.toString().getBytes());
+				out.write(Constants.LINE_SEPERATOR.getBytes());
 			}
 
 			MessageLogger.info("  Finished exporting " + (total - 1) + " records from result.");
