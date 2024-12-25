@@ -508,6 +508,7 @@ public class Tools {
 						}
 						build.append(values[i]);
 					}
+					out.write(build.toString().getBytes());
 					total++;
 				}
 
