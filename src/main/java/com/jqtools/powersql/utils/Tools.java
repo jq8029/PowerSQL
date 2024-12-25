@@ -480,6 +480,7 @@ public class Tools {
 		ResultSet rs = null;
 		String values[] = null;
 		int total = 0, count = 0;
+		StringBuilder build = new StringBuilder();
 
 		if (file.exists()) {
 			file.delete();
@@ -502,6 +503,7 @@ public class Tools {
 					// write column name to file
 					count = 0;
 					for (int x = 0; x < values.length; x++) {
+						build.append(values[x]);
 					}
 					total++;
 				}
