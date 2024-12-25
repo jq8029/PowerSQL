@@ -512,6 +512,7 @@ public class Tools {
 				}
 
 				values = DBTools.getValues(rs);
+				build.delete(0, build.length());
 
 				// skip it if there is no data
 				if (values == null) {
