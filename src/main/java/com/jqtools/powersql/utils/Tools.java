@@ -521,8 +521,11 @@ public class Tools {
 
 				// write a row of records to file
 				count = 0;
-				for (int x = 0; x < values.length; x++) {
-
+				for (int i = 0; i < values.length; i++) {
+					if (i > 0) {
+						build.append(Constants.LINE_SEPERATOR);
+					}
+					build.append(values[i]);
 				}
 
 				// total control the row number
