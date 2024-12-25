@@ -494,6 +494,8 @@ public class Tools {
 
 		try {
 			MessageLogger.info("  Started to export. Please wait ...");
+
+			out = new FileOutputStream(file);
 			stmt = session.getConnection().prepareStatement(sql);
 			rs = stmt.executeQuery();
 
