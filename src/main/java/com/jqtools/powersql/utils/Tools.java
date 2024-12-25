@@ -527,7 +527,7 @@ public class Tools {
 				count = 0;
 				for (int i = 0; i < values.length; i++) {
 					if (i > 0) {
-						build.append(Constants.LINE_SEPERATOR);
+						build.append(Constants.COMMA_CHAR);
 					}
 					build.append(values[i]);
 				}
