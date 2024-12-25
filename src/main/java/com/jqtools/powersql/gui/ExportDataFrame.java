@@ -115,6 +115,7 @@ public class ExportDataFrame extends JFrame {
 			NoticeMessage.showMessage(Constants.MSG_EXPORT_SUCCESS);
 		} catch (Exception e) {
 			MessageLogger.info(e);
+			NoticeMessage.showMessage(Constants.MSG_EXPORT_FAIL);
 		}
 
 		this.setVisible(false);
