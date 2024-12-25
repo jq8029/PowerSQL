@@ -14,6 +14,7 @@ public class Constants {
 	public static final String DB_FILE = "data" + FILE_SEPERATOR + "dbinfo.txt";
 	public static final String CACHE_FILE = "data" + FILE_SEPERATOR + "cache.txt";
 	public static final char ESCAPE_CHAR = '\'';
+	public static final char COMMA_CHAR = ',';
 
 	// button tips
 	public static final String TITLE = "Power SQL";
