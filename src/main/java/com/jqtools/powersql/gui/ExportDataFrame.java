@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.utils.Tools;
 
@@ -110,6 +111,8 @@ public class ExportDataFrame extends JFrame {
 			} else {
 				Tools.exportDataToXLS(session, sql, new File(fileField.getText().trim()));
 			}
+
+			NoticeMessage.showMessage(Constants.MSG_EXPORT_SUCCESS);
 		} catch (Exception e) {
 			MessageLogger.info(e);
 		}
