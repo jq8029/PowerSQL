@@ -141,6 +141,7 @@ public class Constants {
 	public static String MSG_SELECT_COL = "Please select column name.";
 	public static String MSG_ENTER_TWO = "Please enter two values separated by comma(,).";
 	public static String MSG_EXPORT_SUCCESS = "Export to file successfull.";
+	public static String MSG_EXPORT_FAIL = "Failed to export data.";
 
 	// Menu
 	public static String MENU_CREATE = "Create";
