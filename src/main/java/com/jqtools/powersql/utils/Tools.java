@@ -512,6 +512,7 @@ public class Tools {
 					}
 					total++;
 					out.write(build.toString().getBytes());
+					out.write(Constants.LINE_SEPERATOR.getBytes());
 				}
 
 				values = DBTools.getValues(rs);
