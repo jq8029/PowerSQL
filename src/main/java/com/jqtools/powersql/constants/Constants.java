@@ -140,6 +140,7 @@ public class Constants {
 	public static String MSG_DELETE_CONN = "Do you want to delete current connection ?";
 	public static String MSG_SELECT_COL = "Please select column name.";
 	public static String MSG_ENTER_TWO = "Please enter two values separated by comma(,).";
+	public static String MSG_EXPORT_SUCCESS = "Export to file successfull.";
 
 	// Menu
 	public static String MENU_CREATE = "Create";
