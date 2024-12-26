@@ -5,4 +5,7 @@ public class FileLoader {
 		return null;
 	}
 
+	public static boolean writeObject(Object object, String fileName) {
+		return true;
+	}
 }
