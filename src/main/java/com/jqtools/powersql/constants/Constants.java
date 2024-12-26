@@ -280,4 +280,7 @@ public class Constants {
 	// Look And Feel
 	public static final String WIN_CLASS_NAME = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
 
+	// Cache
+	public static final String CACHE_SORT = "->sort";
+
 }
