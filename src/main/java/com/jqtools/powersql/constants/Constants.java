@@ -282,5 +282,6 @@ public class Constants {
 
 	// Cache
 	public static final String CACHE_SORT = "->sort";
+	public static final String CACHE_FILTER = "->filter";
 
 }
