@@ -1,8 +1,10 @@
 package com.jqtools.powersql.utils;
 
+import java.io.ByteArrayInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -10,6 +12,11 @@ import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 
 public class FileLoader {
+	public static void saveToFile(String fileName, byte[] data, boolean prompt) {
+		InputStream enInput = new ByteArrayInputStream(data);
+
+	}
+
 	public static Object readObject(String fileName) {
 		if (fileName == null) {
 			return null;
