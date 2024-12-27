@@ -19,6 +19,11 @@ public class FileLoader {
 		int readB = 0;
 		FileOutputStream out = null;
 		try {
+			// write database to prop file
+			out = new FileOutputStream(Constants.DB_FILE);
+			while ((readB = enInput.read()) != -1) {
+				out.write(readB);
+			}
 		} catch (Exception e) {
 			MessageLogger.error(e);
 		} finally {
