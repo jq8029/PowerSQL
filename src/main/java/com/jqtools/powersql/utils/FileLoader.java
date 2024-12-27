@@ -50,6 +50,9 @@ public class FileLoader {
 		File bakFile = new File(fileName + Constants.EXT_BAK);
 
 		try {
+			if (file.exists()) {
+			} else {
+			}
 
 			return true;
 		} catch (Exception ex) {
