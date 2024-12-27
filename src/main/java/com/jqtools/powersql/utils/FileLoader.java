@@ -1,6 +1,7 @@
 package com.jqtools.powersql.utils;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.ObjectInputStream;
 
 import com.jqtools.powersql.log.MessageLogger;
@@ -16,6 +17,12 @@ public class FileLoader {
 		ObjectInputStream ois = null;
 
 		try {
+			file = new File(fileName);
+
+			if (file != null && file.isFile() && file.exists()) {
+				ois = new ObjectInputStream(new FileInputStream(file));
+				object = ois.readObject();
+			}
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
 		} finally {
