@@ -51,6 +51,10 @@ public class FileLoader {
 
 		try {
 			if (file.exists()) {
+				if (bakFile.exists()) {
+					bakFile.delete();
+				}
+				file.renameTo(bakFile);
 			} else {
 				file.createNewFile();
 			}
