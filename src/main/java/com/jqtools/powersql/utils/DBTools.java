@@ -123,7 +123,7 @@ public class DBTools {
 	}
 
 	private static void save() {
-		FileLoader.saveToFile(Constants.DB_FILE, getDBInfo().getBytes());
+		FileTools.saveToFile(Constants.DB_FILE, getDBInfo().getBytes());
 	}
 
 	private static String getDBInfo() {
