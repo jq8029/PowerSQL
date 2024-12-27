@@ -3,7 +3,9 @@ package com.jqtools.powersql.utils;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
+import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 
 public class FileLoader {
@@ -41,6 +43,11 @@ public class FileLoader {
 		if (object == null || fileName == null) {
 			return false;
 		}
+
+		ObjectOutputStream oos = null;
+
+		File file = new File(fileName);
+		File bakFile = new File(fileName + Constants.EXT_BAK);
 
 		return true;
 	}
