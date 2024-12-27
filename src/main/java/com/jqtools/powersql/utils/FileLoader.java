@@ -2,6 +2,7 @@ package com.jqtools.powersql.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
@@ -58,6 +59,9 @@ public class FileLoader {
 			} else {
 				file.createNewFile();
 			}
+
+			oos = new ObjectOutputStream(new FileOutputStream(file));
+			oos.writeObject(object);
 
 			return true;
 		} catch (Exception ex) {
