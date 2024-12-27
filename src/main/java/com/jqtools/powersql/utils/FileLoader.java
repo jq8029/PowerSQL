@@ -21,6 +21,10 @@ public class FileLoader {
 		} catch (Exception e) {
 			MessageLogger.error(e);
 		} finally {
+			try {
+				enInput.close();
+			} catch (Exception e) {
+			}
 		}
 	}
 
