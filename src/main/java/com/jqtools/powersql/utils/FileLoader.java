@@ -18,6 +18,13 @@ public class FileLoader {
 		try {
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
+		} finally {
+			try {
+				if (ois != null) {
+					ois.close();
+				}
+			} catch (Exception e) {
+			}
 		}
 
 		return null;
