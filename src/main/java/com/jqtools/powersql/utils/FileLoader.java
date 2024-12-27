@@ -13,7 +13,7 @@ import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
 
 public class FileLoader {
-	public static void saveToFile(String fileName, byte[] data, boolean prompt) {
+	public static void saveToFile(String fileName, byte[] data) {
 		InputStream enInput = new ByteArrayInputStream(data);
 
 		int readB = 0;
