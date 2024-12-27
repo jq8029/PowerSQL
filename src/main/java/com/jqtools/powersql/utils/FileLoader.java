@@ -50,13 +50,14 @@ public class FileLoader {
 		File bakFile = new File(fileName + Constants.EXT_BAK);
 
 		try {
+
+			return true;
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
 		} finally {
 			try {
-				if (oos != null) {
+				if (oos != null)
 					oos.close();
-				}
 			} catch (Exception e) {
 			}
 		}
