@@ -62,6 +62,7 @@ public class FileLoader {
 
 			oos = new ObjectOutputStream(new FileOutputStream(file));
 			oos.writeObject(object);
+			oos.flush();
 
 			return true;
 		} catch (Exception ex) {
