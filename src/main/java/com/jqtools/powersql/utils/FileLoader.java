@@ -53,6 +53,11 @@ public class FileLoader {
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
 		} finally {
+			try {
+				if (oos != null)
+					oos.close();
+			} catch (Exception e) {
+			}
 		}
 
 		return false;
