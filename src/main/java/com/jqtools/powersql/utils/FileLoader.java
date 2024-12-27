@@ -34,7 +34,7 @@ public class FileLoader {
 			}
 		}
 
-		return null;
+		return object;
 	}
 
 	public static boolean writeObject(Object object, String fileName) {
