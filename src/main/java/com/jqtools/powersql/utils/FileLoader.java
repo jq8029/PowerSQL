@@ -52,6 +52,7 @@ public class FileLoader {
 		try {
 			if (file.exists()) {
 			} else {
+				file.createNewFile();
 			}
 
 			return true;
