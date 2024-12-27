@@ -54,8 +54,9 @@ public class FileLoader {
 			MessageLogger.error(ex);
 		} finally {
 			try {
-				if (oos != null)
+				if (oos != null) {
 					oos.close();
+				}
 			} catch (Exception e) {
 			}
 		}
