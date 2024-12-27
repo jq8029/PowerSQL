@@ -20,7 +20,7 @@ public class FileLoader {
 		FileOutputStream out = null;
 		try {
 			// write database to prop file
-			out = new FileOutputStream(Constants.DB_FILE);
+			out = new FileOutputStream(fileName);
 			while ((readB = enInput.read()) != -1) {
 				out.write(readB);
 			}
