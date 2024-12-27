@@ -38,8 +38,9 @@ public class FileLoader {
 	}
 
 	public static boolean writeObject(Object object, String fileName) {
-		if (object == null || fileName == null)
+		if (object == null || fileName == null) {
 			return false;
+		}
 
 		return true;
 	}
