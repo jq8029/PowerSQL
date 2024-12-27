@@ -15,6 +15,13 @@ public class FileLoader {
 	public static void saveToFile(String fileName, byte[] data, boolean prompt) {
 		InputStream enInput = new ByteArrayInputStream(data);
 
+		int readB = 0;
+		FileOutputStream out = null;
+		try {
+		} catch (Exception e) {
+			MessageLogger.error(e);
+		} finally {
+		}
 	}
 
 	public static Object readObject(String fileName) {
