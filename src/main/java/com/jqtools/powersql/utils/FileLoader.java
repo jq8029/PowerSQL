@@ -64,6 +64,10 @@ public class FileLoader {
 			oos.writeObject(object);
 			oos.flush();
 
+			if (bakFile.exists()) {
+				bakFile.delete();
+			}
+
 			return true;
 		} catch (Exception ex) {
 			MessageLogger.error(ex);
