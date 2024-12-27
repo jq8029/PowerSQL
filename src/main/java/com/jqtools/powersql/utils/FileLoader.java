@@ -49,6 +49,12 @@ public class FileLoader {
 		File file = new File(fileName);
 		File bakFile = new File(fileName + Constants.EXT_BAK);
 
-		return true;
+		try {
+		} catch (Exception ex) {
+			MessageLogger.error(ex);
+		} finally {
+		}
+
+		return false;
 	}
 }
