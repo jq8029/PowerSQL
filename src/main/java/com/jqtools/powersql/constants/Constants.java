@@ -28,6 +28,7 @@ public class Constants {
 
 	// File Types
 	public static final String FILE_TYPES[][] = { { "Excel File", "CSV File" }, { ".xls", ".csv" } };
+	public static final String EXT_BAK = ".bak";
 
 	// panel layout
 	public static final String PANEL_NORTH = "North";
