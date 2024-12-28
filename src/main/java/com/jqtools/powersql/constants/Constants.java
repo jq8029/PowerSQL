@@ -12,7 +12,7 @@ public class Constants {
 	public static final String LINE_SEPERATOR = System.getProperty("line.separator");
 	public static final String BAK_EXT = ".bak";
 	public static final String DB_FILE = "data" + FILE_SEPERATOR + "dbinfo.txt";
-	public static final String CACHE_FILE = "data" + FILE_SEPERATOR + "cache.txt";
+	public static final String CACHE_FILE = "data" + FILE_SEPERATOR + "cache";
 	public static final char ESCAPE_CHAR = '\'';
 	public static final char COMMA_CHAR = ',';
 
