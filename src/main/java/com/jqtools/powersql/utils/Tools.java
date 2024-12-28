@@ -615,9 +615,8 @@ public class Tools {
 		if (CACHE == null) {
 			Object object = FileTools.readObject(Constants.CACHE_FILE);
 			if (object == null) {
-
+				CACHE = new HashMap<String, String>();
 			} else {
-
 			}
 		}
 
