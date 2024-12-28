@@ -625,7 +625,7 @@ public class Tools {
 	}
 
 	public void saveToCache(String key, String value) {
-
+		CACHE.put(key, value);
 	}
 
 }
