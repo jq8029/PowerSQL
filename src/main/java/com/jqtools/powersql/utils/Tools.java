@@ -623,4 +623,9 @@ public class Tools {
 
 		return CACHE.get(key);
 	}
+
+	public void saveToCache(String key, String value) {
+
+	}
+
 }
