@@ -613,7 +613,7 @@ public class Tools {
 
 	public String getFromCache(String key) {
 		if (CACHE == null) {
-			Object object = FileTools.readObject(Constants.CACHE_FILE);
+			Object object = FileTools.readObject(Constants.FILE_CACHE);
 			if (object == null) {
 				CACHE = new HashMap<String, String>();
 			} else {
