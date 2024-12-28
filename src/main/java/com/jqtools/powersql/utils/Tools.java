@@ -614,6 +614,11 @@ public class Tools {
 	public String getFromCache(String key) {
 		if (CACHE == null) {
 			Object object = FileTools.readObject(Constants.CACHE_FILE);
+			if (object == null) {
+
+			} else {
+
+			}
 		}
 
 		return CACHE.get(key);
