@@ -90,7 +90,7 @@ public class DBTools {
 		conMap = new TreeMap<String, DatabaseInfo>();
 		conNames = new ArrayList<String>();
 
-		FileInputStream fis = new FileInputStream(Constants.DB_FILE);
+		FileInputStream fis = new FileInputStream(Constants.FILE_DB);
 		Properties prop = new Properties();
 		try {
 			prop.load(fis);
