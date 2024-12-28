@@ -40,6 +40,7 @@ public class Tools {
 	private static HashMap<Integer, Boolean> quotaMap = null;
 	private static final SimpleDateFormat SDF = new SimpleDateFormat(Constants.TS01);
 	private static JFileChooser fc = new JFileChooser();
+	private static HashMap<String, String> CACHE = null;
 
 	public static boolean getBoolean(String key, boolean defaultValue) {
 		try {
@@ -609,5 +610,4 @@ public class Tools {
 
 		return newFile;
 	}
-
 }
