@@ -617,6 +617,7 @@ public class Tools {
 			if (object == null) {
 				CACHE = new HashMap<String, String>();
 			} else {
+				CACHE = (HashMap<String, String>) object;
 			}
 		}
 
