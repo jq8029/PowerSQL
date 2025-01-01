@@ -624,7 +624,7 @@ public class Tools {
 		return CACHE.get(key);
 	}
 
-	public void saveToCache(String key, String value) {
+	public static void saveToCache(String key, String value) {
 		CACHE.put(key, value);
 		FileTools.writeObject(CACHE, Constants.FILE_CACHE);
 	}
