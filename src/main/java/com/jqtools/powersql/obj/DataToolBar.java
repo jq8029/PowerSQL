@@ -196,8 +196,8 @@ public class DataToolBar extends JToolBar implements ActionListener {
 		if (session != null && session.getCurrentNode() != null) {
 			this.filterSortFrame.reset();
 			String path = session.getCurrentNode().getFullPath();
-			if (session.getFilterMap().get(path) != null) {
-				this.getFilterSortFrame().setFilterSQL(session.getFilterMap().get(path));
+			if (Tools.getFromCache(path + Constants.CACHE_FILTER) != null) {
+				this.getFilterSortFrame().setFilterSQL(Tools.getFromCache(path + Constants.CACHE_FILTER));
 			}
 			if (session.getSortMap().get(path) != null) {
 				this.getFilterSortFrame().setSortSQL(session.getSortMap().get(path));
