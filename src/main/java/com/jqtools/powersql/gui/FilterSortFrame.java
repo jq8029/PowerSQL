@@ -267,7 +267,7 @@ public class FilterSortFrame extends JFrame {
 	public void updateCache() {
 		if (this.dataToolBar.getSession().getCurrentNode() != null) {
 			String path = this.dataToolBar.getSession().getCurrentNode().getFullPath();
-			this.dataToolBar.getSession().getFilterMap().put(path, this.filterArea.getText());
+			Tools.saveToCache(path + Constants.FILE_CACHE, this.filterArea.getText());
 		}
 
 		if (this.dataToolBar.getSession().getCurrentNode() != null) {
