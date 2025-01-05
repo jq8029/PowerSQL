@@ -15,6 +15,10 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	private ColumnChangeFrame() {
+		initialize();
+	}
+
+	public void initialize() {
 
 	}
 }
