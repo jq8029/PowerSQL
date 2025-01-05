@@ -29,4 +29,8 @@ public class ColumnChangeFrame extends JFrame {
 	public void drop() {
 
 	}
+
+	public void cancel() {
+		this.setVisible(false);
+	}
 }
