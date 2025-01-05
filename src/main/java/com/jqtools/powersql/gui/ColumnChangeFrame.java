@@ -26,6 +26,7 @@ public class ColumnChangeFrame extends JFrame {
 	private ColumnChangeFrame() {
 		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 		JPanel centerPanel = new JPanel(new BorderLayout());
+		JPanel buttonPanel = new JPanel(new BorderLayout());
 
 		splitPane.setTopComponent(centerPanel);
 
