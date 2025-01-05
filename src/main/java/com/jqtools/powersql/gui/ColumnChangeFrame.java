@@ -23,7 +23,7 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	private ColumnChangeFrame() {
-		this.setLayout(null);
+		this.setLayout(new BorderLayout());
 		JPanel panel = new JPanel(null);
 
 		this.add(panel, BorderLayout.CENTER);
