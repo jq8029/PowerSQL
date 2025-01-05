@@ -12,6 +12,7 @@ import com.jqtools.powersql.utils.Tools;
 
 public class DatabaseData {
 	private ArrayList<String> dataTypesWithQuota = new ArrayList<String>();
+	private ArrayList<String> allDataTypes = new ArrayList<String>();
 
 	public String getCatalogAllSQL() {
 		return null;
