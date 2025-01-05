@@ -1,5 +1,7 @@
 package com.jqtools.powersql.gui;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JFrame;
 
 import com.jqtools.powersql.obj.Session;
@@ -20,11 +22,7 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	private ColumnChangeFrame() {
-		initialize();
-	}
-
-	public void initialize() {
-
+		this.setLayout(new BorderLayout());
 	}
 
 	public void change() {
