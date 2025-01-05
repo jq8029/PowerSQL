@@ -48,6 +48,18 @@ public class DatabaseData {
 		return dataTypesWithQuota;
 	}
 
+	public ArrayList<String> getAllDataTypes() {
+		return allDataTypes;
+	}
+
+	public ArrayList<String> getDataTypesWithLen() {
+		return dataTypesWithLen;
+	}
+
+	public ArrayList<String> getDataTypesWithScale() {
+		return dataTypesWithScale;
+	}
+
 	public String getTableSQL(Info info) {
 		return new StringBuilder().append("select * from ").append(getTableName(info)).toString();
 	}
