@@ -2,10 +2,8 @@ package com.jqtools.powersql.gui;
 
 import java.awt.BorderLayout;
 
-import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JSplitPane;
 
 import com.jqtools.powersql.obj.Session;
 
@@ -25,17 +23,10 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	private ColumnChangeFrame() {
-		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
-		JPanel centerPanel = new JPanel(new BorderLayout());
-		JPanel buttonPanel = new JPanel();
-		buttonPanel.setLayout(new BoxLayout(buttonPanel, BoxLayout.X_AXIS));
+		this.setLayout(null);
+		JPanel panel = new JPanel(null);
 
-		splitPane.setTopComponent(centerPanel);
-		splitPane.setDividerSize(5);
-		splitPane.setBottomComponent(buttonPanel);
-
-		this.setLayout(new BorderLayout());
-		this.add(splitPane, BorderLayout.CENTER);
+		this.add(panel, BorderLayout.CENTER);
 	}
 
 	public void change() {
