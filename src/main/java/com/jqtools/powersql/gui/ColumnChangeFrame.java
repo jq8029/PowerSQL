@@ -2,11 +2,14 @@ package com.jqtools.powersql.gui;
 
 import javax.swing.JFrame;
 
+import com.jqtools.powersql.obj.Session;
+
 public class ColumnChangeFrame extends JFrame {
 
 	private static final long serialVersionUID = 3686492535018911494L;
 
 	private static ColumnChangeFrame instance = null;
+	private Session session = null;
 
 	public static ColumnChangeFrame getInstance() {
 		if (instance == null) {
