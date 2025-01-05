@@ -29,6 +29,7 @@ public class ColumnChangeFrame extends JFrame {
 		JPanel buttonPanel = new JPanel(new BorderLayout());
 
 		splitPane.setTopComponent(centerPanel);
+		splitPane.setBottomComponent(buttonPanel);
 
 		this.setLayout(new BorderLayout());
 		this.add(splitPane, BorderLayout.CENTER);
