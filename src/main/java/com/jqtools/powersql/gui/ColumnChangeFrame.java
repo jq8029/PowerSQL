@@ -33,4 +33,8 @@ public class ColumnChangeFrame extends JFrame {
 	public void cancel() {
 		this.setVisible(false);
 	}
+
+	public void setVisible(boolean b) {
+		super.setVisible(b);
+	}
 }
