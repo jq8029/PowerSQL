@@ -37,4 +37,8 @@ public class ColumnChangeFrame extends JFrame {
 	public void setVisible(boolean b) {
 		super.setVisible(b);
 	}
+
+	public static void main(String[] args) {
+		new ColumnChangeFrame().setVisible(true);
+	}
 }
