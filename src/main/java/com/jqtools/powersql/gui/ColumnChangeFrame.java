@@ -26,6 +26,7 @@ public class ColumnChangeFrame extends JFrame {
 		JSplitPane splitPane = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 
 		this.setLayout(new BorderLayout());
+		this.add(splitPane, BorderLayout.CENTER);
 	}
 
 	public void change() {
