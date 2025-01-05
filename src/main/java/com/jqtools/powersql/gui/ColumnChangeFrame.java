@@ -1,14 +1,12 @@
 package com.jqtools.powersql.gui;
 
 import javax.swing.JFrame;
-import javax.swing.JTabbedPane;
 
 public class ColumnChangeFrame extends JFrame {
 
 	private static final long serialVersionUID = 3686492535018911494L;
 
 	private static ColumnChangeFrame instance = null;
-	private JTabbedPane tabPane = new JTabbedPane();
 
 	public static ColumnChangeFrame getInstance() {
 		if (instance == null) {
