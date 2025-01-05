@@ -35,6 +35,10 @@ public class ColumnChangeFrame extends JFrame {
 
 	}
 
+	public void setSession(Session session) {
+		this.session = session;
+	}
+
 	public void cancel() {
 		this.setVisible(false);
 	}
