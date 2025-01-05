@@ -25,4 +25,8 @@ public class ColumnChangeFrame extends JFrame {
 	public void change() {
 
 	}
+
+	public void drop() {
+
+	}
 }
