@@ -31,9 +31,9 @@ public class ColumnChangeFrame extends JFrame {
 		int x = 30, y = 50;
 
 		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
-		changeButton.setBounds(x, y, 75, 18);
+		changeButton.setBounds(x, y, 85, 18);
 		JButton dropButton = new JButton(Constants.BUTTON_DROP);
-		dropButton.setBounds(x + 100, y, 75, 18);
+		dropButton.setBounds(x + 95, y, 85, 18);
 
 		panel.add(changeButton);
 		panel.add(dropButton);
