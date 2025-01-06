@@ -119,6 +119,7 @@ public class Constants {
 	public static String BUTTON_ADD = "Add";
 	public static String BUTTON_APPLY = "Apply";
 	public static String BUTTON_CANCEL = "Cancel";
+	public static String BUTTON_CHANGE = "Change";
 	public static String BUTTON_CLOSE = "Close";
 	public static String BUTTON_EXPORT = "Export";
 	public static String BUTTON_OPEN = "Open";
