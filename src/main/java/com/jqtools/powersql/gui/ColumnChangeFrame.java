@@ -2,9 +2,11 @@ package com.jqtools.powersql.gui;
 
 import java.awt.BorderLayout;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.Session;
 
 public class ColumnChangeFrame extends JFrame {
@@ -26,6 +28,8 @@ public class ColumnChangeFrame extends JFrame {
 		this.setLayout(new BorderLayout());
 		JPanel panel = new JPanel(null);
 		int x, y;
+
+		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
 
 		this.add(panel, BorderLayout.CENTER);
 	}
