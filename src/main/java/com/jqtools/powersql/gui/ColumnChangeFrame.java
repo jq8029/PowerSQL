@@ -38,6 +38,7 @@ public class ColumnChangeFrame extends JFrame {
 
 		this.setPreferredSize(new Dimension(420, 200));
 		this.pack();
+		setLocationRelativeTo(this);
 	}
 
 	public void change() {
