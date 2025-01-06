@@ -18,9 +18,10 @@ public class ColumnChangeFrame extends JFrame {
 
 	private static ColumnChangeFrame instance = null;
 	private Session session = null;
-	private JTextField tableField = new JTextField();;
-	private JTextField colTypeField = new JTextField();;
-	private JTextField colLengthField = new JTextField();;
+	private JTextField tableField = new JTextField();
+	private JTextField colTypeField = new JTextField();
+	private JTextField colLengthField = new JTextField();
+	private JTextField colScaleField = new JTextField();
 
 	public static ColumnChangeFrame getInstance() {
 		if (instance == null) {
