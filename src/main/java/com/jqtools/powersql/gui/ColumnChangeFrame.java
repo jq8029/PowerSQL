@@ -37,6 +37,7 @@ public class ColumnChangeFrame extends JFrame {
 		this.add(panel, BorderLayout.CENTER);
 
 		this.setPreferredSize(new Dimension(420, 200));
+		this.pack();
 	}
 
 	public void change() {
