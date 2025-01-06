@@ -31,6 +31,7 @@ public class ColumnChangeFrame extends JFrame {
 
 		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
 
+		panel.add(changeButton);
 		this.add(panel, BorderLayout.CENTER);
 	}
 
