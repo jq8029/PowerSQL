@@ -20,6 +20,7 @@ public class ColumnChangeFrame extends JFrame {
 	private Session session = null;
 	private JTextField tableField = new JTextField();
 	private JTextField columnField = new JTextField();
+	private JTextField colNewField = new JTextField();
 	private JTextField colTypeField = new JTextField();
 	private JTextField colLengthField = new JTextField();
 	private JTextField colScaleField = new JTextField();
@@ -35,7 +36,7 @@ public class ColumnChangeFrame extends JFrame {
 	private ColumnChangeFrame() {
 		this.setLayout(new BorderLayout());
 		JPanel panel = new JPanel(null);
-		int x1 = 30, w1 = 150, x2 = 200, w2 = 300, y = 10, h = 18, hs = 25;
+		int x1 = 15, w1 = 150, x2 = 115, w2 = 270, y = 10, h = 18, hs = 25;
 
 		JLabel tableLabel = new JLabel(Constants.LABEL_TABLE_NAME + " : ");
 		JLabel columnLabel = new JLabel(Constants.LABEL_COLUMN_NAME + " : ");
@@ -74,6 +75,7 @@ public class ColumnChangeFrame extends JFrame {
 		panel.add(colScaleLabel);
 		panel.add(tableField);
 		panel.add(columnField);
+		panel.add(colNewField);
 		panel.add(colTypeField);
 		panel.add(colLengthField);
 		panel.add(colScaleField);
