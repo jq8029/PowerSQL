@@ -34,7 +34,7 @@ public class ColumnChangeFrame extends JFrame {
 	private ColumnChangeFrame() {
 		this.setLayout(new BorderLayout());
 		JPanel panel = new JPanel(null);
-		int x = 30, y = 50;
+		int x1 = 30, y = 50;
 
 		JLabel tableLabel = new JLabel(Constants.LABEL_TABLE_NAME + " : ");
 		JLabel columnLabel = new JLabel(Constants.LABEL_COLUMN_NAME + " : ");
@@ -42,13 +42,13 @@ public class ColumnChangeFrame extends JFrame {
 		JLabel colLengthLabel = new JLabel(Constants.LABEL_COLUMN_LENGTH + " : ");
 		JLabel colScaleLabel = new JLabel(Constants.LABEL_COLUMN_SCALE + " : ");
 
-		x = x + 40;
+		x1 = x1 + 40;
 		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
-		changeButton.setBounds(x, y, 85, 18);
+		changeButton.setBounds(x1, y, 85, 18);
 		JButton dropButton = new JButton(Constants.BUTTON_DROP);
-		dropButton.setBounds(x + 95, y, 85, 18);
+		dropButton.setBounds(x1 + 95, y, 85, 18);
 		JButton cancelButton = new JButton(Constants.BUTTON_CANCEL);
-		cancelButton.setBounds(x + 190, y, 85, 18);
+		cancelButton.setBounds(x1 + 190, y, 85, 18);
 
 		panel.add(changeButton);
 		panel.add(dropButton);
