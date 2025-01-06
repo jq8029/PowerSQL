@@ -129,6 +129,8 @@ public class Constants {
 	public static String BUTTON_TEST = "Test";
 	public static final Color DEFAULT_BACKGROUND = new Color(238, 238, 238);
 
+	public static String LABEL_TABLE_NAME = "Table Name";
+
 	// Title
 	public static String TITLE_CONNECTION = "Connection";
 	public static String TITLE_EXPORT_DATA = "Export Data";
