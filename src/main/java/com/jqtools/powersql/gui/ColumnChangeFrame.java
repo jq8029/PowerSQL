@@ -20,6 +20,7 @@ public class ColumnChangeFrame extends JFrame {
 	private Session session = null;
 	private JTextField tableField = new JTextField();;
 	private JTextField colTypeField = new JTextField();;
+	private JTextField colLengthField = new JTextField();;
 
 	public static ColumnChangeFrame getInstance() {
 		if (instance == null) {
