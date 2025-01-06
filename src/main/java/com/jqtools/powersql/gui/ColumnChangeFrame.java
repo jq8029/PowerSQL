@@ -34,6 +34,7 @@ public class ColumnChangeFrame extends JFrame {
 		JLabel tableLabel = new JLabel(Constants.LABEL_TABLE_NAME + " : ");
 		JLabel columnLabel = new JLabel(Constants.LABEL_COLUMN_NAME + " : ");
 		JLabel colTypeLabel = new JLabel(Constants.LABEL_COLUMN_TYPE + " : ");
+		JLabel colLengthLabel = new JLabel(Constants.LABEL_COLUMN_LENGTH + " : ");
 
 		x = x + 40;
 		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
