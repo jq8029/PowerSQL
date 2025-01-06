@@ -130,6 +130,7 @@ public class Constants {
 	public static final Color DEFAULT_BACKGROUND = new Color(238, 238, 238);
 
 	public static String LABEL_TABLE_NAME = "Table Name";
+	public static String LABEL_COLUMN_NAME = "Column Name";
 
 	// Title
 	public static String TITLE_CONNECTION = "Connection";
