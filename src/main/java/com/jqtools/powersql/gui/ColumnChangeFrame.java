@@ -34,7 +34,7 @@ public class ColumnChangeFrame extends JFrame {
 	private ColumnChangeFrame() {
 		this.setLayout(new BorderLayout());
 		JPanel panel = new JPanel(null);
-		int x1 = 30, w1 = 150, w2 = 300, y = 50, h = 18, hs = 30;
+		int x1 = 30, w1 = 150, w2 = 300, y = 10, h = 18, hs = 30;
 
 		JLabel tableLabel = new JLabel(Constants.LABEL_TABLE_NAME + " : ");
 		JLabel columnLabel = new JLabel(Constants.LABEL_COLUMN_NAME + " : ");
@@ -49,7 +49,7 @@ public class ColumnChangeFrame extends JFrame {
 		colTypeLabel.setBounds(x1, y, w1, h);
 		y += hs;
 		colLengthLabel.setBounds(x1, y, w1, h);
-		y += 2 * hs;
+		y += hs;
 		colScaleLabel.setBounds(x1, y, w1, h);
 		y += 2 * hs;
 
