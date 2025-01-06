@@ -36,6 +36,7 @@ public class ColumnChangeFrame extends JFrame {
 		dropButton.setBounds(x + 100, y, 75, 18);
 
 		panel.add(changeButton);
+		panel.add(dropButton);
 		this.add(panel, BorderLayout.CENTER);
 
 		this.setPreferredSize(new Dimension(420, 200));
