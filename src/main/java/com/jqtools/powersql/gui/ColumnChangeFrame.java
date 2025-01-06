@@ -5,6 +5,7 @@ import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import com.jqtools.powersql.constants.Constants;
@@ -30,6 +31,9 @@ public class ColumnChangeFrame extends JFrame {
 		JPanel panel = new JPanel(null);
 		int x = 30, y = 50;
 
+		JLabel tableLabel = new JLabel(Constants.LABEL_NAME + " : ");
+
+		x = x + 40;
 		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
 		changeButton.setBounds(x, y, 85, 18);
 		JButton dropButton = new JButton(Constants.BUTTON_DROP);
