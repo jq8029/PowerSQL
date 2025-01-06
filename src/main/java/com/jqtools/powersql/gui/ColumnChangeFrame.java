@@ -1,6 +1,7 @@
 package com.jqtools.powersql.gui;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -34,6 +35,8 @@ public class ColumnChangeFrame extends JFrame {
 
 		panel.add(changeButton);
 		this.add(panel, BorderLayout.CENTER);
+
+		this.setPreferredSize(new Dimension(420, 200));
 	}
 
 	public void change() {
