@@ -27,7 +27,7 @@ public class ColumnChangeFrame extends JFrame {
 	private ColumnChangeFrame() {
 		this.setLayout(new BorderLayout());
 		JPanel panel = new JPanel(null);
-		int x, y;
+		int x = 30, y = 50;
 
 		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
 
