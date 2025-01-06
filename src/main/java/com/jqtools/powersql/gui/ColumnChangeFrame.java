@@ -53,6 +53,7 @@ public class ColumnChangeFrame extends JFrame {
 		colTypeField.setBounds(x2, y, w2, h);
 		y += hs;
 		colLengthLabel.setBounds(x1, y, w1, h);
+		colLengthField.setBounds(x2, y, w2, h);
 		y += hs;
 		colScaleLabel.setBounds(x1, y, w1, h);
 		y += 2 * hs;
