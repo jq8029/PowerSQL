@@ -132,7 +132,7 @@ public class Constants {
 	public static String LABEL_TABLE_NAME = "Table Name";
 	public static String LABEL_COLUMN_NAME = "Column Name";
 	public static String LABEL_COLUMN_TYPE = "Column Type";
-	public static String LABEL_COLUMN_Length = "Column Length";
+	public static String LABEL_COLUMN_LENGTH = "Column Length";
 
 	// Title
 	public static String TITLE_CONNECTION = "Connection";
