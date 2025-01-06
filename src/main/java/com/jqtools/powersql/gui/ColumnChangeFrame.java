@@ -77,7 +77,7 @@ public class ColumnChangeFrame extends JFrame {
 		panel.add(cancelButton);
 		this.add(panel, BorderLayout.CENTER);
 
-		this.setPreferredSize(new Dimension(420, 200));
+		this.setPreferredSize(new Dimension(420, 230));
 		this.pack();
 		setLocationRelativeTo(this);
 	}
