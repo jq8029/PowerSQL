@@ -7,6 +7,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.Session;
@@ -17,6 +18,7 @@ public class ColumnChangeFrame extends JFrame {
 
 	private static ColumnChangeFrame instance = null;
 	private Session session = null;
+	private JTextField tableField = new JTextField();;
 
 	public static ColumnChangeFrame getInstance() {
 		if (instance == null) {
