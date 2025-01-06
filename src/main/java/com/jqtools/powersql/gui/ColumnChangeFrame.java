@@ -42,6 +42,9 @@ public class ColumnChangeFrame extends JFrame {
 		JLabel colLengthLabel = new JLabel(Constants.LABEL_COLUMN_LENGTH + " : ");
 		JLabel colScaleLabel = new JLabel(Constants.LABEL_COLUMN_SCALE + " : ");
 
+		tableLabel.setBounds(x1, y, w1, h);
+		y += hs;
+
 		x1 = x1 + 40;
 		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
 		changeButton.setBounds(x1, y, 85, h);
