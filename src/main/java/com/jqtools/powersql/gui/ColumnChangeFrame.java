@@ -2,6 +2,8 @@ package com.jqtools.powersql.gui;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -68,6 +70,11 @@ public class ColumnChangeFrame extends JFrame {
 		dropButton.setBounds(x1 + 95, y, 85, h);
 		JButton cancelButton = new JButton(Constants.BUTTON_CANCEL);
 		cancelButton.setBounds(x1 + 190, y, 85, h);
+		cancelButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				cancel();
+			}
+		});
 
 		panel.add(tableLabel);
 		panel.add(columnLabel);
