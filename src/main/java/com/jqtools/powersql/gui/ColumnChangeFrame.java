@@ -130,6 +130,9 @@ public class ColumnChangeFrame extends JFrame {
 				colTypeBox.addItem(item);
 			}
 		}
+
+		tableField.setText(info.getName());
+		columnField.setText(info.getColumnName());
 	}
 
 	public void cancel() {
