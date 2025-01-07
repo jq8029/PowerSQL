@@ -140,7 +140,10 @@ public class ColumnChangeFrame extends JFrame {
 		} else {
 			colLengthField.setEditable(true);
 			colScaleField.setEditable(true);
-			colLengthField.setText(String.valueOf(info.getNumericLen()));
+			if (info.getNumericLen() > 0) {
+				colLengthField.setText(String.valueOf(info.getNumericLen()));
+			}
+
 			colScaleField.setText(String.valueOf(info.getNumericScale()));
 		}
 	}
