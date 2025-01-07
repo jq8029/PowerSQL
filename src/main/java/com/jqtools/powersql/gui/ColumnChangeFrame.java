@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,7 +26,7 @@ public class ColumnChangeFrame extends JFrame {
 	private JTextField tableField = new JTextField();
 	private JTextField columnField = new JTextField();
 	private JTextField colNewField = new JTextField();
-	private JTextField colTypeField = new JTextField();
+	private JComboBox<String> colTypeBox = new JComboBox<String>();
 	private JTextField colLengthField = new JTextField();
 	private JTextField colScaleField = new JTextField();
 
@@ -56,7 +57,7 @@ public class ColumnChangeFrame extends JFrame {
 		colNewField.setBounds(x2 + w2 / 2 + 3, y, w2 / 2 - 2, h);
 		y += hs;
 		colTypeLabel.setBounds(x1, y, w1, h);
-		colTypeField.setBounds(x2, y, w2, h);
+		colTypeBox.setBounds(x2, y, w2, h);
 		y += hs;
 		colLengthLabel.setBounds(x1, y, w1, h);
 		colLengthField.setBounds(x2, y, w2, h);
@@ -96,7 +97,7 @@ public class ColumnChangeFrame extends JFrame {
 		panel.add(tableField);
 		panel.add(columnField);
 		panel.add(colNewField);
-		panel.add(colTypeField);
+		panel.add(colTypeBox);
 		panel.add(colLengthField);
 		panel.add(colScaleField);
 		panel.add(changeButton);
