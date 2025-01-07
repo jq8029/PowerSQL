@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Session;
 
 public class ColumnChangeFrame extends JFrame {
@@ -20,6 +21,7 @@ public class ColumnChangeFrame extends JFrame {
 
 	private static ColumnChangeFrame instance = null;
 	private Session session = null;
+	private ColumnInfo info = null;
 	private JTextField tableField = new JTextField();
 	private JTextField columnField = new JTextField();
 	private JTextField colNewField = new JTextField();
