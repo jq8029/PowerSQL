@@ -123,6 +123,11 @@ public class ColumnChangeFrame extends JFrame {
 		this.info = info;
 
 		colTypeBox.removeAllItems();
+		if (session.getDbData().getAllDataTypes().size() > 0) {
+			for (String item : session.getDbData().getAllDataTypes()) {
+				colTypeBox.addItem(item);
+			}
+		}
 	}
 
 	public void cancel() {
