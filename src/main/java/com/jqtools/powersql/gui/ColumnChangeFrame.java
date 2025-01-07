@@ -68,6 +68,11 @@ public class ColumnChangeFrame extends JFrame {
 		changeButton.setBounds(x1, y, 85, h);
 		JButton dropButton = new JButton(Constants.BUTTON_DROP);
 		dropButton.setBounds(x1 + 95, y, 85, h);
+		dropButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				drop();
+			}
+		});
 		JButton cancelButton = new JButton(Constants.BUTTON_CANCEL);
 		cancelButton.setBounds(x1 + 190, y, 85, h);
 		cancelButton.addActionListener(new ActionListener() {
