@@ -118,8 +118,11 @@ public class ColumnChangeFrame extends JFrame {
 
 	}
 
-	public void setSession(Session session) {
+	public void setData(Session session, ColumnInfo info) {
 		this.session = session;
+		this.info = info;
+
+		colTypeBox.removeAllItems();
 	}
 
 	public void cancel() {
