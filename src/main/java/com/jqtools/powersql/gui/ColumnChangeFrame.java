@@ -133,6 +133,7 @@ public class ColumnChangeFrame extends JFrame {
 
 		tableField.setText(info.getName());
 		columnField.setText(info.getColumnName());
+		colTypeBox.setSelectedItem(info.getTypeName());
 	}
 
 	public void cancel() {
