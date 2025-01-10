@@ -47,4 +47,8 @@ public class MySQLData extends DatabaseData {
 		return "";
 	}
 
+	@Override
+	public String changeColumn(ColumnInfo source, ColumnInfo dest) {
+		return "";
+	}
 }
