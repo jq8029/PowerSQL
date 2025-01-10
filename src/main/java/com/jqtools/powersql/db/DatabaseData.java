@@ -244,6 +244,11 @@ public class DatabaseData {
 		return buffer.toString();
 	}
 
+	// Column
+	public String renameColumnName(ColumnInfo source, ColumnInfo dest) {
+		return "";
+	}
+
 	public String getFormatValue(Object value, ColumnInfo cInfo) {
 		boolean quote = this.getDataTypesWithQuota().contains(cInfo.getTypeName().toLowerCase());
 
