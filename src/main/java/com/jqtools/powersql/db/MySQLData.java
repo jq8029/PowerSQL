@@ -1,5 +1,6 @@
 package com.jqtools.powersql.db;
 
+import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
 
 public class MySQLData extends DatabaseData {
@@ -40,4 +41,10 @@ public class MySQLData extends DatabaseData {
 				+ info.getSchema() + "' and kcu.TABLE_NAME='" + info.getName()
 				+ "' ORDER BY kcu.TABLE_SCHEMA, kcu.TABLE_NAME, kcu.CONSTRAINT_NAME, kcu.ORDINAL_POSITION";
 	}
+
+	@Override
+	public String renameColumnName(ColumnInfo source, ColumnInfo dest) {
+		return "";
+	}
+
 }
