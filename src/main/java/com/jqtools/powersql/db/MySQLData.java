@@ -64,6 +64,12 @@ public class MySQLData extends DatabaseData {
 	}
 
 	@Override
+	public String dropColumnSQL(ColumnInfo info) {
+		return new StringBuffer().append("ALTER TABLE ").append(info.getSchema()).append(".").append(info.getName())
+				.append(" DROP COLUMN ").append(info.getColumnName()).toString();
+	}
+
+	@Override
 	public String changeColumn(ColumnInfo oldInfo, ColumnInfo newInfo) {
 		StringBuffer buffer = new StringBuffer().append("ALTER TABLE ").append("    ").append(oldInfo.getSchema())
 				.append(".").append(oldInfo.getName()).append(Constants.LINE_SEPERATOR).append(" MODIFY COLUMN ")
