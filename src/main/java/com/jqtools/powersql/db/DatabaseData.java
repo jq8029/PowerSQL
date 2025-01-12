@@ -245,7 +245,7 @@ public class DatabaseData {
 	}
 
 	// Column
-	public String renameColumnName(ColumnInfo source, ColumnInfo dest) {
+	public String renameColumnName(ColumnInfo oldInfo, ColumnInfo newInfo) {
 		return "";
 	}
 
