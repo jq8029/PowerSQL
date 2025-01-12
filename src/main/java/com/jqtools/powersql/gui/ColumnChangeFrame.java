@@ -120,7 +120,7 @@ public class ColumnChangeFrame extends JFrame {
 
 		if (!newInfo.equal(info)) {
 			if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
-
+				session.getDbData().renameColumnName(info, newInfo);
 			}
 		}
 	}
