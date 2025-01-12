@@ -113,7 +113,7 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	public void change() {
-
+		ColumnInfo newInfo = (ColumnInfo) info.clone();
 	}
 
 	public void drop() {
