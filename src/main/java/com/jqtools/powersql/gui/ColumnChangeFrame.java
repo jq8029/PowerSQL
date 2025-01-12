@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Session;
+import com.jqtools.powersql.utils.Tools;
 
 public class ColumnChangeFrame extends JFrame {
 
@@ -115,6 +116,11 @@ public class ColumnChangeFrame extends JFrame {
 	public void change() {
 		ColumnInfo newInfo = (ColumnInfo) info.clone();
 		newInfo.setColumnName(colNewField.getText().trim());
+		newInfo.setNumericLen(Tools.getInt(colNewField.getText().trim(), newInfo.getNumericLen()));
+
+		if (!newInfo.equal(info)) {
+
+		}
 	}
 
 	public void drop() {
