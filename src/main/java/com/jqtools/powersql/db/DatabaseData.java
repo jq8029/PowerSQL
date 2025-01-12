@@ -253,6 +253,10 @@ public class DatabaseData {
 		return "";
 	}
 
+	public String dropColumnSQL(ColumnInfo info) {
+		return "";
+	}
+
 	public String getFormatValue(Object value, ColumnInfo cInfo) {
 		boolean quote = this.getDataTypesWithQuota().contains(cInfo.getTypeName().toLowerCase());
 
