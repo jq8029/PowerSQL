@@ -130,8 +130,10 @@ public class ColumnInfo extends Info {
 			return false;
 		}
 
-		return super.equal(info) && Tools.isEqual(((ColumnInfo) info).getColumnName(), this.getColumnName())
-				&& Tools.isEqual(((ColumnInfo) info).getTypeName(), this.getTypeName());
+		ColumnInfo colInfo = ((ColumnInfo) info);
+
+		return super.equal(colInfo) && Tools.isEqual(colInfo.getColumnName(), this.getColumnName())
+				&& Tools.isEqual(colInfo.getTypeName(), this.getTypeName());
 	}
 
 	@Override
