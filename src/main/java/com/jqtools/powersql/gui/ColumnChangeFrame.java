@@ -127,7 +127,7 @@ public class ColumnChangeFrame extends JFrame {
 		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
 				&& newInfo.getNumericLen() == info.getNumericLen()
 				&& newInfo.getNumericScale() == info.getNumericScale())) {
-
+			session.getDbData().changeColumn(info, newInfo);
 		}
 	}
 
