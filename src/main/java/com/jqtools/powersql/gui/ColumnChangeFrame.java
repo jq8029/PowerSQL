@@ -132,7 +132,7 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	public void drop() {
-
+		session.getDbData().dropColumnSQL(info);
 	}
 
 	public void setData(Session session, ColumnInfo info) {
