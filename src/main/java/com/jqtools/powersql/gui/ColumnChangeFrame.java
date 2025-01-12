@@ -123,6 +123,12 @@ public class ColumnChangeFrame extends JFrame {
 				session.getDbData().renameColumnName(info, newInfo);
 			}
 		}
+
+		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
+				&& newInfo.getNumericLen() == info.getNumericLen()
+				&& newInfo.getNumericScale() == info.getNumericScale())) {
+
+		}
 	}
 
 	public void drop() {
