@@ -114,6 +114,7 @@ public class ColumnChangeFrame extends JFrame {
 
 	public void change() {
 		ColumnInfo newInfo = (ColumnInfo) info.clone();
+		newInfo.setColumnName(colNewField.getText().trim());
 	}
 
 	public void drop() {
