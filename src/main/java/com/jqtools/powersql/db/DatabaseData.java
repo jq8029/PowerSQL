@@ -249,7 +249,7 @@ public class DatabaseData {
 		return "";
 	}
 
-	public String changeColumn(ColumnInfo source, ColumnInfo dest) {
+	public String changeColumn(ColumnInfo oldInfo, ColumnInfo newInfo) {
 		return "";
 	}
 
