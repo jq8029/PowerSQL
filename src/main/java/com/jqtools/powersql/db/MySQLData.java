@@ -53,6 +53,10 @@ public class MySQLData extends DatabaseData {
 		if (newInfo.getNumericLen() > 0) {
 			buffer.append(" ( ").append(newInfo.getNumericLen());
 
+			if (newInfo.getNumericScale() > 0) {
+				buffer.append(", ").append(newInfo.getNumericScale());
+			}
+
 			buffer.append(" ) ");
 		}
 
