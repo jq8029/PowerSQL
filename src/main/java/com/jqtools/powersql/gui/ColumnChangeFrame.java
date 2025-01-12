@@ -116,6 +116,7 @@ public class ColumnChangeFrame extends JFrame {
 	public void change() {
 		ColumnInfo newInfo = (ColumnInfo) info.clone();
 		newInfo.setColumnName(colNewField.getText().trim());
+		newInfo.setTypeName(String.valueOf(colTypeBox.getSelectedItem()));
 		newInfo.setNumericLen(Tools.getInt(colNewField.getText().trim(), newInfo.getNumericLen()));
 
 		if (!newInfo.equal(info)) {
