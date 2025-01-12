@@ -1,5 +1,6 @@
 package com.jqtools.powersql.db;
 
+import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
 
@@ -43,8 +44,13 @@ public class MySQLData extends DatabaseData {
 	}
 
 	@Override
-	public String renameColumnName(ColumnInfo source, ColumnInfo dest) {
-		return "";
+	public String renameColumnName(ColumnInfo oldInfo, ColumnInfo newInfo) {
+		StringBuffer buffer = new StringBuffer().append("ALTER TABLE ").append("    ").append(oldInfo.getSchema())
+				.append(".").append(oldInfo.getName()).append(Constants.LINE_SEPERATOR).append(" CHANGE COLUMN ")
+				.append("    ").append(oldInfo.getColumnName()).append(Constants.LINE_SEPERATOR).append("    ")
+				.append(newInfo.getColumnName());
+
+		return buffer.toString();
 	}
 
 	@Override
