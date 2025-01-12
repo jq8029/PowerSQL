@@ -157,6 +157,18 @@ public class Tools {
 		}
 	}
 
+	public static boolean isEqualIgnoreCase(String value1, String value2) {
+		if (value1 == null && value2 == null) {
+			return true;
+		} else if (value1 != null && value2 == null) {
+			return false;
+		} else if (value1 == null && value2 != null) {
+			return false;
+		} else {
+			return value1.equalsIgnoreCase(value2);
+		}
+	}
+
 	public static boolean isQuote(int type) {
 		if (quotaMap == null) {
 			quotaMap = new HashMap<Integer, Boolean>();
