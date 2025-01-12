@@ -126,10 +126,12 @@ public class ColumnInfo extends Info {
 
 	@Override
 	public boolean equal(Info info) {
-		if (info == null || !(info instanceof ColumnInfo))
+		if (info == null || !(info instanceof ColumnInfo)) {
 			return false;
+		}
 
-		return super.equal(info) && Tools.isEqual(this.getColumnName(), ((ColumnInfo) info).getColumnName());
+		return super.equal(info) && Tools.isEqual(((ColumnInfo) info).getColumnName(), this.getColumnName())
+				&& Tools.isEqual(((ColumnInfo) info).getTypeName(), this.getTypeName());
 	}
 
 	@Override
