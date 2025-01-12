@@ -135,7 +135,7 @@ public class ColumnInfo extends Info {
 		return super.equal(colInfo) && Tools.isEqual(colInfo.getColumnName(), this.getColumnName())
 				&& Tools.isEqual(colInfo.getTypeName(), this.getTypeName())
 				&& colInfo.getNumericLen() == this.getNumericLen()
-				&& colInfo.getNumericScale() == colInfo.getNumericScale();
+				&& colInfo.getNumericScale() == this.getNumericScale();
 	}
 
 	@Override
