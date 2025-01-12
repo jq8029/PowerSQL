@@ -129,7 +129,7 @@ public class ColumnInfo extends Info {
 		if (info == null || !(info instanceof ColumnInfo))
 			return false;
 
-		return super.equal(info) && Tools.isEqual(((ColumnInfo) info).getColumnName(), this.getColumnName());
+		return super.equal(info) && Tools.isEqual(this.getColumnName(), ((ColumnInfo) info).getColumnName());
 	}
 
 	@Override
