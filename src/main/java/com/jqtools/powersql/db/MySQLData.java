@@ -121,6 +121,9 @@ public class MySQLData extends DatabaseData {
 	public ArrayList<String> getDataTypesWithScale() {
 		if (super.getDataTypesWithScale().size() == 0) {
 			String types[] = "decimal, double, float, numeric, real".split(",");
+			for (String str : types) {
+				super.getDataTypesWithScale().add(str.toLowerCase().trim());
+			}
 		}
 
 		return super.getDataTypesWithScale();
