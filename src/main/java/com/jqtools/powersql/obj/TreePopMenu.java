@@ -57,12 +57,14 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			ConnectionFrame.getInstance().setDatabaseInfo(null, node);
 			ConnectionFrame.getInstance().setVisible(true);
 		} else if (Constants.MENU_EDIT.equalsIgnoreCase(text)) {
-			if (node.getSession() == null) {
-				ConnectionFrame.getInstance().setDatabaseInfo(null, node);
-			} else {
-				ConnectionFrame.getInstance().setDatabaseInfo(node.getSession().getDbInfo(), node);
+			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
+				if (node.getSession() == null) {
+					ConnectionFrame.getInstance().setDatabaseInfo(null, node);
+				} else {
+					ConnectionFrame.getInstance().setDatabaseInfo(node.getSession().getDbInfo(), node);
+				}
+				ConnectionFrame.getInstance().setVisible(true);
 			}
-			ConnectionFrame.getInstance().setVisible(true);
 		} else if (Constants.MENU_DELETE.equalsIgnoreCase(text)) {
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
 				if (NoticeMessage.showConfirm(Constants.MSG_DELETE_CONN) == JOptionPane.YES_OPTION) {
