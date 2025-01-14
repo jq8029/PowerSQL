@@ -109,6 +109,9 @@ public class MySQLData extends DatabaseData {
 		if (super.getDataTypesWithLen().size() == 0) {
 			String types[] = "binary, bit, blob, char, decimal, double, float, mediumtext, numeric, real, timestamp, text, varbinary, varchar"
 					.split(",");
+			for (String str : types) {
+				super.getDataTypesWithLen().add(str.toLowerCase().trim());
+			}
 		}
 
 		return super.getDataTypesWithLen();
