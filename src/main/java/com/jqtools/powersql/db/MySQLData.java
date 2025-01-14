@@ -116,4 +116,9 @@ public class MySQLData extends DatabaseData {
 
 		return super.getDataTypesWithLen();
 	}
+
+	@Override
+	public ArrayList<String> getDataTypesWithScale() {
+		return super.getDataTypesWithScale();
+	}
 }
