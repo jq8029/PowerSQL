@@ -75,6 +75,8 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 					DBTools.deleteDBConnection(node.getInfo().getName());
 					node.removeFromParent();
 				}
+			} else if (node.getInfo().getNodeType() == Constants.NODE_COLUMN) {
+
 			}
 		} else if (Constants.MENU_DUPLICATE.equalsIgnoreCase(text)) {
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
