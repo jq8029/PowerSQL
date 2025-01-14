@@ -132,6 +132,8 @@ public class MySQLData extends DatabaseData {
 	@Override
 	public ArrayList<String> getDataTypesWithQuota() {
 		if (super.getDataTypesWithQuota().size() == 0) {
+			String types[] = "binary, blob, bool, char, date, datetime, enum, long varbinary, long varchar, longblob, longtext, mediumblob, mediumtext, set, text, time, timestamp, tinyblob, tinytext, varbinary, varchar"
+					.split(",");
 		}
 
 		return super.getDataTypesWithQuota();
