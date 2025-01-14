@@ -64,9 +64,11 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 			}
 			ConnectionFrame.getInstance().setVisible(true);
 		} else if (Constants.MENU_DELETE.equalsIgnoreCase(text)) {
-			if (NoticeMessage.showConfirm(Constants.MSG_DELETE_CONN) == JOptionPane.YES_OPTION) {
-				DBTools.deleteDBConnection(node.getInfo().getName());
-				node.removeFromParent();
+			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
+				if (NoticeMessage.showConfirm(Constants.MSG_DELETE_CONN) == JOptionPane.YES_OPTION) {
+					DBTools.deleteDBConnection(node.getInfo().getName());
+					node.removeFromParent();
+				}
 			}
 		} else if (Constants.MENU_DUPLICATE.equalsIgnoreCase(text)) {
 			DatabaseInfo dbInfo = node.getSession().getDbInfo().clone();
