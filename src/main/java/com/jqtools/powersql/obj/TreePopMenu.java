@@ -71,13 +71,15 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 				}
 			}
 		} else if (Constants.MENU_DUPLICATE.equalsIgnoreCase(text)) {
-			DatabaseInfo dbInfo = node.getSession().getDbInfo().clone();
-			dbInfo.setName(dbInfo.getName() + " - dup");
-			DBTools.updateDBConnection(dbInfo.getName(), dbInfo);
-			TreeNode newNode = new TreeNode(dbInfo.getName(), Constants.NODE_CONNECTION);
-			newNode.addToParent((com.jqtools.powersql.obj.TreeNode) node.getParent());
-			newNode.setSession(new Session());
-			newNode.getSession().setDbInfo(dbInfo);
+			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
+				DatabaseInfo dbInfo = node.getSession().getDbInfo().clone();
+				dbInfo.setName(dbInfo.getName() + " - dup");
+				DBTools.updateDBConnection(dbInfo.getName(), dbInfo);
+				TreeNode newNode = new TreeNode(dbInfo.getName(), Constants.NODE_CONNECTION);
+				newNode.addToParent((com.jqtools.powersql.obj.TreeNode) node.getParent());
+				newNode.setSession(new Session());
+				newNode.getSession().setDbInfo(dbInfo);
+			}
 		}
 	}
 
