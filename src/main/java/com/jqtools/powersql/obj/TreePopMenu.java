@@ -78,7 +78,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 					node.removeFromParent();
 				}
 			} else if (node.getInfo().getNodeType() == Constants.NODE_COLUMN) {
-
+				ColumnChangeFrame.getInstance().setData(node.getSession(), (ColumnInfo) node.getInfo());
 			}
 		} else if (Constants.MENU_DUPLICATE.equalsIgnoreCase(text)) {
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
