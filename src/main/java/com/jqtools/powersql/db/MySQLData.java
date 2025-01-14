@@ -131,6 +131,9 @@ public class MySQLData extends DatabaseData {
 
 	@Override
 	public ArrayList<String> getDataTypesWithQuota() {
+		if (super.getDataTypesWithQuota().size() == 0) {
+		}
+
 		return super.getDataTypesWithQuota();
 	}
 }
