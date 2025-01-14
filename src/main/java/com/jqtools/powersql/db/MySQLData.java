@@ -96,9 +96,16 @@ public class MySQLData extends DatabaseData {
 		if (super.getAllDataTypes().size() == 0) {
 			String types[] = "bigint, binary, bit, blob, bool, char, date, datetime, decimal, double, double precision, enum, float, int, integer, long varbinary, long varchar, longblob, longtext, mediumblob, mediumint, mediumtext, numeric, real, set, smallint, text, time, timestamp, tinyblob, tinyint, tinytext, varbinary, varchar"
 					.split(",");
+			for (String str : types) {
+				super.getAllDataTypes().add(str.toLowerCase().trim());
+			}
 		}
 
 		return super.getAllDataTypes();
 	}
 
+	@Override
+	public ArrayList<String> getDataTypesWithLen() {
+		return super.getDataTypesWithLen();
+	}
 }
