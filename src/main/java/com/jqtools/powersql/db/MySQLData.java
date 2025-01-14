@@ -107,6 +107,8 @@ public class MySQLData extends DatabaseData {
 	@Override
 	public ArrayList<String> getDataTypesWithLen() {
 		if (super.getDataTypesWithLen().size() == 0) {
+			String types[] = "binary, bit, blob, char, decimal, double, float, mediumtext, numeric, real, timestamp, text, varbinary, varchar"
+					.split(",");
 		}
 
 		return super.getDataTypesWithLen();
