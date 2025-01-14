@@ -1,5 +1,7 @@
 package com.jqtools.powersql.db;
 
+import java.util.ArrayList;
+
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Info;
@@ -88,4 +90,10 @@ public class MySQLData extends DatabaseData {
 
 		return buffer.toString();
 	}
+
+	@Override
+	public ArrayList<String> getAllDataTypes() {
+		return super.getAllDataTypes();
+	}
+
 }
