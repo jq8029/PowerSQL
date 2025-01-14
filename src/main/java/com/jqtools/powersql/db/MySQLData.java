@@ -128,4 +128,9 @@ public class MySQLData extends DatabaseData {
 
 		return super.getDataTypesWithScale();
 	}
+
+	@Override
+	public ArrayList<String> getDataTypesWithQuota() {
+		return super.getDataTypesWithQuota();
+	}
 }
