@@ -93,6 +93,9 @@ public class MySQLData extends DatabaseData {
 
 	@Override
 	public ArrayList<String> getAllDataTypes() {
+		if (super.getAllDataTypes().size() == 0) {
+		}
+
 		return super.getAllDataTypes();
 	}
 
