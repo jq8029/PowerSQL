@@ -69,6 +69,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 				ConnectionFrame.getInstance().setVisible(true);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_COLUMN) {
 				ColumnChangeFrame.getInstance().setData(node.getSession(), (ColumnInfo) node.getInfo());
+				ColumnChangeFrame.getInstance().setVisible(true);
 			}
 		} else if (Constants.MENU_DELETE.equalsIgnoreCase(text)) {
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
