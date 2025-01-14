@@ -120,6 +120,7 @@ public class MySQLData extends DatabaseData {
 	@Override
 	public ArrayList<String> getDataTypesWithScale() {
 		if (super.getDataTypesWithScale().size() == 0) {
+			String types[] = "decimal, double, float, numeric, real".split(",");
 		}
 
 		return super.getDataTypesWithScale();
