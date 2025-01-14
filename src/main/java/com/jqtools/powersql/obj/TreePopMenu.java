@@ -10,6 +10,7 @@ import javax.swing.JPopupMenu;
 import javax.swing.JTree;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.gui.ColumnChangeFrame;
 import com.jqtools.powersql.gui.ConnectionFrame;
 import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
@@ -67,7 +68,7 @@ public class TreePopMenu extends JPopupMenu implements ActionListener {
 				}
 				ConnectionFrame.getInstance().setVisible(true);
 			} else if (node.getInfo().getNodeType() == Constants.NODE_COLUMN) {
-
+				ColumnChangeFrame.getInstance().setData(node.getSession(), (ColumnInfo) node.getInfo());
 			}
 		} else if (Constants.MENU_DELETE.equalsIgnoreCase(text)) {
 			if (node.getInfo().getNodeType() == Constants.NODE_CONNECTION) {
