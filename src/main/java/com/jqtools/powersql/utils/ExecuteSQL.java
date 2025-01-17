@@ -29,6 +29,7 @@ public class ExecuteSQL {
 		PreparedStatement stat = null;
 		boolean autoCommit = false;
 		boolean success = false;
+		String sql = null;
 
 		try {
 			if (conn == null || conn.isClosed() || sqls == null || sqls.length == 0) {
@@ -38,7 +39,8 @@ public class ExecuteSQL {
 			autoCommit = conn.getAutoCommit();
 			conn.setAutoCommit(false);
 
-			for (String sql : sqls) {
+			for (int i = 0; i < sqls.length; i++) {
+				sql = sqls[i];
 				if (sql == null || sql.trim().length() == 0)
 					continue;
 
@@ -48,6 +50,7 @@ public class ExecuteSQL {
 			}
 			success = true;
 		} catch (Exception e) {
+			MessageLogger.info("sql = " + sql);
 			MessageLogger.error(e);
 			return false;
 		} finally {
