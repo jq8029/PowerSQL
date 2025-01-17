@@ -129,6 +129,10 @@ public class DBLoader {
 			while (rs.next()) {
 				loadNode(rs, node, nodeType);
 			}
+		} catch (Exception ex) {
+			MessageLogger.info("sql = " + sql);
+			MessageLogger.error(ex);
+			throw ex;
 		} finally {
 			DBTools.close(stmt, rs);
 		}
