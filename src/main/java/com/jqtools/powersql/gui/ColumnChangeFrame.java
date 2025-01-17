@@ -152,6 +152,9 @@ public class ColumnChangeFrame extends JFrame {
 		colTypeBox.setSelectedItem(info.getTypeName());
 		if (session.getDbData().getDataTypesWithQuota().contains(info.getTypeName())) {
 			colScaleField.setEditable(false);
+			if (info.getNumericLen() > 0) {
+				colLengthField.setText(String.valueOf(info.getNumericLen()));
+			}
 		} else {
 			colScaleField.setEditable(true);
 			if (info.getNumericLen() > 0) {
