@@ -13,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
-import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Session;
@@ -137,7 +136,7 @@ public class ColumnChangeFrame extends JFrame {
 					NoticeMessage.showMessage(Constants.MSG_SUCCESS_CHG_COL);
 					this.setVisible(false);
 				} else {
-					MessageLogger.error(Constants.MSG_FAIL_CHG_COL_NAME);
+					NoticeMessage.showMessage(Constants.MSG_FAIL_CHG_COL_NAME);
 					return;
 				}
 			}
