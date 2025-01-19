@@ -14,6 +14,7 @@ import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.log.MessageLogger;
+import com.jqtools.powersql.log.NoticeMessage;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.utils.ExecuteSQL;
@@ -125,7 +126,7 @@ public class ColumnChangeFrame extends JFrame {
 				&& newInfo.getNumericLen() == info.getNumericLen()
 				&& newInfo.getNumericScale() == info.getNumericScale())) {
 			if (!ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo))) {
-				MessageLogger.error(Constants.MSG_FAIL_CHG_COL_TYPE);
+				NoticeMessage.showMessage(Constants.MSG_FAIL_CHG_COL_TYPE);
 				return;
 			}
 		}
