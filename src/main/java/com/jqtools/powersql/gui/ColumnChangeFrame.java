@@ -124,8 +124,7 @@ public class ColumnChangeFrame extends JFrame {
 		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
 				&& newInfo.getNumericLen() == info.getNumericLen()
 				&& newInfo.getNumericScale() == info.getNumericScale())) {
-			if (ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo))) {
-			} else {
+			if (!ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo))) {
 				NoticeMessage.showMessage(Constants.MSG_FAIL_CHG_COL_TYPE);
 				return;
 			}
