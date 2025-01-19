@@ -120,16 +120,16 @@ public class ColumnChangeFrame extends JFrame {
 		newInfo.setTypeName(String.valueOf(colTypeBox.getSelectedItem()));
 		newInfo.setNumericLen(Tools.getInt(colNewField.getText().trim(), newInfo.getNumericLen()));
 
-		if (!newInfo.equal(info)) {
-			if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
-				ExecuteSQL.execute(session.getConnection(), session.getDbData().renameColumnName(info, newInfo));
-			}
-		}
-
 		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
 				&& newInfo.getNumericLen() == info.getNumericLen()
 				&& newInfo.getNumericScale() == info.getNumericScale())) {
 			ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo));
+		}
+
+		if (!newInfo.equal(info)) {
+			if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
+				ExecuteSQL.execute(session.getConnection(), session.getDbData().renameColumnName(info, newInfo));
+			}
 		}
 	}
 
