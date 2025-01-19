@@ -119,7 +119,7 @@ public class ColumnChangeFrame extends JFrame {
 		ColumnInfo newInfo = (ColumnInfo) info.clone();
 		newInfo.setColumnName(colNewField.getText().trim());
 		newInfo.setTypeName(String.valueOf(colTypeBox.getSelectedItem()));
-		newInfo.setNumericLen(Tools.getInt(colNewField.getText().trim(), newInfo.getNumericLen()));
+		newInfo.setNumericLen(Tools.getInt(colLengthField.getText().trim(), newInfo.getNumericLen()));
 
 		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
 				&& newInfo.getNumericLen() == info.getNumericLen()
