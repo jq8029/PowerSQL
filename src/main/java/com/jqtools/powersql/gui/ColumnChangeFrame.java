@@ -15,6 +15,7 @@ import javax.swing.JTextField;
 import com.jqtools.powersql.constants.Constants;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Session;
+import com.jqtools.powersql.utils.ExecuteSQL;
 import com.jqtools.powersql.utils.Tools;
 
 public class ColumnChangeFrame extends JFrame {
@@ -121,19 +122,19 @@ public class ColumnChangeFrame extends JFrame {
 
 		if (!newInfo.equal(info)) {
 			if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
-				session.getDbData().renameColumnName(info, newInfo);
+				ExecuteSQL.execute(session.getConnection(), session.getDbData().renameColumnName(info, newInfo));
 			}
 		}
 
 		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
 				&& newInfo.getNumericLen() == info.getNumericLen()
 				&& newInfo.getNumericScale() == info.getNumericScale())) {
-			session.getDbData().changeColumn(info, newInfo);
+			ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo));
 		}
 	}
 
 	public void drop() {
-		session.getDbData().dropColumnSQL(info);
+		ExecuteSQL.execute(session.getConnection(), session.getDbData().dropColumnSQL(info));
 	}
 
 	public void setData(Session session, ColumnInfo info) {
