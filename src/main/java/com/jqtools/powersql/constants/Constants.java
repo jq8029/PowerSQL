@@ -152,6 +152,7 @@ public class Constants {
 	public static String MSG_EXPORT_SUCCESS = "Export to file successfull.";
 	public static String MSG_EXPORT_FAIL = "Failed to export data.";
 	public static String MSG_FAIL_CHG_COL_NAME = "Failed to change column name.";
+	public static String MSG_FAIL_CHG_COL_TYPE = "Failed to change column data type.";
 
 	// Menu
 	public static String MENU_CREATE = "Create";
