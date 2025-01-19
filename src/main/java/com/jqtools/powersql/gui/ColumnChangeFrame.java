@@ -135,6 +135,8 @@ public class ColumnChangeFrame extends JFrame {
 				if (ExecuteSQL.execute(session.getConnection(), session.getDbData().renameColumnName(info, newInfo))) {
 
 				} else {
+					MessageLogger.error(Constants.MSG_FAIL_CHG_COL_NAME);
+					return;
 				}
 			}
 		}
