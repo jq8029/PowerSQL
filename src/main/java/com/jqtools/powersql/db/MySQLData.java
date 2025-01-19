@@ -75,8 +75,7 @@ public class MySQLData extends DatabaseData {
 	public String changeColumn(ColumnInfo oldInfo, ColumnInfo newInfo) {
 		StringBuffer buffer = new StringBuffer().append("ALTER TABLE ").append("    ").append(oldInfo.getSchema())
 				.append(".").append(oldInfo.getName()).append(Constants.LINE_SEPERATOR).append(" MODIFY COLUMN ")
-				.append("  ").append(oldInfo.getColumnName()).append(Constants.LINE_SEPERATOR).append("  ")
-				.append(oldInfo.getColumnName());
+				.append("  ").append(oldInfo.getColumnName()).append(" ").append(newInfo.getTypeName());
 
 		if (newInfo.getNumericLen() > 0) {
 			buffer.append(" ( ").append(newInfo.getNumericLen());
