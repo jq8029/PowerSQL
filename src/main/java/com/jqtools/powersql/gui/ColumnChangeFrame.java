@@ -13,6 +13,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import com.jqtools.powersql.constants.Constants;
+import com.jqtools.powersql.log.MessageLogger;
 import com.jqtools.powersql.obj.ColumnInfo;
 import com.jqtools.powersql.obj.Session;
 import com.jqtools.powersql.utils.ExecuteSQL;
@@ -123,7 +124,9 @@ public class ColumnChangeFrame extends JFrame {
 		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
 				&& newInfo.getNumericLen() == info.getNumericLen()
 				&& newInfo.getNumericScale() == info.getNumericScale())) {
-			ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo));
+			if (!ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo))) {
+				MessageLogger.error(Constants.MSG_FAIL_CHG_COL_TYPE);
+			}
 		}
 
 		if (!newInfo.equal(info)) {
