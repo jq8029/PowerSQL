@@ -134,7 +134,7 @@ public class ColumnChangeFrame extends JFrame {
 		if (!newInfo.equal(info)) {
 			if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
 				if (ExecuteSQL.execute(session.getConnection(), session.getDbData().renameColumnName(info, newInfo))) {
-					MessageLogger.error(Constants.MSG_SUCCESS_CHG_COL);
+					NoticeMessage.showMessage(Constants.MSG_SUCCESS_CHG_COL);
 					this.setVisible(false);
 				} else {
 					MessageLogger.error(Constants.MSG_FAIL_CHG_COL_NAME);
