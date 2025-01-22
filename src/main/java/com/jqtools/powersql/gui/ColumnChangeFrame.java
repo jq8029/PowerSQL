@@ -200,7 +200,7 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	public void changeColType() {
-
+		Object type = colTypeBox.getSelectedItem();
 	}
 
 	public static void main(String[] args) {
