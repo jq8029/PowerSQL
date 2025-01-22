@@ -63,6 +63,7 @@ public class ColumnChangeFrame extends JFrame {
 		y += hs;
 		colTypeLabel.setBounds(x1, y, w1, h);
 		colTypeBox.setBounds(x2, y, w2, h);
+
 		y += hs;
 		colLengthLabel.setBounds(x1, y, w1, h);
 		colLengthField.setBounds(x2, y, w2, h);
@@ -191,6 +192,10 @@ public class ColumnChangeFrame extends JFrame {
 
 	public void setVisible(boolean b) {
 		super.setVisible(b);
+	}
+
+	public void changeColType() {
+
 	}
 
 	public static void main(String[] args) {
