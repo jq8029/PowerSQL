@@ -145,7 +145,10 @@ public class ColumnChangeFrame extends JFrame {
 	}
 
 	public void drop() {
-		ExecuteSQL.execute(session.getConnection(), session.getDbData().dropColumnSQL(info));
+		if (ExecuteSQL.execute(session.getConnection(), session.getDbData().dropColumnSQL(info))) {
+			NoticeMessage.showMessage(Constants.MSG_SUCCESS_DROP_COL);
+			this.setVisible(false);
+		}
 	}
 
 	public void setData(Session session, ColumnInfo info) {
