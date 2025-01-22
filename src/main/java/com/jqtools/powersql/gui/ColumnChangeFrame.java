@@ -201,6 +201,7 @@ public class ColumnChangeFrame extends JFrame {
 
 	public void changeColType() {
 		Object type = colTypeBox.getSelectedItem();
+		colLengthField.setEditable(session.getDbData().getDataTypesWithLen().contains(type));
 	}
 
 	public static void main(String[] args) {
