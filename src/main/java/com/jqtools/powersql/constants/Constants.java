@@ -154,6 +154,7 @@ public class Constants {
 	public static String MSG_FAIL_CHG_COL_NAME = "Failed to change column name.";
 	public static String MSG_FAIL_CHG_COL_TYPE = "Failed to change column data type.";
 	public static String MSG_SUCCESS_CHG_COL = "Column is changed successfully.";
+	public static String MSG_SUCCESS_DROP_COL = "Column is dropped successfully.";
 
 	// Menu
 	public static String MENU_CREATE = "Create";
