@@ -148,6 +148,9 @@ public class ColumnChangeFrame extends JFrame {
 		if (ExecuteSQL.execute(session.getConnection(), session.getDbData().dropColumnSQL(info))) {
 			NoticeMessage.showMessage(Constants.MSG_SUCCESS_DROP_COL);
 			this.setVisible(false);
+		} else {
+			NoticeMessage.showMessage(Constants.MSG_FAIL_DROP_COL);
+			return;
 		}
 	}
 
