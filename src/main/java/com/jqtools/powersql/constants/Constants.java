@@ -153,6 +153,7 @@ public class Constants {
 	public static String MSG_EXPORT_FAIL = "Failed to export data.";
 	public static String MSG_FAIL_CHG_COL_NAME = "Failed to change column name.";
 	public static String MSG_FAIL_CHG_COL_TYPE = "Failed to change column data type.";
+	public static String MSG_FAIL_DROP_COL = "Failed to drop column.";
 	public static String MSG_SUCCESS_CHG_COL = "Column is changed successfully.";
 	public static String MSG_SUCCESS_DROP_COL = "Column is dropped successfully.";
 
