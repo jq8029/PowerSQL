@@ -63,6 +63,11 @@ public class ColumnChangeFrame extends JFrame {
 		y += hs;
 		colTypeLabel.setBounds(x1, y, w1, h);
 		colTypeBox.setBounds(x2, y, w2, h);
+		colTypeBox.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				changeColType();
+			}
+		});
 
 		y += hs;
 		colLengthLabel.setBounds(x1, y, w1, h);
