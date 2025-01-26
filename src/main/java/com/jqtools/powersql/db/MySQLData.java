@@ -46,8 +46,13 @@ public class MySQLData extends DatabaseData {
 	}
 
 	@Override
-	public String createColumnName(ColumnInfo newInfo) {
-		return "";
+	public String createColumnName(ColumnInfo info) {
+		StringBuffer buffer = new StringBuffer().append("ALTER TABLE").append(Constants.LINE_SEPERATOR).append("    ")
+				.append(info.getSchema()).append(".").append(info.getName()).append(Constants.LINE_SEPERATOR)
+				.append("ADD").append(Constants.LINE_SEPERATOR).append("    ").append(info.getColumnName()).append(" ")
+				.append(info.getTypeName());
+
+		return buffer.toString();
 	}
 
 	@Override
