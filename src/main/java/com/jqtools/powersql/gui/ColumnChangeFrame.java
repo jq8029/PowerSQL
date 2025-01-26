@@ -176,6 +176,7 @@ public class ColumnChangeFrame extends JFrame {
 
 		if (info.getColumnName() == null) {
 			panel.remove(columnField);
+			dropButton.setEnabled(false);
 		} else {
 			panel.add(columnField);
 
