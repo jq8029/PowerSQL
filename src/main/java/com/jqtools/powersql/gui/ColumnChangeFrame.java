@@ -206,6 +206,8 @@ public class ColumnChangeFrame extends JFrame {
 				colScaleField.setText(String.valueOf(info.getNumericScale()));
 			}
 		}
+
+		this.pack();
 	}
 
 	public void cancel() {
