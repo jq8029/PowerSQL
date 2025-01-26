@@ -245,7 +245,7 @@ public class DatabaseData {
 	}
 
 	// Column
-	public String createColumnName(ColumnInfo newInfo) {
+	public String createColumnName(ColumnInfo info) {
 		return "";
 	}
 
