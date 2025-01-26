@@ -33,6 +33,7 @@ public class ColumnChangeFrame extends JFrame {
 	private JComboBox<String> colTypeBox = new JComboBox<String>();
 	private JTextField colLengthField = new JTextField();
 	private JTextField colScaleField = new JTextField();
+	private JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
 	private JButton dropButton = new JButton(Constants.BUTTON_DROP);
 
 	public static ColumnChangeFrame getInstance() {
@@ -80,7 +81,6 @@ public class ColumnChangeFrame extends JFrame {
 		y += 2 * hs;
 
 		x1 = x1 + 40;
-		JButton changeButton = new JButton(Constants.BUTTON_CHANGE);
 		changeButton.setBounds(x1, y, 85, h);
 		changeButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -179,6 +179,7 @@ public class ColumnChangeFrame extends JFrame {
 			dropButton.setEnabled(false);
 		} else {
 			panel.add(columnField);
+			dropButton.setEnabled(true);
 
 			columnField.setText(info.getColumnName());
 			colTypeBox.setSelectedItem(info.getTypeName());
