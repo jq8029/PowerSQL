@@ -151,6 +151,10 @@ public class ColumnChangeFrame extends JFrame {
 			}
 
 			if (newInfo.equal(info)) {
+				if (success) {
+					NoticeMessage.showMessage(Constants.MSG_SUCCESS_CHG_COL_TYPE);
+					this.setVisible(false);
+				}
 			} else {
 				if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
 					if (ExecuteSQL.execute(session.getConnection(),
