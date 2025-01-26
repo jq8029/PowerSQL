@@ -16,6 +16,10 @@ public class ColumnInfo extends Info {
 	private String defaultValue = null;
 	private boolean primaryKey = false;
 
+	public ColumnInfo() {
+		super();
+	}
+
 	public ColumnInfo(Info info) {
 		this.setCatalog(info.getCatalog());
 		this.setSchema(info.getSchema());
