@@ -43,6 +43,7 @@ public class ColumnChangeFrame extends JFrame {
 
 	private ColumnChangeFrame() {
 		this.setLayout(new BorderLayout());
+		this.setTitle(Constants.TITLE_COLUMN);
 		JPanel panel = new JPanel(null);
 		int x1 = 15, w1 = 150, x2 = 115, w2 = 270, y = 10, h = 18, hs = 25;
 
@@ -202,6 +203,7 @@ public class ColumnChangeFrame extends JFrame {
 	public void changeColType() {
 		Object type = colTypeBox.getSelectedItem();
 		colLengthField.setEditable(session.getDbData().getDataTypesWithLen().contains(type));
+		colScaleField.setEditable(session.getDbData().getDataTypesWithScale().contains(type));
 	}
 
 	public static void main(String[] args) {
