@@ -130,7 +130,10 @@ public class ColumnChangeFrame extends JFrame {
 		newInfo.setNumericScale(Tools.getInt(colScaleField.getText().trim(), newInfo.getNumericScale()));
 
 		if (info.getColumnName() == null) {
-
+			if (ExecuteSQL.execute(session.getConnection(), session.getDbData().createColumnName(newInfo))) {
+				NoticeMessage.showMessage(Constants.MSG_SUCCESS_CRT_COL);
+				this.setVisible(false);
+			}
 		} else {
 			if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
 					&& newInfo.getNumericLen() == info.getNumericLen()
