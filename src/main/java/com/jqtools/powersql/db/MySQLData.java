@@ -52,6 +52,11 @@ public class MySQLData extends DatabaseData {
 				.append("ADD").append(Constants.LINE_SEPERATOR).append("    ").append(info.getColumnName()).append(" ")
 				.append(info.getTypeName());
 
+		if (info.getNumericLen() > 0) {
+			buffer.append("(").append(info.getNumericLen());
+			buffer.append(")");
+		}
+
 		return buffer.toString();
 	}
 
