@@ -175,7 +175,7 @@ public class ColumnChangeFrame extends JFrame {
 		tableField.setText(info.getName());
 
 		if (info.getColumnName() == null) {
-
+			panel.remove(columnField);
 		} else {
 			columnField.setText(info.getColumnName());
 			colTypeBox.setSelectedItem(info.getTypeName());
