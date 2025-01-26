@@ -178,6 +178,7 @@ public class ColumnChangeFrame extends JFrame {
 			panel.remove(columnField);
 			changeButton.setText(Constants.BUTTON_CREATE);
 			dropButton.setEnabled(false);
+			colNewField.setText("");
 			colNewField.setBounds(115, 35, 270, 18);
 
 			colLengthField.setText("");
