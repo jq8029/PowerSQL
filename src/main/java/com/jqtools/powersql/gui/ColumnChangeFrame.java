@@ -180,6 +180,7 @@ public class ColumnChangeFrame extends JFrame {
 			dropButton.setEnabled(false);
 		} else {
 			panel.add(columnField);
+			changeButton.setText(Constants.BUTTON_CHANGE);
 			dropButton.setEnabled(true);
 
 			columnField.setText(info.getColumnName());
