@@ -173,22 +173,27 @@ public class ColumnChangeFrame extends JFrame {
 		}
 
 		tableField.setText(info.getName());
-		columnField.setText(info.getColumnName());
-		colTypeBox.setSelectedItem(info.getTypeName());
-		if (session.getDbData().getDataTypesWithQuota().contains(info.getTypeName())) {
-			colScaleField.setEditable(false);
-			if (info.getNumericLen() > 0) {
-				colLengthField.setText(String.valueOf(info.getNumericLen()));
-			}
-		} else {
-			colScaleField.setEditable(true);
-			if (info.getNumericLen() > 0) {
-				colLengthField.setText(String.valueOf(info.getNumericLen()));
-			} else if (info.getMaxLength() > 0) {
-				colLengthField.setText(String.valueOf(info.getMaxLength()));
-			}
 
-			colScaleField.setText(String.valueOf(info.getNumericScale()));
+		if (info.getColumnName() == null) {
+
+		} else {
+			columnField.setText(info.getColumnName());
+			colTypeBox.setSelectedItem(info.getTypeName());
+			if (session.getDbData().getDataTypesWithQuota().contains(info.getTypeName())) {
+				colScaleField.setEditable(false);
+				if (info.getNumericLen() > 0) {
+					colLengthField.setText(String.valueOf(info.getNumericLen()));
+				}
+			} else {
+				colScaleField.setEditable(true);
+				if (info.getNumericLen() > 0) {
+					colLengthField.setText(String.valueOf(info.getNumericLen()));
+				} else if (info.getMaxLength() > 0) {
+					colLengthField.setText(String.valueOf(info.getMaxLength()));
+				}
+
+				colScaleField.setText(String.valueOf(info.getNumericScale()));
+			}
 		}
 	}
 
