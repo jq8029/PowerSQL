@@ -46,6 +46,11 @@ public class MySQLData extends DatabaseData {
 	}
 
 	@Override
+	public String createColumnName(ColumnInfo newInfo) {
+		return "";
+	}
+
+	@Override
 	public String renameColumnName(ColumnInfo oldInfo, ColumnInfo newInfo) {
 		StringBuffer buffer = new StringBuffer().append("ALTER TABLE ").append("    ").append(oldInfo.getSchema())
 				.append(".").append(oldInfo.getName()).append(Constants.LINE_SEPERATOR).append(" CHANGE COLUMN ")
