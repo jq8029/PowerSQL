@@ -208,6 +208,7 @@ public class ColumnChangeFrame extends JFrame {
 		}
 
 		this.pack();
+		this.repaint();
 	}
 
 	public void cancel() {
