@@ -245,6 +245,10 @@ public class DatabaseData {
 	}
 
 	// Column
+	public String createColumnName(ColumnInfo newInfo) {
+		return "";
+	}
+
 	public String renameColumnName(ColumnInfo oldInfo, ColumnInfo newInfo) {
 		return "";
 	}
