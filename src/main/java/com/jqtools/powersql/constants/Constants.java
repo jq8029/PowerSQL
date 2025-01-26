@@ -153,6 +153,7 @@ public class Constants {
 	public static String MSG_ENTER_TWO = "Please enter two values separated by comma(,).";
 	public static String MSG_EXPORT_SUCCESS = "Export to file successfull.";
 	public static String MSG_EXPORT_FAIL = "Failed to export data.";
+	public static String MSG_FAIL_CRT_COL_NAME = "Failed to create column.";
 	public static String MSG_FAIL_CHG_COL_NAME = "Failed to change column name.";
 	public static String MSG_FAIL_CHG_COL_TYPE = "Failed to change column data type.";
 	public static String MSG_FAIL_DROP_COL = "Failed to drop column.";
