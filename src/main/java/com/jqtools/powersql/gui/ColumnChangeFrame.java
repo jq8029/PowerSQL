@@ -24,6 +24,7 @@ public class ColumnChangeFrame extends JFrame {
 	private static final long serialVersionUID = 3686492535018911494L;
 
 	private static ColumnChangeFrame instance = null;
+	private JPanel panel = new JPanel(null);
 	private Session session = null;
 	private ColumnInfo info = null;
 	private JTextField tableField = new JTextField();
@@ -44,7 +45,6 @@ public class ColumnChangeFrame extends JFrame {
 	private ColumnChangeFrame() {
 		this.setLayout(new BorderLayout());
 		this.setTitle(Constants.TITLE_COLUMN);
-		JPanel panel = new JPanel(null);
 		int x1 = 15, w1 = 150, x2 = 115, w2 = 270, y = 10, h = 18, hs = 25;
 
 		JLabel tableLabel = new JLabel(Constants.LABEL_TABLE_NAME + " : ");
