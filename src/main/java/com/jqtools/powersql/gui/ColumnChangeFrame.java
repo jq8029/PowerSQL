@@ -129,23 +129,28 @@ public class ColumnChangeFrame extends JFrame {
 		newInfo.setNumericLen(Tools.getInt(colLengthField.getText().trim(), newInfo.getNumericLen()));
 		newInfo.setNumericScale(Tools.getInt(colScaleField.getText().trim(), newInfo.getNumericScale()));
 
-		if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
-				&& newInfo.getNumericLen() == info.getNumericLen()
-				&& newInfo.getNumericScale() == info.getNumericScale())) {
-			if (!ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo))) {
-				NoticeMessage.showMessage(Constants.MSG_FAIL_CHG_COL_TYPE);
-				return;
-			}
-		}
+		if (info.getColumnName() == null) {
 
-		if (!newInfo.equal(info)) {
-			if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
-				if (ExecuteSQL.execute(session.getConnection(), session.getDbData().renameColumnName(info, newInfo))) {
-					NoticeMessage.showMessage(Constants.MSG_SUCCESS_CHG_COL);
-					this.setVisible(false);
-				} else {
-					NoticeMessage.showMessage(Constants.MSG_FAIL_CHG_COL_NAME);
+		} else {
+			if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
+					&& newInfo.getNumericLen() == info.getNumericLen()
+					&& newInfo.getNumericScale() == info.getNumericScale())) {
+				if (!ExecuteSQL.execute(session.getConnection(), session.getDbData().changeColumn(info, newInfo))) {
+					NoticeMessage.showMessage(Constants.MSG_FAIL_CHG_COL_TYPE);
 					return;
+				}
+			}
+
+			if (!newInfo.equal(info)) {
+				if (!Tools.isEqual(newInfo.getColumnName(), info.getColumnName())) {
+					if (ExecuteSQL.execute(session.getConnection(),
+							session.getDbData().renameColumnName(info, newInfo))) {
+						NoticeMessage.showMessage(Constants.MSG_SUCCESS_CHG_COL);
+						this.setVisible(false);
+					} else {
+						NoticeMessage.showMessage(Constants.MSG_FAIL_CHG_COL_NAME);
+						return;
+					}
 				}
 			}
 		}
