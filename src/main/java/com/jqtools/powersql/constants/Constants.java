@@ -159,6 +159,7 @@ public class Constants {
 	public static String MSG_FAIL_DROP_COL = "Failed to drop column.";
 	public static String MSG_SUCCESS_CRT_COL = "Column is created successfully.";
 	public static String MSG_SUCCESS_CHG_COL = "Column is changed successfully.";
+	public static String MSG_SUCCESS_CHG_COL_TYPE = "Column data type is changed successfully.";
 	public static String MSG_SUCCESS_DROP_COL = "Column is dropped successfully.";
 
 	// Menu
