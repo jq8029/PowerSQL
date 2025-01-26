@@ -133,6 +133,9 @@ public class ColumnChangeFrame extends JFrame {
 			if (ExecuteSQL.execute(session.getConnection(), session.getDbData().createColumnName(newInfo))) {
 				NoticeMessage.showMessage(Constants.MSG_SUCCESS_CRT_COL);
 				this.setVisible(false);
+			} else {
+				NoticeMessage.showMessage(Constants.MSG_FAIL_CRT_COL_NAME);
+				return;
 			}
 		} else {
 			if (!(Tools.isEqual(newInfo.getTypeName(), info.getTypeName())
